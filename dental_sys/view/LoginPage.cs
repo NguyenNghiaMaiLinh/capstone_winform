@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Firebase.Auth;
+using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -6,6 +7,15 @@ namespace dental_sys
 {
     public partial class LoginPage : Form
     {
+        private static string apiKey = "AIzaSyBn9Lqgce4jOQS_84c5yEHlyHaCEi2n9Wc";
+        private static string storageBucket = "solveequation-ecf24.appspot.com";
+        private static string authDomain = "solveequation-ecf24.firebaseapp.com";
+        private static string projectId = "solveequation-ecf24";
+        private static string messagingSenderId = "464761191742";
+        private static string appId = "1:464761191742:web:067091e2a5454e269d806f";
+        private static string measurementId = "G-TGP964ML4R";
+        private static string email = "admin@gmail.com";
+        private static string pass = "admin@123";
         public LoginPage()
         {
             InitializeComponent();
@@ -20,11 +30,28 @@ namespace dental_sys
         {
             login();
         }
-        private void login()
+        private async void login()
         {
-            this.Visible = false;
-            Loading _load = new Loading();
-            _load.Show();
+            string email = guna2TextBox1.Text;
+            string pass = guna2TextBox2.Text;
+            var auth = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
+            FirebaseAuthLink ab = null;
+            try
+            {
+                ab = await auth.SignInWithEmailAndPasswordAsync(email, pass);
+                string token = ab.FirebaseToken;
+                var user = ab.User;
+                if(user != null)
+                {
+                    this.Visible = false;
+                    Loading _load = new Loading();
+                    _load.Show();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Invalid Email or password!");
+            }
         }
 
         private void guna2TextBox2_KeyDown(object sender, KeyEventArgs e)

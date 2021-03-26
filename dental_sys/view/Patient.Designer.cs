@@ -225,7 +225,7 @@
             // Column3
             // 
             this.Column3.FillWeight = 99.49239F;
-            this.Column3.HeaderText = "UID";
+            this.Column3.HeaderText = "Id";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 

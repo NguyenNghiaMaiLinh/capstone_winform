@@ -8,7 +8,7 @@ namespace dental_sys.service
 {
     public class CustomerService
     {
-        public static string URL = "http://192.168.1.241:8080/api/";
+        public static string URL = "https://ef1f960346ddce.localhost.run/api/";
         public ICollection<Customer> getAllCustomers(int pageIndex, int pageSize, string searchValue)
         {
             pageIndex = pageIndex - 1;
@@ -20,16 +20,16 @@ namespace dental_sys.service
             {
                 string resultContent = response.Content.ToString();
                 result = JsonConvert.DeserializeObject<ICollection<Customer>>(resultContent);
-                
-                //if (!string.IsNullOrWhiteSpace(searchValue) )
-                //{
-                //    result = result.Where(c => c.Phone.Contains(searchValue) ||
-                //    c.Name.Contains(searchValue)).Skip(pageIndex * pageSize).Take(pageSize).ToList();
-                //}
-                //else
-                //{
-                //    result = result.Skip(pageIndex * pageSize).Take(pageSize).ToList();
-                //}
+
+                if (!string.IsNullOrWhiteSpace(searchValue))
+                {
+                    result = result.Where(c => c.Phone.Contains(searchValue) ||
+                    c.Name.Contains(searchValue)).Skip(pageIndex * pageSize).Take(pageSize).ToList();
+                }
+                else
+                {
+                    result = result.Skip(pageIndex * pageSize).Take(pageSize).ToList();
+                }
 
 
             }

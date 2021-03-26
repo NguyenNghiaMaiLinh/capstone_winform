@@ -14,9 +14,7 @@ namespace dental_sys
         CustomerService customerRepository = new CustomerService();
         public Loading()
         {
-            data = customerRepository.getAllCustomers(1, 20, null);
-
-
+            _ = Task.Run(() => { data = customerRepository.getAllCustomers(1, 20, null); });
             InitializeComponent();
             
         }
@@ -33,7 +31,7 @@ namespace dental_sys
             }
             else
             {
-                guna2CircleProgressBar1.Value += 10;
+                guna2CircleProgressBar1.Value += 1;
                 label_val.Text = (Convert.ToInt32(label_val.Text) + 1).ToString();
             }
         }

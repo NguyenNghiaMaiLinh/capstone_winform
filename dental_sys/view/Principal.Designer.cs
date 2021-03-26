@@ -94,31 +94,31 @@
             this.guna2Panel12.ShadowDecoration.Parent = this.guna2Panel12;
             this.guna2Panel12.Size = new System.Drawing.Size(107, 36);
             this.guna2Panel12.TabIndex = 67;
-            this.guna2Panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel12_Paint);
             // 
             // guna2CircleButton7
             // 
+            this.guna2CircleButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
             this.guna2CircleButton7.CheckedState.Parent = this.guna2CircleButton7;
             this.guna2CircleButton7.CustomImages.Parent = this.guna2CircleButton7;
-            this.guna2CircleButton7.FillColor = System.Drawing.Color.Silver;
+            this.guna2CircleButton7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
             this.guna2CircleButton7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton7.ForeColor = System.Drawing.Color.White;
+            this.guna2CircleButton7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
             this.guna2CircleButton7.HoverState.Parent = this.guna2CircleButton7;
-            this.guna2CircleButton7.Image = global::dental_sys.Properties.Resources.send;
+            this.guna2CircleButton7.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton7.Image")));
             this.guna2CircleButton7.ImageOffset = new System.Drawing.Point(1, 0);
-            this.guna2CircleButton7.ImageSize = new System.Drawing.Size(10, 10);
-            this.guna2CircleButton7.Location = new System.Drawing.Point(56, 7);
+            this.guna2CircleButton7.Location = new System.Drawing.Point(62, 5);
             this.guna2CircleButton7.Name = "guna2CircleButton7";
             this.guna2CircleButton7.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleButton7.ShadowDecoration.Parent = this.guna2CircleButton7;
-            this.guna2CircleButton7.Size = new System.Drawing.Size(20, 20);
+            this.guna2CircleButton7.Size = new System.Drawing.Size(30, 22);
             this.guna2CircleButton7.TabIndex = 13;
+            this.guna2CircleButton7.Click += new System.EventHandler(this.guna2CircleButton7_Click);
             // 
             // guna2HtmlLabel43
             // 
             this.guna2HtmlLabel43.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel43.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F);
-            this.guna2HtmlLabel43.Location = new System.Drawing.Point(3, 5);
+            this.guna2HtmlLabel43.Location = new System.Drawing.Point(9, 5);
             this.guna2HtmlLabel43.Name = "guna2HtmlLabel43";
             this.guna2HtmlLabel43.Size = new System.Drawing.Size(47, 22);
             this.guna2HtmlLabel43.TabIndex = 10;

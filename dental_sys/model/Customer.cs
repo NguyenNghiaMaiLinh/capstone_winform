@@ -18,6 +18,8 @@ namespace dental_sys.model
         public int Role { get; set; }    
         [JsonProperty("is_active")]    
         public bool IsActive { get; set; }
+        [JsonProperty("uid")]
+        public string UID { get; set; }
     }
     public class UpdateCustomer
     {
