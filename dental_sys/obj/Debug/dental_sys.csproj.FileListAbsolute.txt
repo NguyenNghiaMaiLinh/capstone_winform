@@ -98,3 +98,5 @@ F:\Captone_SourceCode\desktop\winform\dental_sys\bin\Debug\Microsoft.Owin.Host.S
 F:\Captone_SourceCode\desktop\winform\dental_sys\bin\Debug\Microsoft.Owin.Security.xml
 F:\Captone_SourceCode\desktop\winform\dental_sys\bin\Debug\Microsoft.Owin.Security.Cookies.xml
 F:\Captone_SourceCode\desktop\winform\dental_sys\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+F:\Captone_SourceCode\desktop\winform\dental_sys\obj\Debug\dental_sys.view.Profile.resources
+F:\Captone_SourceCode\desktop\winform\dental_sys\obj\Debug\dental_sys.Item.resources

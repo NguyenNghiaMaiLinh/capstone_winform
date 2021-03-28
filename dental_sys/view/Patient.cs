@@ -1,7 +1,8 @@
 ﻿using dental_sys.model;
 using dental_sys.service;
+using dental_sys.view;
 using System;
-using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace dental_sys
@@ -9,7 +10,7 @@ namespace dental_sys
     public partial class Patient : Form
     {
         CustomerService customerService = new CustomerService();
-        public static string username = "";
+        public static int id = 0;
         private int pageIndex = 1;
         private int pageSize = 20;
         private int total;
@@ -28,19 +29,21 @@ namespace dental_sys
             if (data != null && data.Count > 0)
             {
                 guna2DataGridView1.Rows.Add(data.Count);
-                int i = 0;
-                foreach (var item in data)
+
+                for (int i = 0; i < data.Count; i++)
                 {
-                    var status = item.IsActive ? "Active" : "Inactive";
-                    guna2DataGridView1.Rows[i].Cells[1].Value = Image.FromFile("photos\\account.png");
-                    guna2DataGridView1.Rows[i].Cells[2].Value = item.Id;
-                    guna2DataGridView1.Rows[i].Cells[3].Value = item.Name;
-                    guna2DataGridView1.Rows[i].Cells[4].Value = item.Phone;
-                    guna2DataGridView1.Rows[i].Cells[5].Value = item.Email;
-                    guna2DataGridView1.Rows[i].Cells[6].Value = item.Url;
-                    guna2DataGridView1.Rows[i].Cells[7].Value = status;
-                    i++;
+                    Customer customer = data.ToList()[i];
+                    var status = customer.IsActive ? "Active" : "Inactive";
+                    int no = i;
+                    guna2DataGridView1.Rows[i].Cells[1].Value = (no+1).ToString();
+                    guna2DataGridView1.Rows[i].Cells[2].Value = customer.UID;
+                    guna2DataGridView1.Rows[i].Cells[3].Value = customer.Name;
+                    guna2DataGridView1.Rows[i].Cells[4].Value = customer.Phone;
+                    guna2DataGridView1.Rows[i].Cells[5].Value = customer.Email;
+                    guna2DataGridView1.Rows[i].Cells[6].Value = status;
+                    guna2DataGridView1.Rows[i].Cells[7].Value = customer.Id;
                 }
+
             }
             total = data?.Count ?? 0;
             label1.Text = total.ToString();
@@ -51,18 +54,19 @@ namespace dental_sys
             if (data != null && data.Count > 0)
             {
                 guna2DataGridView1.Rows.Add(data.Count);
-                int i = 0;
-                foreach (var item in data)
+
+                for (int i = 0; i < data.Count; i++)
                 {
-                    var status = item.IsActive ? "Active" : "Inactive";
-                    guna2DataGridView1.Rows[i].Cells[1].Value = Image.FromFile("photos\\account.png");
-                    guna2DataGridView1.Rows[i].Cells[2].Value = item.Id;
-                    guna2DataGridView1.Rows[i].Cells[3].Value = item.Name;
-                    guna2DataGridView1.Rows[i].Cells[4].Value = item.Phone;
-                    guna2DataGridView1.Rows[i].Cells[5].Value = item.Email;
-                    guna2DataGridView1.Rows[i].Cells[6].Value = item.Url;
-                    guna2DataGridView1.Rows[i].Cells[7].Value = status;
-                    i++;
+                    Customer customer = data.ToList()[i];
+                    var status = customer.IsActive ? "Active" : "Inactive";
+                    int no = i;
+                    guna2DataGridView1.Rows[i].Cells[1].Value = (no+1).ToString();
+                    guna2DataGridView1.Rows[i].Cells[2].Value = customer.UID;
+                    guna2DataGridView1.Rows[i].Cells[3].Value = customer.Name;
+                    guna2DataGridView1.Rows[i].Cells[4].Value = customer.Phone;
+                    guna2DataGridView1.Rows[i].Cells[5].Value = customer.Email;
+                    guna2DataGridView1.Rows[i].Cells[6].Value = status;
+                    guna2DataGridView1.Rows[i].Cells[7].Value = customer.Id;
                 }
                 total = data?.Count ?? 0;
                 numberPage = total / pageSize;
@@ -117,16 +121,23 @@ namespace dental_sys
             //var result = customerService.UpdateCustomer();
         }
 
-        private void guna2Button4_Click(object sender, EventArgs e)
-        {
-            string id = guna2DataGridView1.CurrentRow.Cells[2].Value.ToString();
+        //private void guna2Button4_Click(object sender, EventArgs e)
+        //{
+        //    string id = guna2DataGridView1.CurrentRow.Cells[7].Value.ToString();
 
-            string searchValue = guna2TextBox1.Text;
-            var result = customerService.Delete(id);
-            if (result)
-            {
-                loadData(pageIndex, pageSize, searchValue);
-            }
+        //    string searchValue = guna2TextBox1.Text;
+        //    var result = customerService.Delete(id);
+        //    if (result)
+        //    {
+        //        loadData(pageIndex, pageSize, searchValue);
+        //    }
+        //}
+
+        private void guna2DataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int.TryParse( guna2DataGridView1.CurrentRow.Cells[7].Value.ToString(), out id);
+            Profile profile = new Profile();
+            profile.Show();
         }
     }
 }

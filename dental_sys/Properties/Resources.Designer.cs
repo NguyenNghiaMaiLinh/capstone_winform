@@ -63,6 +63,16 @@ namespace dental_sys.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _checked {
+            get {
+                object obj = ResourceManager.GetObject("checked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chat__1_ {
             get {
                 object obj = ResourceManager.GetObject("chat__1_", resourceCulture);
@@ -126,6 +136,16 @@ namespace dental_sys.Properties {
         internal static System.Drawing.Bitmap send {
             get {
                 object obj = ResourceManager.GetObject("send", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap uncheck {
+            get {
+                object obj = ResourceManager.GetObject("uncheck", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
