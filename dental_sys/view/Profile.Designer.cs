@@ -32,7 +32,7 @@ namespace dental_sys.view
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.roundPictureBox1 = new dental_sys.view.RoundPictureBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel41 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -43,10 +43,10 @@ namespace dental_sys.view
             this.guna2HtmlLabel29 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel28 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.roundPictureBox1 = new dental_sys.view.RoundPictureBox();
+            this.Name = new System.Windows.Forms.Label();
             this.guna2ShadowPanel1.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roundPictureBox1)).BeginInit();
+            this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Button4
@@ -86,8 +86,8 @@ namespace dental_sys.view
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel1.Controls.Add(this.Name);
             this.guna2ShadowPanel1.Controls.Add(this.roundPictureBox1);
-            this.guna2ShadowPanel1.Controls.Add(this.guna2HtmlLabel1);
             this.guna2ShadowPanel1.Controls.Add(this.guna2Panel2);
             this.guna2ShadowPanel1.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2ShadowPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -98,16 +98,14 @@ namespace dental_sys.view
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(406, 454);
             this.guna2ShadowPanel1.TabIndex = 98;
             // 
-            // guna2HtmlLabel1
+            // roundPictureBox1
             // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Franklin Gothic Medium", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(43, 155);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(54, 28);
-            this.guna2HtmlLabel1.TabIndex = 63;
-            this.guna2HtmlLabel1.Text = "name";
+            this.roundPictureBox1.Location = new System.Drawing.Point(154, 35);
+            this.roundPictureBox1.Name = "roundPictureBox1";
+            this.roundPictureBox1.Size = new System.Drawing.Size(98, 96);
+            this.roundPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.roundPictureBox1.TabIndex = 76;
+            this.roundPictureBox1.TabStop = false;
             // 
             // guna2Panel2
             // 
@@ -242,14 +240,15 @@ namespace dental_sys.view
             this.label1.TabIndex = 90;
             this.label1.Text = "Profile";
             // 
-            // roundPictureBox1
+            // Name
             // 
-            this.roundPictureBox1.Location = new System.Drawing.Point(154, 35);
-            this.roundPictureBox1.Name = "roundPictureBox1";
-            this.roundPictureBox1.Size = new System.Drawing.Size(98, 96);
-            this.roundPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.roundPictureBox1.TabIndex = 76;
-            this.roundPictureBox1.TabStop = false;
+            this.Name.AutoSize = true;
+            this.Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Name.Location = new System.Drawing.Point(31, 170);
+            this.Name.Name = "Name";
+            this.Name.Size = new System.Drawing.Size(82, 29);
+            this.Name.TabIndex = 77;
+            this.Name.Text = "Name";
             // 
             // Profile
             // 
@@ -262,7 +261,6 @@ namespace dental_sys.view
             this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.guna2Button4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Profile";
             this.Text = "Profile";
             this.Load += new System.EventHandler(this.Profile_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Profile_MouseDown);
@@ -270,9 +268,9 @@ namespace dental_sys.view
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Profile_MouseUp);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.roundPictureBox1)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,8 +290,8 @@ namespace dental_sys.view
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel21;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel29;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel28;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private RoundPictureBox roundPictureBox1;
+        private System.Windows.Forms.Label Name;
     }
 }

@@ -47,7 +47,7 @@ namespace dental_sys
             //    ab = await auth.SignInWithEmailAndPasswordAsync(email, pass);
             //    string token = ab.FirebaseToken;
             //    var user = ab.User;
-            //    if(user != null)
+            //    if (user != null)
             //    {
             //        this.Visible = false;
             //        Loading _load = new Loading();

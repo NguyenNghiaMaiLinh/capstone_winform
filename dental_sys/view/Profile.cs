@@ -27,7 +27,7 @@ namespace dental_sys.view
             catch (Exception)
             {
             }
-            guna2HtmlLabel1.Text = customer.Name;
+            Name.Text = customer.Name;
             guna2HtmlLabel28.Text = customer.UID;
             guna2HtmlLabel20.Text = customer.Email;
             guna2HtmlLabel41.Text = customer.Phone;
