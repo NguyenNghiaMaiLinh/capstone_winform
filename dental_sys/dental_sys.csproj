@@ -262,6 +262,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\PicturePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Item.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -427,5 +430,6 @@
   <ItemGroup>
     <None Include="Resources\uncheck.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

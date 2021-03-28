@@ -1,4 +1,6 @@
-﻿namespace dental_sys
+﻿using dental_sys.Control;
+
+namespace dental_sys
 {
     partial class ImportData
     {
@@ -28,68 +30,225 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.guna2DataGridView2 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.PicturePanel = new dental_sys.Control.PicturePanel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.serviceController1 = new System.ServiceProcess.ServiceController();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView2)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.PreviousBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.NextBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.TopTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.ImportLabelBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.ImportDataBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.SendBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.FileDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.NoGridColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameGridColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdatedDateGridColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CheckGridColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
+            this.splitContainer.Panel1.SuspendLayout();
+            this.splitContainer.Panel2.SuspendLayout();
+            this.splitContainer.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.TopTableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FileDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // imageList1
+            // splitContainer
             // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer.Name = "splitContainer";
             // 
-            // panel1
+            // splitContainer.Panel1
             // 
-            this.panel1.Controls.Add(this.guna2DataGridView2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(1160, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(400, 935);
-            this.panel1.TabIndex = 68;
+            this.splitContainer.Panel1.Controls.Add(this.PicturePanel);
+            this.splitContainer.Panel1.Controls.Add(this.panel5);
+            this.splitContainer.Panel1.Controls.Add(this.TopTableLayoutPanel);
             // 
-            // guna2DataGridView2
+            // splitContainer.Panel2
             // 
-            this.guna2DataGridView2.AllowUserToAddRows = false;
+            this.splitContainer.Panel2.Controls.Add(this.FileDataGridView);
+            this.splitContainer.Size = new System.Drawing.Size(1560, 935);
+            this.splitContainer.SplitterDistance = 1086;
+            this.splitContainer.TabIndex = 1;
+            // 
+            // PicturePanel
+            // 
+            this.PicturePanel.AutoScroll = true;
+            this.PicturePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PicturePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PicturePanel.Location = new System.Drawing.Point(0, 46);
+            this.PicturePanel.Name = "PicturePanel";
+            this.PicturePanel.Size = new System.Drawing.Size(1086, 789);
+            this.PicturePanel.TabIndex = 74;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.PreviousBtn);
+            this.panel5.Controls.Add(this.NextBtn);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 835);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1086, 100);
+            this.panel5.TabIndex = 73;
+            // 
+            // PreviousBtn
+            // 
+            this.PreviousBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PreviousBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.PreviousBtn.BorderThickness = 1;
+            this.PreviousBtn.CheckedState.Parent = this.PreviousBtn;
+            this.PreviousBtn.CustomImages.Parent = this.PreviousBtn;
+            this.PreviousBtn.FillColor = System.Drawing.Color.Transparent;
+            this.PreviousBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PreviousBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PreviousBtn.HoverState.Parent = this.PreviousBtn;
+            this.PreviousBtn.Image = global::dental_sys.Properties.Resources.import;
+            this.PreviousBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.PreviousBtn.ImageOffset = new System.Drawing.Point(3, 0);
+            this.PreviousBtn.ImageSize = new System.Drawing.Size(12, 12);
+            this.PreviousBtn.Location = new System.Drawing.Point(341, 34);
+            this.PreviousBtn.Name = "PreviousBtn";
+            this.PreviousBtn.ShadowDecoration.Parent = this.PreviousBtn;
+            this.PreviousBtn.Size = new System.Drawing.Size(111, 33);
+            this.PreviousBtn.TabIndex = 77;
+            this.PreviousBtn.Text = "Previous";
+            this.PreviousBtn.TextOffset = new System.Drawing.Point(1, 2);
+            this.PreviousBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            // 
+            // NextBtn
+            // 
+            this.NextBtn.BackColor = System.Drawing.Color.Transparent;
+            this.NextBtn.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.NextBtn.BorderThickness = 1;
+            this.NextBtn.CheckedState.Parent = this.NextBtn;
+            this.NextBtn.CustomImages.Parent = this.NextBtn;
+            this.NextBtn.FillColor = System.Drawing.Color.Transparent;
+            this.NextBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NextBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.NextBtn.HoverState.Parent = this.NextBtn;
+            this.NextBtn.Image = global::dental_sys.Properties.Resources.import;
+            this.NextBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.NextBtn.ImageOffset = new System.Drawing.Point(3, 0);
+            this.NextBtn.ImageSize = new System.Drawing.Size(12, 12);
+            this.NextBtn.Location = new System.Drawing.Point(606, 34);
+            this.NextBtn.Name = "NextBtn";
+            this.NextBtn.ShadowDecoration.Parent = this.NextBtn;
+            this.NextBtn.Size = new System.Drawing.Size(115, 33);
+            this.NextBtn.TabIndex = 76;
+            this.NextBtn.Text = "Next";
+            this.NextBtn.TextOffset = new System.Drawing.Point(1, 2);
+            this.NextBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            // 
+            // TopTableLayoutPanel
+            // 
+            this.TopTableLayoutPanel.ColumnCount = 3;
+            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.TopTableLayoutPanel.Controls.Add(this.ImportLabelBtn, 0, 0);
+            this.TopTableLayoutPanel.Controls.Add(this.ImportDataBtn, 1, 0);
+            this.TopTableLayoutPanel.Controls.Add(this.SendBtn, 2, 0);
+            this.TopTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TopTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.TopTableLayoutPanel.Name = "TopTableLayoutPanel";
+            this.TopTableLayoutPanel.RowCount = 1;
+            this.TopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.TopTableLayoutPanel.Size = new System.Drawing.Size(1086, 46);
+            this.TopTableLayoutPanel.TabIndex = 1;
+            // 
+            // ImportLabelBtn
+            // 
+            this.ImportLabelBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ImportLabelBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ImportLabelBtn.BorderThickness = 1;
+            this.ImportLabelBtn.CheckedState.Parent = this.ImportLabelBtn;
+            this.ImportLabelBtn.CustomImages.Parent = this.ImportLabelBtn;
+            this.ImportLabelBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ImportLabelBtn.FillColor = System.Drawing.Color.Transparent;
+            this.ImportLabelBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImportLabelBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ImportLabelBtn.HoverState.Parent = this.ImportLabelBtn;
+            this.ImportLabelBtn.Image = global::dental_sys.Properties.Resources.import;
+            this.ImportLabelBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ImportLabelBtn.ImageOffset = new System.Drawing.Point(3, 0);
+            this.ImportLabelBtn.ImageSize = new System.Drawing.Size(12, 12);
+            this.ImportLabelBtn.Location = new System.Drawing.Point(3, 3);
+            this.ImportLabelBtn.Name = "ImportLabelBtn";
+            this.ImportLabelBtn.ShadowDecoration.Parent = this.ImportLabelBtn;
+            this.ImportLabelBtn.Size = new System.Drawing.Size(356, 40);
+            this.ImportLabelBtn.TabIndex = 80;
+            this.ImportLabelBtn.Text = "Import Label";
+            this.ImportLabelBtn.TextOffset = new System.Drawing.Point(1, 2);
+            this.ImportLabelBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.ImportLabelBtn.Click += new System.EventHandler(this.ImportLabelBtn_Click);
+            // 
+            // ImportDataBtn
+            // 
+            this.ImportDataBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ImportDataBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ImportDataBtn.BorderThickness = 1;
+            this.ImportDataBtn.CheckedState.Parent = this.ImportDataBtn;
+            this.ImportDataBtn.CustomImages.Parent = this.ImportDataBtn;
+            this.ImportDataBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ImportDataBtn.FillColor = System.Drawing.Color.Transparent;
+            this.ImportDataBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImportDataBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ImportDataBtn.HoverState.Parent = this.ImportDataBtn;
+            this.ImportDataBtn.Image = global::dental_sys.Properties.Resources.import;
+            this.ImportDataBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ImportDataBtn.ImageOffset = new System.Drawing.Point(3, 0);
+            this.ImportDataBtn.ImageSize = new System.Drawing.Size(12, 12);
+            this.ImportDataBtn.Location = new System.Drawing.Point(365, 3);
+            this.ImportDataBtn.Name = "ImportDataBtn";
+            this.ImportDataBtn.ShadowDecoration.Parent = this.ImportDataBtn;
+            this.ImportDataBtn.Size = new System.Drawing.Size(356, 40);
+            this.ImportDataBtn.TabIndex = 82;
+            this.ImportDataBtn.Text = "Import Data";
+            this.ImportDataBtn.TextOffset = new System.Drawing.Point(1, 2);
+            this.ImportDataBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.ImportDataBtn.Click += new System.EventHandler(this.ImportDataBtn_Click);
+            // 
+            // SendBtn
+            // 
+            this.SendBtn.BackColor = System.Drawing.Color.Transparent;
+            this.SendBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.SendBtn.BorderThickness = 1;
+            this.SendBtn.CheckedState.Parent = this.SendBtn;
+            this.SendBtn.CustomImages.Parent = this.SendBtn;
+            this.SendBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SendBtn.FillColor = System.Drawing.Color.Transparent;
+            this.SendBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SendBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.SendBtn.HoverState.Parent = this.SendBtn;
+            this.SendBtn.Image = global::dental_sys.Properties.Resources.send;
+            this.SendBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.SendBtn.ImageOffset = new System.Drawing.Point(3, 0);
+            this.SendBtn.ImageSize = new System.Drawing.Size(12, 12);
+            this.SendBtn.Location = new System.Drawing.Point(727, 3);
+            this.SendBtn.Name = "SendBtn";
+            this.SendBtn.ShadowDecoration.Parent = this.SendBtn;
+            this.SendBtn.Size = new System.Drawing.Size(356, 40);
+            this.SendBtn.TabIndex = 83;
+            this.SendBtn.Text = "Send";
+            this.SendBtn.TextOffset = new System.Drawing.Point(1, 2);
+            this.SendBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            // 
+            // FileDataGridView
+            // 
+            this.FileDataGridView.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.guna2DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.guna2DataGridView2.BackgroundColor = System.Drawing.Color.LightGray;
-            this.guna2DataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.guna2DataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.guna2DataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.FileDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.FileDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.FileDataGridView.BackgroundColor = System.Drawing.Color.LightGray;
+            this.FileDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.FileDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.FileDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F);
@@ -97,15 +256,13 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.guna2DataGridView2.ColumnHeadersHeight = 40;
-            this.guna2DataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
+            this.FileDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.FileDataGridView.ColumnHeadersHeight = 40;
+            this.FileDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NoGridColumn,
+            this.NameGridColumn,
+            this.UpdatedDateGridColumn,
+            this.CheckGridColumn});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -113,13 +270,13 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.guna2DataGridView2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guna2DataGridView2.EnableHeadersVisualStyles = false;
-            this.guna2DataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2DataGridView2.Location = new System.Drawing.Point(12, 0);
-            this.guna2DataGridView2.Name = "guna2DataGridView2";
-            this.guna2DataGridView2.ReadOnly = true;
+            this.FileDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.FileDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FileDataGridView.EnableHeadersVisualStyles = false;
+            this.FileDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.FileDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.FileDataGridView.Name = "FileDataGridView";
+            this.FileDataGridView.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -127,273 +284,61 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.guna2DataGridView2.RowHeadersVisible = false;
-            this.guna2DataGridView2.RowTemplate.DividerHeight = 5;
-            this.guna2DataGridView2.RowTemplate.Height = 40;
-            this.guna2DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DataGridView2.Size = new System.Drawing.Size(388, 935);
-            this.guna2DataGridView2.StandardTab = true;
-            this.guna2DataGridView2.TabIndex = 4;
-            this.guna2DataGridView2.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
-            this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.guna2DataGridView2.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.guna2DataGridView2.ThemeStyle.BackColor = System.Drawing.Color.LightGray;
-            this.guna2DataGridView2.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2DataGridView2.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2DataGridView2.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.guna2DataGridView2.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.guna2DataGridView2.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2DataGridView2.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.guna2DataGridView2.ThemeStyle.HeaderStyle.Height = 40;
-            this.guna2DataGridView2.ThemeStyle.ReadOnly = true;
-            this.guna2DataGridView2.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView2.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.guna2DataGridView2.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.guna2DataGridView2.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.guna2DataGridView2.ThemeStyle.RowsStyle.Height = 40;
-            this.guna2DataGridView2.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.guna2DataGridView2.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.guna2DataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView2_CellClick);
+            this.FileDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.FileDataGridView.RowHeadersVisible = false;
+            this.FileDataGridView.RowTemplate.DividerHeight = 5;
+            this.FileDataGridView.RowTemplate.Height = 40;
+            this.FileDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.FileDataGridView.Size = new System.Drawing.Size(470, 935);
+            this.FileDataGridView.StandardTab = true;
+            this.FileDataGridView.TabIndex = 5;
+            this.FileDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.FileDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.FileDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.FileDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.FileDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.FileDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.FileDataGridView.ThemeStyle.BackColor = System.Drawing.Color.LightGray;
+            this.FileDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.FileDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.FileDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.FileDataGridView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.FileDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
+            this.FileDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.FileDataGridView.ThemeStyle.HeaderStyle.Height = 40;
+            this.FileDataGridView.ThemeStyle.ReadOnly = true;
+            this.FileDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.FileDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.FileDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.FileDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.FileDataGridView.ThemeStyle.RowsStyle.Height = 40;
+            this.FileDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.FileDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.FileDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.FileDataGridView_CellClick);
             // 
-            // dataGridViewTextBoxColumn1
+            // NoGridColumn
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn1.FillWeight = 40.60914F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 5;
+            this.NoGridColumn.HeaderText = "No";
+            this.NoGridColumn.Name = "NoGridColumn";
+            this.NoGridColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn2
+            // NameGridColumn
             // 
-            this.dataGridViewTextBoxColumn2.FillWeight = 99.49239F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "No";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.NameGridColumn.HeaderText = "Name";
+            this.NameGridColumn.Name = "NameGridColumn";
+            this.NameGridColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn3
+            // UpdatedDateGridColumn
             // 
-            this.dataGridViewTextBoxColumn3.FillWeight = 99.49239F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.UpdatedDateGridColumn.HeaderText = "Updated Date";
+            this.UpdatedDateGridColumn.Name = "UpdatedDateGridColumn";
+            this.UpdatedDateGridColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn4
+            // CheckGridColumn
             // 
-            this.dataGridViewTextBoxColumn4.FillWeight = 99.49239F;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Updated Date";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn5.FillWeight = 99.49239F;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Check";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.FillWeight = 99.49239F;
-            this.dataGridViewTextBoxColumn6.HeaderText = "path";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Visible = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel5);
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1160, 935);
-            this.panel2.TabIndex = 70;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.guna2Button4);
-            this.panel5.Controls.Add(this.guna2Button2);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 835);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1160, 100);
-            this.panel5.TabIndex = 72;
-            // 
-            // guna2Button4
-            // 
-            this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2Button4.BorderThickness = 1;
-            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
-            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
-            this.guna2Button4.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.guna2Button4.HoverState.Parent = this.guna2Button4;
-            this.guna2Button4.Image = global::dental_sys.Properties.Resources.import;
-            this.guna2Button4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button4.ImageOffset = new System.Drawing.Point(3, 0);
-            this.guna2Button4.ImageSize = new System.Drawing.Size(12, 12);
-            this.guna2Button4.Location = new System.Drawing.Point(451, 34);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
-            this.guna2Button4.Size = new System.Drawing.Size(111, 33);
-            this.guna2Button4.TabIndex = 77;
-            this.guna2Button4.Text = "Previous";
-            this.guna2Button4.TextOffset = new System.Drawing.Point(1, 2);
-            this.guna2Button4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.BorderColor = System.Drawing.SystemColors.ControlText;
-            this.guna2Button2.BorderThickness = 1;
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Image = global::dental_sys.Properties.Resources.import;
-            this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button2.ImageOffset = new System.Drawing.Point(3, 0);
-            this.guna2Button2.ImageSize = new System.Drawing.Size(12, 12);
-            this.guna2Button2.Location = new System.Drawing.Point(595, 34);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(115, 33);
-            this.guna2Button2.TabIndex = 76;
-            this.guna2Button2.Text = "Next";
-            this.guna2Button2.TextOffset = new System.Drawing.Point(1, 2);
-            this.guna2Button2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 100);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1160, 835);
-            this.panel4.TabIndex = 71;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1160, 835);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 76;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.tableLayoutPanel1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1160, 100);
-            this.panel3.TabIndex = 70;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.80158F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.19842F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 518F));
-            this.tableLayoutPanel1.Controls.Add(this.guna2Button5, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.guna2Button1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.guna2Button3, 2, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1160, 100);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // guna2Button5
-            // 
-            this.guna2Button5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button5.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2Button5.BorderThickness = 1;
-            this.guna2Button5.CheckedState.Parent = this.guna2Button5;
-            this.guna2Button5.CustomImages.Parent = this.guna2Button5;
-            this.guna2Button5.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button5.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.guna2Button5.HoverState.Parent = this.guna2Button5;
-            this.guna2Button5.Image = global::dental_sys.Properties.Resources.import;
-            this.guna2Button5.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button5.ImageOffset = new System.Drawing.Point(3, 0);
-            this.guna2Button5.ImageSize = new System.Drawing.Size(12, 12);
-            this.guna2Button5.Location = new System.Drawing.Point(3, 3);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.ShadowDecoration.Parent = this.guna2Button5;
-            this.guna2Button5.Size = new System.Drawing.Size(164, 33);
-            this.guna2Button5.TabIndex = 80;
-            this.guna2Button5.Text = "Import Label";
-            this.guna2Button5.TextOffset = new System.Drawing.Point(1, 2);
-            this.guna2Button5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            this.guna2Button5.Click += new System.EventHandler(this.guna2Button5_Click);
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2Button1.BorderThickness = 1;
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Image = global::dental_sys.Properties.Resources.import;
-            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.ImageOffset = new System.Drawing.Point(3, 0);
-            this.guna2Button1.ImageSize = new System.Drawing.Size(12, 12);
-            this.guna2Button1.Location = new System.Drawing.Point(220, 3);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(187, 33);
-            this.guna2Button1.TabIndex = 82;
-            this.guna2Button1.Text = "Import Data";
-            this.guna2Button1.TextOffset = new System.Drawing.Point(1, 2);
-            this.guna2Button1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
-            // guna2Button3
-            // 
-            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.guna2Button3.BorderThickness = 1;
-            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
-            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
-            this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.guna2Button3.HoverState.Parent = this.guna2Button3;
-            this.guna2Button3.Image = global::dental_sys.Properties.Resources.send;
-            this.guna2Button3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button3.ImageOffset = new System.Drawing.Point(3, 0);
-            this.guna2Button3.ImageSize = new System.Drawing.Size(12, 12);
-            this.guna2Button3.Location = new System.Drawing.Point(644, 3);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
-            this.guna2Button3.Size = new System.Drawing.Size(119, 33);
-            this.guna2Button3.TabIndex = 83;
-            this.guna2Button3.Text = "Send";
-            this.guna2Button3.TextOffset = new System.Drawing.Point(1, 2);
-            this.guna2Button3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
+            this.CheckGridColumn.HeaderText = "Label";
+            this.CheckGridColumn.Name = "CheckGridColumn";
+            this.CheckGridColumn.ReadOnly = true;
             // 
             // ImportData
             // 
@@ -401,46 +346,36 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1560, 935);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.splitContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ImportData";
             this.Text = "Messages";
             this.Load += new System.EventHandler(this.ImportData_Load);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView2)).EndInit();
-            this.panel2.ResumeLayout(false);
+            this.splitContainer.Panel1.ResumeLayout(false);
+            this.splitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
+            this.splitContainer.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.TopTableLayoutPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.FileDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Panel panel1;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.Panel panel5;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel3;
-        private System.ServiceProcess.ServiceController serviceController1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button PreviousBtn;
+        private Guna.UI2.WinForms.Guna2Button NextBtn;
+        private System.Windows.Forms.TableLayoutPanel TopTableLayoutPanel;
+        private Guna.UI2.WinForms.Guna2Button ImportLabelBtn;
+        private Guna.UI2.WinForms.Guna2Button ImportDataBtn;
+        private Guna.UI2.WinForms.Guna2Button SendBtn;
+        private Guna.UI2.WinForms.Guna2DataGridView FileDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NoGridColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameGridColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedDateGridColumn;
+        private System.Windows.Forms.DataGridViewImageColumn CheckGridColumn;
+        private PicturePanel PicturePanel;
     }
 }
