@@ -44,7 +44,9 @@ namespace dental_sys
             this.ImportDataBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SendBtn = new Guna.UI2.WinForms.Guna2Button();
             this.FileDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.ImportDirBtn = new Guna.UI2.WinForms.Guna2Button();
             this.PicturePanel = new dental_sys.Controls.PicturePanel();
+            this.ImportLabelDirBtn = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -144,19 +146,22 @@ namespace dental_sys
             // 
             // TopTableLayoutPanel
             // 
-            this.TopTableLayoutPanel.ColumnCount = 3;
-            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.TopTableLayoutPanel.ColumnCount = 5;
+            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TopTableLayoutPanel.Controls.Add(this.ImportLabelDirBtn, 2, 0);
+            this.TopTableLayoutPanel.Controls.Add(this.ImportDirBtn, 3, 0);
             this.TopTableLayoutPanel.Controls.Add(this.ImportLabelBtn, 0, 0);
             this.TopTableLayoutPanel.Controls.Add(this.ImportDataBtn, 1, 0);
-            this.TopTableLayoutPanel.Controls.Add(this.SendBtn, 2, 0);
+            this.TopTableLayoutPanel.Controls.Add(this.SendBtn, 4, 0);
             this.TopTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.TopTableLayoutPanel.Name = "TopTableLayoutPanel";
             this.TopTableLayoutPanel.RowCount = 1;
             this.TopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.TopTableLayoutPanel.Size = new System.Drawing.Size(1086, 46);
             this.TopTableLayoutPanel.TabIndex = 1;
             // 
@@ -179,7 +184,7 @@ namespace dental_sys
             this.ImportLabelBtn.Location = new System.Drawing.Point(3, 3);
             this.ImportLabelBtn.Name = "ImportLabelBtn";
             this.ImportLabelBtn.ShadowDecoration.Parent = this.ImportLabelBtn;
-            this.ImportLabelBtn.Size = new System.Drawing.Size(356, 40);
+            this.ImportLabelBtn.Size = new System.Drawing.Size(211, 40);
             this.ImportLabelBtn.TabIndex = 80;
             this.ImportLabelBtn.Text = "Import Label";
             this.ImportLabelBtn.TextOffset = new System.Drawing.Point(1, 2);
@@ -202,12 +207,12 @@ namespace dental_sys
             this.ImportDataBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.ImportDataBtn.ImageOffset = new System.Drawing.Point(3, 0);
             this.ImportDataBtn.ImageSize = new System.Drawing.Size(12, 12);
-            this.ImportDataBtn.Location = new System.Drawing.Point(365, 3);
+            this.ImportDataBtn.Location = new System.Drawing.Point(220, 3);
             this.ImportDataBtn.Name = "ImportDataBtn";
             this.ImportDataBtn.ShadowDecoration.Parent = this.ImportDataBtn;
-            this.ImportDataBtn.Size = new System.Drawing.Size(356, 40);
+            this.ImportDataBtn.Size = new System.Drawing.Size(211, 40);
             this.ImportDataBtn.TabIndex = 82;
-            this.ImportDataBtn.Text = "Import Data";
+            this.ImportDataBtn.Text = "Import File";
             this.ImportDataBtn.TextOffset = new System.Drawing.Point(1, 2);
             this.ImportDataBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
             this.ImportDataBtn.Click += new System.EventHandler(this.ImportDataBtn_Click);
@@ -228,10 +233,10 @@ namespace dental_sys
             this.SendBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.SendBtn.ImageOffset = new System.Drawing.Point(3, 0);
             this.SendBtn.ImageSize = new System.Drawing.Size(12, 12);
-            this.SendBtn.Location = new System.Drawing.Point(727, 3);
+            this.SendBtn.Location = new System.Drawing.Point(871, 3);
             this.SendBtn.Name = "SendBtn";
             this.SendBtn.ShadowDecoration.Parent = this.SendBtn;
-            this.SendBtn.Size = new System.Drawing.Size(356, 40);
+            this.SendBtn.Size = new System.Drawing.Size(212, 40);
             this.SendBtn.TabIndex = 83;
             this.SendBtn.Text = "Send";
             this.SendBtn.TextOffset = new System.Drawing.Point(1, 2);
@@ -312,6 +317,32 @@ namespace dental_sys
             this.FileDataGridView.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.FileDataGridView_ColumnAdded);
             this.FileDataGridView.ColumnHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.FileDataGridView_ColumnHeaderMouseDoubleClick);
             // 
+            // ImportDirBtn
+            // 
+            this.ImportDirBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ImportDirBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ImportDirBtn.BorderThickness = 1;
+            this.ImportDirBtn.CheckedState.Parent = this.ImportDirBtn;
+            this.ImportDirBtn.CustomImages.Parent = this.ImportDirBtn;
+            this.ImportDirBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ImportDirBtn.FillColor = System.Drawing.Color.Transparent;
+            this.ImportDirBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImportDirBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ImportDirBtn.HoverState.Parent = this.ImportDirBtn;
+            this.ImportDirBtn.Image = ((System.Drawing.Image)(resources.GetObject("ImportDirBtn.Image")));
+            this.ImportDirBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ImportDirBtn.ImageOffset = new System.Drawing.Point(3, 0);
+            this.ImportDirBtn.ImageSize = new System.Drawing.Size(12, 12);
+            this.ImportDirBtn.Location = new System.Drawing.Point(654, 3);
+            this.ImportDirBtn.Name = "ImportDirBtn";
+            this.ImportDirBtn.ShadowDecoration.Parent = this.ImportDirBtn;
+            this.ImportDirBtn.Size = new System.Drawing.Size(211, 40);
+            this.ImportDirBtn.TabIndex = 84;
+            this.ImportDirBtn.Text = "Import Dir";
+            this.ImportDirBtn.TextOffset = new System.Drawing.Point(1, 2);
+            this.ImportDirBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.ImportDirBtn.Click += new System.EventHandler(this.ImportDirBtn_Click);
+            // 
             // PicturePanel
             // 
             this.PicturePanel.AutoScroll = true;
@@ -321,6 +352,32 @@ namespace dental_sys
             this.PicturePanel.Name = "PicturePanel";
             this.PicturePanel.Size = new System.Drawing.Size(1086, 816);
             this.PicturePanel.TabIndex = 80;
+            // 
+            // ImportLabelDirBtn
+            // 
+            this.ImportLabelDirBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ImportLabelDirBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ImportLabelDirBtn.BorderThickness = 1;
+            this.ImportLabelDirBtn.CheckedState.Parent = this.ImportLabelDirBtn;
+            this.ImportLabelDirBtn.CustomImages.Parent = this.ImportLabelDirBtn;
+            this.ImportLabelDirBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ImportLabelDirBtn.FillColor = System.Drawing.Color.Transparent;
+            this.ImportLabelDirBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImportLabelDirBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ImportLabelDirBtn.HoverState.Parent = this.ImportLabelDirBtn;
+            this.ImportLabelDirBtn.Image = ((System.Drawing.Image)(resources.GetObject("ImportLabelDirBtn.Image")));
+            this.ImportLabelDirBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ImportLabelDirBtn.ImageOffset = new System.Drawing.Point(3, 0);
+            this.ImportLabelDirBtn.ImageSize = new System.Drawing.Size(12, 12);
+            this.ImportLabelDirBtn.Location = new System.Drawing.Point(437, 3);
+            this.ImportLabelDirBtn.Name = "ImportLabelDirBtn";
+            this.ImportLabelDirBtn.ShadowDecoration.Parent = this.ImportLabelDirBtn;
+            this.ImportLabelDirBtn.Size = new System.Drawing.Size(211, 40);
+            this.ImportLabelDirBtn.TabIndex = 85;
+            this.ImportLabelDirBtn.Text = "Import Label Dir";
+            this.ImportLabelDirBtn.TextOffset = new System.Drawing.Point(1, 2);
+            this.ImportLabelDirBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.ImportLabelDirBtn.Click += new System.EventHandler(this.ImportLabelDirBtn_Click);
             // 
             // ImportData
             // 
@@ -355,5 +412,7 @@ namespace dental_sys
         private System.Windows.Forms.TableLayoutPanel BottomTableLayoutPanel;
         private Guna.UI2.WinForms.Guna2Button NextBtn;
         private Guna.UI2.WinForms.Guna2Button PreviousBtn;
+        private Guna.UI2.WinForms.Guna2Button ImportDirBtn;
+        private Guna.UI2.WinForms.Guna2Button ImportLabelDirBtn;
     }
 }

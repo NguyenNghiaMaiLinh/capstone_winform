@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using dental_sys.Constants;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace dental_sys
 {
@@ -47,27 +48,10 @@ namespace dental_sys
             if (dr == DialogResult.OK)
             {
                 _imageFiles.Clear();
-                var no = 0;
-                ofg.FileNames.ToList().ForEach(file =>
-                {
-                    var fileModel = new ImageFileModel()
-                    {
-
-                        No = no++.ToString(),
-                        NameFile = Path.GetFileName(file),
-                        Path = file,
-                        UpdatedDate = File.GetLastWriteTime(file).ToString("dd/MM/yyyy"),
-                        Id = Guid.NewGuid().ToString("N"),
-                        IsLabel = _labelFiles.Any(w => Path.GetFileNameWithoutExtension(w.Path) == Path.GetFileNameWithoutExtension(file))
-                    };
-                    _imageFiles.Add(fileModel);
-                    //listData.Add(file);
-
-                });
+                ImportImageFileData(ofg.FileNames.ToList());
                 ImportDataBtn.Text = $@"Import Data ({_imageFiles.Count})";
             }
 
-            BindingData(_imageFiles);
         }
 
         private void BindingData(List<ImageFileModel> imageFile)
@@ -105,19 +89,8 @@ namespace dental_sys
             if (dr == DialogResult.OK)
             {
                 _labelFiles.Clear();
-                ofg.FileNames.ToList().ForEach(file =>
-                {
-                    var fileModel = new LabelFileModel()
-                    {
-                        NameFile = Path.GetFileName(file),
-                        Path = file,
-                        UpdatedDate = File.GetLastWriteTime(file).ToString("dd/MM/yyyy"),
-                        Id = Guid.NewGuid().ToString("N"),
-                    };
-                    //listData.Add(file);
-                    _labelFiles.Add(fileModel);
-                });
-                ImportLabelBtn.Text = $@"Import Label ({_labelFiles.Count})";
+
+                ImportLabelFileData(ofg.FileNames.ToList());
 
                 if (_imageFiles.Count != 0)
                 {
@@ -263,6 +236,89 @@ namespace dental_sys
             this.FileDataGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
             this.FileDataGridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             this.FileDataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+        }
+
+        private void ImportDirBtn_Click(object sender, EventArgs e)
+        {
+            using (var fbd = new CommonOpenFileDialog())
+            {
+
+                fbd.RestoreDirectory = true;
+                fbd.IsFolderPicker = true;
+                fbd.Title = @"My Data Browser";
+                var result = fbd.ShowDialog();
+                if (result == CommonFileDialogResult.Ok && !string.IsNullOrWhiteSpace(fbd.FileName))
+                {
+                    var supportedExtensions = "*.jpg, *.jpeg, *.jpe, *.jfif, *.png";
+                    var files = Directory.EnumerateFiles(fbd.FileName, "*.*", SearchOption.AllDirectories)
+                        .Where(s => supportedExtensions.Contains(Path.GetExtension(s).ToLower())).ToList();
+
+                    _imageFiles.Clear();
+
+                    ImportImageFileData(files);
+                }
+            }
+        }
+
+        private void ImportImageFileData(List<string> files)
+        {
+            var no = 0;
+            files.ForEach(file =>
+            {
+                var fileModel = new ImageFileModel()
+                {
+
+                    No = no++.ToString(),
+                    NameFile = Path.GetFileName(file),
+                    Path = file,
+                    UpdatedDate = File.GetLastWriteTime(file).ToString("dd/MM/yyyy"),
+                    Id = Guid.NewGuid().ToString("N"),
+                    IsLabel = _labelFiles.Any(w => Path.GetFileNameWithoutExtension(w.Path) == Path.GetFileNameWithoutExtension(file))
+                };
+                _imageFiles.Add(fileModel);
+                //listData.Add(file);
+            });
+            ImportDataBtn.Text = $@"Import Data ({_imageFiles.Count})";
+
+            BindingData(_imageFiles);
+        }
+
+        private void ImportLabelFileData(List<string> files)
+        {
+            files.ForEach(file =>
+            {
+                var fileModel = new LabelFileModel()
+                {
+                    NameFile = Path.GetFileName(file),
+                    Path = file,
+                    UpdatedDate = File.GetLastWriteTime(file).ToString("dd/MM/yyyy"),
+                    Id = Guid.NewGuid().ToString("N"),
+                };
+                //listData.Add(file);
+                _labelFiles.Add(fileModel);
+            });
+            ImportLabelBtn.Text = $@"Import Label ({_labelFiles.Count})";
+        }
+
+        private void ImportLabelDirBtn_Click(object sender, EventArgs e)
+        {
+            using (var fbd = new CommonOpenFileDialog())
+            {
+                fbd.RestoreDirectory = true;
+                fbd.IsFolderPicker = true;
+                fbd.Title = @"My Label Browser";
+                var result = fbd.ShowDialog();
+                if (result == CommonFileDialogResult.Ok && !string.IsNullOrWhiteSpace(fbd.FileName))
+                {
+                    var supportedExtensions = "*.txt";
+                    var files = Directory.EnumerateFiles(fbd.FileName, "*.*", SearchOption.AllDirectories)
+                        .Where(s => supportedExtensions.Contains(Path.GetExtension(s).ToLower())).ToList();
+
+                    _labelFiles.Clear();
+
+                    ImportLabelFileData(files);
+                }
+            }
         }
     }
 
