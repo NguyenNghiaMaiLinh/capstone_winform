@@ -117,6 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="NextBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAF
+        0QAABdEB/9fAPAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFSSURBVEhL7dQ9
+        L8VQHMfxxmIymAQTFrGI2CWIwQswCoNYJCZvQBgsxOJhtNuMdiYSb4DR5CEWjxG+X3puTpqqtmlMfskn
+        tz3n9PdP7r1pUiFtOMYFOl1oOt34SI270HR6EAZMutB0/gck/ZjFKjYiYzB5A9yLz/qsHXa10o59vCEU
+        xFZg8ga4F58N7NqD3ck2wsYzrnAZWYDJG+BefNZn7QjntpDcpTeH6HDhh5T9Deywy3O3LoSH/O6KUuVH
+        tiucbV3kDejDOgaQHdCLNQwhm9IDDuDeNSbSa83D79zrI2RTesAUXuD+Q/qpp/TzHTPIpvQAM434nxFY
+        Poe8VBpgskOKyk3lASYM+a3c1BpgBjH8fVmY2gPK5m8HhJfcsjcNxS47X705TW8esYMlLNbks7uwy84T
+        JKO4TxeaZOcIvtIFX63nuIFv2Dp89gyboDNJPgHql8wGT+dSwwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="PreviousBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAF
+        0QAABdEB/9fAPAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFSSURBVEhL7dQ9
+        L8VQHMfxxmIymAQTFrGI2CWIwQswCoNYJCZvQBgsxOJhtNuMdiYSb4DR5CEWjxG+X3puTpqqtmlMfskn
+        tz3n9PdP7r1pUiFtOMYFOl1oOt34SI270HR6EAZMutB0/gck/ZjFKjYiYzB5A9yLz/qsHXa10o59vCEU
+        xFZg8ga4F58N7NqD3ck2wsYzrnAZWYDJG+BefNZn7QjntpDcpTeH6HDhh5T9Deywy3O3LoSH/O6KUuVH
+        tiucbV3kDejDOgaQHdCLNQwhm9IDDuDeNSbSa83D79zrI2RTesAUXuD+Q/qpp/TzHTPIpvQAM434nxFY
+        Poe8VBpgskOKyk3lASYM+a3c1BpgBjH8fVmY2gPK5m8HhJfcsjcNxS47X705TW8esYMlLNbks7uwy84T
+        JKO4TxeaZOcIvtIFX63nuIFv2Dp89gyboDNJPgHql8wGT+dSwwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="NoGridColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

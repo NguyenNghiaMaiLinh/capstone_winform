@@ -34,11 +34,8 @@ namespace dental_sys
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImportData));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.PicturePanel = new dental_sys.Control.PicturePanel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.PreviousBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.NextBtn = new Guna.UI2.WinForms.Guna2Button();
             this.TopTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.ImportLabelBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ImportDataBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -48,13 +45,17 @@ namespace dental_sys
             this.NameGridColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UpdatedDateGridColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckGridColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.BottomTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.NextBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.PreviousBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.PicturePanel = new dental_sys.Control.PicturePanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.TopTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FileDataGridView)).BeginInit();
+            this.BottomTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer
@@ -66,7 +67,7 @@ namespace dental_sys
             // splitContainer.Panel1
             // 
             this.splitContainer.Panel1.Controls.Add(this.PicturePanel);
-            this.splitContainer.Panel1.Controls.Add(this.panel5);
+            this.splitContainer.Panel1.Controls.Add(this.BottomTableLayoutPanel);
             this.splitContainer.Panel1.Controls.Add(this.TopTableLayoutPanel);
             // 
             // splitContainer.Panel2
@@ -75,74 +76,6 @@ namespace dental_sys
             this.splitContainer.Size = new System.Drawing.Size(1560, 935);
             this.splitContainer.SplitterDistance = 1086;
             this.splitContainer.TabIndex = 1;
-            // 
-            // PicturePanel
-            // 
-            this.PicturePanel.AutoScroll = true;
-            this.PicturePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.PicturePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PicturePanel.Location = new System.Drawing.Point(0, 46);
-            this.PicturePanel.Name = "PicturePanel";
-            this.PicturePanel.Size = new System.Drawing.Size(1086, 789);
-            this.PicturePanel.TabIndex = 74;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.PreviousBtn);
-            this.panel5.Controls.Add(this.NextBtn);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 835);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1086, 100);
-            this.panel5.TabIndex = 73;
-            // 
-            // PreviousBtn
-            // 
-            this.PreviousBtn.BackColor = System.Drawing.Color.Transparent;
-            this.PreviousBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.PreviousBtn.BorderThickness = 1;
-            this.PreviousBtn.CheckedState.Parent = this.PreviousBtn;
-            this.PreviousBtn.CustomImages.Parent = this.PreviousBtn;
-            this.PreviousBtn.FillColor = System.Drawing.Color.Transparent;
-            this.PreviousBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PreviousBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.PreviousBtn.HoverState.Parent = this.PreviousBtn;
-            this.PreviousBtn.Image = global::dental_sys.Properties.Resources.import;
-            this.PreviousBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.PreviousBtn.ImageOffset = new System.Drawing.Point(3, 0);
-            this.PreviousBtn.ImageSize = new System.Drawing.Size(12, 12);
-            this.PreviousBtn.Location = new System.Drawing.Point(341, 34);
-            this.PreviousBtn.Name = "PreviousBtn";
-            this.PreviousBtn.ShadowDecoration.Parent = this.PreviousBtn;
-            this.PreviousBtn.Size = new System.Drawing.Size(111, 33);
-            this.PreviousBtn.TabIndex = 77;
-            this.PreviousBtn.Text = "Previous";
-            this.PreviousBtn.TextOffset = new System.Drawing.Point(1, 2);
-            this.PreviousBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            // 
-            // NextBtn
-            // 
-            this.NextBtn.BackColor = System.Drawing.Color.Transparent;
-            this.NextBtn.BorderColor = System.Drawing.SystemColors.ControlText;
-            this.NextBtn.BorderThickness = 1;
-            this.NextBtn.CheckedState.Parent = this.NextBtn;
-            this.NextBtn.CustomImages.Parent = this.NextBtn;
-            this.NextBtn.FillColor = System.Drawing.Color.Transparent;
-            this.NextBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NextBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.NextBtn.HoverState.Parent = this.NextBtn;
-            this.NextBtn.Image = global::dental_sys.Properties.Resources.import;
-            this.NextBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.NextBtn.ImageOffset = new System.Drawing.Point(3, 0);
-            this.NextBtn.ImageSize = new System.Drawing.Size(12, 12);
-            this.NextBtn.Location = new System.Drawing.Point(606, 34);
-            this.NextBtn.Name = "NextBtn";
-            this.NextBtn.ShadowDecoration.Parent = this.NextBtn;
-            this.NextBtn.Size = new System.Drawing.Size(115, 33);
-            this.NextBtn.TabIndex = 76;
-            this.NextBtn.Text = "Next";
-            this.NextBtn.TextOffset = new System.Drawing.Point(1, 2);
-            this.NextBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
             // 
             // TopTableLayoutPanel
             // 
@@ -340,6 +273,83 @@ namespace dental_sys
             this.CheckGridColumn.Name = "CheckGridColumn";
             this.CheckGridColumn.ReadOnly = true;
             // 
+            // BottomTableLayoutPanel
+            // 
+            this.BottomTableLayoutPanel.ColumnCount = 4;
+            this.BottomTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.BottomTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.BottomTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.BottomTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.BottomTableLayoutPanel.Controls.Add(this.NextBtn, 2, 0);
+            this.BottomTableLayoutPanel.Controls.Add(this.PreviousBtn, 1, 0);
+            this.BottomTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BottomTableLayoutPanel.Location = new System.Drawing.Point(0, 791);
+            this.BottomTableLayoutPanel.Name = "BottomTableLayoutPanel";
+            this.BottomTableLayoutPanel.RowCount = 1;
+            this.BottomTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.BottomTableLayoutPanel.Size = new System.Drawing.Size(1086, 144);
+            this.BottomTableLayoutPanel.TabIndex = 79;
+            // 
+            // NextBtn
+            // 
+            this.NextBtn.BackColor = System.Drawing.Color.Transparent;
+            this.NextBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.NextBtn.BorderThickness = 1;
+            this.NextBtn.CheckedState.Parent = this.NextBtn;
+            this.NextBtn.CustomImages.Parent = this.NextBtn;
+            this.NextBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.NextBtn.FillColor = System.Drawing.Color.Transparent;
+            this.NextBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NextBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.NextBtn.HoverState.Parent = this.NextBtn;
+            this.NextBtn.Image = ((System.Drawing.Image)(resources.GetObject("NextBtn.Image")));
+            this.NextBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.NextBtn.ImageOffset = new System.Drawing.Point(3, 0);
+            this.NextBtn.ImageSize = new System.Drawing.Size(12, 12);
+            this.NextBtn.Location = new System.Drawing.Point(545, 3);
+            this.NextBtn.Name = "NextBtn";
+            this.NextBtn.ShadowDecoration.Parent = this.NextBtn;
+            this.NextBtn.Size = new System.Drawing.Size(265, 52);
+            this.NextBtn.TabIndex = 84;
+            this.NextBtn.Text = "Next";
+            this.NextBtn.TextOffset = new System.Drawing.Point(1, 2);
+            this.NextBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            // 
+            // PreviousBtn
+            // 
+            this.PreviousBtn.BackColor = System.Drawing.Color.Transparent;
+            this.PreviousBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.PreviousBtn.BorderThickness = 1;
+            this.PreviousBtn.CheckedState.Parent = this.PreviousBtn;
+            this.PreviousBtn.CustomImages.Parent = this.PreviousBtn;
+            this.PreviousBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PreviousBtn.FillColor = System.Drawing.Color.Transparent;
+            this.PreviousBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PreviousBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.PreviousBtn.HoverState.Parent = this.PreviousBtn;
+            this.PreviousBtn.Image = ((System.Drawing.Image)(resources.GetObject("PreviousBtn.Image")));
+            this.PreviousBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.PreviousBtn.ImageOffset = new System.Drawing.Point(3, 0);
+            this.PreviousBtn.ImageSize = new System.Drawing.Size(12, 12);
+            this.PreviousBtn.Location = new System.Drawing.Point(274, 3);
+            this.PreviousBtn.Name = "PreviousBtn";
+            this.PreviousBtn.ShadowDecoration.Parent = this.PreviousBtn;
+            this.PreviousBtn.Size = new System.Drawing.Size(265, 52);
+            this.PreviousBtn.TabIndex = 83;
+            this.PreviousBtn.Text = "Previous";
+            this.PreviousBtn.TextOffset = new System.Drawing.Point(1, 2);
+            this.PreviousBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            // 
+            // PicturePanel
+            // 
+            this.PicturePanel.AutoScroll = true;
+            this.PicturePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PicturePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PicturePanel.Location = new System.Drawing.Point(0, 46);
+            this.PicturePanel.Name = "PicturePanel";
+            this.PicturePanel.Size = new System.Drawing.Size(1086, 745);
+            this.PicturePanel.TabIndex = 80;
+            // 
             // ImportData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -355,18 +365,15 @@ namespace dental_sys
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
             this.TopTableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FileDataGridView)).EndInit();
+            this.BottomTableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.SplitContainer splitContainer;
-        private System.Windows.Forms.Panel panel5;
-        private Guna.UI2.WinForms.Guna2Button PreviousBtn;
-        private Guna.UI2.WinForms.Guna2Button NextBtn;
         private System.Windows.Forms.TableLayoutPanel TopTableLayoutPanel;
         private Guna.UI2.WinForms.Guna2Button ImportLabelBtn;
         private Guna.UI2.WinForms.Guna2Button ImportDataBtn;
@@ -377,5 +384,8 @@ namespace dental_sys
         private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedDateGridColumn;
         private System.Windows.Forms.DataGridViewImageColumn CheckGridColumn;
         private PicturePanel PicturePanel;
+        private System.Windows.Forms.TableLayoutPanel BottomTableLayoutPanel;
+        private Guna.UI2.WinForms.Guna2Button NextBtn;
+        private Guna.UI2.WinForms.Guna2Button PreviousBtn;
     }
 }
