@@ -2,19 +2,29 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using dental_sys.Constants;
 
 namespace dental_sys
 {
     public partial class ImportData : Form
     {
         //ICollection<string> listLabel;
-        private ICollection<ImageFileModel> _imageFiles;
-        private ICollection<LabelFileModel> _labelFiles;
+        private readonly List<ImageFileModel> _imageFiles;
+        private readonly List<LabelFileModel> _labelFiles;
+        private readonly Dictionary<string, string> _orderDictionary;
         public ImportData()
         {
+            _orderDictionary = new Dictionary<string, string>()
+            {
+                {FileHeaderConstant.No,Order.Asc },
+                {FileHeaderConstant.Name,Order.Asc },
+                {FileHeaderConstant.DateModified,Order.Asc },
+                {FileHeaderConstant.Label,Order.Asc },
+            };
             _labelFiles = new List<LabelFileModel>();
             _imageFiles = new List<ImageFileModel>();
             InitializeComponent();
@@ -26,13 +36,13 @@ namespace dental_sys
             {
                 Filter = @"Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png",
                 Multiselect = true,
-                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-                Title = @"My Data Browser"
+                //InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                Title = @"My Data Browser",
+                RestoreDirectory = true,
             };
 
             //  Allow the user to select multiple images.
             var dr = ofg.ShowDialog();
-            var uploads = new List<string>();
             if (dr == DialogResult.OK)
             {
                 _imageFiles.Clear();
@@ -47,7 +57,7 @@ namespace dental_sys
                         Path = file,
                         UpdatedDate = File.GetLastWriteTime(file).ToString("dd/MM/yyyy"),
                         Id = Guid.NewGuid().ToString("N"),
-                        IsLabel = _labelFiles.Any(w => w.NameFile == Path.GetFileName(file))
+                        IsLabel = _labelFiles.Any(w => Path.GetFileNameWithoutExtension(w.Path) == Path.GetFileNameWithoutExtension(file))
                     };
                     _imageFiles.Add(fileModel);
                     //listData.Add(file);
@@ -56,10 +66,15 @@ namespace dental_sys
                 ImportDataBtn.Text = $@"Import Data ({_imageFiles.Count})";
             }
 
-            FileDataGridView.DataSource = null;
-            FileDataGridView.DataSource = _imageFiles;
-            FileDataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            BindingData(_imageFiles);
+        }
 
+        private void BindingData(List<ImageFileModel> imageFile)
+        {
+            FileDataGridView.DataSource = null;
+            FileDataGridView.DataSource = imageFile;
+            SetOrderColumn();
+            FileDataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void ImportData_Load(object sender, EventArgs e)
@@ -75,15 +90,17 @@ namespace dental_sys
 
         private void ImportLabelBtn_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofg = new OpenFileDialog();
-            ofg.Filter = @"Text Files (*.txt)|*.txt";
+            OpenFileDialog ofg = new OpenFileDialog
+            {
+                Filter = @"Text Files (*.txt)|*.txt",
+                Multiselect = true,
+                //InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                Title = @"My Label Browser",
+                RestoreDirectory = true,
+            };
 
             //  Allow the user to select multiple images.
-            ofg.Multiselect = true;
-            ofg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            ofg.Title = @"My Label Browser";
-            DialogResult dr = ofg.ShowDialog();
-            var uploads = new List<string>();
+            var dr = ofg.ShowDialog();
             if (dr == DialogResult.OK)
             {
                 _labelFiles.Clear();
@@ -101,6 +118,17 @@ namespace dental_sys
                 });
                 ImportLabelBtn.Text = $@"Import Label ({_labelFiles.Count})";
 
+                if (_imageFiles.Count != 0)
+                {
+                    foreach (var imageFileModel in _imageFiles)
+                    {
+                        imageFileModel.IsLabel = _labelFiles.Any(w =>
+                            Path.GetFileNameWithoutExtension(w.Path) ==
+                            Path.GetFileNameWithoutExtension(imageFileModel.Path));
+                    }
+
+                    BindingData(_imageFiles);
+                }
             }
         }
 
@@ -123,6 +151,87 @@ namespace dental_sys
                 {
                     Alignment = DataGridViewContentAlignment.MiddleCenter
                 };
+            }
+        }
+
+        private void SetOrderColumn()
+        {
+            if (FileDataGridView?.Columns[FileHeaderConstant.No] != null)
+                FileDataGridView.Columns[FileHeaderConstant.No].DisplayIndex = 0;
+            if (FileDataGridView?.Columns[FileHeaderConstant.Name] != null)
+                FileDataGridView.Columns[FileHeaderConstant.Name].DisplayIndex = 1;
+            if (FileDataGridView?.Columns[FileHeaderConstant.DateModified] != null)
+                FileDataGridView.Columns[FileHeaderConstant.DateModified].DisplayIndex = 2;
+            if (FileDataGridView?.Columns[FileHeaderConstant.Label] != null)
+                FileDataGridView.Columns[FileHeaderConstant.Label].DisplayIndex = 3;
+        }
+
+        private void FileDataGridView_ColumnHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex < 0) return;
+            ICollection<ImageFileModel> imageFiles = null;
+            if (FileDataGridView.Columns[e.ColumnIndex].HeaderText == FileHeaderConstant.Name)
+            {
+                if (_orderDictionary[FileHeaderConstant.Name] == Order.Desc)
+                {
+                    imageFiles = _imageFiles.OrderBy(o => o.NameFile).ToList();
+                    _orderDictionary[FileHeaderConstant.Name] = Order.Asc;
+                }
+                else
+                {
+                    imageFiles = _imageFiles.OrderByDescending(o => o.NameFile).ToList();
+                    _orderDictionary[FileHeaderConstant.Name] = Order.Desc;
+                }
+            }
+
+            if (FileDataGridView.Columns[e.ColumnIndex].HeaderText == FileHeaderConstant.No)
+            {
+                if (_orderDictionary[FileHeaderConstant.No] == Order.Desc)
+                {
+                    imageFiles = _imageFiles.OrderBy(o => int.Parse(o.No)).ToList();
+                    _orderDictionary[FileHeaderConstant.No] = Order.Asc;
+                }
+                else
+                {
+                    imageFiles = _imageFiles.OrderByDescending(o => int.Parse(o.No)).ToList();
+                    _orderDictionary[FileHeaderConstant.No] = Order.Desc;
+                }
+            }
+
+            if (FileDataGridView.Columns[e.ColumnIndex].HeaderText == FileHeaderConstant.DateModified)
+            {
+                if (_orderDictionary[FileHeaderConstant.DateModified] == Order.Desc)
+                {
+                    imageFiles = _imageFiles.OrderBy(o => DateTime.ParseExact(o.UpdatedDate, "dd/MM/yyyy", CultureInfo.InvariantCulture)).ToList();
+                    _orderDictionary[FileHeaderConstant.DateModified] = Order.Asc;
+                }
+                else
+                {
+                    imageFiles = _imageFiles.OrderByDescending(o => DateTime.ParseExact(o.UpdatedDate, "dd/MM/yyyy", CultureInfo.InvariantCulture)).ToList();
+                    _orderDictionary[FileHeaderConstant.DateModified] = Order.Desc;
+                }
+            }
+
+            if (FileDataGridView.Columns[e.ColumnIndex].HeaderText == FileHeaderConstant.Label)
+            {
+                if (_orderDictionary[FileHeaderConstant.Label] == Order.Desc)
+                {
+                    imageFiles = _imageFiles.OrderBy(o => o.IsLabel).ToList();
+                    _orderDictionary[FileHeaderConstant.Label] = Order.Asc;
+                }
+                else
+                {
+                    imageFiles = _imageFiles.OrderByDescending(o => o.IsLabel).ToList();
+                    _orderDictionary[FileHeaderConstant.Label] = Order.Desc;
+                }
+
+            }
+
+            if (imageFiles != null)
+            {
+                _imageFiles.Clear();
+                _imageFiles.AddRange(imageFiles);
+                BindingData(_imageFiles);
             }
 
         }

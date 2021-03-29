@@ -1,19 +1,20 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using dental_sys.Constants;
 
 namespace dental_sys.model
 {
     public class FileModel
     {
 
-        [DisplayName("Name")]
+        [DisplayName(FileHeaderConstant.Name)]
         public string NameFile { get; set; }
         [Browsable(false)]
         public string Path { get; set; }
         [Browsable(false)]
         public string Id { get; set; }
-        [DisplayName("Date modified")]
+        [DisplayName(FileHeaderConstant.DateModified)]
         public string UpdatedDate { get; set; }
 
     }
@@ -24,11 +25,11 @@ namespace dental_sys.model
 
     public class ImageFileModel : FileModel
     {
-        [DisplayName("No")]
+        [DisplayName(FileHeaderConstant.No)]
         public string No { get; set; }
         [Browsable(false)]
         public bool IsLabel { get; set; }
-        [DisplayName("Label")]
+        [DisplayName(FileHeaderConstant.Label)]
         public Bitmap Label => IsLabel ? Properties.Resources._checked : Properties.Resources.uncheck;
     }
 

@@ -14,5 +14,12 @@ namespace dental_sys.Constants
         public const string Id = "Id";
         public const string Path = "Path";
         public const string DateModified = "Date modified";
+        public const string Label = "Label";
+    }
+
+    public class Order
+    {
+        public const string Asc = "Asc";
+        public const string Desc = "Desc";
     }
 }

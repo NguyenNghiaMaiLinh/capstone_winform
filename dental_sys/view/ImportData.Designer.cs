@@ -36,6 +36,7 @@ namespace dental_sys
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.PicturePanel = new dental_sys.Controls.PicturePanel();
             this.BottomTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.NextBtn = new Guna.UI2.WinForms.Guna2Button();
             this.PreviousBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -44,7 +45,6 @@ namespace dental_sys
             this.ImportDataBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SendBtn = new Guna.UI2.WinForms.Guna2Button();
             this.FileDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.PicturePanel = new dental_sys.Controls.PicturePanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -72,6 +72,16 @@ namespace dental_sys
             this.splitContainer.Size = new System.Drawing.Size(1560, 935);
             this.splitContainer.SplitterDistance = 1086;
             this.splitContainer.TabIndex = 1;
+            // 
+            // PicturePanel
+            // 
+            this.PicturePanel.AutoScroll = true;
+            this.PicturePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PicturePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PicturePanel.Location = new System.Drawing.Point(0, 46);
+            this.PicturePanel.Name = "PicturePanel";
+            this.PicturePanel.Size = new System.Drawing.Size(1086, 816);
+            this.PicturePanel.TabIndex = 80;
             // 
             // BottomTableLayoutPanel
             // 
@@ -307,16 +317,7 @@ namespace dental_sys
             this.FileDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.FileDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.FileDataGridView_CellClick);
             this.FileDataGridView.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.FileDataGridView_ColumnAdded);
-            // 
-            // PicturePanel
-            // 
-            this.PicturePanel.AutoScroll = true;
-            this.PicturePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.PicturePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PicturePanel.Location = new System.Drawing.Point(0, 46);
-            this.PicturePanel.Name = "PicturePanel";
-            this.PicturePanel.Size = new System.Drawing.Size(1086, 816);
-            this.PicturePanel.TabIndex = 80;
+            this.FileDataGridView.ColumnHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.FileDataGridView_ColumnHeaderMouseDoubleClick);
             // 
             // ImportData
             // 
