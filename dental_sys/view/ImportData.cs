@@ -112,12 +112,60 @@ namespace dental_sys
         {
             if (FileDataGridView.CurrentRow?.DataBoundItem is ImageFileModel currentFile)
             {
-                PicturePanel.BackgroundImage = Image.FromFile(currentFile.Path);
+                var currentImage = Image.FromFile(currentFile.Path);
+
+                var fileName = Path.GetFileNameWithoutExtension(currentFile.Path);
+
+                var label = _labelFiles.FirstOrDefault(w => Path.GetFileNameWithoutExtension(w.Path) == fileName);
+                if (label != null)
+                {
+                    var widthImage = currentImage.Width;
+                    var heightImage = currentImage.Height;
+                    Graphics g = Graphics.FromImage(currentImage);
+                    Pen p = new Pen(Color.Black);
+
+                    var listBoundingBox = GetBoundingBoxes(label.Path, widthImage, heightImage);
+
+                    foreach (var boundingBox in listBoundingBox)
+                    {
+                        SolidBrush sb = new SolidBrush(Color.Red);
+                        g.DrawRectangle(p, boundingBox.X, boundingBox.Y, boundingBox.Width, boundingBox.Height);
+                        //g.FillRectangle(sb, boundingBox.X, boundingBox.Y, boundingBox.Width, boundingBox.Height);
+                    }
+
+                }
+                PicturePanel.BackgroundImage = currentImage;
+
             }
 
+            //g.FillRectangle(sb, x - 50, y - 50, 100, 100);
             //PictureBox.Image = Image.FromFile(path);
             //PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
         }
+
+        private ICollection<BoundingBox> GetBoundingBoxes(string labelPath, int widthImage, int heightImage)
+        {
+            string[] lines = File.ReadAllLines(labelPath);
+            var listBoundingBox = new List<BoundingBox>();
+            foreach (var line in lines)
+            {
+                var item = line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                var boundingBox = new BoundingBox()
+                {
+                    X = float.Parse(item[1]) * widthImage,
+                    Y = float.Parse(item[2]) * heightImage,
+                    Width = float.Parse(item[3]) * widthImage,
+                    Height = float.Parse(item[4]) * heightImage,
+
+                };
+                boundingBox.X = boundingBox.X - boundingBox.Width / 2;
+                boundingBox.Y = boundingBox.Y - boundingBox.Height / 2;
+                listBoundingBox.Add(boundingBox);
+            }
+
+            return listBoundingBox;
+        }
+
 
         private void FileDataGridView_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
         {
@@ -244,7 +292,6 @@ namespace dental_sys
         {
             using (var fbd = new CommonOpenFileDialog())
             {
-
                 fbd.RestoreDirectory = true;
                 fbd.IsFolderPicker = true;
                 fbd.Title = @"My Data Browser";
@@ -321,9 +368,22 @@ namespace dental_sys
                     _labelFiles.Clear();
 
                     ImportLabelFileData(files);
+
+                    if (_imageFiles.Count != 0)
+                    {
+                        foreach (var imageFileModel in _imageFiles)
+                        {
+                            imageFileModel.IsLabel = _labelFiles.Any(w =>
+                                Path.GetFileNameWithoutExtension(w.Path) ==
+                                Path.GetFileNameWithoutExtension(imageFileModel.Path));
+                        }
+
+                        BindingData(_imageFiles);
+                    }
                 }
             }
         }
+
     }
 
 }
