@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace dental_sys.Control
+namespace dental_sys.Controls
 {
     public sealed class PicturePanel : Panel
     {

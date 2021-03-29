@@ -262,7 +262,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Control\PicturePanel.cs">
+    <Compile Include="Constants\FileHeaderConstant.cs" />
+    <Compile Include="Controls\PicturePanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Item.cs">
