@@ -14,9 +14,9 @@ namespace dental_sys
         CustomerService customerRepository = new CustomerService();
         public Loading()
         {
-            //_ = Task.Run(() => { data = customerRepository.getAllCustomers(1, 20, null); });
+            _ = Task.Run(() => { data = customerRepository.getAllCustomers(1, 20, null); });
             InitializeComponent();
-            
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
