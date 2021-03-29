@@ -30,6 +30,8 @@ namespace dental_sys
             _imageFiles = new List<ImageFileModel>();
             InitializeComponent();
             SetBorderAndGridlineStyles();
+            ImageNumber.Text = "0";
+            LabelNumber.Text = "0";
         }
 
         private void ImportDataBtn_Click(object sender, EventArgs e)
@@ -278,7 +280,8 @@ namespace dental_sys
                 _imageFiles.Add(fileModel);
                 //listData.Add(file);
             });
-            ImportDataBtn.Text = $@"Import Data ({_imageFiles.Count})";
+            ImageNumber.Text = _imageFiles.Count.ToString();
+            //ImportDataBtn.Text = $@"Import Data ({_imageFiles.Count})";
 
             BindingData(_imageFiles);
         }
@@ -297,7 +300,8 @@ namespace dental_sys
                 //listData.Add(file);
                 _labelFiles.Add(fileModel);
             });
-            ImportLabelBtn.Text = $@"Import Label ({_labelFiles.Count})";
+            LabelNumber.Text = _labelFiles.Count.ToString();
+            //ImportLabelBtn.Text = $@"Import Label ({_labelFiles.Count})";
         }
 
         private void ImportLabelDirBtn_Click(object sender, EventArgs e)

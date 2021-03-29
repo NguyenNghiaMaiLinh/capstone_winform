@@ -31,29 +31,39 @@ namespace dental_sys
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImportData));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.BottomTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.NextBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.PreviousBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.TopTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.ImportLabelDirBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.ImportDirBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ImportLabelBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ImportDataBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SendBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.FileDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.ImportDirBtn = new Guna.UI2.WinForms.Guna2Button();
             this.PicturePanel = new dental_sys.Controls.PicturePanel();
-            this.ImportLabelDirBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.BottomTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.NextBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.PreviousBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.FileDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.ImageNumber = new System.Windows.Forms.Label();
+            this.ImageText = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.LabelNumber = new System.Windows.Forms.Label();
+            this.LabelText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
-            this.BottomTableLayoutPanel.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
             this.TopTableLayoutPanel.SuspendLayout();
+            this.BottomTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FileDataGridView)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer
@@ -64,9 +74,9 @@ namespace dental_sys
             // 
             // splitContainer.Panel1
             // 
+            this.splitContainer.Panel1.Controls.Add(this.guna2Panel1);
             this.splitContainer.Panel1.Controls.Add(this.PicturePanel);
             this.splitContainer.Panel1.Controls.Add(this.BottomTableLayoutPanel);
-            this.splitContainer.Panel1.Controls.Add(this.TopTableLayoutPanel);
             // 
             // splitContainer.Panel2
             // 
@@ -74,6 +84,182 @@ namespace dental_sys
             this.splitContainer.Size = new System.Drawing.Size(1560, 935);
             this.splitContainer.SplitterDistance = 1086;
             this.splitContainer.TabIndex = 1;
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.Controls.Add(this.tableLayoutPanel2);
+            this.guna2Panel1.Controls.Add(this.tableLayoutPanel1);
+            this.guna2Panel1.Controls.Add(this.TopTableLayoutPanel);
+            this.guna2Panel1.CustomBorderColor = System.Drawing.Color.Silver;
+            this.guna2Panel1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
+            this.guna2Panel1.Size = new System.Drawing.Size(1086, 104);
+            this.guna2Panel1.TabIndex = 81;
+            // 
+            // TopTableLayoutPanel
+            // 
+            this.TopTableLayoutPanel.ColumnCount = 5;
+            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.TopTableLayoutPanel.Controls.Add(this.ImportLabelDirBtn, 2, 0);
+            this.TopTableLayoutPanel.Controls.Add(this.ImportDirBtn, 3, 0);
+            this.TopTableLayoutPanel.Controls.Add(this.ImportLabelBtn, 0, 0);
+            this.TopTableLayoutPanel.Controls.Add(this.ImportDataBtn, 1, 0);
+            this.TopTableLayoutPanel.Controls.Add(this.SendBtn, 4, 0);
+            this.TopTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.TopTableLayoutPanel.Location = new System.Drawing.Point(0, 58);
+            this.TopTableLayoutPanel.Name = "TopTableLayoutPanel";
+            this.TopTableLayoutPanel.RowCount = 1;
+            this.TopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.TopTableLayoutPanel.Size = new System.Drawing.Size(1086, 46);
+            this.TopTableLayoutPanel.TabIndex = 1;
+            // 
+            // ImportLabelDirBtn
+            // 
+            this.ImportLabelDirBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ImportLabelDirBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ImportLabelDirBtn.BorderThickness = 1;
+            this.ImportLabelDirBtn.CheckedState.Parent = this.ImportLabelDirBtn;
+            this.ImportLabelDirBtn.CustomImages.Parent = this.ImportLabelDirBtn;
+            this.ImportLabelDirBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ImportLabelDirBtn.FillColor = System.Drawing.Color.Transparent;
+            this.ImportLabelDirBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImportLabelDirBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ImportLabelDirBtn.HoverState.Parent = this.ImportLabelDirBtn;
+            this.ImportLabelDirBtn.Image = ((System.Drawing.Image)(resources.GetObject("ImportLabelDirBtn.Image")));
+            this.ImportLabelDirBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ImportLabelDirBtn.ImageOffset = new System.Drawing.Point(3, 0);
+            this.ImportLabelDirBtn.ImageSize = new System.Drawing.Size(12, 12);
+            this.ImportLabelDirBtn.Location = new System.Drawing.Point(437, 3);
+            this.ImportLabelDirBtn.Name = "ImportLabelDirBtn";
+            this.ImportLabelDirBtn.ShadowDecoration.Parent = this.ImportLabelDirBtn;
+            this.ImportLabelDirBtn.Size = new System.Drawing.Size(211, 40);
+            this.ImportLabelDirBtn.TabIndex = 85;
+            this.ImportLabelDirBtn.Text = "Label Dir";
+            this.ImportLabelDirBtn.TextOffset = new System.Drawing.Point(1, 2);
+            this.ImportLabelDirBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.ImportLabelDirBtn.Click += new System.EventHandler(this.ImportLabelDirBtn_Click);
+            // 
+            // ImportDirBtn
+            // 
+            this.ImportDirBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ImportDirBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ImportDirBtn.BorderThickness = 1;
+            this.ImportDirBtn.CheckedState.Parent = this.ImportDirBtn;
+            this.ImportDirBtn.CustomImages.Parent = this.ImportDirBtn;
+            this.ImportDirBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ImportDirBtn.FillColor = System.Drawing.Color.Transparent;
+            this.ImportDirBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImportDirBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ImportDirBtn.HoverState.Parent = this.ImportDirBtn;
+            this.ImportDirBtn.Image = ((System.Drawing.Image)(resources.GetObject("ImportDirBtn.Image")));
+            this.ImportDirBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ImportDirBtn.ImageOffset = new System.Drawing.Point(3, 0);
+            this.ImportDirBtn.ImageSize = new System.Drawing.Size(12, 12);
+            this.ImportDirBtn.Location = new System.Drawing.Point(654, 3);
+            this.ImportDirBtn.Name = "ImportDirBtn";
+            this.ImportDirBtn.ShadowDecoration.Parent = this.ImportDirBtn;
+            this.ImportDirBtn.Size = new System.Drawing.Size(211, 40);
+            this.ImportDirBtn.TabIndex = 84;
+            this.ImportDirBtn.Text = "Image Dir";
+            this.ImportDirBtn.TextOffset = new System.Drawing.Point(1, 2);
+            this.ImportDirBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.ImportDirBtn.Click += new System.EventHandler(this.ImportDirBtn_Click);
+            // 
+            // ImportLabelBtn
+            // 
+            this.ImportLabelBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ImportLabelBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ImportLabelBtn.BorderThickness = 1;
+            this.ImportLabelBtn.CheckedState.Parent = this.ImportLabelBtn;
+            this.ImportLabelBtn.CustomImages.Parent = this.ImportLabelBtn;
+            this.ImportLabelBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ImportLabelBtn.FillColor = System.Drawing.Color.Transparent;
+            this.ImportLabelBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImportLabelBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ImportLabelBtn.HoverState.Parent = this.ImportLabelBtn;
+            this.ImportLabelBtn.Image = ((System.Drawing.Image)(resources.GetObject("ImportLabelBtn.Image")));
+            this.ImportLabelBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ImportLabelBtn.ImageOffset = new System.Drawing.Point(3, 0);
+            this.ImportLabelBtn.ImageSize = new System.Drawing.Size(12, 12);
+            this.ImportLabelBtn.Location = new System.Drawing.Point(3, 3);
+            this.ImportLabelBtn.Name = "ImportLabelBtn";
+            this.ImportLabelBtn.ShadowDecoration.Parent = this.ImportLabelBtn;
+            this.ImportLabelBtn.Size = new System.Drawing.Size(211, 40);
+            this.ImportLabelBtn.TabIndex = 80;
+            this.ImportLabelBtn.Text = "Label";
+            this.ImportLabelBtn.TextOffset = new System.Drawing.Point(1, 2);
+            this.ImportLabelBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.ImportLabelBtn.Click += new System.EventHandler(this.ImportLabelBtn_Click);
+            // 
+            // ImportDataBtn
+            // 
+            this.ImportDataBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ImportDataBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ImportDataBtn.BorderThickness = 1;
+            this.ImportDataBtn.CheckedState.Parent = this.ImportDataBtn;
+            this.ImportDataBtn.CustomImages.Parent = this.ImportDataBtn;
+            this.ImportDataBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ImportDataBtn.FillColor = System.Drawing.Color.Transparent;
+            this.ImportDataBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImportDataBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ImportDataBtn.HoverState.Parent = this.ImportDataBtn;
+            this.ImportDataBtn.Image = ((System.Drawing.Image)(resources.GetObject("ImportDataBtn.Image")));
+            this.ImportDataBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ImportDataBtn.ImageOffset = new System.Drawing.Point(3, 0);
+            this.ImportDataBtn.ImageSize = new System.Drawing.Size(12, 12);
+            this.ImportDataBtn.Location = new System.Drawing.Point(220, 3);
+            this.ImportDataBtn.Name = "ImportDataBtn";
+            this.ImportDataBtn.ShadowDecoration.Parent = this.ImportDataBtn;
+            this.ImportDataBtn.Size = new System.Drawing.Size(211, 40);
+            this.ImportDataBtn.TabIndex = 82;
+            this.ImportDataBtn.Text = "Image";
+            this.ImportDataBtn.TextOffset = new System.Drawing.Point(1, 2);
+            this.ImportDataBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.ImportDataBtn.Click += new System.EventHandler(this.ImportDataBtn_Click);
+            // 
+            // SendBtn
+            // 
+            this.SendBtn.BackColor = System.Drawing.Color.Transparent;
+            this.SendBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.SendBtn.BorderThickness = 1;
+            this.SendBtn.CheckedState.Parent = this.SendBtn;
+            this.SendBtn.CustomImages.Parent = this.SendBtn;
+            this.SendBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SendBtn.FillColor = System.Drawing.Color.Transparent;
+            this.SendBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SendBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.SendBtn.HoverState.Parent = this.SendBtn;
+            this.SendBtn.Image = global::dental_sys.Properties.Resources.send;
+            this.SendBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.SendBtn.ImageOffset = new System.Drawing.Point(3, 0);
+            this.SendBtn.ImageSize = new System.Drawing.Size(12, 12);
+            this.SendBtn.Location = new System.Drawing.Point(871, 3);
+            this.SendBtn.Name = "SendBtn";
+            this.SendBtn.ShadowDecoration.Parent = this.SendBtn;
+            this.SendBtn.Size = new System.Drawing.Size(212, 40);
+            this.SendBtn.TabIndex = 83;
+            this.SendBtn.Text = "Send";
+            this.SendBtn.TextOffset = new System.Drawing.Point(1, 2);
+            this.SendBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            // 
+            // PicturePanel
+            // 
+            this.PicturePanel.AutoScroll = true;
+            this.PicturePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PicturePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PicturePanel.Location = new System.Drawing.Point(0, 0);
+            this.PicturePanel.Name = "PicturePanel";
+            this.PicturePanel.Size = new System.Drawing.Size(1086, 862);
+            this.PicturePanel.TabIndex = 80;
             // 
             // BottomTableLayoutPanel
             // 
@@ -144,131 +330,33 @@ namespace dental_sys
             this.PreviousBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
             this.PreviousBtn.Click += new System.EventHandler(this.PreviousBtn_Click);
             // 
-            // TopTableLayoutPanel
-            // 
-            this.TopTableLayoutPanel.ColumnCount = 5;
-            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.TopTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.TopTableLayoutPanel.Controls.Add(this.ImportLabelDirBtn, 2, 0);
-            this.TopTableLayoutPanel.Controls.Add(this.ImportDirBtn, 3, 0);
-            this.TopTableLayoutPanel.Controls.Add(this.ImportLabelBtn, 0, 0);
-            this.TopTableLayoutPanel.Controls.Add(this.ImportDataBtn, 1, 0);
-            this.TopTableLayoutPanel.Controls.Add(this.SendBtn, 4, 0);
-            this.TopTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TopTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.TopTableLayoutPanel.Name = "TopTableLayoutPanel";
-            this.TopTableLayoutPanel.RowCount = 1;
-            this.TopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TopTableLayoutPanel.Size = new System.Drawing.Size(1086, 46);
-            this.TopTableLayoutPanel.TabIndex = 1;
-            // 
-            // ImportLabelBtn
-            // 
-            this.ImportLabelBtn.BackColor = System.Drawing.Color.Transparent;
-            this.ImportLabelBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ImportLabelBtn.BorderThickness = 1;
-            this.ImportLabelBtn.CheckedState.Parent = this.ImportLabelBtn;
-            this.ImportLabelBtn.CustomImages.Parent = this.ImportLabelBtn;
-            this.ImportLabelBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ImportLabelBtn.FillColor = System.Drawing.Color.Transparent;
-            this.ImportLabelBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImportLabelBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ImportLabelBtn.HoverState.Parent = this.ImportLabelBtn;
-            this.ImportLabelBtn.Image = ((System.Drawing.Image)(resources.GetObject("ImportLabelBtn.Image")));
-            this.ImportLabelBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ImportLabelBtn.ImageOffset = new System.Drawing.Point(3, 0);
-            this.ImportLabelBtn.ImageSize = new System.Drawing.Size(12, 12);
-            this.ImportLabelBtn.Location = new System.Drawing.Point(3, 3);
-            this.ImportLabelBtn.Name = "ImportLabelBtn";
-            this.ImportLabelBtn.ShadowDecoration.Parent = this.ImportLabelBtn;
-            this.ImportLabelBtn.Size = new System.Drawing.Size(211, 40);
-            this.ImportLabelBtn.TabIndex = 80;
-            this.ImportLabelBtn.Text = "Import Label";
-            this.ImportLabelBtn.TextOffset = new System.Drawing.Point(1, 2);
-            this.ImportLabelBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            this.ImportLabelBtn.Click += new System.EventHandler(this.ImportLabelBtn_Click);
-            // 
-            // ImportDataBtn
-            // 
-            this.ImportDataBtn.BackColor = System.Drawing.Color.Transparent;
-            this.ImportDataBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ImportDataBtn.BorderThickness = 1;
-            this.ImportDataBtn.CheckedState.Parent = this.ImportDataBtn;
-            this.ImportDataBtn.CustomImages.Parent = this.ImportDataBtn;
-            this.ImportDataBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ImportDataBtn.FillColor = System.Drawing.Color.Transparent;
-            this.ImportDataBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImportDataBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ImportDataBtn.HoverState.Parent = this.ImportDataBtn;
-            this.ImportDataBtn.Image = ((System.Drawing.Image)(resources.GetObject("ImportDataBtn.Image")));
-            this.ImportDataBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ImportDataBtn.ImageOffset = new System.Drawing.Point(3, 0);
-            this.ImportDataBtn.ImageSize = new System.Drawing.Size(12, 12);
-            this.ImportDataBtn.Location = new System.Drawing.Point(220, 3);
-            this.ImportDataBtn.Name = "ImportDataBtn";
-            this.ImportDataBtn.ShadowDecoration.Parent = this.ImportDataBtn;
-            this.ImportDataBtn.Size = new System.Drawing.Size(211, 40);
-            this.ImportDataBtn.TabIndex = 82;
-            this.ImportDataBtn.Text = "Import File";
-            this.ImportDataBtn.TextOffset = new System.Drawing.Point(1, 2);
-            this.ImportDataBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            this.ImportDataBtn.Click += new System.EventHandler(this.ImportDataBtn_Click);
-            // 
-            // SendBtn
-            // 
-            this.SendBtn.BackColor = System.Drawing.Color.Transparent;
-            this.SendBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.SendBtn.BorderThickness = 1;
-            this.SendBtn.CheckedState.Parent = this.SendBtn;
-            this.SendBtn.CustomImages.Parent = this.SendBtn;
-            this.SendBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SendBtn.FillColor = System.Drawing.Color.Transparent;
-            this.SendBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SendBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.SendBtn.HoverState.Parent = this.SendBtn;
-            this.SendBtn.Image = global::dental_sys.Properties.Resources.send;
-            this.SendBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.SendBtn.ImageOffset = new System.Drawing.Point(3, 0);
-            this.SendBtn.ImageSize = new System.Drawing.Size(12, 12);
-            this.SendBtn.Location = new System.Drawing.Point(871, 3);
-            this.SendBtn.Name = "SendBtn";
-            this.SendBtn.ShadowDecoration.Parent = this.SendBtn;
-            this.SendBtn.Size = new System.Drawing.Size(212, 40);
-            this.SendBtn.TabIndex = 83;
-            this.SendBtn.Text = "Send";
-            this.SendBtn.TextOffset = new System.Drawing.Point(1, 2);
-            this.SendBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            // 
             // FileDataGridView
             // 
             this.FileDataGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.FileDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            this.FileDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.FileDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.FileDataGridView.BackgroundColor = System.Drawing.Color.LightGray;
             this.FileDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.FileDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.FileDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FileDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 8F);
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FileDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.FileDataGridView.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.FileDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.FileDataGridView.DefaultCellStyle = dataGridViewCellStyle23;
             this.FileDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FileDataGridView.EnableHeadersVisualStyles = false;
             this.FileDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
@@ -276,14 +364,14 @@ namespace dental_sys
             this.FileDataGridView.MultiSelect = false;
             this.FileDataGridView.Name = "FileDataGridView";
             this.FileDataGridView.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FileDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FileDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.FileDataGridView.RowHeadersVisible = false;
             this.FileDataGridView.RowTemplate.DividerHeight = 5;
             this.FileDataGridView.RowTemplate.Height = 40;
@@ -317,67 +405,85 @@ namespace dental_sys
             this.FileDataGridView.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.FileDataGridView_ColumnAdded);
             this.FileDataGridView.ColumnHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.FileDataGridView_ColumnHeaderMouseDoubleClick);
             // 
-            // ImportDirBtn
+            // tableLayoutPanel1
             // 
-            this.ImportDirBtn.BackColor = System.Drawing.Color.Transparent;
-            this.ImportDirBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ImportDirBtn.BorderThickness = 1;
-            this.ImportDirBtn.CheckedState.Parent = this.ImportDirBtn;
-            this.ImportDirBtn.CustomImages.Parent = this.ImportDirBtn;
-            this.ImportDirBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ImportDirBtn.FillColor = System.Drawing.Color.Transparent;
-            this.ImportDirBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImportDirBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ImportDirBtn.HoverState.Parent = this.ImportDirBtn;
-            this.ImportDirBtn.Image = ((System.Drawing.Image)(resources.GetObject("ImportDirBtn.Image")));
-            this.ImportDirBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ImportDirBtn.ImageOffset = new System.Drawing.Point(3, 0);
-            this.ImportDirBtn.ImageSize = new System.Drawing.Size(12, 12);
-            this.ImportDirBtn.Location = new System.Drawing.Point(654, 3);
-            this.ImportDirBtn.Name = "ImportDirBtn";
-            this.ImportDirBtn.ShadowDecoration.Parent = this.ImportDirBtn;
-            this.ImportDirBtn.Size = new System.Drawing.Size(211, 40);
-            this.ImportDirBtn.TabIndex = 84;
-            this.ImportDirBtn.Text = "Import Dir";
-            this.ImportDirBtn.TextOffset = new System.Drawing.Point(1, 2);
-            this.ImportDirBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            this.ImportDirBtn.Click += new System.EventHandler(this.ImportDirBtn_Click);
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.ImageText, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ImageNumber, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(173, 38);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // PicturePanel
+            // ImageNumber
             // 
-            this.PicturePanel.AutoScroll = true;
-            this.PicturePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.PicturePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PicturePanel.Location = new System.Drawing.Point(0, 46);
-            this.PicturePanel.Name = "PicturePanel";
-            this.PicturePanel.Size = new System.Drawing.Size(1086, 816);
-            this.PicturePanel.TabIndex = 80;
+            this.ImageNumber.AutoSize = true;
+            this.ImageNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ImageNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.ImageNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.ImageNumber.Location = new System.Drawing.Point(3, 0);
+            this.ImageNumber.Name = "ImageNumber";
+            this.ImageNumber.Size = new System.Drawing.Size(80, 38);
+            this.ImageNumber.TabIndex = 1;
+            this.ImageNumber.Text = "76";
+            this.ImageNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ImportLabelDirBtn
+            // ImageText
             // 
-            this.ImportLabelDirBtn.BackColor = System.Drawing.Color.Transparent;
-            this.ImportLabelDirBtn.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ImportLabelDirBtn.BorderThickness = 1;
-            this.ImportLabelDirBtn.CheckedState.Parent = this.ImportLabelDirBtn;
-            this.ImportLabelDirBtn.CustomImages.Parent = this.ImportLabelDirBtn;
-            this.ImportLabelDirBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ImportLabelDirBtn.FillColor = System.Drawing.Color.Transparent;
-            this.ImportLabelDirBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImportLabelDirBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ImportLabelDirBtn.HoverState.Parent = this.ImportLabelDirBtn;
-            this.ImportLabelDirBtn.Image = ((System.Drawing.Image)(resources.GetObject("ImportLabelDirBtn.Image")));
-            this.ImportLabelDirBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ImportLabelDirBtn.ImageOffset = new System.Drawing.Point(3, 0);
-            this.ImportLabelDirBtn.ImageSize = new System.Drawing.Size(12, 12);
-            this.ImportLabelDirBtn.Location = new System.Drawing.Point(437, 3);
-            this.ImportLabelDirBtn.Name = "ImportLabelDirBtn";
-            this.ImportLabelDirBtn.ShadowDecoration.Parent = this.ImportLabelDirBtn;
-            this.ImportLabelDirBtn.Size = new System.Drawing.Size(211, 40);
-            this.ImportLabelDirBtn.TabIndex = 85;
-            this.ImportLabelDirBtn.Text = "Import Label Dir";
-            this.ImportLabelDirBtn.TextOffset = new System.Drawing.Point(1, 2);
-            this.ImportLabelDirBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            this.ImportLabelDirBtn.Click += new System.EventHandler(this.ImportLabelDirBtn_Click);
+            this.ImageText.AutoSize = true;
+            this.ImageText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ImageText.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
+            this.ImageText.Location = new System.Drawing.Point(89, 0);
+            this.ImageText.Name = "ImageText";
+            this.ImageText.Size = new System.Drawing.Size(81, 38);
+            this.ImageText.TabIndex = 2;
+            this.ImageText.Text = "Images";
+            this.ImageText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.LabelText, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.LabelNumber, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(220, 12);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(186, 38);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // LabelNumber
+            // 
+            this.LabelNumber.AutoSize = true;
+            this.LabelNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LabelNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.LabelNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.LabelNumber.Location = new System.Drawing.Point(3, 0);
+            this.LabelNumber.Name = "LabelNumber";
+            this.LabelNumber.Size = new System.Drawing.Size(87, 38);
+            this.LabelNumber.TabIndex = 3;
+            this.LabelNumber.Text = "76";
+            this.LabelNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabelText
+            // 
+            this.LabelText.AutoSize = true;
+            this.LabelText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LabelText.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
+            this.LabelText.Location = new System.Drawing.Point(96, 0);
+            this.LabelText.Name = "LabelText";
+            this.LabelText.Size = new System.Drawing.Size(87, 38);
+            this.LabelText.TabIndex = 4;
+            this.LabelText.Text = "Label";
+            this.LabelText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ImportData
             // 
@@ -394,9 +500,14 @@ namespace dental_sys
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
-            this.BottomTableLayoutPanel.ResumeLayout(false);
+            this.guna2Panel1.ResumeLayout(false);
             this.TopTableLayoutPanel.ResumeLayout(false);
+            this.BottomTableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FileDataGridView)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -414,5 +525,12 @@ namespace dental_sys
         private Guna.UI2.WinForms.Guna2Button PreviousBtn;
         private Guna.UI2.WinForms.Guna2Button ImportDirBtn;
         private Guna.UI2.WinForms.Guna2Button ImportLabelDirBtn;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label LabelText;
+        private System.Windows.Forms.Label LabelNumber;
+        private System.Windows.Forms.Label ImageText;
+        private System.Windows.Forms.Label ImageNumber;
     }
 }
