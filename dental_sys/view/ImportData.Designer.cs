@@ -36,7 +36,6 @@ namespace dental_sys
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.PicturePanel = new dental_sys.Controls.PicturePanel();
             this.BottomTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.NextBtn = new Guna.UI2.WinForms.Guna2Button();
             this.PreviousBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -45,6 +44,7 @@ namespace dental_sys
             this.ImportDataBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SendBtn = new Guna.UI2.WinForms.Guna2Button();
             this.FileDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.PicturePanel = new dental_sys.Controls.PicturePanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -72,16 +72,6 @@ namespace dental_sys
             this.splitContainer.Size = new System.Drawing.Size(1560, 935);
             this.splitContainer.SplitterDistance = 1086;
             this.splitContainer.TabIndex = 1;
-            // 
-            // PicturePanel
-            // 
-            this.PicturePanel.AutoScroll = true;
-            this.PicturePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.PicturePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PicturePanel.Location = new System.Drawing.Point(0, 46);
-            this.PicturePanel.Name = "PicturePanel";
-            this.PicturePanel.Size = new System.Drawing.Size(1086, 816);
-            this.PicturePanel.TabIndex = 80;
             // 
             // BottomTableLayoutPanel
             // 
@@ -124,6 +114,7 @@ namespace dental_sys
             this.NextBtn.Text = "Next";
             this.NextBtn.TextOffset = new System.Drawing.Point(1, 2);
             this.NextBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.NextBtn.Click += new System.EventHandler(this.NextBtn_Click);
             // 
             // PreviousBtn
             // 
@@ -149,6 +140,7 @@ namespace dental_sys
             this.PreviousBtn.Text = "Previous";
             this.PreviousBtn.TextOffset = new System.Drawing.Point(1, 2);
             this.PreviousBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.PreviousBtn.Click += new System.EventHandler(this.PreviousBtn_Click);
             // 
             // TopTableLayoutPanel
             // 
@@ -276,6 +268,7 @@ namespace dental_sys
             this.FileDataGridView.EnableHeadersVisualStyles = false;
             this.FileDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.FileDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.FileDataGridView.MultiSelect = false;
             this.FileDataGridView.Name = "FileDataGridView";
             this.FileDataGridView.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -318,6 +311,16 @@ namespace dental_sys
             this.FileDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.FileDataGridView_CellClick);
             this.FileDataGridView.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.FileDataGridView_ColumnAdded);
             this.FileDataGridView.ColumnHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.FileDataGridView_ColumnHeaderMouseDoubleClick);
+            // 
+            // PicturePanel
+            // 
+            this.PicturePanel.AutoScroll = true;
+            this.PicturePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PicturePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PicturePanel.Location = new System.Drawing.Point(0, 46);
+            this.PicturePanel.Name = "PicturePanel";
+            this.PicturePanel.Size = new System.Drawing.Size(1086, 816);
+            this.PicturePanel.TabIndex = 80;
             // 
             // ImportData
             // 

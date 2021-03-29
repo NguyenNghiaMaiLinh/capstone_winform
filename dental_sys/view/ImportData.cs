@@ -28,6 +28,7 @@ namespace dental_sys
             _labelFiles = new List<LabelFileModel>();
             _imageFiles = new List<ImageFileModel>();
             InitializeComponent();
+            SetBorderAndGridlineStyles();
         }
 
         private void ImportDataBtn_Click(object sender, EventArgs e)
@@ -234,6 +235,34 @@ namespace dental_sys
                 BindingData(_imageFiles);
             }
 
+        }
+
+        private void NextBtn_Click(object sender, EventArgs e)
+        {
+            var currentRow = FileDataGridView.CurrentCell.RowIndex;
+            if (currentRow >= 0)
+            {
+                FileDataGridView.CurrentCell = FileDataGridView.Rows[currentRow + 1].Cells[0];
+                PicturePanel.BackgroundImage = Image.FromFile(_imageFiles[currentRow + 1].Path);
+            }
+        }
+
+        private void PreviousBtn_Click(object sender, EventArgs e)
+        {
+            var currentRow = FileDataGridView.CurrentCell.RowIndex;
+            if (currentRow >= 1)
+            {
+                FileDataGridView.CurrentCell = FileDataGridView.Rows[currentRow - 1].Cells[0];
+                PicturePanel.BackgroundImage = Image.FromFile(_imageFiles[currentRow - 1].Path);
+            }
+        }
+        private void SetBorderAndGridlineStyles()
+        {
+            this.FileDataGridView.GridColor = Color.Black;
+            this.FileDataGridView.BorderStyle = BorderStyle.Fixed3D;
+            this.FileDataGridView.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            this.FileDataGridView.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            this.FileDataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
         }
     }
 
