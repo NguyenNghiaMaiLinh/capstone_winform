@@ -6,16 +6,19 @@ namespace dental_sys.Controls
 {
     public sealed class PicturePanel : Panel
     {
-        private bool drag;
-        private float ScaleFactor = 1;
-        private Point basePoint;
+        public bool Drag { get; set; }
+        private float _scaleFactor = 1;
+        private Point _basePoint;
         private int x, y;
-
+        public bool CtrlKeyDown { get; set; }
+        private bool _leftClick;
         public PicturePanel()
         {
-            this.DoubleBuffered = true;
-            this.AutoScroll = true;
-            this.BackgroundImageLayout = ImageLayout.Center;
+            CtrlKeyDown = false;
+            _leftClick = false;
+            DoubleBuffered = true;
+            AutoScroll = true;
+            BackgroundImageLayout = ImageLayout.Center;
         }
         public override Image BackgroundImage
         {
@@ -24,10 +27,34 @@ namespace dental_sys.Controls
             {
                 base.BackgroundImage = value;
                 if (value != null) this.AutoScrollMinSize = value.Size;
-                this.ZoomExtents();
-                this.LimitBasePoint(basePoint.X, basePoint.Y);
-                this.Invalidate();
+                //ZoomExtents();
+                //LimitBasePoint(_basePoint.X, _basePoint.Y);
+                //Invalidate();
             }
+        }
+
+
+        protected override void OnMouseWheel(MouseEventArgs e)
+        {
+            bool IsGoUp = e.Delta > 0 ? true : false;
+
+            if (CtrlKeyDown)
+
+            {
+                if (IsGoUp)
+
+                {
+
+                    this.ZoomIn();
+                }
+                else
+                {
+                    this.ZoomOut();
+                }
+
+            }
+
+            base.OnMouseDown(e);
         }
 
         /// <summary>
@@ -38,17 +65,13 @@ namespace dental_sys.Controls
             switch (e.Button)
             {
                 case MouseButtons.Left:
-                    this.ZoomIn();
-                    break;
+                    _leftClick = true;
+                    if (Drag)
+                    {
+                        x = e.X;
+                        y = e.Y;
+                    }
 
-                case MouseButtons.Middle:
-                    this.drag = true;
-                    x = e.X;
-                    y = e.Y;
-                    break;
-
-                case MouseButtons.Right:
-                    this.ZoomOut();
                     break;
             }
 
@@ -60,8 +83,18 @@ namespace dental_sys.Controls
         /// </summary>
         protected override void OnMouseUp(MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Middle)
-                drag = false;
+            switch (e.Button)
+            {
+                case MouseButtons.Left:
+                    _leftClick = false;
+                    if (Drag)
+                    {
+                        x = e.X;
+                        y = e.Y;
+                    }
+
+                    break;
+            }
 
             base.OnMouseUp(e);
         }
@@ -71,9 +104,9 @@ namespace dental_sys.Controls
         /// </summary>
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            if (drag)
+            if (Drag && _leftClick)
             {
-                LimitBasePoint(basePoint.X + e.X - x, basePoint.Y + e.Y - y);
+                LimitBasePoint(_basePoint.X + e.X - x, _basePoint.Y + e.Y - y);
                 x = e.X;
                 y = e.Y;
                 this.Invalidate();
@@ -87,7 +120,7 @@ namespace dental_sys.Controls
         /// </summary>
         protected override void OnResize(EventArgs e)
         {
-            LimitBasePoint(basePoint.X, basePoint.Y);
+            LimitBasePoint(_basePoint.X, _basePoint.Y);
             this.Invalidate();
 
             base.OnResize(e);
@@ -101,7 +134,7 @@ namespace dental_sys.Controls
             if (this.BackgroundImage != null)
             {
                 Rectangle src = new Rectangle(0, 0, BackgroundImage.Width, BackgroundImage.Height);
-                Rectangle dst = new Rectangle(basePoint.X, basePoint.Y, (int)(BackgroundImage.Width * ScaleFactor), (int)(BackgroundImage.Height * ScaleFactor));
+                Rectangle dst = new Rectangle(_basePoint.X, _basePoint.Y, (int)(BackgroundImage.Width * _scaleFactor), (int)(BackgroundImage.Height * _scaleFactor));
                 pe.Graphics.DrawImage(BackgroundImage, dst, src, GraphicsUnit.Pixel);
             }
 
@@ -111,29 +144,29 @@ namespace dental_sys.Controls
         private void ZoomExtents()
         {
             if (this.BackgroundImage != null)
-                this.ScaleFactor = (float)Math.Min((double)this.Width / this.BackgroundImage.Width, (double)this.Height / this.BackgroundImage.Height);
+                this._scaleFactor = (float)Math.Min((double)this.Width / this.BackgroundImage.Width, (double)this.Height / this.BackgroundImage.Height);
         }
 
         private void ZoomIn()
         {
-            if (ScaleFactor < 10)
+            if (_scaleFactor < 10)
             {
-                int x = (int)((this.Width / 2 - basePoint.X) / ScaleFactor);
-                int y = (int)((this.Height / 2 - basePoint.Y) / ScaleFactor);
-                ScaleFactor *= 2;
-                LimitBasePoint((int)(this.Width / 2 - x * ScaleFactor), (int)(this.Height / 2 - y * ScaleFactor));
+                int x = (int)((this.Width / 2 - _basePoint.X) / _scaleFactor);
+                int y = (int)((this.Height / 2 - _basePoint.Y) / _scaleFactor);
+                _scaleFactor *= 2;
+                LimitBasePoint((int)(this.Width / 2 - x * _scaleFactor), (int)(this.Height / 2 - y * _scaleFactor));
                 this.Invalidate();
             }
         }
 
         private void ZoomOut()
         {
-            if (ScaleFactor > .1)
+            if (_scaleFactor > .1)
             {
-                int x = (int)((this.Width / 2 - basePoint.X) / ScaleFactor);
-                int y = (int)((this.Height / 2 - basePoint.Y) / ScaleFactor);
-                ScaleFactor /= 2;
-                LimitBasePoint((int)(this.Width / 2 - x * ScaleFactor), (int)(this.Height / 2 - y * ScaleFactor));
+                int x = (int)((this.Width / 2 - _basePoint.X) / _scaleFactor);
+                int y = (int)((this.Height / 2 - _basePoint.Y) / _scaleFactor);
+                _scaleFactor /= 2;
+                LimitBasePoint((int)(this.Width / 2 - x * _scaleFactor), (int)(this.Height / 2 - y * _scaleFactor));
                 this.Invalidate();
             }
         }
@@ -143,8 +176,8 @@ namespace dental_sys.Controls
             if (this.BackgroundImage == null)
                 return;
 
-            int width = this.Width - (int)(BackgroundImage.Width * ScaleFactor);
-            int height = this.Height - (int)(BackgroundImage.Height * ScaleFactor);
+            int width = this.Width - (int)(BackgroundImage.Width * _scaleFactor);
+            int height = this.Height - (int)(BackgroundImage.Height * _scaleFactor);
             if (width < 0)
             {
                 x = Math.Max(Math.Min(x, 0), width);
@@ -161,7 +194,7 @@ namespace dental_sys.Controls
             {
                 y = height / 2;
             }
-            basePoint = new Point(x, y);
+            _basePoint = new Point(x, y);
         }
     }
 }

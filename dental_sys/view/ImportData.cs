@@ -426,6 +426,19 @@ namespace dental_sys
             PicturePanel.Height -= vStep;
         }
 
+
+        private void ImportData_KeyDown(object sender, KeyEventArgs e)
+        {
+            PicturePanel.CtrlKeyDown = e.Control;
+            PicturePanel.Drag = PicturePanel.CtrlKeyDown;
+        }
+
+        private void ImportData_KeyUp(object sender, KeyEventArgs e)
+        {
+            PicturePanel.CtrlKeyDown = false;
+            PicturePanel.Drag = PicturePanel.CtrlKeyDown;
+        }
+
     }
 
 }
