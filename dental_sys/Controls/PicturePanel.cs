@@ -12,27 +12,27 @@ namespace dental_sys.Controls
         private int x, y;
         public bool CtrlKeyDown { get; set; }
         private bool _leftClick;
+        private Image image;
         public PicturePanel()
         {
             CtrlKeyDown = false;
             _leftClick = false;
             DoubleBuffered = true;
             AutoScroll = true;
-            BackgroundImageLayout = ImageLayout.Center;
-        }
-        public override Image BackgroundImage
-        {
-            get => base.BackgroundImage;
-            set
-            {
-                base.BackgroundImage = value;
-                if (value != null) this.AutoScrollMinSize = value.Size;
-                //ZoomExtents();
-                //LimitBasePoint(_basePoint.X, _basePoint.Y);
-                //Invalidate();
-            }
+            //imageLayout = ImageLayout.Center;
         }
 
+        public Image Image
+        {
+            get => this.image;
+            set
+            {
+                this.image = value;
+                this.ZoomExtents();
+                this.LimitBasePoint(_basePoint.X, _basePoint.Y);
+                this.Invalidate();
+            }
+        }
 
         protected override void OnMouseWheel(MouseEventArgs e)
         {
@@ -131,11 +131,11 @@ namespace dental_sys.Controls
         /// </summary>
         protected override void OnPaint(PaintEventArgs pe)
         {
-            if (this.BackgroundImage != null)
+            if (this.image != null)
             {
-                Rectangle src = new Rectangle(0, 0, BackgroundImage.Width, BackgroundImage.Height);
-                Rectangle dst = new Rectangle(_basePoint.X, _basePoint.Y, (int)(BackgroundImage.Width * _scaleFactor), (int)(BackgroundImage.Height * _scaleFactor));
-                pe.Graphics.DrawImage(BackgroundImage, dst, src, GraphicsUnit.Pixel);
+                Rectangle src = new Rectangle(0, 0, image.Width, image.Height);
+                Rectangle dst = new Rectangle(_basePoint.X, _basePoint.Y, (int)(image.Width * _scaleFactor), (int)(image.Height * _scaleFactor));
+                pe.Graphics.DrawImage(image, dst, src, GraphicsUnit.Pixel);
             }
 
             base.OnPaint(pe);
@@ -143,8 +143,8 @@ namespace dental_sys.Controls
 
         private void ZoomExtents()
         {
-            if (this.BackgroundImage != null)
-                this._scaleFactor = (float)Math.Min((double)this.Width / this.BackgroundImage.Width, (double)this.Height / this.BackgroundImage.Height);
+            if (this.image != null)
+                this._scaleFactor = (float)Math.Min((double)this.Width / this.image.Width, (double)this.Height / this.image.Height);
         }
 
         private void ZoomIn()
@@ -173,11 +173,11 @@ namespace dental_sys.Controls
 
         private void LimitBasePoint(int x, int y)
         {
-            if (this.BackgroundImage == null)
+            if (this.image == null)
                 return;
 
-            int width = this.Width - (int)(BackgroundImage.Width * _scaleFactor);
-            int height = this.Height - (int)(BackgroundImage.Height * _scaleFactor);
+            int width = this.Width - (int)(image.Width * _scaleFactor);
+            int height = this.Height - (int)(image.Height * _scaleFactor);
             if (width < 0)
             {
                 x = Math.Max(Math.Min(x, 0), width);

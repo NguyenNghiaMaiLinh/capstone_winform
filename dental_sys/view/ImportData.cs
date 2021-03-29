@@ -291,7 +291,7 @@ namespace dental_sys
 
             DrawBoundingBox(label, currentImage);
 
-            PicturePanel.BackgroundImage = currentImage;
+            PicturePanel.Image = currentImage;
         }
 
         private void SetBorderAndGridlineStyles()
@@ -404,9 +404,9 @@ namespace dental_sys
             //PicturePanel.Dock = DockStyle.None;
 
 
-            int hStep = (int)(this.PicturePanel.BackgroundImage.Width * 0.02);
+            int hStep = (int)(this.PicturePanel.Image.Width * 0.02);
 
-            int vStep = (int)(this.PicturePanel.BackgroundImage.Height * 0.02);
+            int vStep = (int)(this.PicturePanel.Image.Height * 0.02);
 
             PicturePanel.Width += hStep;
 
@@ -417,9 +417,9 @@ namespace dental_sys
         {
             //PicturePanel.Dock = DockStyle.None;
 
-            int hStep = (int)(this.PicturePanel.BackgroundImage.Width * 0.02);
+            int hStep = (int)(this.PicturePanel.Image.Width * 0.02);
 
-            int vStep = (int)(this.PicturePanel.BackgroundImage.Height * 0.02);
+            int vStep = (int)(this.PicturePanel.Image.Height * 0.02);
 
             PicturePanel.Width -= hStep;
 
