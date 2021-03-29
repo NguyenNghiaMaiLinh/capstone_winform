@@ -112,35 +112,29 @@ namespace dental_sys
         {
             if (FileDataGridView.CurrentRow?.DataBoundItem is ImageFileModel currentFile)
             {
-                var currentImage = Image.FromFile(currentFile.Path);
+                ShowImage(currentFile);
+            }
+        }
 
-                var fileName = Path.GetFileNameWithoutExtension(currentFile.Path);
+        private void DrawBoundingBox(LabelFileModel label, Image currentImage)
+        {
+            if (label != null)
+            {
+                var widthImage = currentImage.Width;
+                var heightImage = currentImage.Height;
+                Graphics g = Graphics.FromImage(currentImage);
+                Pen p = new Pen(Color.Black);
 
-                var label = _labelFiles.FirstOrDefault(w => Path.GetFileNameWithoutExtension(w.Path) == fileName);
-                if (label != null)
+                var listBoundingBox = GetBoundingBoxes(label.Path, widthImage, heightImage);
+
+                foreach (var boundingBox in listBoundingBox)
                 {
-                    var widthImage = currentImage.Width;
-                    var heightImage = currentImage.Height;
-                    Graphics g = Graphics.FromImage(currentImage);
-                    Pen p = new Pen(Color.Black);
-
-                    var listBoundingBox = GetBoundingBoxes(label.Path, widthImage, heightImage);
-
-                    foreach (var boundingBox in listBoundingBox)
-                    {
-                        SolidBrush sb = new SolidBrush(Color.Red);
-                        g.DrawRectangle(p, boundingBox.X, boundingBox.Y, boundingBox.Width, boundingBox.Height);
-                        //g.FillRectangle(sb, boundingBox.X, boundingBox.Y, boundingBox.Width, boundingBox.Height);
-                    }
-
+                    SolidBrush sb = new SolidBrush(Color.Red);
+                    g.DrawRectangle(p, boundingBox.X, boundingBox.Y, boundingBox.Width, boundingBox.Height);
+                    //g.FillRectangle(sb, boundingBox.X, boundingBox.Y, boundingBox.Width, boundingBox.Height);
                 }
-                PicturePanel.BackgroundImage = currentImage;
 
             }
-
-            //g.FillRectangle(sb, x - 50, y - 50, 100, 100);
-            //PictureBox.Image = Image.FromFile(path);
-            //PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
         }
 
         private ICollection<BoundingBox> GetBoundingBoxes(string labelPath, int widthImage, int heightImage)
@@ -266,7 +260,10 @@ namespace dental_sys
             if (currentRow >= 0)
             {
                 FileDataGridView.CurrentCell = FileDataGridView.Rows[currentRow + 1].Cells[0];
-                PicturePanel.BackgroundImage = Image.FromFile(_imageFiles[currentRow + 1].Path);
+
+                var currentFile = _imageFiles[currentRow + 1];
+
+                ShowImage(currentFile);
             }
         }
 
@@ -276,9 +273,27 @@ namespace dental_sys
             if (currentRow >= 1)
             {
                 FileDataGridView.CurrentCell = FileDataGridView.Rows[currentRow - 1].Cells[0];
-                PicturePanel.BackgroundImage = Image.FromFile(_imageFiles[currentRow - 1].Path);
+
+                var currentFile = _imageFiles[currentRow - 1];
+
+                ShowImage(currentFile);
             }
         }
+
+        private void ShowImage(ImageFileModel fileModel)
+        {
+
+            var currentImage = Image.FromFile(fileModel.Path);
+
+            var fileName = Path.GetFileNameWithoutExtension(fileModel.Path);
+
+            var label = _labelFiles.FirstOrDefault(w => Path.GetFileNameWithoutExtension(w.Path) == fileName);
+
+            DrawBoundingBox(label, currentImage);
+
+            PicturePanel.BackgroundImage = currentImage;
+        }
+
         private void SetBorderAndGridlineStyles()
         {
             this.FileDataGridView.GridColor = Color.Black;
