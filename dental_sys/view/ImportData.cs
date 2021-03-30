@@ -292,7 +292,7 @@ namespace dental_sys
 
             DrawBoundingBox(label, currentImage);
 
-            PicturePanel.BackgroundImage = currentImage;
+            PicturePanel.Image = currentImage;
         }
 
         private void SetBorderAndGridlineStyles()
@@ -398,6 +398,46 @@ namespace dental_sys
                     }
                 }
             }
+        }
+
+        private void ZoomInBtn_Click(object sender, EventArgs e)
+        {
+            //PicturePanel.Dock = DockStyle.None;
+
+
+            int hStep = (int)(this.PicturePanel.Image.Width * 0.02);
+
+            int vStep = (int)(this.PicturePanel.Image.Height * 0.02);
+
+            PicturePanel.Width += hStep;
+
+            PicturePanel.Height += vStep;
+        }
+
+        private void ZoomOutBtn_Click(object sender, EventArgs e)
+        {
+            //PicturePanel.Dock = DockStyle.None;
+
+            int hStep = (int)(this.PicturePanel.Image.Width * 0.02);
+
+            int vStep = (int)(this.PicturePanel.Image.Height * 0.02);
+
+            PicturePanel.Width -= hStep;
+
+            PicturePanel.Height -= vStep;
+        }
+
+
+        private void ImportData_KeyDown(object sender, KeyEventArgs e)
+        {
+            PicturePanel.CtrlKeyDown = e.Control;
+            PicturePanel.Drag = PicturePanel.CtrlKeyDown;
+        }
+
+        private void ImportData_KeyUp(object sender, KeyEventArgs e)
+        {
+            PicturePanel.CtrlKeyDown = false;
+            PicturePanel.Drag = PicturePanel.CtrlKeyDown;
         }
 
     }
