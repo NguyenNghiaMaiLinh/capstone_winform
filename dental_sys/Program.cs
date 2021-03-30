@@ -16,7 +16,15 @@ namespace dental_sys
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginPage());
+            var fLogin = new LoginPage();
+            if (fLogin.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new Loading());
+            }
+            else
+            {
+                Application.Exit();
+            }
             //Application.Run(new Principal());
         }
     }
