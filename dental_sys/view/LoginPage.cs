@@ -37,27 +37,27 @@ namespace dental_sys
         {
             string email = guna2TextBox1.Text;
             string pass = guna2TextBox2.Text;
-            this.Visible = false;
-            Loading _load = new Loading();
-            _load.Show();
-            //var auth = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
-            //FirebaseAuthLink ab = null;
-            //try
-            //{
-            //    ab = await auth.SignInWithEmailAndPasswordAsync(email, pass);
-            //    string token = ab.FirebaseToken;
-            //    var user = ab.User;
-            //    if (user != null)
-            //    {
-            //        this.Visible = false;
-            //        Loading _load = new Loading();
-            //        _load.Show();
-            //    }
-            //}
-            //catch (Exception e)
-            //{
-            //    MessageBox.Show("Invalid Email or password!");
-            //}
+            //this.Visible = false;
+            //Loading _load = new Loading();
+            //_load.Show();
+            var auth = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
+            FirebaseAuthLink ab = null;
+            try
+            {
+                ab = await auth.SignInWithEmailAndPasswordAsync(email, pass);
+                string token = ab.FirebaseToken;
+                var user = ab.User;
+                if (user != null)
+                {
+                    this.Visible = false;
+                    Loading _load = new Loading();
+                    _load.Show();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Invalid Email or password!");
+            }
         }
 
         private void guna2TextBox2_KeyDown(object sender, KeyEventArgs e)

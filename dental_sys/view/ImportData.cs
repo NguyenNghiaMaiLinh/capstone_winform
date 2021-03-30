@@ -51,7 +51,7 @@ namespace dental_sys
             {
                 _imageFiles.Clear();
                 ImportImageFileData(ofg.FileNames.ToList());
-                ImportDataBtn.Text = $@"Import Data ({_imageFiles.Count})";
+                //ImportDataBtn.Text = $@"Data ({_imageFiles.Count})";
             }
 
         }
@@ -104,6 +104,7 @@ namespace dental_sys
                     }
 
                     BindingData(_imageFiles);
+                    //ImportDataBtn.Text = $@"Data ({_imageFiles.Count})";
                 }
             }
         }
@@ -123,7 +124,7 @@ namespace dental_sys
                 var widthImage = currentImage.Width;
                 var heightImage = currentImage.Height;
                 Graphics g = Graphics.FromImage(currentImage);
-                Pen p = new Pen(Color.Black);
+                Pen p = new Pen(Color.Green);
 
                 var listBoundingBox = GetBoundingBoxes(label.Path, widthImage, heightImage);
 
