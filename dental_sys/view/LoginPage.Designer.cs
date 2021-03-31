@@ -327,9 +327,9 @@
             // 
             // guna2DragControl1
             // 
-            this.guna2DragControl1.ContainerControl = this;
+            //this.guna2DragControl1.ContainerControl = this;
             this.guna2DragControl1.TargetControl = this;
-            this.guna2DragControl1.TransparentWhileDrag = true;
+            //this.guna2DragControl1.TransparentWhileDrag = true;
             this.guna2DragControl1.UseTransparentDrag = true;
             // 
             // LoginPage
