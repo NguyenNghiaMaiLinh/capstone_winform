@@ -58,10 +58,12 @@ namespace dental_sys
 
         private void BindingData(List<ImageFileModel> imageFile)
         {
+            PicturePanel.Image = null;
             FileDataGridView.DataSource = null;
             FileDataGridView.DataSource = imageFile;
             SetOrderColumn();
             FileDataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            FileDataGridView_CellClick(this, null);
         }
 
         private void ImportData_Load(object sender, EventArgs e)

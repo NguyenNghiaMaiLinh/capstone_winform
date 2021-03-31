@@ -39,7 +39,7 @@ namespace dental_sys.service
                 result = JsonConvert.DeserializeObject<PagingModel<Customer>>(resultContent);
             }
 
-            var no = 1;
+            var no = offset + 1;
             var customerModels = result.Data?.Select((a, ix) =>
             {
                 var b = _mapper.Map<CustomerModel>(a);
@@ -48,7 +48,7 @@ namespace dental_sys.service
                 return b;
             });
             return new PagingModel<CustomerModel>
-                { Data = customerModels?.ToList(), Total = result.Total };
+            { Data = customerModels?.ToList(), Total = result.Total };
         }
         public bool Update(string id, bool active)
         {
