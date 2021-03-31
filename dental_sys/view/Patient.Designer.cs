@@ -184,7 +184,7 @@
             this.CustomerGridView.ThemeStyle.RowsStyle.Height = 40;
             this.CustomerGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.CustomerGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.CustomerGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomerGridView_CellContentDoubleClick);
+            this.CustomerGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CustomerGridView_CellDoubleClick);
             this.CustomerGridView.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.CustomerGridView_ColumnAdded);
             // 
             // panel1

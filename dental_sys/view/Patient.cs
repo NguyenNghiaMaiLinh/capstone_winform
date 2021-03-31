@@ -132,7 +132,7 @@ namespace dental_sys
 
         }
 
-        private void CustomerGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void CustomerGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (CustomerGridView.CurrentRow?.DataBoundItem is CustomerModel currentCustomer)
             {
