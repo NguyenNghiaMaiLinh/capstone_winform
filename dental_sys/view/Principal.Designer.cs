@@ -49,6 +49,7 @@
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2Panel_container = new Guna.UI2.WinForms.Guna2Panel();
+            this.WeightBtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.guna2Panel12.SuspendLayout();
@@ -61,6 +62,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.Controls.Add(this.WeightBtn);
             this.guna2Panel1.Controls.Add(this.textBox1);
             this.guna2Panel1.Controls.Add(this.panel1);
             this.guna2Panel1.Controls.Add(this.guna2PictureBox2);
@@ -160,7 +162,7 @@
             this.ImportDataBtn.HoverState.BorderColor = System.Drawing.Color.Navy;
             this.ImportDataBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(83)))), ((int)(((byte)(251)))));
             this.ImportDataBtn.HoverState.ForeColor = System.Drawing.Color.White;
-            this.ImportDataBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button4.HoverState.Image")));
+            this.ImportDataBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("ImportDataBtn.HoverState.Image")));
             this.ImportDataBtn.HoverState.Parent = this.ImportDataBtn;
             this.ImportDataBtn.Image = global::dental_sys.Properties.Resources.outline_upgrade_black_36dp;
             this.ImportDataBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -185,7 +187,7 @@
             this.ManageCustomerBtn.HoverState.BorderColor = System.Drawing.Color.Navy;
             this.ManageCustomerBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(83)))), ((int)(((byte)(251)))));
             this.ManageCustomerBtn.HoverState.ForeColor = System.Drawing.Color.White;
-            this.ManageCustomerBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.HoverState.Image")));
+            this.ManageCustomerBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("ManageCustomerBtn.HoverState.Image")));
             this.ManageCustomerBtn.HoverState.Parent = this.ManageCustomerBtn;
             this.ManageCustomerBtn.Image = ((System.Drawing.Image)(resources.GetObject("ManageCustomerBtn.Image")));
             this.ManageCustomerBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -299,6 +301,31 @@
             this.guna2Panel_container.Size = new System.Drawing.Size(1003, 701);
             this.guna2Panel_container.TabIndex = 2;
             // 
+            // WeightBtn
+            // 
+            this.WeightBtn.CheckedState.Parent = this.WeightBtn;
+            this.WeightBtn.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.WeightBtn.CustomImages.Parent = this.WeightBtn;
+            this.WeightBtn.FillColor = System.Drawing.Color.Transparent;
+            this.WeightBtn.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WeightBtn.ForeColor = System.Drawing.Color.Black;
+            this.WeightBtn.HoverState.BorderColor = System.Drawing.Color.Navy;
+            this.WeightBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(83)))), ((int)(((byte)(251)))));
+            this.WeightBtn.HoverState.ForeColor = System.Drawing.Color.White;
+            this.WeightBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.HoverState.Image")));
+            this.WeightBtn.HoverState.Parent = this.WeightBtn;
+            this.WeightBtn.Image = global::dental_sys.Properties.Resources.outline_upgrade_black_36dp;
+            this.WeightBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.WeightBtn.ImageOffset = new System.Drawing.Point(8, 0);
+            this.WeightBtn.Location = new System.Drawing.Point(3, 177);
+            this.WeightBtn.Name = "WeightBtn";
+            this.WeightBtn.ShadowDecoration.Parent = this.WeightBtn;
+            this.WeightBtn.Size = new System.Drawing.Size(205, 40);
+            this.WeightBtn.TabIndex = 10;
+            this.WeightBtn.Text = "Weight";
+            this.WeightBtn.TextOffset = new System.Drawing.Point(8, 0);
+            this.WeightBtn.Click += new System.EventHandler(this.WeightBtn_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,5 +375,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel43;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private Guna.UI2.WinForms.Guna2Button WeightBtn;
     }
 }

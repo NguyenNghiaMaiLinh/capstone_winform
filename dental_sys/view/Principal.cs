@@ -9,10 +9,13 @@ namespace dental_sys
     public partial class Principal : Form
     {
         public PagingModel<CustomerModel> Customers { get; set; }
+        public PagingModel<WeightModel> Weights { get; set; }
         private readonly CustomerService _customerService;
+        private readonly WeightService _weightService;
         public Principal()
         {
             _customerService = new CustomerService();
+            _weightService = new WeightService();
             InitializeComponent();
         }
 
@@ -60,6 +63,14 @@ namespace dental_sys
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void WeightBtn_Click(object sender, EventArgs e)
+        {
+            var data = _weightService.GetAllWeight(PagingConstant.PageIndex, PagingConstant.PageSize);
+            Weight.Instance.Weights = data;
+            Weight.Instance.LoadData(PagingConstant.PageIndex, PagingConstant.PageSize, pagingModel: data);
+            ShowContainer("Management weight", Weight.Instance);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using dental_sys.model;
+﻿using System;
+using dental_sys.model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
@@ -9,46 +10,67 @@ using AutoMapper;
 
 namespace dental_sys.service
 {
-    public class CustomerService
+    public class WeightService
     {
         private readonly IMapper _mapper;
-        public CustomerService()
+        public WeightService()
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<Customer, CustomerModel>()
-                    .ForMember(destination => destination.UId,
-                        opts => opts.MapFrom(source => source.UID)); ;
+                cfg.CreateMap<WeightEntity, WeightModel>();
             });
             _mapper = config.CreateMapper();
 
         }
-        public PagingModel<CustomerModel> GetAllCustomers(int pageIndex, int pageSize, string searchValue = null)
+
+        private PagingModel<WeightEntity> DumbData(int offset, int pageSize)
+        {
+            var result = new List<WeightEntity>();
+            var rand = new Random();
+            for (var i = 0; i < 100; i++)
+            {
+                result.Add(new WeightEntity()
+                {
+                    ClassVersionId = i.ToString(),
+                    CreatedDate = DateTime.Now,
+                    Id = i.ToString(),
+                    IsActive = rand.Next(0, 2) == 1,
+                    Url = Guid.NewGuid().ToString("N"),
+                    Version = Guid.NewGuid().ToString("N")
+                });
+            }
+
+            return new PagingModel<WeightEntity>() { Data = result.Skip(offset).Take(pageSize).ToList(), Total = 99 };
+        }
+
+
+        public PagingModel<WeightModel> GetAllWeight(int pageIndex, int pageSize, string searchValue = null)
         {
             string path = System.Environment.CurrentDirectory;
             string url = File.ReadAllText($@"{path}\url");
             pageIndex = pageIndex - 1;
-            var result = new PagingModel<Customer>();
+            var result = new PagingModel<WeightEntity>();
             var offset = pageIndex * pageSize;
             var client = new RestClient(url);
-            var request = new RestRequest($"users?name={searchValue}&offset={offset}&limit={pageSize}", Method.GET);
-            var response = client.Get<ICollection<Customer>>(request);
+            var request = new RestRequest($"weights?version={searchValue}&offset={offset}&limit={pageSize}", Method.GET);
+            var response = client.Execute(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 string resultContent = response.Content;
-                result = JsonConvert.DeserializeObject<PagingModel<Customer>>(resultContent);
+                result = JsonConvert.DeserializeObject<PagingModel<WeightEntity>>(resultContent);
             }
 
+            result = DumbData(offset, pageSize);
             var no = offset + 1;
-            var customerModels = result.Data?.Select((a, ix) =>
+            var weightModels = result.Data?.Select((a, ix) =>
             {
-                var b = _mapper.Map<CustomerModel>(a);
+                var b = _mapper.Map<WeightModel>(a);
                 b.No = (no++).ToString();
                 b.Status = b.IsActive ? "Active" : "Inactive";
                 return b;
             });
-            return new PagingModel<CustomerModel>
-            { Data = customerModels?.ToList(), Total = result.Total };
+            return new PagingModel<WeightModel>
+            { Data = weightModels?.ToList(), Total = result.Total };
         }
         public bool Update(string id, bool active)
         {
@@ -98,19 +120,6 @@ namespace dental_sys.service
             }
             return data;
 
-        }
-        public void GetUrl()
-        {
-            var client = new RestClient("http://url-env.eba-rvk73mrv.ap-southeast-1.elasticbeanstalk.com");
-            var request = new RestRequest("api/url/1", Method.GET);
-            var response = client.Execute<UrlModel>(request);
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                var content = response.Content;
-                var url = JsonConvert.DeserializeObject<UrlModel>(content);
-                var path = System.Environment.CurrentDirectory;
-                File.WriteAllText($@"{path}\url", url.Url);
-            }
         }
     }
 }

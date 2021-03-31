@@ -31,15 +31,13 @@ namespace dental_sys
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImportData));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.PicturePanel = new dental_sys.Controls.PicturePanel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.LabelText = new System.Windows.Forms.Label();
-            this.LabelNumber = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.ImageText = new System.Windows.Forms.Label();
             this.ImageNumber = new System.Windows.Forms.Label();
@@ -55,17 +53,19 @@ namespace dental_sys
             this.NextBtn = new Guna.UI2.WinForms.Guna2Button();
             this.PreviousBtn = new Guna.UI2.WinForms.Guna2Button();
             this.FileDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.PicturePanel = new dental_sys.Controls.PicturePanel();
+            this.LabelText = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.LabelNumber = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.TopTableLayoutPanel.SuspendLayout();
             this.BottomTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FileDataGridView)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer
@@ -87,6 +87,19 @@ namespace dental_sys
             this.splitContainer.SplitterDistance = 1086;
             this.splitContainer.TabIndex = 1;
             // 
+            // PicturePanel
+            // 
+            this.PicturePanel.AutoScroll = true;
+            this.PicturePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PicturePanel.CtrlKeyDown = true;
+            this.PicturePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PicturePanel.Drag = false;
+            this.PicturePanel.Image = null;
+            this.PicturePanel.Location = new System.Drawing.Point(0, 104);
+            this.PicturePanel.Name = "PicturePanel";
+            this.PicturePanel.Size = new System.Drawing.Size(1086, 758);
+            this.PicturePanel.TabIndex = 83;
+            // 
             // guna2Panel1
             // 
             this.guna2Panel1.Controls.Add(this.tableLayoutPanel2);
@@ -101,46 +114,6 @@ namespace dental_sys
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
             this.guna2Panel1.Size = new System.Drawing.Size(1086, 104);
             this.guna2Panel1.TabIndex = 81;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.LabelText, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.LabelNumber, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(274, 12);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(186, 38);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // LabelText
-            // 
-            this.LabelText.AutoSize = true;
-            this.LabelText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LabelText.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
-            this.LabelText.Location = new System.Drawing.Point(96, 0);
-            this.LabelText.Name = "LabelText";
-            this.LabelText.Size = new System.Drawing.Size(87, 38);
-            this.LabelText.TabIndex = 4;
-            this.LabelText.Text = "Label files";
-            this.LabelText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LabelNumber
-            // 
-            this.LabelNumber.AutoSize = true;
-            this.LabelNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LabelNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
-            this.LabelNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.LabelNumber.Location = new System.Drawing.Point(3, 0);
-            this.LabelNumber.Name = "LabelNumber";
-            this.LabelNumber.Size = new System.Drawing.Size(87, 38);
-            this.LabelNumber.TabIndex = 3;
-            this.LabelNumber.Text = "76";
-            this.LabelNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1
             // 
@@ -460,30 +433,30 @@ namespace dental_sys
             // FileDataGridView
             // 
             this.FileDataGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            this.FileDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.FileDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.FileDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.FileDataGridView.BackgroundColor = System.Drawing.Color.LightGray;
             this.FileDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.FileDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.FileDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 8F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FileDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FileDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.FileDataGridView.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.FileDataGridView.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.FileDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.FileDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FileDataGridView.EnableHeadersVisualStyles = false;
             this.FileDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
@@ -491,14 +464,14 @@ namespace dental_sys
             this.FileDataGridView.MultiSelect = false;
             this.FileDataGridView.Name = "FileDataGridView";
             this.FileDataGridView.ReadOnly = true;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FileDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FileDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.FileDataGridView.RowHeadersVisible = false;
             this.FileDataGridView.RowTemplate.DividerHeight = 5;
             this.FileDataGridView.RowTemplate.Height = 40;
@@ -532,17 +505,45 @@ namespace dental_sys
             this.FileDataGridView.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.FileDataGridView_ColumnAdded);
             this.FileDataGridView.ColumnHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.FileDataGridView_ColumnHeaderMouseDoubleClick);
             // 
-            // PicturePanel
+            // LabelText
             // 
-            this.PicturePanel.AutoScroll = true;
-            this.PicturePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.PicturePanel.CtrlKeyDown = true;
-            this.PicturePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PicturePanel.Drag = false;
-            this.PicturePanel.Location = new System.Drawing.Point(0, 104);
-            this.PicturePanel.Name = "PicturePanel";
-            this.PicturePanel.Size = new System.Drawing.Size(1086, 758);
-            this.PicturePanel.TabIndex = 83;
+            this.LabelText.AutoSize = true;
+            this.LabelText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LabelText.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
+            this.LabelText.Location = new System.Drawing.Point(96, 0);
+            this.LabelText.Name = "LabelText";
+            this.LabelText.Size = new System.Drawing.Size(87, 38);
+            this.LabelText.TabIndex = 4;
+            this.LabelText.Text = "Label files";
+            this.LabelText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.LabelText, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.LabelNumber, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(274, 12);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(186, 38);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // LabelNumber
+            // 
+            this.LabelNumber.AutoSize = true;
+            this.LabelNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LabelNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
+            this.LabelNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.LabelNumber.Location = new System.Drawing.Point(3, 0);
+            this.LabelNumber.Name = "LabelNumber";
+            this.LabelNumber.Size = new System.Drawing.Size(87, 38);
+            this.LabelNumber.TabIndex = 3;
+            this.LabelNumber.Text = "76";
+            this.LabelNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ImportData
             // 
@@ -563,13 +564,13 @@ namespace dental_sys
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.TopTableLayoutPanel.ResumeLayout(false);
             this.BottomTableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FileDataGridView)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -588,13 +589,13 @@ namespace dental_sys
         private Guna.UI2.WinForms.Guna2Button ImportLabelDirBtn;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label LabelText;
-        private System.Windows.Forms.Label LabelNumber;
         private System.Windows.Forms.Label ImageText;
         private System.Windows.Forms.Label ImageNumber;
         private Guna.UI2.WinForms.Guna2Button ZoomInBtn;
         private Guna.UI2.WinForms.Guna2Button ZoomOutBtn;
         private PicturePanel PicturePanel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label LabelText;
+        private System.Windows.Forms.Label LabelNumber;
     }
 }

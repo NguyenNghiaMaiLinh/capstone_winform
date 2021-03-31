@@ -50,7 +50,7 @@ namespace dental_sys
                 _numberPage++;
             }
             NumberCustomerText.Text = _total.ToString();
-            PageNumber.Text = $@"{ pageIndex} / {_numberPage}";
+            PageNumber.Text = _numberPage > 0 ? $@"{ pageIndex} / {_numberPage}" : @"0 / 0";
         }
 
         private void Patient_Load(object sender, EventArgs e)
