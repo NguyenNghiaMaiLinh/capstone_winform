@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using dental_sys.Constants;
+﻿using dental_sys.Constants;
 using dental_sys.model;
 using dental_sys.service;
+using System;
+using System.Windows.Forms;
 
 namespace dental_sys
 {
     public partial class Principal : Form
     {
-        public ICollection<CustomerModel> Customers { get; set; }
+        public PagingModel<CustomerModel> Customers { get; set; }
         private readonly CustomerService _customerService;
         public Principal()
         {
@@ -48,7 +47,7 @@ namespace dental_sys
         {
             var data = _customerService.GetAllCustomers(PagingConstant.PageIndex, PagingConstant.PageSize);
             Patient.Instance.Customers = data;
-            Patient.Instance.LoadData(PagingConstant.PageIndex, PagingConstant.PageSize, data: data);
+            Patient.Instance.LoadData(PagingConstant.PageIndex, PagingConstant.PageSize, pagingModel: data);
             ShowContainer("Management customer", Patient.Instance);
         }
 

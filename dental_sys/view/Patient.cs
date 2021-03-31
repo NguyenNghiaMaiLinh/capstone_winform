@@ -12,7 +12,7 @@ namespace dental_sys
     public partial class Patient : Form
     {
         private readonly CustomerService _customerService;
-        public ICollection<CustomerModel> Customers { get; set; }
+        public PagingModel<CustomerModel> Customers { get; set; }
 
         private int _pageIndex = 1;
         private int _pageSize = 20;
@@ -33,16 +33,17 @@ namespace dental_sys
             LoadData(_pageIndex, _pageSize);
         }
 
-        public void LoadData(int pageIndex, int pageSize, string searchValue = null, ICollection<CustomerModel> data = null)
+        public void LoadData(int pageIndex, int pageSize, string searchValue = null, PagingModel<CustomerModel> pagingModel = null)
         {
-            data = data ?? _customerService.GetAllCustomers(pageIndex, pageSize, searchValue);
 
-            if (data != null && data.Count > 0)
+            pagingModel = pagingModel ?? _customerService.GetAllCustomers(pageIndex, pageSize, searchValue);
+
+            if (pagingModel.Data != null && pagingModel.Data.Count > 0)
             {
-                BindingData(data);
+                BindingData(pagingModel.Data);
             }
-            _total = data?.Count ?? 0;
-            _numberPage = _total / pageSize;
+            _total = pagingModel.Total;
+            _numberPage = (int)Math.Ceiling(new decimal(_total / pageSize));
             var temp = _total % pageSize;
             if (temp > 0)
             {
@@ -54,7 +55,7 @@ namespace dental_sys
 
         private void Patient_Load(object sender, EventArgs e)
         {
-            LoadData(PagingConstant.PageIndex, PagingConstant.PageSize, data: Customers);
+            LoadData(PagingConstant.PageIndex, PagingConstant.PageSize, pagingModel: Customers);
         }
 
 

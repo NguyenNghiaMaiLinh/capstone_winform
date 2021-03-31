@@ -23,31 +23,32 @@ namespace dental_sys.service
             _mapper = config.CreateMapper();
 
         }
-        public ICollection<CustomerModel> GetAllCustomers(int pageIndex, int pageSize, string searchValue = null)
+        public PagingModel<CustomerModel> GetAllCustomers(int pageIndex, int pageSize, string searchValue = null)
         {
             string path = System.Environment.CurrentDirectory;
             string url = File.ReadAllText($@"{path}\url");
             pageIndex = pageIndex - 1;
-            ICollection<Customer> result = new List<Customer>();
+            var result = new PagingModel<Customer>();
+            var offset = pageIndex * pageSize;
             var client = new RestClient(url);
-            var request = new RestRequest($"users?name={searchValue}&offset={pageIndex}&limit={pageSize}", Method.GET);
+            var request = new RestRequest($"users?name={searchValue}&offset={offset}&limit={pageSize}", Method.GET);
             var response = client.Get<ICollection<Customer>>(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 string resultContent = response.Content;
-                result = JsonConvert.DeserializeObject<ICollection<Customer>>(resultContent);
-
+                result = JsonConvert.DeserializeObject<PagingModel<Customer>>(resultContent);
             }
 
             var no = 1;
-            var customerModels = result.Select((a, ix) =>
+            var customerModels = result.Data?.Select((a, ix) =>
             {
                 var b = _mapper.Map<CustomerModel>(a);
                 b.No = (no++).ToString();
                 b.Status = b.IsActive ? "Active" : "Inactive";
                 return b;
             });
-            return customerModels.ToList();
+            return new PagingModel<CustomerModel>
+                { Data = customerModels?.ToList(), Total = result.Total };
         }
         public bool Update(string id, bool active)
         {
@@ -55,7 +56,7 @@ namespace dental_sys.service
             string url = File.ReadAllText($@"{path}\url");
             var client = new RestClient(url);
             var request = new RestRequest($"users/{id}", Method.PUT);
-            var body = new JObject {{"is_active", active}};
+            var body = new JObject { { "is_active", active } };
             var json = JsonConvert.SerializeObject(body);
             request.AddJsonBody(json);
             var response = client.Execute(request);

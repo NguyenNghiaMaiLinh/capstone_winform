@@ -9,7 +9,7 @@ namespace dental_sys
 {
     public partial class Loading : Form
     {
-        public ICollection<CustomerModel> Customers { get; set; }
+        public PagingModel<CustomerModel> Customers { get; set; }
 
         //public ICollection<Customer> data { get; set; }
         public Loading()

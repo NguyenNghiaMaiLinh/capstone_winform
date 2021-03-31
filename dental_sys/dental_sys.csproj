@@ -283,6 +283,7 @@
     </Compile>
     <Compile Include="model\Customer.cs" />
     <Compile Include="model\FileModel.cs" />
+    <Compile Include="model\PagingModel.cs" />
     <Compile Include="model\UrlModel.cs" />
     <Compile Include="service\CustomerService.cs" />
     <Compile Include="view\Dashboard.cs">
