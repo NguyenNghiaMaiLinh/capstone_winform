@@ -117,10 +117,10 @@ namespace dental_sys
 
         private void WeightGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (WeightGridView.CurrentRow?.DataBoundItem is CustomerModel currentCustomer)
+            if (WeightGridView.CurrentRow?.DataBoundItem is WeightModel currentWeight)
             {
-                var profile = new Profile { Customer = currentCustomer };
-                profile.ShowDialog();
+                var weightDetail = new WeightDetail() { WeightModel = currentWeight };
+                weightDetail.ShowDialog();
             }
         }
 

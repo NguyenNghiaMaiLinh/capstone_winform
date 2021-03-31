@@ -16,7 +16,7 @@ namespace dental_sys.model
         [JsonProperty("created_date")]
         public DateTime CreatedDate { get; set; }
         [JsonProperty("class_version_id")]
-        public string ClassVersionId { get; set; }   
+        public string ClassVersionId { get; set; }
         [JsonProperty("is_active")]
         public bool IsActive { get; set; }
     }
@@ -31,8 +31,11 @@ namespace dental_sys.model
         public string Version { get; set; }
         [DisplayName(WeightHeaderConstant.Url)]
         public string Url { get; set; }
+        [Browsable(false)]
+        public DateTime? CreatedDate { get; set; }
+
         [DisplayName(WeightHeaderConstant.CreatedDate)]
-        public DateTime CreatedDate { get; set; }
+        public string CreatedDateText => CreatedDate?.ToString("dd/MM/yyyy HH:mm:ss");
         [DisplayName(WeightHeaderConstant.ClassVersionId)]
         public string ClassVersionId { get; set; }
         [Browsable(false)]
