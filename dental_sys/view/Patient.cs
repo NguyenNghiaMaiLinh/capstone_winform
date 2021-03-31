@@ -2,6 +2,7 @@
 using dental_sys.service;
 using dental_sys.view;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -9,15 +10,22 @@ namespace dental_sys
 {
     public partial class Patient : Form
     {
-        CustomerService customerService = new CustomerService();
+        private CustomerService _customerService;
+        public ICollection<Customer> Customers { get; set; }
+
         public static int id = 0;
         private int pageIndex = 1;
         private int pageSize = 20;
         private int total;
         private int numberPage = 0;
-        public Patient()
-        {
 
+        private static Patient _instance;
+
+        public static Patient Instance => _instance ?? (_instance = new Patient());
+
+        private Patient()
+        {
+            _customerService = new CustomerService();
             InitializeComponent();
         }
         private void loadData(int pageIndex, int pageSize, string searchValue)
@@ -25,7 +33,7 @@ namespace dental_sys
             guna2DataGridView1.MultiSelect = false;
             guna2DataGridView1.Rows.Clear();
             guna2DataGridView1.Refresh();
-            var data = customerService.getAllCustomers(pageIndex, pageSize, searchValue);
+            var data = Customers;
             if (data != null && data.Count > 0)
             {
                 guna2DataGridView1.Rows.Add(data.Count);
@@ -35,7 +43,7 @@ namespace dental_sys
                     Customer customer = data.ToList()[i];
                     var status = customer.IsActive ? "Active" : "Inactive";
                     int no = i;
-                    guna2DataGridView1.Rows[i].Cells[1].Value = (no+1).ToString();
+                    guna2DataGridView1.Rows[i].Cells[1].Value = (no + 1).ToString();
                     guna2DataGridView1.Rows[i].Cells[2].Value = customer.UID;
                     guna2DataGridView1.Rows[i].Cells[3].Value = customer.Name;
                     guna2DataGridView1.Rows[i].Cells[4].Value = customer.Phone;
@@ -50,7 +58,7 @@ namespace dental_sys
         }
         private void Patient_Load(object sender, EventArgs e)
         {
-            var data = Loading.data;
+            var data = Customers;
             if (data != null && data.Count > 0)
             {
                 guna2DataGridView1.Rows.Add(data.Count);
@@ -60,7 +68,7 @@ namespace dental_sys
                     Customer customer = data.ToList()[i];
                     var status = customer.IsActive ? "Active" : "Inactive";
                     int no = i;
-                    guna2DataGridView1.Rows[i].Cells[1].Value = (no+1).ToString();
+                    guna2DataGridView1.Rows[i].Cells[1].Value = (no + 1).ToString();
                     guna2DataGridView1.Rows[i].Cells[2].Value = customer.UID;
                     guna2DataGridView1.Rows[i].Cells[3].Value = customer.Name;
                     guna2DataGridView1.Rows[i].Cells[4].Value = customer.Phone;
@@ -135,7 +143,7 @@ namespace dental_sys
 
         private void guna2DataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int.TryParse( guna2DataGridView1.CurrentRow.Cells[7].Value.ToString(), out id);
+            int.TryParse(guna2DataGridView1.CurrentRow.Cells[7].Value.ToString(), out id);
             Profile profile = new Profile();
             profile.Show();
         }

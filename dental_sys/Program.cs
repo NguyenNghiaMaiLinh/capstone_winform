@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace dental_sys
@@ -19,7 +16,17 @@ namespace dental_sys
             var fLogin = new LoginPage();
             if (fLogin.ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new Loading());
+                var loading = new Loading();
+
+                if (loading.ShowDialog() == DialogResult.OK)
+                {
+                    var principal = new Principal {Customers = loading.Customers};
+                    Application.Run(principal);
+                }
+                else
+                {
+                    Application.Exit();
+                }
             }
             else
             {

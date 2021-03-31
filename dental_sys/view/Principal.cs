@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using dental_sys.model;
 
 namespace dental_sys
 {
     public partial class Principal : Form
     {
+        public ICollection<Customer> Customers { get; set; }
         public Principal()
         {
             InitializeComponent();
@@ -13,9 +16,8 @@ namespace dental_sys
         private void Principal_Load(object sender, EventArgs e)
         {
             guna2ShadowForm1.SetShadowForm(this);
-            label_val.Text = "Management customer";
-            guna2PictureBox_val.Image = Properties.Resources.outline_manage_accounts_black_36dp;
-            container(new Patient());
+            Patient.Instance.Customers = Customers;
+            ShowContainer("Management customer", Patient.Instance);
         }
 
         //private void guna2Button1_Click(object sender, EventArgs e)
@@ -25,32 +27,32 @@ namespace dental_sys
         //    container(new Dashboard());
         //}
 
-        private void container(object _form)
-        {
-            if (guna2Panel_container.Controls.Count > 0) guna2Panel_container.Controls.Clear();
-            Form fm = _form as Form;
-            fm.TopLevel = false;
-            fm.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
-            fm.Dock = DockStyle.Fill;
-            guna2Panel_container.Controls.Add(fm);
-            guna2Panel_container.Tag = fm;
-            fm.Show();
-
-        }
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            label_val.Text = "Management customer";
-            guna2PictureBox_val.Image = Properties.Resources.outline_manage_accounts_black_36dp;
-            container(new Patient());
+            Patient.Instance.Customers = Customers;
+            ShowContainer("Management customer", Patient.Instance);
         }
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            label_val.Text = "Import Data";
-            guna2PictureBox_val.Image = Properties.Resources.outline_upgrade_black_36dp;
-            container(new ImportData());
+            Patient.Instance.Customers = Customers;
+            ShowContainer("Import Data", new ImportData());
+        }
+
+        private void ShowContainer(string containerName, Form form)
+        {
+            label_val.Text = containerName;
+            guna2PictureBox_val.Image = Properties.Resources.outline_manage_accounts_black_36dp;
+
+            if (guna2Panel_container.Controls.Count > 0) guna2Panel_container.Controls.Clear();
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            form.Dock = DockStyle.Fill;
+            guna2Panel_container.Controls.Add(form);
+            guna2Panel_container.Tag = form;
+            form.Show();
         }
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)

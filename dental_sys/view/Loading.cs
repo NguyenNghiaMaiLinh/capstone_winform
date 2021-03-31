@@ -9,12 +9,13 @@ namespace dental_sys
 {
     public partial class Loading : Form
     {
-        public static ICollection<Customer> data = null;
+        public ICollection<Customer> Customers { get; set; }
+
         //public ICollection<Customer> data { get; set; }
         CustomerService customerRepository = new CustomerService();
         public Loading()
         {
-            _ = Task.Run(() => { data = customerRepository.getAllCustomers(1, 20, null); });
+            Task.Run(() => Customers = customerRepository.getAllCustomers(1, 20, null));
             InitializeComponent();
         }
 
@@ -22,19 +23,18 @@ namespace dental_sys
         {
             if (guna2CircleProgressBar1.Value == 100)
             {
-                if (data != null)
+                if (Customers != null)
                 {
                     timer1.Stop();
-                    Principal p = new Principal();
-                    p.Show();
-                    this.Hide();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
                 else
                 {
                     guna2CircleProgressBar1.Value = 0;
                     label_val.Text = "0";
                 }
-              
+
             }
             else
             {

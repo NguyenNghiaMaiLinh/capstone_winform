@@ -44,11 +44,11 @@ namespace dental_sys
             FirebaseAuthLink ab = null;
             try
             {
-                ab = await auth.SignInWithEmailAndPasswordAsync(email, pass);
-                string token = ab.FirebaseToken;
-                var user = ab.User;
+                //ab = await auth.SignInWithEmailAndPasswordAsync(email, pass);
+                //string token = ab.FirebaseToken;
+                //var user = ab.User;
 
-                //var user = 0;
+                var user = 0;
                 if (user != null)
                 {
                     this.DialogResult = DialogResult.OK;

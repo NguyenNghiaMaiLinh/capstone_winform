@@ -73,8 +73,7 @@ namespace dental_sys.view
             if (check)
             {
                 MessageBox.Show("Update success!");
-                Patient patient = new Patient();
-                patient.Refresh();
+                Patient.Instance.Refresh();
                 this.Close();
             }
             else
