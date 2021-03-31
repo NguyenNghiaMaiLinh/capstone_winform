@@ -30,11 +30,12 @@ namespace dental_sys.view
         private void InitializeComponent()
         {
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.CloseBtn = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.CustomerNameTxt = new System.Windows.Forms.Label();
             this.roundPictureBox1 = new dental_sys.view.RoundPictureBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.StatusComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel41 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel27 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel20 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -43,7 +44,6 @@ namespace dental_sys.view
             this.guna2HtmlLabel29 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel28 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.Name = new System.Windows.Forms.Label();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roundPictureBox1)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -70,23 +70,23 @@ namespace dental_sys.view
             this.guna2Button4.Text = "Update";
             this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
             // 
-            // guna2ControlBox1
+            // CloseBtn
             // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox1.HoverState.Parent = this.guna2ControlBox1;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.Gray;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(403, 0);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.ShadowDecoration.Parent = this.guna2ControlBox1;
-            this.guna2ControlBox1.Size = new System.Drawing.Size(37, 41);
-            this.guna2ControlBox1.TabIndex = 14;
-            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
+            this.CloseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseBtn.FillColor = System.Drawing.Color.Transparent;
+            this.CloseBtn.HoverState.Parent = this.CloseBtn;
+            this.CloseBtn.IconColor = System.Drawing.Color.Gray;
+            this.CloseBtn.Location = new System.Drawing.Point(403, 0);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
+            this.CloseBtn.Size = new System.Drawing.Size(37, 41);
+            this.CloseBtn.TabIndex = 14;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel1.Controls.Add(this.Name);
+            this.guna2ShadowPanel1.Controls.Add(this.CustomerNameTxt);
             this.guna2ShadowPanel1.Controls.Add(this.roundPictureBox1);
             this.guna2ShadowPanel1.Controls.Add(this.guna2Panel2);
             this.guna2ShadowPanel1.FillColor = System.Drawing.Color.WhiteSmoke;
@@ -97,6 +97,16 @@ namespace dental_sys.view
             this.guna2ShadowPanel1.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.Dropped;
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(406, 454);
             this.guna2ShadowPanel1.TabIndex = 98;
+            // 
+            // CustomerNameTxt
+            // 
+            this.CustomerNameTxt.AutoSize = true;
+            this.CustomerNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomerNameTxt.Location = new System.Drawing.Point(31, 170);
+            this.CustomerNameTxt.Name = "CustomerNameTxt";
+            this.CustomerNameTxt.Size = new System.Drawing.Size(82, 29);
+            this.CustomerNameTxt.TabIndex = 77;
+            this.CustomerNameTxt.Text = "Name";
             // 
             // roundPictureBox1
             // 
@@ -110,7 +120,7 @@ namespace dental_sys.view
             // guna2Panel2
             // 
             this.guna2Panel2.BorderRadius = 5;
-            this.guna2Panel2.Controls.Add(this.guna2ComboBox1);
+            this.guna2Panel2.Controls.Add(this.StatusComboBox);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel41);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel27);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel20);
@@ -125,32 +135,32 @@ namespace dental_sys.view
             this.guna2Panel2.Size = new System.Drawing.Size(362, 196);
             this.guna2Panel2.TabIndex = 74;
             // 
-            // guna2ComboBox1
+            // StatusComboBox
             // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2ComboBox1.BorderColor = System.Drawing.Color.Azure;
-            this.guna2ComboBox1.BorderRadius = 8;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FillColor = System.Drawing.SystemColors.Control;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Items.AddRange(new object[] {
+            this.StatusComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.StatusComboBox.BorderColor = System.Drawing.Color.Azure;
+            this.StatusComboBox.BorderRadius = 8;
+            this.StatusComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.StatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.StatusComboBox.FillColor = System.Drawing.SystemColors.Control;
+            this.StatusComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.StatusComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.StatusComboBox.FocusedState.Parent = this.StatusComboBox;
+            this.StatusComboBox.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.StatusComboBox.ForeColor = System.Drawing.Color.Black;
+            this.StatusComboBox.HoverState.Parent = this.StatusComboBox;
+            this.StatusComboBox.ItemHeight = 30;
+            this.StatusComboBox.Items.AddRange(new object[] {
             "Active",
             "Inactive"});
-            this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(98, 154);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Size = new System.Drawing.Size(116, 36);
-            this.guna2ComboBox1.StartIndex = 0;
-            this.guna2ComboBox1.TabIndex = 113;
-            this.guna2ComboBox1.TextOffset = new System.Drawing.Point(2, 0);
+            this.StatusComboBox.ItemsAppearance.Parent = this.StatusComboBox;
+            this.StatusComboBox.Location = new System.Drawing.Point(98, 154);
+            this.StatusComboBox.Name = "StatusComboBox";
+            this.StatusComboBox.ShadowDecoration.Parent = this.StatusComboBox;
+            this.StatusComboBox.Size = new System.Drawing.Size(116, 36);
+            this.StatusComboBox.StartIndex = 0;
+            this.StatusComboBox.TabIndex = 113;
+            this.StatusComboBox.TextOffset = new System.Drawing.Point(2, 0);
             // 
             // guna2HtmlLabel41
             // 
@@ -240,16 +250,6 @@ namespace dental_sys.view
             this.label1.TabIndex = 90;
             this.label1.Text = "Profile";
             // 
-            // Name
-            // 
-            this.Name.AutoSize = true;
-            this.Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name.Location = new System.Drawing.Point(31, 170);
-            this.Name.Name = "Name";
-            this.Name.Size = new System.Drawing.Size(82, 29);
-            this.Name.TabIndex = 77;
-            this.Name.Text = "Name";
-            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,11 +258,15 @@ namespace dental_sys.view
             this.ClientSize = new System.Drawing.Size(439, 575);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2ShadowPanel1);
-            this.Controls.Add(this.guna2ControlBox1);
+            this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.guna2Button4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "Profile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Profile";
+            this.Deactivate += new System.EventHandler(this.Profile_Deactivate);
             this.Load += new System.EventHandler(this.Profile_Load);
+            this.Leave += new System.EventHandler(this.Profile_Leave);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Profile_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Profile_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Profile_MouseUp);
@@ -279,7 +283,7 @@ namespace dental_sys.view
         #endregion
 
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private Guna.UI2.WinForms.Guna2ControlBox CloseBtn;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
@@ -290,8 +294,8 @@ namespace dental_sys.view
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel21;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel29;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel28;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2ComboBox StatusComboBox;
         private RoundPictureBox roundPictureBox1;
-        private System.Windows.Forms.Label Name;
+        private System.Windows.Forms.Label CustomerNameTxt;
     }
 }

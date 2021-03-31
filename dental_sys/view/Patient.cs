@@ -5,20 +5,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using dental_sys.Constants;
 
 namespace dental_sys
 {
     public partial class Patient : Form
     {
-        private CustomerService _customerService;
-        public ICollection<Customer> Customers { get; set; }
+        private readonly CustomerService _customerService;
+        public ICollection<CustomerModel> Customers { get; set; }
 
-        public static int id = 0;
-        private int pageIndex = 1;
-        private int pageSize = 20;
-        private int total;
-        private int numberPage = 0;
-
+        private int _pageIndex = 1;
+        private int _pageSize = 20;
+        private int _total;
+        private int _numberPage = 0;
         private static Patient _instance;
 
         public static Patient Instance => _instance ?? (_instance = new Patient());
@@ -28,124 +27,119 @@ namespace dental_sys
             _customerService = new CustomerService();
             InitializeComponent();
         }
-        private void loadData(int pageIndex, int pageSize, string searchValue)
+
+        public void ReLoadData()
         {
-            guna2DataGridView1.MultiSelect = false;
-            guna2DataGridView1.Rows.Clear();
-            guna2DataGridView1.Refresh();
-            var data = Customers;
+            LoadData(_pageIndex, _pageSize);
+        }
+
+        public void LoadData(int pageIndex, int pageSize, string searchValue = null, ICollection<CustomerModel> data = null)
+        {
+            data = data ?? _customerService.GetAllCustomers(pageIndex, pageSize, searchValue);
+
             if (data != null && data.Count > 0)
             {
-                guna2DataGridView1.Rows.Add(data.Count);
-
-                for (int i = 0; i < data.Count; i++)
-                {
-                    Customer customer = data.ToList()[i];
-                    var status = customer.IsActive ? "Active" : "Inactive";
-                    int no = i;
-                    guna2DataGridView1.Rows[i].Cells[1].Value = (no + 1).ToString();
-                    guna2DataGridView1.Rows[i].Cells[2].Value = customer.UID;
-                    guna2DataGridView1.Rows[i].Cells[3].Value = customer.Name;
-                    guna2DataGridView1.Rows[i].Cells[4].Value = customer.Phone;
-                    guna2DataGridView1.Rows[i].Cells[5].Value = customer.Email;
-                    guna2DataGridView1.Rows[i].Cells[6].Value = status;
-                    guna2DataGridView1.Rows[i].Cells[7].Value = customer.Id;
-                }
-
+                BindingData(data);
             }
-            total = data?.Count ?? 0;
-            label1.Text = total.ToString();
+            _total = data?.Count ?? 0;
+            _numberPage = _total / pageSize;
+            var temp = _total % pageSize;
+            if (temp > 0)
+            {
+                _numberPage++;
+            }
+            NumberCustomerText.Text = _total.ToString();
+            PageNumber.Text = $@"{ pageIndex} / {_numberPage}";
         }
+
         private void Patient_Load(object sender, EventArgs e)
         {
-            var data = Customers;
-            if (data != null && data.Count > 0)
-            {
-                guna2DataGridView1.Rows.Add(data.Count);
+            LoadData(PagingConstant.PageIndex, PagingConstant.PageSize, data: Customers);
+        }
 
-                for (int i = 0; i < data.Count; i++)
+
+        private void BindingData(ICollection<CustomerModel> data)
+        {
+            CustomerGridView.DataSource = null;
+            CustomerGridView.DataSource = data;
+            SetOrderColumn();
+            CustomerGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
+        private void SetOrderColumn()
+        {
+            if (CustomerGridView?.Columns[CustomerHeaderConstant.No] != null)
+                CustomerGridView.Columns[CustomerHeaderConstant.No].DisplayIndex = 0;
+            if (CustomerGridView?.Columns[CustomerHeaderConstant.Name] != null)
+                CustomerGridView.Columns[CustomerHeaderConstant.Name].DisplayIndex = 1;
+            if (CustomerGridView?.Columns[CustomerHeaderConstant.Phone] != null)
+                CustomerGridView.Columns[CustomerHeaderConstant.Phone].DisplayIndex = 2;
+            if (CustomerGridView?.Columns[CustomerHeaderConstant.Email] != null)
+                CustomerGridView.Columns[CustomerHeaderConstant.Email].DisplayIndex = 3;
+            if (CustomerGridView?.Columns[CustomerHeaderConstant.Status] != null)
+                CustomerGridView.Columns[CustomerHeaderConstant.Status].DisplayIndex = 4;
+        }
+        private void SearchTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            string searchValue = SearchTextBox.Text;
+            if (e.KeyCode == Keys.Enter)
+            {
+                LoadData(_pageIndex, _pageSize, searchValue);
+                PageNumber.Text = $@"{ _pageIndex} / {_numberPage}";
+            }
+        }
+
+
+        private void PreviousPageBtn_Click(object sender, EventArgs e)
+        {
+            string searchValue = SearchTextBox.Text;
+            if (_pageIndex > 1)
+            {
+                _pageIndex--;
+                LoadData(_pageIndex, _pageSize, searchValue);
+                PageNumber.Text = $@"{ _pageIndex} / {_numberPage}";
+            }
+        }
+
+        private void NextPageBtn_Click(object sender, EventArgs e)
+        {
+            string searchValue = SearchTextBox.Text;
+            if (_pageIndex < _numberPage)
+            {
+                _pageIndex++;
+                LoadData(_pageIndex, _pageSize, searchValue);
+                PageNumber.Text = $@"{ _pageIndex} / {_numberPage}";
+            }
+        }
+
+        private void CustomerGridView_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
+        {
+
+            if (e.Column.HeaderText == CustomerHeaderConstant.No)
+            {
+                e.Column.DefaultCellStyle = new DataGridViewCellStyle()
                 {
-                    Customer customer = data.ToList()[i];
-                    var status = customer.IsActive ? "Active" : "Inactive";
-                    int no = i;
-                    guna2DataGridView1.Rows[i].Cells[1].Value = (no + 1).ToString();
-                    guna2DataGridView1.Rows[i].Cells[2].Value = customer.UID;
-                    guna2DataGridView1.Rows[i].Cells[3].Value = customer.Name;
-                    guna2DataGridView1.Rows[i].Cells[4].Value = customer.Phone;
-                    guna2DataGridView1.Rows[i].Cells[5].Value = customer.Email;
-                    guna2DataGridView1.Rows[i].Cells[6].Value = status;
-                    guna2DataGridView1.Rows[i].Cells[7].Value = customer.Id;
-                }
-                total = data?.Count ?? 0;
-                numberPage = total / pageSize;
+                    Alignment = DataGridViewContentAlignment.MiddleCenter
+                };
+
             }
             else
             {
-                loadData(pageIndex, pageSize, null);
+                e.Column.DefaultCellStyle = new DataGridViewCellStyle()
+                {
+                    Alignment = DataGridViewContentAlignment.MiddleLeft
+                };
             }
-            int temp = total % pageSize;
-            if (temp > 0)
+
+        }
+
+        private void CustomerGridView_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (CustomerGridView.CurrentRow?.DataBoundItem is CustomerModel currentCustomer)
             {
-                numberPage++;
+                var profile = new Profile { Customer = currentCustomer };
+                profile.ShowDialog();
             }
-            label1.Text = total.ToString();
-            label3.Text = $"{ pageIndex} / {numberPage}";
-        }
-
-        private void guna2TextBox1_KeyDown(object sender, KeyEventArgs e)
-        {
-            string searchValue = guna2TextBox1.Text;
-            if (e.KeyCode == Keys.Enter)
-            {
-                loadData(pageIndex, pageSize, searchValue);
-                label3.Text = $"{ pageIndex} / {numberPage}";
-            }
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            string searchValue = guna2TextBox1.Text;
-            if (pageIndex < numberPage)
-            {
-                pageIndex++;
-                loadData(pageIndex, pageSize, searchValue);
-                label3.Text = $"{ pageIndex} / {numberPage}";
-            }
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            string searchValue = guna2TextBox1.Text;
-            if (pageIndex > 1)
-            {
-                pageIndex--;
-                loadData(pageIndex, pageSize, searchValue);
-                label3.Text = $"{ pageIndex} / {numberPage}";
-            }
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            //var result = customerService.UpdateCustomer();
-        }
-
-        //private void guna2Button4_Click(object sender, EventArgs e)
-        //{
-        //    string id = guna2DataGridView1.CurrentRow.Cells[7].Value.ToString();
-
-        //    string searchValue = guna2TextBox1.Text;
-        //    var result = customerService.Delete(id);
-        //    if (result)
-        //    {
-        //        loadData(pageIndex, pageSize, searchValue);
-        //    }
-        //}
-
-        private void guna2DataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            int.TryParse(guna2DataGridView1.CurrentRow.Cells[7].Value.ToString(), out id);
-            Profile profile = new Profile();
-            profile.Show();
         }
     }
 }
+

@@ -164,13 +164,10 @@ namespace dental_sys
 
         private void FileDataGridView_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
         {
-            foreach (DataGridViewColumn column in FileDataGridView.Columns)
+            e.Column.DefaultCellStyle = new DataGridViewCellStyle()
             {
-                column.DefaultCellStyle = new DataGridViewCellStyle(e.Column.DefaultCellStyle)
-                {
-                    Alignment = DataGridViewContentAlignment.MiddleCenter
-                };
-            }
+                Alignment = DataGridViewContentAlignment.MiddleCenter
+            };
         }
 
         private void SetOrderColumn()

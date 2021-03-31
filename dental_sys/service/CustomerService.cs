@@ -4,12 +4,26 @@ using Newtonsoft.Json.Linq;
 using RestSharp;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using AutoMapper;
 
 namespace dental_sys.service
 {
     public class CustomerService
     {
-        public ICollection<Customer> getAllCustomers(int pageIndex, int pageSize, string searchValue)
+        private readonly IMapper _mapper;
+        public CustomerService()
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Customer, CustomerModel>()
+                    .ForMember(destination => destination.UId,
+                        opts => opts.MapFrom(source => source.UID)); ;
+            });
+            _mapper = config.CreateMapper();
+
+        }
+        public ICollection<CustomerModel> GetAllCustomers(int pageIndex, int pageSize, string searchValue = null)
         {
             string path = System.Environment.CurrentDirectory;
             string url = File.ReadAllText($@"{path}\url");
@@ -20,20 +34,28 @@ namespace dental_sys.service
             var response = client.Get<ICollection<Customer>>(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                string resultContent = response.Content.ToString();
+                string resultContent = response.Content;
                 result = JsonConvert.DeserializeObject<ICollection<Customer>>(resultContent);
 
             }
-            return result;
+
+            var no = 1;
+            var customerModels = result.Select((a, ix) =>
+            {
+                var b = _mapper.Map<CustomerModel>(a);
+                b.No = (no++).ToString();
+                b.Status = b.IsActive ? "Active" : "Inactive";
+                return b;
+            });
+            return customerModels.ToList();
         }
-        public bool Update(int id, bool active)
+        public bool Update(string id, bool active)
         {
             string path = System.Environment.CurrentDirectory;
             string url = File.ReadAllText($@"{path}\url");
             var client = new RestClient(url);
             var request = new RestRequest($"users/{id}", Method.PUT);
-            var body = new JObject();
-            body.Add("is_active", active);
+            var body = new JObject {{"is_active", active}};
             var json = JsonConvert.SerializeObject(body);
             request.AddJsonBody(json);
             var response = client.Execute(request);
@@ -60,7 +82,7 @@ namespace dental_sys.service
         //    return Update(data);
 
         //}
-        public Customer GetDetail(int id)
+        public Customer GetDetail(string id)
         {
             string path = System.Environment.CurrentDirectory;
             string url = File.ReadAllText($@"{path}\url");
@@ -70,7 +92,7 @@ namespace dental_sys.service
             var response = client.Execute<Customer>(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                string resultContent = response.Content.ToString();
+                string resultContent = response.Content;
                 data = JsonConvert.DeserializeObject<Customer>(resultContent);
             }
             return data;

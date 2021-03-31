@@ -9,13 +9,13 @@ namespace dental_sys
 {
     public partial class Loading : Form
     {
-        public ICollection<Customer> Customers { get; set; }
+        public ICollection<CustomerModel> Customers { get; set; }
 
         //public ICollection<Customer> data { get; set; }
-        CustomerService customerRepository = new CustomerService();
         public Loading()
         {
-            Task.Run(() => Customers = customerRepository.getAllCustomers(1, 20, null));
+            var customerRepository = new CustomerService();
+            Task.Run(() => Customers = customerRepository.GetAllCustomers(1, 20));
             InitializeComponent();
         }
 

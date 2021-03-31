@@ -2,43 +2,36 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using dental_sys.model;
 
 namespace dental_sys.view
 {
     public partial class Profile : Form
     {
         private bool mouseIsDown = false;
-        CustomerService customerService = new CustomerService();
+        private readonly CustomerService _customerService;
         private Point firstPoint;
+        public CustomerModel Customer { get; set; }
 
         public Profile()
         {
+            _customerService = new CustomerService();
             InitializeComponent();
         }
 
         private void Profile_Load(object sender, EventArgs e)
         {
-            int id = Patient.id;
-            var customer = customerService.GetDetail(id);
-            try
-            {
-                roundPictureBox1.Load(customer.Url);
-            }
-            catch (Exception)
-            {
-            }
-            Name.Text = customer.Name;
-            guna2HtmlLabel28.Text = customer.UID;
-            guna2HtmlLabel20.Text = customer.Email;
-            guna2HtmlLabel41.Text = customer.Phone;
-            var status = customer.IsActive ? "Active" : "Inactive";
-            guna2ControlBox1.Name = status;
+
+            if (Customer?.Url != null)
+                roundPictureBox1.Load(Customer.Url);
+
+            CustomerNameTxt.Text = Customer?.Name;
+            guna2HtmlLabel28.Text = Customer?.UId;
+            guna2HtmlLabel20.Text = Customer?.Email;
+            guna2HtmlLabel41.Text = Customer?.Phone;
+            StatusComboBox.SelectedIndex = StatusComboBox.FindStringExact(Customer?.Status);
         }
 
-        private void guna2ControlBox1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void Profile_MouseMove(object sender, MouseEventArgs e)
         {
@@ -68,18 +61,36 @@ namespace dental_sys.view
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            bool active = guna2ComboBox1.SelectedItem == "Active" ? true : false;
-            bool check = customerService.Update(Patient.id, active);
+            var active = StatusComboBox.SelectedItem != null && StatusComboBox?.SelectedItem.ToString() == "Active";
+            var check = _customerService.Update(Customer.Id, active);
             if (check)
             {
-                MessageBox.Show("Update success!");
-                Patient.Instance.Refresh();
+                MessageBox.Show(@"Update success!");
+                Patient.Instance.ReLoadData();
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Update failed!");
+                MessageBox.Show(@"Update failed!");
             }
+        }
+
+        private void CloseBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Profile_Deactivate(object sender, EventArgs e)
+        {
+            this.BringToFront();
+            this.Activate();
+            this.Focus();
+        }
+
+        private void Profile_Leave(object sender, EventArgs e)
+        {
+            this.BringToFront();
+            this.Activate();
         }
     }
 }

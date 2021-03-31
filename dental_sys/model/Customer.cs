@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.ComponentModel;
+using dental_sys.Constants;
+using Newtonsoft.Json;
 
 namespace dental_sys.model
 {
@@ -15,8 +17,8 @@ namespace dental_sys.model
         [JsonProperty("name")]
         public string Name { get; set; }
         [JsonProperty("role")]
-        public int Role { get; set; }    
-        [JsonProperty("is_active")]    
+        public int Role { get; set; }
+        [JsonProperty("is_active")]
         public bool IsActive { get; set; }
         [JsonProperty("uid")]
         public string UID { get; set; }
@@ -29,5 +31,29 @@ namespace dental_sys.model
         public string Url { get; set; }
         public string Name { get; set; }
         public bool IsActive { get; set; }
+    }
+
+    public class CustomerModel
+    {
+        [DisplayName(CustomerHeaderConstant.No)]
+        public string No { get; set; }
+        [DisplayName(CustomerHeaderConstant.UId)]
+        public string UId { get; set; }
+        [DisplayName(CustomerHeaderConstant.Name)]
+        public string Name { get; set; }
+        [DisplayName(CustomerHeaderConstant.Phone)]
+        public string Phone { get; set; }
+        [DisplayName(CustomerHeaderConstant.Email)]
+        public string Email { get; set; }
+        [DisplayName(CustomerHeaderConstant.Status)]
+        public string Status { get; set; }
+        [Browsable(false)]
+        public string Url { get; set; }
+        [Browsable(false)]
+        public bool IsActive { get; set; }
+        [Browsable(false)]
+        public int Role { get; set; }
+        [Browsable(false)]
+        public string Id { get; set; }
     }
 }

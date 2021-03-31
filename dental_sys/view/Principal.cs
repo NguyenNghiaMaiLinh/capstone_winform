@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using dental_sys.Constants;
 using dental_sys.model;
+using dental_sys.service;
 
 namespace dental_sys
 {
     public partial class Principal : Form
     {
-        public ICollection<Customer> Customers { get; set; }
+        public ICollection<CustomerModel> Customers { get; set; }
+        private readonly CustomerService _customerService;
         public Principal()
         {
+            _customerService = new CustomerService();
             InitializeComponent();
         }
 
@@ -20,26 +24,6 @@ namespace dental_sys
             ShowContainer("Management customer", Patient.Instance);
         }
 
-        //private void guna2Button1_Click(object sender, EventArgs e)
-        //{
-        //    label_val.Text = "Dashboard Overview";
-        //    guna2PictureBox_val.Image = Properties.Resources.dashboard__12_;
-        //    container(new Dashboard());
-        //}
-
-
-        private void guna2Button3_Click(object sender, EventArgs e)
-        {
-            Patient.Instance.Customers = Customers;
-            ShowContainer("Management customer", Patient.Instance);
-        }
-
-        private void guna2Button4_Click(object sender, EventArgs e)
-        {
-            Patient.Instance.Customers = Customers;
-            ShowContainer("Import Data", new ImportData());
-        }
-
         private void ShowContainer(string containerName, Form form)
         {
             label_val.Text = containerName;
@@ -48,16 +32,11 @@ namespace dental_sys
             if (guna2Panel_container.Controls.Count > 0) guna2Panel_container.Controls.Clear();
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
+            //this.WindowState = FormWindowState.Maximized;
             form.Dock = DockStyle.Fill;
             guna2Panel_container.Controls.Add(form);
             guna2Panel_container.Tag = form;
             form.Show();
-        }
-
-        private void guna2ControlBox1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
 
         private void guna2CircleButton7_Click(object sender, EventArgs e)
@@ -65,5 +44,23 @@ namespace dental_sys
             Application.Exit();
         }
 
+        private void ManageCustomerBtn_Click(object sender, EventArgs e)
+        {
+            var data = _customerService.GetAllCustomers(PagingConstant.PageIndex, PagingConstant.PageSize);
+            Patient.Instance.Customers = data;
+            Patient.Instance.LoadData(PagingConstant.PageIndex, PagingConstant.PageSize, data: data);
+            ShowContainer("Management customer", Patient.Instance);
+        }
+
+        private void ImportDataBtn_Click(object sender, EventArgs e)
+        {
+            Patient.Instance.Customers = Customers;
+            ShowContainer("Import Data", new ImportData());
+        }
+
+        private void CloseBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

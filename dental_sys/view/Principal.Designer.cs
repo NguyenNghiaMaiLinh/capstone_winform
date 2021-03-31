@@ -37,15 +37,15 @@
             this.guna2CircleButton7 = new Guna.UI2.WinForms.Guna2CircleButton();
             this.guna2HtmlLabel43 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.ImportDataBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.ManageCustomerBtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel_top = new Guna.UI2.WinForms.Guna2Panel();
             this.label_val = new System.Windows.Forms.Label();
             this.guna2PictureBox_val = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.CloseBtn = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2Panel_container = new Guna.UI2.WinForms.Guna2Panel();
@@ -64,8 +64,8 @@
             this.guna2Panel1.Controls.Add(this.textBox1);
             this.guna2Panel1.Controls.Add(this.panel1);
             this.guna2Panel1.Controls.Add(this.guna2PictureBox2);
-            this.guna2Panel1.Controls.Add(this.guna2Button4);
-            this.guna2Panel1.Controls.Add(this.guna2Button3);
+            this.guna2Panel1.Controls.Add(this.ImportDataBtn);
+            this.guna2Panel1.Controls.Add(this.ManageCustomerBtn);
             this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
@@ -149,55 +149,55 @@
             this.guna2PictureBox2.TabIndex = 8;
             this.guna2PictureBox2.TabStop = false;
             // 
-            // guna2Button4
+            // ImportDataBtn
             // 
-            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
-            this.guna2Button4.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 8);
-            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
-            this.guna2Button4.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button4.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button4.HoverState.BorderColor = System.Drawing.Color.Navy;
-            this.guna2Button4.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(83)))), ((int)(((byte)(251)))));
-            this.guna2Button4.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button4.HoverState.Image")));
-            this.guna2Button4.HoverState.Parent = this.guna2Button4;
-            this.guna2Button4.Image = global::dental_sys.Properties.Resources.outline_upgrade_black_36dp;
-            this.guna2Button4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button4.ImageOffset = new System.Drawing.Point(8, 0);
-            this.guna2Button4.Location = new System.Drawing.Point(0, 131);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
-            this.guna2Button4.Size = new System.Drawing.Size(205, 40);
-            this.guna2Button4.TabIndex = 4;
-            this.guna2Button4.Text = "Import Data";
-            this.guna2Button4.TextOffset = new System.Drawing.Point(8, 0);
-            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
+            this.ImportDataBtn.CheckedState.Parent = this.ImportDataBtn;
+            this.ImportDataBtn.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.ImportDataBtn.CustomImages.Parent = this.ImportDataBtn;
+            this.ImportDataBtn.FillColor = System.Drawing.Color.Transparent;
+            this.ImportDataBtn.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImportDataBtn.ForeColor = System.Drawing.Color.Black;
+            this.ImportDataBtn.HoverState.BorderColor = System.Drawing.Color.Navy;
+            this.ImportDataBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(83)))), ((int)(((byte)(251)))));
+            this.ImportDataBtn.HoverState.ForeColor = System.Drawing.Color.White;
+            this.ImportDataBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button4.HoverState.Image")));
+            this.ImportDataBtn.HoverState.Parent = this.ImportDataBtn;
+            this.ImportDataBtn.Image = global::dental_sys.Properties.Resources.outline_upgrade_black_36dp;
+            this.ImportDataBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ImportDataBtn.ImageOffset = new System.Drawing.Point(8, 0);
+            this.ImportDataBtn.Location = new System.Drawing.Point(0, 131);
+            this.ImportDataBtn.Name = "ImportDataBtn";
+            this.ImportDataBtn.ShadowDecoration.Parent = this.ImportDataBtn;
+            this.ImportDataBtn.Size = new System.Drawing.Size(205, 40);
+            this.ImportDataBtn.TabIndex = 4;
+            this.ImportDataBtn.Text = "Import Data";
+            this.ImportDataBtn.TextOffset = new System.Drawing.Point(8, 0);
+            this.ImportDataBtn.Click += new System.EventHandler(this.ImportDataBtn_Click);
             // 
-            // guna2Button3
+            // ManageCustomerBtn
             // 
-            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
-            this.guna2Button3.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 8);
-            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
-            this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button3.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button3.HoverState.BorderColor = System.Drawing.Color.Navy;
-            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(83)))), ((int)(((byte)(251)))));
-            this.guna2Button3.HoverState.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.HoverState.Image")));
-            this.guna2Button3.HoverState.Parent = this.guna2Button3;
-            this.guna2Button3.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.Image")));
-            this.guna2Button3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button3.ImageOffset = new System.Drawing.Point(8, 0);
-            this.guna2Button3.Location = new System.Drawing.Point(0, 85);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
-            this.guna2Button3.Size = new System.Drawing.Size(205, 40);
-            this.guna2Button3.TabIndex = 3;
-            this.guna2Button3.Text = "Manage Customer";
-            this.guna2Button3.TextOffset = new System.Drawing.Point(8, 0);
-            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
+            this.ManageCustomerBtn.CheckedState.Parent = this.ManageCustomerBtn;
+            this.ManageCustomerBtn.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.ManageCustomerBtn.CustomImages.Parent = this.ManageCustomerBtn;
+            this.ManageCustomerBtn.FillColor = System.Drawing.Color.Transparent;
+            this.ManageCustomerBtn.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageCustomerBtn.ForeColor = System.Drawing.Color.Black;
+            this.ManageCustomerBtn.HoverState.BorderColor = System.Drawing.Color.Navy;
+            this.ManageCustomerBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(83)))), ((int)(((byte)(251)))));
+            this.ManageCustomerBtn.HoverState.ForeColor = System.Drawing.Color.White;
+            this.ManageCustomerBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button3.HoverState.Image")));
+            this.ManageCustomerBtn.HoverState.Parent = this.ManageCustomerBtn;
+            this.ManageCustomerBtn.Image = ((System.Drawing.Image)(resources.GetObject("ManageCustomerBtn.Image")));
+            this.ManageCustomerBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ManageCustomerBtn.ImageOffset = new System.Drawing.Point(8, 0);
+            this.ManageCustomerBtn.Location = new System.Drawing.Point(0, 85);
+            this.ManageCustomerBtn.Name = "ManageCustomerBtn";
+            this.ManageCustomerBtn.ShadowDecoration.Parent = this.ManageCustomerBtn;
+            this.ManageCustomerBtn.Size = new System.Drawing.Size(205, 40);
+            this.ManageCustomerBtn.TabIndex = 3;
+            this.ManageCustomerBtn.Text = "Manage Customer";
+            this.ManageCustomerBtn.TextOffset = new System.Drawing.Point(8, 0);
+            this.ManageCustomerBtn.Click += new System.EventHandler(this.ManageCustomerBtn_Click);
             // 
             // guna2PictureBox1
             // 
@@ -217,7 +217,7 @@
             this.guna2Panel_top.Controls.Add(this.guna2PictureBox_val);
             this.guna2Panel_top.Controls.Add(this.guna2ControlBox3);
             this.guna2Panel_top.Controls.Add(this.guna2ControlBox2);
-            this.guna2Panel_top.Controls.Add(this.guna2ControlBox1);
+            this.guna2Panel_top.Controls.Add(this.CloseBtn);
             this.guna2Panel_top.CustomBorderColor = System.Drawing.Color.Silver;
             this.guna2Panel_top.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.guna2Panel_top.Dock = System.Windows.Forms.DockStyle.Top;
@@ -272,18 +272,18 @@
             this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox2.TabIndex = 1;
             // 
-            // guna2ControlBox1
+            // CloseBtn
             // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox1.HoverState.Parent = this.guna2ControlBox1;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.Gray;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(958, 0);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.ShadowDecoration.Parent = this.guna2ControlBox1;
-            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
-            this.guna2ControlBox1.TabIndex = 0;
-            this.guna2ControlBox1.Click += new System.EventHandler(this.guna2ControlBox1_Click);
+            this.CloseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseBtn.FillColor = System.Drawing.Color.Transparent;
+            this.CloseBtn.HoverState.Parent = this.CloseBtn;
+            this.CloseBtn.IconColor = System.Drawing.Color.Gray;
+            this.CloseBtn.Location = new System.Drawing.Point(958, 0);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
+            this.CloseBtn.Size = new System.Drawing.Size(45, 29);
+            this.CloseBtn.TabIndex = 0;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // guna2DragControl1
             // 
@@ -334,10 +334,10 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel_top;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private Guna.UI2.WinForms.Guna2ControlBox CloseBtn;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button ImportDataBtn;
+        private Guna.UI2.WinForms.Guna2Button ManageCustomerBtn;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel_container;
         private System.Windows.Forms.Label label_val;
