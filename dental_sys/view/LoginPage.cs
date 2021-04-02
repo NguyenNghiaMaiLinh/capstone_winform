@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dental_sys.Constants;
 using dental_sys.model;
+using dental_sys.view;
 using Guna.UI.Animation.Material;
 
 namespace dental_sys
@@ -38,11 +39,11 @@ namespace dental_sys
 
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private  void guna2Button1_Click(object sender, EventArgs e)
         {
-            login();
+            Login();
         }
-        private async void login()
+        private async void Login()
         {
             string pass;
             string email;
@@ -61,6 +62,9 @@ namespace dental_sys
             //this.Visible = false;
             //Loading _load = new Loading();
             //_load.Show();
+            var waitForm = new WaitFormFunc();
+            waitForm.Show(this);
+            string mess = null;
             var auth = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
             try
             {
@@ -89,28 +93,36 @@ namespace dental_sys
                                 Properties.Settings.Default.Password = null;
                                 Properties.Settings.Default.Save();
                             }
-                            this.DialogResult = DialogResult.OK;
-                            this.Close();
                         }
                         else
                         {
-                            MessageBox.Show(userLogin.ErrorMessage);
+                            mess = userLogin.ErrorMessage;
                         }
 
                     }
                     else
                     {
-                        MessageBox.Show(@"Can't login. Try again later");
+                        mess = @"Can't login. Try again later";
                     }
 
                 }
 
-                //Loading _load = new Loading();
-                //_load.Show();
             }
             catch (Exception e)
             {
-                MessageBox.Show(@"Invalid Email or password!");
+                mess = @"Invalid Email or password!";
+            }
+
+            waitForm.Close();
+
+            if (!string.IsNullOrEmpty(mess))
+            {
+                MessageBox.Show(mess);
+            }
+            else
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
         }
 
@@ -118,7 +130,7 @@ namespace dental_sys
         {
             if (e.KeyCode == Keys.Enter)
             {
-                login();
+                Login();
             }
         }
 

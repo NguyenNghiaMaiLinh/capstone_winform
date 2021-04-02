@@ -3,7 +3,6 @@ using dental_sys.model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace dental_sys.service
@@ -32,10 +31,13 @@ namespace dental_sys.service
            
             var request = new RestRequest($"users?name={searchValue}&offset={offset}&limit={pageSize}", Method.GET);
             request.AddHeader("Authorization", UserLoginModel.AccessToken);
-            var response = client.Get<ICollection<Customer>>(request);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Charset", "utf-8");
+            request.AddHeader("Connection", "close");
+            var response = client.Get(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                string resultContent = response.Content;
+                var resultContent = response.Content;
                 result = JsonConvert.DeserializeObject<PagingModel<Customer>>(resultContent);
             }
 
@@ -56,10 +58,13 @@ namespace dental_sys.service
             var client = new RestClient(url);
             var request = new RestRequest($"users/{id}", Method.PUT);
             request.AddHeader("Authorization", UserLoginModel.AccessToken);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Charset", "utf-8");
+            request.AddHeader("Connection", "close");
             var body = new JObject { { "is_active", active } };
             var json = JsonConvert.SerializeObject(body);
             request.AddJsonBody(json);
-            var response = client.Execute(request);
+            var response = client.Put(request);
             if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
             {
                 return true;
@@ -88,9 +93,12 @@ namespace dental_sys.service
             var url = CommonService.GetUrlApi();
             var client = new RestClient(url);
             var request = new RestRequest($"users/{id}", Method.GET);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Charset", "utf-8");
+            request.AddHeader("Connection", "close");
             request.AddHeader("Authorization", UserLoginModel.AccessToken);
             Customer data = new Customer();
-            var response = client.Execute<Customer>(request);
+            var response = client.Get(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 string resultContent = response.Content;

@@ -12,11 +12,14 @@ namespace dental_sys.service
             var url = CommonService.GetUrlApi();
             UserLogin result = null;
             var client = new RestClient(url);
-            var request = new RestRequest($"users", Method.POST);
+            var request = new RestRequest($"users", Method.POST, DataFormat.Json);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Charset", "utf-8");
+            request.AddHeader("Connection", "close");
             var body = new { uid };
             request.AddJsonBody(body);
-            var response = client.Execute(request);
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            var response = client.Post(request);
+            if (response.StatusCode == HttpStatusCode.OK)
             {
                 var resultContent = response.Content;
                 result = JsonConvert.DeserializeObject<UserLogin>(resultContent);
@@ -29,7 +32,6 @@ namespace dental_sys.service
                     ErrorMessage = JsonConvert.DeserializeObject<string>(response.Content)
                 };
             }
-
             return result;
         }
 

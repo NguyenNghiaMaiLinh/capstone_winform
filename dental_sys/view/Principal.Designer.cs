@@ -31,11 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.WeightBtn = new Guna.UI2.WinForms.Guna2Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.guna2Panel12 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2CircleButton7 = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.guna2HtmlLabel43 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.ImportDataBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ManageCustomerBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -49,14 +47,20 @@
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2Panel_container = new Guna.UI2.WinForms.Guna2Panel();
-            this.WeightBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.LogoutPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.LogoutButton = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.LogoutLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.guna2Panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox_val)).BeginInit();
+            this.LogoutPanel.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -77,6 +81,31 @@
             this.guna2Panel1.Size = new System.Drawing.Size(205, 754);
             this.guna2Panel1.TabIndex = 0;
             // 
+            // WeightBtn
+            // 
+            this.WeightBtn.CheckedState.Parent = this.WeightBtn;
+            this.WeightBtn.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.WeightBtn.CustomImages.Parent = this.WeightBtn;
+            this.WeightBtn.FillColor = System.Drawing.Color.Transparent;
+            this.WeightBtn.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WeightBtn.ForeColor = System.Drawing.Color.Black;
+            this.WeightBtn.HoverState.BorderColor = System.Drawing.Color.Navy;
+            this.WeightBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(83)))), ((int)(((byte)(251)))));
+            this.WeightBtn.HoverState.ForeColor = System.Drawing.Color.White;
+            this.WeightBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("WeightBtn.HoverState.Image")));
+            this.WeightBtn.HoverState.Parent = this.WeightBtn;
+            this.WeightBtn.Image = global::dental_sys.Properties.Resources.outline_upgrade_black_36dp;
+            this.WeightBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.WeightBtn.ImageOffset = new System.Drawing.Point(8, 0);
+            this.WeightBtn.Location = new System.Drawing.Point(3, 177);
+            this.WeightBtn.Name = "WeightBtn";
+            this.WeightBtn.ShadowDecoration.Parent = this.WeightBtn;
+            this.WeightBtn.Size = new System.Drawing.Size(205, 40);
+            this.WeightBtn.TabIndex = 10;
+            this.WeightBtn.Text = "Weight";
+            this.WeightBtn.TextOffset = new System.Drawing.Point(8, 0);
+            this.WeightBtn.Click += new System.EventHandler(this.WeightBtn_Click);
+            // 
             // textBox1
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -90,55 +119,12 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.guna2Panel12);
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 710);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(205, 44);
             this.panel1.TabIndex = 0;
-            // 
-            // guna2Panel12
-            // 
-            this.guna2Panel12.AutoRoundedCorners = true;
-            this.guna2Panel12.BorderRadius = 17;
-            this.guna2Panel12.Controls.Add(this.guna2CircleButton7);
-            this.guna2Panel12.Controls.Add(this.guna2HtmlLabel43);
-            this.guna2Panel12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
-            this.guna2Panel12.Location = new System.Drawing.Point(3, 3);
-            this.guna2Panel12.Name = "guna2Panel12";
-            this.guna2Panel12.ShadowDecoration.Parent = this.guna2Panel12;
-            this.guna2Panel12.Size = new System.Drawing.Size(107, 36);
-            this.guna2Panel12.TabIndex = 67;
-            // 
-            // guna2CircleButton7
-            // 
-            this.guna2CircleButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
-            this.guna2CircleButton7.CheckedState.Parent = this.guna2CircleButton7;
-            this.guna2CircleButton7.CustomImages.Parent = this.guna2CircleButton7;
-            this.guna2CircleButton7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
-            this.guna2CircleButton7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2CircleButton7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
-            this.guna2CircleButton7.HoverState.Parent = this.guna2CircleButton7;
-            this.guna2CircleButton7.Image = ((System.Drawing.Image)(resources.GetObject("guna2CircleButton7.Image")));
-            this.guna2CircleButton7.ImageOffset = new System.Drawing.Point(1, 0);
-            this.guna2CircleButton7.Location = new System.Drawing.Point(62, 5);
-            this.guna2CircleButton7.Name = "guna2CircleButton7";
-            this.guna2CircleButton7.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton7.ShadowDecoration.Parent = this.guna2CircleButton7;
-            this.guna2CircleButton7.Size = new System.Drawing.Size(30, 22);
-            this.guna2CircleButton7.TabIndex = 13;
-            this.guna2CircleButton7.Click += new System.EventHandler(this.guna2CircleButton7_Click);
-            // 
-            // guna2HtmlLabel43
-            // 
-            this.guna2HtmlLabel43.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel43.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F);
-            this.guna2HtmlLabel43.Location = new System.Drawing.Point(9, 5);
-            this.guna2HtmlLabel43.Name = "guna2HtmlLabel43";
-            this.guna2HtmlLabel43.Size = new System.Drawing.Size(47, 22);
-            this.guna2HtmlLabel43.TabIndex = 10;
-            this.guna2HtmlLabel43.Text = "Logout";
-            this.guna2HtmlLabel43.TextAlignment = System.Drawing.ContentAlignment.BottomRight;
             // 
             // guna2PictureBox2
             // 
@@ -301,30 +287,83 @@
             this.guna2Panel_container.Size = new System.Drawing.Size(1003, 701);
             this.guna2Panel_container.TabIndex = 2;
             // 
-            // WeightBtn
+            // LogoutPanel
             // 
-            this.WeightBtn.CheckedState.Parent = this.WeightBtn;
-            this.WeightBtn.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 8);
-            this.WeightBtn.CustomImages.Parent = this.WeightBtn;
-            this.WeightBtn.FillColor = System.Drawing.Color.Transparent;
-            this.WeightBtn.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightBtn.ForeColor = System.Drawing.Color.Black;
-            this.WeightBtn.HoverState.BorderColor = System.Drawing.Color.Navy;
-            this.WeightBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(83)))), ((int)(((byte)(251)))));
-            this.WeightBtn.HoverState.ForeColor = System.Drawing.Color.White;
-            this.WeightBtn.HoverState.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.HoverState.Image")));
-            this.WeightBtn.HoverState.Parent = this.WeightBtn;
-            this.WeightBtn.Image = global::dental_sys.Properties.Resources.outline_upgrade_black_36dp;
-            this.WeightBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.WeightBtn.ImageOffset = new System.Drawing.Point(8, 0);
-            this.WeightBtn.Location = new System.Drawing.Point(3, 177);
-            this.WeightBtn.Name = "WeightBtn";
-            this.WeightBtn.ShadowDecoration.Parent = this.WeightBtn;
-            this.WeightBtn.Size = new System.Drawing.Size(205, 40);
-            this.WeightBtn.TabIndex = 10;
-            this.WeightBtn.Text = "Weight";
-            this.WeightBtn.TextOffset = new System.Drawing.Point(8, 0);
-            this.WeightBtn.Click += new System.EventHandler(this.WeightBtn_Click);
+            this.LogoutPanel.AutoRoundedCorners = true;
+            this.LogoutPanel.BorderRadius = 18;
+            this.LogoutPanel.Controls.Add(this.tableLayoutPanel2);
+            this.LogoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LogoutPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
+            this.LogoutPanel.Location = new System.Drawing.Point(54, 3);
+            this.LogoutPanel.Name = "LogoutPanel";
+            this.LogoutPanel.ShadowDecoration.Parent = this.LogoutPanel;
+            this.LogoutPanel.Size = new System.Drawing.Size(96, 38);
+            this.LogoutPanel.TabIndex = 68;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Controls.Add(this.LogoutPanel, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(205, 44);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Controls.Add(this.LogoutButton, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.LogoutLabel, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(-3, 1);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(102, 36);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // LogoutButton
+            // 
+            this.LogoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
+            this.LogoutButton.CheckedState.Parent = this.LogoutButton;
+            this.LogoutButton.CustomImages.Parent = this.LogoutButton;
+            this.LogoutButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LogoutButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
+            this.LogoutButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.LogoutButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
+            this.LogoutButton.HoverState.Parent = this.LogoutButton;
+            this.LogoutButton.Image = ((System.Drawing.Image)(resources.GetObject("LogoutButton.Image")));
+            this.LogoutButton.ImageOffset = new System.Drawing.Point(1, 0);
+            this.LogoutButton.Location = new System.Drawing.Point(79, 3);
+            this.LogoutButton.Name = "LogoutButton";
+            this.LogoutButton.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.LogoutButton.ShadowDecoration.Parent = this.LogoutButton;
+            this.LogoutButton.Size = new System.Drawing.Size(20, 30);
+            this.LogoutButton.TabIndex = 15;
+            this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
+            // 
+            // LogoutLabel
+            // 
+            this.LogoutLabel.AutoSize = false;
+            this.LogoutLabel.AutoSizeHeightOnly = true;
+            this.LogoutLabel.BackColor = System.Drawing.Color.Transparent;
+            this.LogoutLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LogoutLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F);
+            this.LogoutLabel.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.LogoutLabel.Location = new System.Drawing.Point(3, 3);
+            this.LogoutLabel.Name = "LogoutLabel";
+            this.LogoutLabel.Size = new System.Drawing.Size(70, 30);
+            this.LogoutLabel.TabIndex = 14;
+            this.LogoutLabel.Text = "Logout";
+            this.LogoutLabel.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Principal
             // 
@@ -343,13 +382,14 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.guna2Panel12.ResumeLayout(false);
-            this.guna2Panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2Panel_top.ResumeLayout(false);
             this.guna2Panel_top.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox_val)).EndInit();
+            this.LogoutPanel.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -370,11 +410,13 @@
         private System.Windows.Forms.Label label_val;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox_val;
         private System.Windows.Forms.Panel panel1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel12;
-        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton7;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel43;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private System.Windows.Forms.TextBox textBox1;
         private Guna.UI2.WinForms.Guna2Button WeightBtn;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private Guna.UI2.WinForms.Guna2Panel LogoutPanel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private Guna.UI2.WinForms.Guna2CircleButton LogoutButton;
+        private Guna.UI2.WinForms.Guna2HtmlLabel LogoutLabel;
     }
 }

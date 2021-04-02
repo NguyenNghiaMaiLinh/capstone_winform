@@ -41,11 +41,6 @@ namespace dental_sys
             form.Show();
         }
 
-        private void guna2CircleButton7_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void ManageCustomerBtn_Click(object sender, EventArgs e)
         {
             var data = _customerService.GetAllCustomers(PagingConstant.PageIndex, PagingConstant.PageSize);
@@ -71,6 +66,11 @@ namespace dental_sys
             Weight.Instance.Weights = data;
             Weight.Instance.LoadData(PagingConstant.PageIndex, PagingConstant.PageSize, pagingModel: data);
             ShowContainer("Management weight", Weight.Instance);
+        }
+
+        private void LogoutButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
