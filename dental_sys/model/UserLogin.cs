@@ -14,6 +14,7 @@ namespace dental_sys.model
         public string AccessToken { get; set; }
         [JsonProperty("user")]
         public User User { get; set; }
+        public string ErrorMessage { get; set; }
     }
     public class User
     {

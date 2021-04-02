@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dental_sys.Constants;
 using dental_sys.model;
+using Guna.UI.Animation.Material;
 
 namespace dental_sys
 {
@@ -17,8 +18,7 @@ namespace dental_sys
         private static string messagingSenderId = "464761191742";
         private static string appId = "1:464761191742:web:067091e2a5454e269d806f";
         private static string measurementId = "G-TGP964ML4R";
-        private static string email = "admin@gmail.com";
-        private static string pass = "admin@123";
+
         public LoginPage()
         {
             CommonService.SaveUrlApi();
@@ -28,6 +28,14 @@ namespace dental_sys
         private void Form1_Load(object sender, EventArgs e)
         {
             guna2ShadowForm1.SetShadowForm(this);
+
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.Username)
+                && !string.IsNullOrEmpty(Properties.Settings.Default.Password))
+            {
+                EmailTextBox.Text = Properties.Settings.Default.Username;
+                PasswordTextBox.Text = "password";
+            }
+
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -36,34 +44,65 @@ namespace dental_sys
         }
         private async void login()
         {
-            var email = guna2TextBox1.Text;
-            var pass = guna2TextBox2.Text;
+            string pass;
+            string email;
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.Username)
+                && !string.IsNullOrEmpty(Properties.Settings.Default.Password))
+            {
+                email = Properties.Settings.Default.Username;
+                pass = Properties.Settings.Default.Password;
+            }
+            else
+            {
+                email = EmailTextBox.Text;
+                pass = PasswordTextBox.Text;
+            }
+
             //this.Visible = false;
             //Loading _load = new Loading();
             //_load.Show();
             var auth = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
-            FirebaseAuthLink ab = null;
             try
             {
-                ab = await auth.SignInWithEmailAndPasswordAsync(email, pass);
+                var ab = await auth.SignInWithEmailAndPasswordAsync(email, pass);
                 var user = ab.User;
-                //var user = 0;
+                //var user = 0; 
                 if (user != null)
                 {
                     var authService = new AuthenticationService();
                     var userLogin = authService.GetToken(user.LocalId);
                     if (userLogin != null)
                     {
-                        UserLoginModel.AccessToken = userLogin.AccessToken;
-                        UserLoginModel.User = userLogin.User;
-                        this.DialogResult = DialogResult.OK;
-                        this.Close();
+                        if (string.IsNullOrEmpty(userLogin.ErrorMessage))
+                        {
+                            UserLoginModel.AccessToken = userLogin.AccessToken;
+                            UserLoginModel.User = userLogin.User;
+                            if (RememberCheckbox.Checked)
+                            {
+                                Properties.Settings.Default.Username = email;
+                                Properties.Settings.Default.Password = pass;
+                                Properties.Settings.Default.Save();
+                            }
+                            else
+                            {
+                                Properties.Settings.Default.Username = null;
+                                Properties.Settings.Default.Password = null;
+                                Properties.Settings.Default.Save();
+                            }
+                            this.DialogResult = DialogResult.OK;
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show(userLogin.ErrorMessage);
+                        }
+
                     }
                     else
                     {
-                        MessageBox.Show(@"Account Inactive");
+                        MessageBox.Show(@"Can't login. Try again later");
                     }
-                 
+
                 }
 
                 //Loading _load = new Loading();

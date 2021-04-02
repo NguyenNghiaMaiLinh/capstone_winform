@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using dental_sys.model;
+﻿using dental_sys.model;
 using Newtonsoft.Json;
 using RestSharp;
+using System.Net;
 
 namespace dental_sys.service
 {
@@ -24,6 +20,14 @@ namespace dental_sys.service
             {
                 var resultContent = response.Content;
                 result = JsonConvert.DeserializeObject<UserLogin>(resultContent);
+            }
+
+            if (response.StatusCode == HttpStatusCode.BadRequest)
+            {
+                result = new UserLogin()
+                {
+                    ErrorMessage = JsonConvert.DeserializeObject<string>(response.Content)
+                };
             }
 
             return result;
