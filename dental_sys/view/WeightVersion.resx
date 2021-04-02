@@ -131,18 +131,32 @@
         3sOW+AiPeeqjNsMGK2i7UecH73leN+yRTIEB9n9RPKQTuMaSMab2DXit1RzddFOeAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="PreviousPageBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAERJREFUSEtj
+        GPagHoppAoqA+D8U08QSVSB+AsSjlhAFRi0hCQwPS2hqwajhWMGo4VgBTQ0HAZpXOCAAMphmhg8FwMAA
+        AArZQDt0TatOAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAFFJREFUSEtj
         GDGgFogDIUzqg3og/g/Ev4DYFyRATQAzHISfALEqEFMNjBqOFYwajhXQ1HAQoLkFIDBqCUlg1BKSAF0t
         oUmFAwM0rTIHM2BgAABJXT+HLpgQCQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="NextPageBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="NextPageWeightVersionBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAERJREFUSEtj
         GPagHoppAoqA+D8U08QSVSB+AsSjlhAFRi0hCQwPS2hqwajhWMGo4VgBTQ0HAZpXOCAAMphmhg8FwMAA
         AArZQDt0TatOAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="PreviousPageWeightVersionBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAFFJREFUSEtj
+        GDGgFogDIUzqg3og/g/Ev4DYFyRATQAzHISfALEqEFMNjBqOFYwajhXQ1HAQoLkFIDBqCUlg1BKSAF0t
+        oUmFAwM0rTIHM2BgAABJXT+HLpgQCQAAAABJRU5ErkJggg==
 </value>
   </data>
 </root>

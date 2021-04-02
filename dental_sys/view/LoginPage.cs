@@ -34,30 +34,20 @@ namespace dental_sys
                 && !string.IsNullOrEmpty(Properties.Settings.Default.Password))
             {
                 EmailTextBox.Text = Properties.Settings.Default.Username;
-                PasswordTextBox.Text = "password";
+                PasswordTextBox.Text = Properties.Settings.Default.Password;
             }
 
         }
 
-        private  void guna2Button1_Click(object sender, EventArgs e)
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
             Login();
         }
         private async void Login()
         {
-            string pass;
-            string email;
-            if (!string.IsNullOrEmpty(Properties.Settings.Default.Username)
-                && !string.IsNullOrEmpty(Properties.Settings.Default.Password))
-            {
-                email = Properties.Settings.Default.Username;
-                pass = Properties.Settings.Default.Password;
-            }
-            else
-            {
-                email = EmailTextBox.Text;
-                pass = PasswordTextBox.Text;
-            }
+            var email = EmailTextBox.Text;
+            var pass = PasswordTextBox.Text;
+
 
             //this.Visible = false;
             //Loading _load = new Loading();
@@ -68,13 +58,14 @@ namespace dental_sys
             var auth = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
             try
             {
-                var ab = await auth.SignInWithEmailAndPasswordAsync(email, pass);
-                var user = ab.User;
-                //var user = 0; 
+                //var ab = await auth.SignInWithEmailAndPasswordAsync(email, pass);
+                //var user = ab.User;
+                var user = 0;
                 if (user != null)
                 {
                     var authService = new AuthenticationService();
-                    var userLogin = authService.GetToken(user.LocalId);
+                    //var userLogin = authService.GetToken(user.LocalId);
+                    var userLogin = authService.GetToken("YZN8KdHM70SrmgM7fbKZHHi3WzE2");
                     if (userLogin != null)
                     {
                         if (string.IsNullOrEmpty(userLogin.ErrorMessage))
@@ -96,13 +87,14 @@ namespace dental_sys
                         }
                         else
                         {
-                            mess = userLogin.ErrorMessage;
+                            var isAdmin = userLogin.User.Role == 2;
+                            mess = !isAdmin ? @"You don't have permission." : userLogin.ErrorMessage;
                         }
 
                     }
                     else
                     {
-                        mess = @"Can't login. Try again later";
+                        mess = @"Can't login. Try again later.";
                     }
 
                 }

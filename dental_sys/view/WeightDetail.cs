@@ -11,7 +11,7 @@ namespace dental_sys.view
         private bool _mouseIsDown = false;
         private readonly WeightService _weightService;
         private Point _firstPoint;
-        public WeightModel WeightModel { get; set; }
+        public WeightVersionModel WeightVersionModel { get; set; }
 
         public WeightDetail()
         {
@@ -21,11 +21,11 @@ namespace dental_sys.view
 
         private void Profile_Load(object sender, EventArgs e)
         {
-            WeightVersionTxt.Text = WeightModel?.Version;
-            IdText.Text = WeightModel?.Id;
-            UrlText.Text = WeightModel?.Url;
-            CreatedDateText.Text = WeightModel?.CreatedDateText;
-            StatusComboBox.SelectedIndex = StatusComboBox.FindStringExact(WeightModel?.Status);
+            WeightVersionTxt.Text = WeightVersionModel?.Version;
+            IdText.Text = WeightVersionModel?.Id;
+            UrlText.Text = WeightVersionModel?.Url;
+            CreatedDateText.Text = WeightVersionModel?.CreatedDateText;
+            StatusComboBox.SelectedIndex = StatusComboBox.FindStringExact(WeightVersionModel?.Status);
         }
 
 
@@ -58,7 +58,7 @@ namespace dental_sys.view
         private void guna2Button4_Click(object sender, EventArgs e)
         {
             var active = StatusComboBox.SelectedItem != null && StatusComboBox?.SelectedItem.ToString() == "Active";
-            var check = _weightService.Update(WeightModel.Id, active);
+            var check = _weightService.Update(WeightVersionModel.Id, active);
             if (check)
             {
                 MessageBox.Show(@"Update success!");

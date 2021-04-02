@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace dental_sys.model
 {
-    public class WeightEntity
+    public class WeightVersionEntity
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -14,33 +14,33 @@ namespace dental_sys.model
         [JsonProperty("url")]
         public string Url { get; set; }
         [JsonProperty("created_date")]
-        public DateTime CreatedDate { get; set; }
-        [JsonProperty("class_version_id")]
+        public DateTime? CreatedDate { get; set; }
+        [JsonProperty("class_version")]
         public string ClassVersionId { get; set; }
         [JsonProperty("is_active")]
         public bool IsActive { get; set; }
     }
 
-    public class WeightModel
+    public class WeightVersionModel
     {
-        [DisplayName(WeightHeaderConstant.No)]
+        [DisplayName(WeightVersionHeaderConstant.No)]
         public string No { get; set; }
-        [DisplayName(WeightHeaderConstant.Id)]
+        [DisplayName(WeightVersionHeaderConstant.Id)]
         public string Id { get; set; }
-        [DisplayName(WeightHeaderConstant.Version)]
+        [DisplayName(WeightVersionHeaderConstant.Version)]
         public string Version { get; set; }
-        [DisplayName(WeightHeaderConstant.Url)]
+        [DisplayName(WeightVersionHeaderConstant.Url)]
         public string Url { get; set; }
         [Browsable(false)]
         public DateTime? CreatedDate { get; set; }
 
-        [DisplayName(WeightHeaderConstant.CreatedDate)]
+        [DisplayName(WeightVersionHeaderConstant.CreatedDate)]
         public string CreatedDateText => CreatedDate?.ToString("dd/MM/yyyy HH:mm:ss");
-        [DisplayName(WeightHeaderConstant.ClassVersionId)]
+        [Browsable(false)]
         public string ClassVersionId { get; set; }
         [Browsable(false)]
         public bool IsActive { get; set; }
-        [DisplayName(WeightHeaderConstant.Status)]
+        [DisplayName(WeightVersionHeaderConstant.Status)]
         public string Status { get; set; }
     }
 }

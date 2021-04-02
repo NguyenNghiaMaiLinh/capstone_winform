@@ -2,6 +2,7 @@
 using dental_sys.model;
 using dental_sys.service;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace dental_sys
@@ -9,12 +10,14 @@ namespace dental_sys
     public partial class Principal : Form
     {
         public PagingModel<CustomerModel> Customers { get; set; }
-        public PagingModel<WeightModel> Weights { get; set; }
+        public PagingModel<WeightVersionModel> Weights { get; set; }
         private readonly CustomerService _customerService;
         private readonly WeightService _weightService;
+        private readonly ClassVersionService _classVersionService;
         public Principal()
         {
             _customerService = new CustomerService();
+            _classVersionService = new ClassVersionService();
             _weightService = new WeightService();
             InitializeComponent();
         }
@@ -62,15 +65,24 @@ namespace dental_sys
 
         private void WeightBtn_Click(object sender, EventArgs e)
         {
-            var data = _weightService.GetAllWeight(PagingConstant.PageIndex, PagingConstant.PageSize);
-            Weight.Instance.Weights = data;
-            Weight.Instance.LoadData(PagingConstant.PageIndex, PagingConstant.PageSize, pagingModel: data);
-            ShowContainer("Management weight", Weight.Instance);
+            var classVersionData = _classVersionService.GetAllClassVersion(PagingConstant.PageIndex, PagingConstant.PageSize);
+            var firstClass = classVersionData.Data.FirstOrDefault();
+            PagingModel<WeightVersionModel> weightVersion = null;
+            if (firstClass != null)
+            {
+                weightVersion = _weightService.GetAllWeightByClassId(firstClass.Id, PagingConstant.PageIndex, PagingConstant.PageSize);
+
+            }
+            Version.Instance.ClassVersions = classVersionData;
+            Version.Instance.WeightVersions = weightVersion;
+            Version.Instance.LoadClassVersionData(PagingConstant.PageIndex, PagingConstant.PageSize, pagingModel: classVersionData);
+            Version.Instance.LoadWeightVersionData(firstClass?.Id, PagingConstant.PageIndex, PagingConstant.PageSize, pagingModel: weightVersion);
+            ShowContainer("Management version", Version.Instance);
         }
 
         private void LogoutButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.Restart();
         }
     }
 }

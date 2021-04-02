@@ -297,14 +297,16 @@
     <Compile Include="Item.Designer.cs">
       <DependentUpon>Item.cs</DependentUpon>
     </Compile>
+    <Compile Include="model\ClassVersion.cs" />
     <Compile Include="model\UserLogin.cs" />
-    <Compile Include="model\Weight.cs" />
+    <Compile Include="model\WeightVersion.cs" />
     <Compile Include="model\Customer.cs" />
     <Compile Include="model\FileModel.cs" />
     <Compile Include="model\PagingModel.cs" />
     <Compile Include="model\UrlModel.cs" />
     <Compile Include="service\AuthenticationService.cs" />
     <Compile Include="service\CommonService.cs" />
+    <Compile Include="service\ClassVersionService.cs" />
     <Compile Include="service\WeightService.cs" />
     <Compile Include="service\CustomerService.cs" />
     <Compile Include="view\Dashboard.cs">
@@ -344,11 +346,11 @@
     <Compile Include="view\WeightDetail.Designer.cs">
       <DependentUpon>WeightDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\Weight.cs">
+    <Compile Include="view\WeightVersion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\Weight.Designer.cs">
-      <DependentUpon>Weight.cs</DependentUpon>
+    <Compile Include="view\WeightVersion.Designer.cs">
+      <DependentUpon>WeightVersion.cs</DependentUpon>
     </Compile>
     <Compile Include="view\Patient.cs">
       <SubType>Form</SubType>
@@ -394,8 +396,8 @@
     <EmbeddedResource Include="view\WeightDetail.resx">
       <DependentUpon>WeightDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\Weight.resx">
-      <DependentUpon>Weight.cs</DependentUpon>
+    <EmbeddedResource Include="view\WeightVersion.resx">
+      <DependentUpon>WeightVersion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Patient.resx">
       <DependentUpon>Patient.cs</DependentUpon>

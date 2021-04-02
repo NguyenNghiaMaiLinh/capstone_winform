@@ -10,49 +10,47 @@ using AutoMapper;
 
 namespace dental_sys.service
 {
-    public class WeightService
+    public class ClassVersionService
     {
         private readonly IMapper _mapper;
-        public WeightService()
+        public ClassVersionService()
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<WeightVersionEntity, WeightVersionModel>();
+                cfg.CreateMap<ClassVersionEntity, ClassVersionModel>();
             });
             _mapper = config.CreateMapper();
 
         }
 
-        private PagingModel<WeightVersionEntity> DumbData(int offset, int pageSize)
+        private PagingModel<ClassVersionEntity> DumbData(int offset, int pageSize)
         {
-            var result = new List<WeightVersionEntity>();
+            var result = new List<ClassVersionEntity>();
             var rand = new Random();
             for (var i = 0; i < 100; i++)
             {
-                result.Add(new WeightVersionEntity()
+                result.Add(new ClassVersionEntity()
                 {
-                    ClassVersionId = i.ToString(),
                     CreatedDate = DateTime.Now,
                     Id = i.ToString(),
-                    IsActive = rand.Next(0, 2) == 1,
-                    Url = Guid.NewGuid().ToString("N"),
+                    CommitHash = Guid.NewGuid().ToString("N"),
                     Version = Guid.NewGuid().ToString("N")
                 });
             }
 
-            return new PagingModel<WeightVersionEntity>() { Data = result.Skip(offset).Take(pageSize).ToList(), Total = 99 };
+            return new PagingModel<ClassVersionEntity>() { Data = result.Skip(offset).Take(pageSize).ToList(), Total = 99 };
         }
 
 
-        public PagingModel<WeightVersionModel> GetAllWeightByClassId(string classId,int pageIndex, int pageSize, string searchValue = null)
+        public PagingModel<ClassVersionModel> GetAllClassVersion(int pageIndex, int pageSize, string searchValue = null)
         {
 
             var url = CommonService.GetUrlApi();
             pageIndex -= 1;
-            var result = new PagingModel<WeightVersionEntity>();
+            var result = new PagingModel<ClassVersionEntity>();
             var offset = pageIndex * pageSize;
             var client = new RestClient(url);
-            var request = new RestRequest($"versions/{classId}/weights?version={searchValue}&offset={offset}&limit={pageSize}", Method.GET);
+            var request = new RestRequest($"versions?version={searchValue}&offset={offset}&limit={pageSize}", Method.GET);
             request.AddHeader("Authorization", UserLoginModel.AccessToken);
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Charset", "utf-8");
@@ -61,21 +59,21 @@ namespace dental_sys.service
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 string resultContent = response.Content;
-                result = JsonConvert.DeserializeObject<PagingModel<WeightVersionEntity>>(resultContent);
+                result = JsonConvert.DeserializeObject<PagingModel<ClassVersionEntity>>(resultContent);
             }
 
             //result = DumbData(offset, pageSize);
             var no = offset + 1;
-            var weightModels = result.Data?.Select((a, ix) =>
+            var classModels = result.Data?.Select((a, ix) =>
             {
-                var b = _mapper.Map<WeightVersionModel>(a);
+                var b = _mapper.Map<ClassVersionModel>(a);
                 b.No = (no++).ToString();
-                b.Status = b.IsActive ? "Active" : "Inactive";
                 return b;
             });
-            return new PagingModel<WeightVersionModel>
-            { Data = weightModels?.ToList(), Total = result.Total };
+            return new PagingModel<ClassVersionModel>
+            { Data = classModels?.ToList(), Total = result.Total };
         }
+
         public bool Update(string id, bool active)
         {
             string path = System.Environment.CurrentDirectory;
