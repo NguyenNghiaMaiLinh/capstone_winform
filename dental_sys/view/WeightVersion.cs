@@ -171,7 +171,7 @@ namespace dental_sys
 
         private void NextWeightVersionBtn_Click(object sender, EventArgs e)
         {
-            var searchValue = SearchTextBox.Text;
+            var searchValue = SearchWeightTextBox.Text;
             if (ClassVersionGridView.CurrentRow?.DataBoundItem is ClassVersionModel currentClassVersion)
             {
                 if (_weightVersionPageIndex < _weightVersionNumberPage)
@@ -187,7 +187,7 @@ namespace dental_sys
 
         private void PreviousPageWeightVersionBtn_Click(object sender, EventArgs e)
         {
-            var searchValue = SearchTextBox.Text; if (ClassVersionGridView.CurrentRow?.DataBoundItem is ClassVersionModel currentClassVersion)
+            var searchValue = SearchWeightTextBox.Text; if (ClassVersionGridView.CurrentRow?.DataBoundItem is ClassVersionModel currentClassVersion)
             {
                 if (_weightVersionPageIndex > 1)
                 {

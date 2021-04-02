@@ -95,5 +95,11 @@ namespace dental_sys
         {
             Application.Restart();
         }
+
+        private void NotificationPicture_Click(object sender, EventArgs e)
+        {
+            var profile = new Profile {};
+            profile.ShowDialog();
+        }
     }
 }

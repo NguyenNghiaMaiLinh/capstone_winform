@@ -29,24 +29,33 @@ namespace dental_sys.view
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.CloseBtn = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.CustomerNameTxt = new System.Windows.Forms.Label();
-            this.roundPictureBox1 = new dental_sys.view.RoundPictureBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.StatusComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2HtmlLabel41 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel27 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel20 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel42 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel21 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel29 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel28 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label1 = new System.Windows.Forms.Label();
+            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.CustomerNameTxt = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.UidLabel = new System.Windows.Forms.Label();
+            this.EmailLabel = new System.Windows.Forms.Label();
+            this.PhoneLabel = new System.Windows.Forms.Label();
+            this.Avatar = new dental_sys.view.RoundPictureBox();
             this.guna2ShadowPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundPictureBox1)).BeginInit();
             this.guna2Panel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Button4
@@ -86,54 +95,52 @@ namespace dental_sys.view
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel1.Controls.Add(this.CustomerNameTxt);
-            this.guna2ShadowPanel1.Controls.Add(this.roundPictureBox1);
+            this.guna2ShadowPanel1.Controls.Add(this.Avatar);
+            this.guna2ShadowPanel1.Controls.Add(this.guna2Panel1);
             this.guna2ShadowPanel1.Controls.Add(this.guna2Panel2);
             this.guna2ShadowPanel1.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2ShadowPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2ShadowPanel1.Location = new System.Drawing.Point(16, 58);
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel1.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.Dropped;
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(406, 454);
             this.guna2ShadowPanel1.TabIndex = 98;
-            // 
-            // CustomerNameTxt
-            // 
-            this.CustomerNameTxt.AutoSize = true;
-            this.CustomerNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomerNameTxt.Location = new System.Drawing.Point(31, 170);
-            this.CustomerNameTxt.Name = "CustomerNameTxt";
-            this.CustomerNameTxt.Size = new System.Drawing.Size(82, 29);
-            this.CustomerNameTxt.TabIndex = 77;
-            this.CustomerNameTxt.Text = "Name";
-            // 
-            // roundPictureBox1
-            // 
-            this.roundPictureBox1.Location = new System.Drawing.Point(154, 35);
-            this.roundPictureBox1.Name = "roundPictureBox1";
-            this.roundPictureBox1.Size = new System.Drawing.Size(98, 96);
-            this.roundPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.roundPictureBox1.TabIndex = 76;
-            this.roundPictureBox1.TabStop = false;
             // 
             // guna2Panel2
             // 
             this.guna2Panel2.BorderRadius = 5;
-            this.guna2Panel2.Controls.Add(this.StatusComboBox);
-            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel41);
-            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel27);
-            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel20);
-            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel42);
-            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel21);
-            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel29);
-            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel28);
+            this.guna2Panel2.Controls.Add(this.tableLayoutPanel1);
             this.guna2Panel2.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Panel2.Location = new System.Drawing.Point(21, 217);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
             this.guna2Panel2.Size = new System.Drawing.Size(362, 196);
             this.guna2Panel2.TabIndex = 74;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel1.Controls.Add(this.PhoneLabel, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.EmailLabel, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.UidLabel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.StatusComboBox, 1, 3);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(362, 196);
+            this.tableLayoutPanel1.TabIndex = 79;
             // 
             // StatusComboBox
             // 
@@ -154,7 +161,7 @@ namespace dental_sys.view
             "Active",
             "Inactive"});
             this.StatusComboBox.ItemsAppearance.Parent = this.StatusComboBox;
-            this.StatusComboBox.Location = new System.Drawing.Point(98, 154);
+            this.StatusComboBox.Location = new System.Drawing.Point(75, 150);
             this.StatusComboBox.Name = "StatusComboBox";
             this.StatusComboBox.ShadowDecoration.Parent = this.StatusComboBox;
             this.StatusComboBox.Size = new System.Drawing.Size(116, 36);
@@ -162,93 +169,163 @@ namespace dental_sys.view
             this.StatusComboBox.TabIndex = 113;
             this.StatusComboBox.TextOffset = new System.Drawing.Point(2, 0);
             // 
-            // guna2HtmlLabel41
-            // 
-            this.guna2HtmlLabel41.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel41.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel41.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel41.Location = new System.Drawing.Point(98, 112);
-            this.guna2HtmlLabel41.Name = "guna2HtmlLabel41";
-            this.guna2HtmlLabel41.Size = new System.Drawing.Size(43, 22);
-            this.guna2HtmlLabel41.TabIndex = 62;
-            this.guna2HtmlLabel41.Text = "phone";
-            // 
-            // guna2HtmlLabel27
-            // 
-            this.guna2HtmlLabel27.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel27.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel27.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel27.Location = new System.Drawing.Point(22, 154);
-            this.guna2HtmlLabel27.Name = "guna2HtmlLabel27";
-            this.guna2HtmlLabel27.Size = new System.Drawing.Size(38, 19);
-            this.guna2HtmlLabel27.TabIndex = 19;
-            this.guna2HtmlLabel27.Text = "Status";
-            // 
-            // guna2HtmlLabel20
-            // 
-            this.guna2HtmlLabel20.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel20.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel20.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel20.Location = new System.Drawing.Point(98, 67);
-            this.guna2HtmlLabel20.Name = "guna2HtmlLabel20";
-            this.guna2HtmlLabel20.Size = new System.Drawing.Size(39, 22);
-            this.guna2HtmlLabel20.TabIndex = 62;
-            this.guna2HtmlLabel20.Text = "email";
-            // 
-            // guna2HtmlLabel42
-            // 
-            this.guna2HtmlLabel42.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel42.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel42.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel42.Location = new System.Drawing.Point(22, 112);
-            this.guna2HtmlLabel42.Name = "guna2HtmlLabel42";
-            this.guna2HtmlLabel42.Size = new System.Drawing.Size(39, 19);
-            this.guna2HtmlLabel42.TabIndex = 19;
-            this.guna2HtmlLabel42.Text = "Phone";
-            // 
-            // guna2HtmlLabel21
-            // 
-            this.guna2HtmlLabel21.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel21.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel21.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel21.Location = new System.Drawing.Point(22, 70);
-            this.guna2HtmlLabel21.Name = "guna2HtmlLabel21";
-            this.guna2HtmlLabel21.Size = new System.Drawing.Size(34, 19);
-            this.guna2HtmlLabel21.TabIndex = 19;
-            this.guna2HtmlLabel21.Text = "Email";
-            // 
-            // guna2HtmlLabel29
-            // 
-            this.guna2HtmlLabel29.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel29.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel29.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel29.Location = new System.Drawing.Point(22, 28);
-            this.guna2HtmlLabel29.Name = "guna2HtmlLabel29";
-            this.guna2HtmlLabel29.Size = new System.Drawing.Size(23, 19);
-            this.guna2HtmlLabel29.TabIndex = 19;
-            this.guna2HtmlLabel29.Text = "UID";
-            // 
-            // guna2HtmlLabel28
-            // 
-            this.guna2HtmlLabel28.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel28.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel28.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel28.Location = new System.Drawing.Point(98, 25);
-            this.guna2HtmlLabel28.Name = "guna2HtmlLabel28";
-            this.guna2HtmlLabel28.Size = new System.Drawing.Size(23, 22);
-            this.guna2HtmlLabel28.TabIndex = 62;
-            this.guna2HtmlLabel28.Text = "uid";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(179, 21);
+            this.label1.Location = new System.Drawing.Point(161, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 34);
+            this.label1.Size = new System.Drawing.Size(90, 29);
             this.label1.TabIndex = 90;
             this.label1.Text = "Profile";
+            // 
+            // guna2ShadowForm1
+            // 
+            this.guna2ShadowForm1.TargetForm = this;
+            // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.ContainerControl = this;
+            this.guna2DragControl1.TargetControl = this;
+            this.guna2DragControl1.TransparentWhileDrag = true;
+            this.guna2DragControl1.UseTransparentDrag = true;
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.Controls.Add(this.tableLayoutPanel2);
+            this.guna2Panel1.Location = new System.Drawing.Point(21, 152);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
+            this.guna2Panel1.Size = new System.Drawing.Size(362, 59);
+            this.guna2Panel1.TabIndex = 77;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.CustomerNameTxt, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(362, 59);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // CustomerNameTxt
+            // 
+            this.CustomerNameTxt.AutoSize = true;
+            this.CustomerNameTxt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CustomerNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.CustomerNameTxt.Location = new System.Drawing.Point(3, 0);
+            this.CustomerNameTxt.Name = "CustomerNameTxt";
+            this.CustomerNameTxt.Size = new System.Drawing.Size(356, 59);
+            this.CustomerNameTxt.TabIndex = 79;
+            this.CustomerNameTxt.Text = "Name";
+            this.CustomerNameTxt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Franklin Gothic Medium", 11.25F);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 49);
+            this.label2.TabIndex = 114;
+            this.label2.Text = "Uid";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(3, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 49);
+            this.label3.TabIndex = 115;
+            this.label3.Text = "Email";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(3, 98);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 49);
+            this.label4.TabIndex = 116;
+            this.label4.Text = "Phone";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F);
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(3, 147);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 49);
+            this.label5.TabIndex = 117;
+            this.label5.Text = "Status";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // UidLabel
+            // 
+            this.UidLabel.AutoSize = true;
+            this.UidLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UidLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
+            this.UidLabel.ForeColor = System.Drawing.Color.Gray;
+            this.UidLabel.Location = new System.Drawing.Point(75, 0);
+            this.UidLabel.Name = "UidLabel";
+            this.UidLabel.Size = new System.Drawing.Size(284, 49);
+            this.UidLabel.TabIndex = 118;
+            this.UidLabel.Text = "Uid";
+            this.UidLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // EmailLabel
+            // 
+            this.EmailLabel.AutoSize = true;
+            this.EmailLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.EmailLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
+            this.EmailLabel.ForeColor = System.Drawing.Color.Gray;
+            this.EmailLabel.Location = new System.Drawing.Point(75, 49);
+            this.EmailLabel.Name = "EmailLabel";
+            this.EmailLabel.Size = new System.Drawing.Size(284, 49);
+            this.EmailLabel.TabIndex = 119;
+            this.EmailLabel.Text = "Email";
+            this.EmailLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // PhoneLabel
+            // 
+            this.PhoneLabel.AutoSize = true;
+            this.PhoneLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PhoneLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
+            this.PhoneLabel.ForeColor = System.Drawing.Color.Gray;
+            this.PhoneLabel.Location = new System.Drawing.Point(75, 98);
+            this.PhoneLabel.Name = "PhoneLabel";
+            this.PhoneLabel.Size = new System.Drawing.Size(284, 49);
+            this.PhoneLabel.TabIndex = 120;
+            this.PhoneLabel.Text = "Phone";
+            this.PhoneLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Avatar
+            // 
+            this.Avatar.Location = new System.Drawing.Point(135, 31);
+            this.Avatar.Name = "Avatar";
+            this.Avatar.Size = new System.Drawing.Size(127, 118);
+            this.Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.Avatar.TabIndex = 81;
+            this.Avatar.TabStop = false;
             // 
             // Profile
             // 
@@ -267,14 +344,14 @@ namespace dental_sys.view
             this.Deactivate += new System.EventHandler(this.Profile_Deactivate);
             this.Load += new System.EventHandler(this.Profile_Load);
             this.Leave += new System.EventHandler(this.Profile_Leave);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Profile_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Profile_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Profile_MouseUp);
             this.guna2ShadowPanel1.ResumeLayout(false);
-            this.guna2ShadowPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundPictureBox1)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
-            this.guna2Panel2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.guna2Panel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Avatar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,15 +364,20 @@ namespace dental_sys.view
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel41;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel27;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel20;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel42;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel21;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel29;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel28;
+        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2ComboBox StatusComboBox;
-        private RoundPictureBox roundPictureBox1;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label CustomerNameTxt;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label UidLabel;
+        private System.Windows.Forms.Label PhoneLabel;
+        private System.Windows.Forms.Label EmailLabel;
+        private RoundPictureBox Avatar;
     }
 }

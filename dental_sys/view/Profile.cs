@@ -1,6 +1,7 @@
 ﻿using dental_sys.service;
 using System;
 using System.Drawing;
+using System.Net;
 using System.Windows.Forms;
 using dental_sys.model;
 
@@ -8,9 +9,7 @@ namespace dental_sys.view
 {
     public partial class Profile : Form
     {
-        private bool mouseIsDown = false;
         private readonly CustomerService _customerService;
-        private Point firstPoint;
         public CustomerModel Customer { get; set; }
 
         public Profile()
@@ -21,42 +20,39 @@ namespace dental_sys.view
 
         private void Profile_Load(object sender, EventArgs e)
         {
+            try
+            {
+                
+                if (!string.IsNullOrEmpty(Customer?.Url))
+                {
 
-            if (Customer?.Url != null)
-                roundPictureBox1.Load(Customer.Url);
+                    //var request = WebRequest.Create(Customer.Url);
+
+                    //using (var response = request.GetResponse())
+                    //using (var stream = response.GetResponseStream())
+                    //{
+                    Avatar.LoadAsync(Customer.Url);
+
+                    //Rectangle r = new Rectangle(0, 0, pictureBox1.Width, pictureBox1.Height);
+                    //System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+
+                    //gp.AddEllipse(0, 0, pictureBox1.Width - 3, pictureBox1.Height - 3);
+                    //Region rg = new Region(gp);
+                    //pictureBox1.Region = rg;
+                    //}
+                }
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
+
 
             CustomerNameTxt.Text = Customer?.Name;
-            guna2HtmlLabel28.Text = Customer?.UId;
-            guna2HtmlLabel20.Text = Customer?.Email;
-            guna2HtmlLabel41.Text = Customer?.Phone;
+            UidLabel.Text = Customer?.UId;
+            EmailLabel.Text = Customer?.Email;
+            PhoneLabel.Text = Customer?.Phone;
             StatusComboBox.SelectedIndex = StatusComboBox.FindStringExact(Customer?.Status);
-        }
-
-
-        private void Profile_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mouseIsDown)
-            {
-                // Get the difference between the two points
-                int xDiff = firstPoint.X - e.Location.X;
-                int yDiff = firstPoint.Y - e.Location.Y;
-
-                // Set the new point
-                int x = this.Location.X - xDiff;
-                int y = this.Location.Y - yDiff;
-                this.Location = new Point(x, y);
-            }
-        }
-
-        private void Profile_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouseIsDown = false;
-        }
-
-        private void Profile_MouseDown(object sender, MouseEventArgs e)
-        {
-            firstPoint = e.Location;
-            mouseIsDown = true;
         }
 
         private void guna2Button4_Click(object sender, EventArgs e)
