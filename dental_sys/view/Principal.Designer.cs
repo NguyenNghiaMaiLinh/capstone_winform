@@ -34,6 +34,11 @@
             this.WeightBtn = new Guna.UI2.WinForms.Guna2Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.LogoutPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.LogoutButton = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.LogoutLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.ImportDataBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ManageCustomerBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -44,23 +49,18 @@
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.CloseBtn = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2Panel_container = new Guna.UI2.WinForms.Guna2Panel();
-            this.LogoutPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.LogoutButton = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.LogoutLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Panel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.LogoutPanel.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel_top.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox_val)).BeginInit();
-            this.LogoutPanel.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -125,6 +125,84 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(205, 44);
             this.panel1.TabIndex = 0;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Controls.Add(this.LogoutPanel, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(205, 44);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // LogoutPanel
+            // 
+            this.LogoutPanel.AutoRoundedCorners = true;
+            this.LogoutPanel.BorderRadius = 18;
+            this.LogoutPanel.Controls.Add(this.tableLayoutPanel2);
+            this.LogoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LogoutPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
+            this.LogoutPanel.Location = new System.Drawing.Point(54, 3);
+            this.LogoutPanel.Name = "LogoutPanel";
+            this.LogoutPanel.ShadowDecoration.Parent = this.LogoutPanel;
+            this.LogoutPanel.Size = new System.Drawing.Size(96, 38);
+            this.LogoutPanel.TabIndex = 68;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Controls.Add(this.LogoutButton, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.LogoutLabel, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(-3, 1);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(102, 36);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // LogoutButton
+            // 
+            this.LogoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
+            this.LogoutButton.CheckedState.Parent = this.LogoutButton;
+            this.LogoutButton.CustomImages.Parent = this.LogoutButton;
+            this.LogoutButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LogoutButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
+            this.LogoutButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.LogoutButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
+            this.LogoutButton.HoverState.Parent = this.LogoutButton;
+            this.LogoutButton.Image = ((System.Drawing.Image)(resources.GetObject("LogoutButton.Image")));
+            this.LogoutButton.ImageOffset = new System.Drawing.Point(1, 0);
+            this.LogoutButton.Location = new System.Drawing.Point(79, 3);
+            this.LogoutButton.Name = "LogoutButton";
+            this.LogoutButton.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.LogoutButton.ShadowDecoration.Parent = this.LogoutButton;
+            this.LogoutButton.Size = new System.Drawing.Size(20, 30);
+            this.LogoutButton.TabIndex = 15;
+            this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
+            // 
+            // LogoutLabel
+            // 
+            this.LogoutLabel.AutoSize = false;
+            this.LogoutLabel.AutoSizeHeightOnly = true;
+            this.LogoutLabel.BackColor = System.Drawing.Color.Transparent;
+            this.LogoutLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LogoutLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F);
+            this.LogoutLabel.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.LogoutLabel.Location = new System.Drawing.Point(3, 3);
+            this.LogoutLabel.Name = "LogoutLabel";
+            this.LogoutLabel.Size = new System.Drawing.Size(70, 30);
+            this.LogoutLabel.TabIndex = 14;
+            this.LogoutLabel.Text = "Logout";
+            this.LogoutLabel.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2PictureBox2
             // 
@@ -273,11 +351,6 @@
             this.CloseBtn.TabIndex = 0;
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
-            // guna2DragControl1
-            // 
-            this.guna2DragControl1.TargetControl = this.guna2Panel_top;
-            this.guna2DragControl1.UseTransparentDrag = true;
-            // 
             // guna2Panel_container
             // 
             this.guna2Panel_container.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -287,83 +360,12 @@
             this.guna2Panel_container.Size = new System.Drawing.Size(1003, 701);
             this.guna2Panel_container.TabIndex = 2;
             // 
-            // LogoutPanel
+            // guna2DragControl1
             // 
-            this.LogoutPanel.AutoRoundedCorners = true;
-            this.LogoutPanel.BorderRadius = 18;
-            this.LogoutPanel.Controls.Add(this.tableLayoutPanel2);
-            this.LogoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LogoutPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
-            this.LogoutPanel.Location = new System.Drawing.Point(54, 3);
-            this.LogoutPanel.Name = "LogoutPanel";
-            this.LogoutPanel.ShadowDecoration.Parent = this.LogoutPanel;
-            this.LogoutPanel.Size = new System.Drawing.Size(96, 38);
-            this.LogoutPanel.TabIndex = 68;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.LogoutPanel, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(205, 44);
-            this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Controls.Add(this.LogoutButton, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.LogoutLabel, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(-3, 1);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(102, 36);
-            this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // LogoutButton
-            // 
-            this.LogoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
-            this.LogoutButton.CheckedState.Parent = this.LogoutButton;
-            this.LogoutButton.CustomImages.Parent = this.LogoutButton;
-            this.LogoutButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LogoutButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
-            this.LogoutButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LogoutButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
-            this.LogoutButton.HoverState.Parent = this.LogoutButton;
-            this.LogoutButton.Image = ((System.Drawing.Image)(resources.GetObject("LogoutButton.Image")));
-            this.LogoutButton.ImageOffset = new System.Drawing.Point(1, 0);
-            this.LogoutButton.Location = new System.Drawing.Point(79, 3);
-            this.LogoutButton.Name = "LogoutButton";
-            this.LogoutButton.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.LogoutButton.ShadowDecoration.Parent = this.LogoutButton;
-            this.LogoutButton.Size = new System.Drawing.Size(20, 30);
-            this.LogoutButton.TabIndex = 15;
-            this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
-            // 
-            // LogoutLabel
-            // 
-            this.LogoutLabel.AutoSize = false;
-            this.LogoutLabel.AutoSizeHeightOnly = true;
-            this.LogoutLabel.BackColor = System.Drawing.Color.Transparent;
-            this.LogoutLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LogoutLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F);
-            this.LogoutLabel.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.LogoutLabel.Location = new System.Drawing.Point(3, 3);
-            this.LogoutLabel.Name = "LogoutLabel";
-            this.LogoutLabel.Size = new System.Drawing.Size(70, 30);
-            this.LogoutLabel.TabIndex = 14;
-            this.LogoutLabel.Text = "Logout";
-            this.LogoutLabel.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.guna2DragControl1.ContainerControl = this;
+            this.guna2DragControl1.TargetControl = this.guna2Panel_top;
+            this.guna2DragControl1.TransparentWhileDrag = true;
+            this.guna2DragControl1.UseTransparentDrag = true;
             // 
             // Principal
             // 
@@ -382,14 +384,14 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.LogoutPanel.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2Panel_top.ResumeLayout(false);
             this.guna2Panel_top.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox_val)).EndInit();
-            this.LogoutPanel.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -402,7 +404,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox CloseBtn;
-        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2Button ImportDataBtn;
         private Guna.UI2.WinForms.Guna2Button ManageCustomerBtn;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
@@ -418,5 +419,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private Guna.UI2.WinForms.Guna2CircleButton LogoutButton;
         private Guna.UI2.WinForms.Guna2HtmlLabel LogoutLabel;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }

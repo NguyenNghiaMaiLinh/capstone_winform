@@ -329,7 +329,9 @@
             // 
             // guna2DragControl1
             // 
+            this.guna2DragControl1.ContainerControl = this;
             this.guna2DragControl1.TargetControl = this;
+            this.guna2DragControl1.TransparentWhileDrag = true;
             this.guna2DragControl1.UseTransparentDrag = true;
             // 
             // LoginPage
@@ -386,9 +388,9 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
-        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }
 
