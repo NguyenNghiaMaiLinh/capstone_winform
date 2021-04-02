@@ -44,7 +44,7 @@ namespace dental_sys.service
         }
 
 
-        public PagingModel<WeightVersionModel> GetAllWeightByClassId(string classId,int pageIndex, int pageSize, string searchValue = null)
+        public PagingModel<WeightVersionModel> GetAllWeightByClassId(string classId, int pageIndex, int pageSize, string searchValue = null)
         {
 
             var url = CommonService.GetUrlApi();

@@ -42,6 +42,7 @@ namespace dental_sys
 
         public void LoadClassVersionData(int pageIndex, int pageSize, string searchValue = null, PagingModel<ClassVersionModel> pagingModel = null)
         {
+            
             pagingModel = pagingModel ?? _classVersionService.GetAllClassVersion(pageIndex, pageSize, searchValue);
             if (pagingModel.Data != null && pagingModel.Data.Count > 0)
             {
@@ -56,11 +57,11 @@ namespace dental_sys
             }
             ClassVersionNumber.Text = _classVersionTotal.ToString();
             ClassVersionPageNumber.Text = _classVersionNumberPage > 0 ? $@"{ pageIndex} / {_classVersionNumberPage}" : @"0 / 0";
+
         }
 
         public void LoadWeightVersionData(string classVersionId, int pageIndex, int pageSize, string searchValue = null, PagingModel<WeightVersionModel> pagingModel = null)
         {
-
             pagingModel = pagingModel ?? _weightService.GetAllWeightByClassId(classVersionId, pageIndex, pageSize, searchValue);
 
             if (pagingModel.Data != null && pagingModel.Data.Count > 0)
@@ -76,7 +77,6 @@ namespace dental_sys
             }
             WeightNumber.Text = _weightVersionTotal.ToString();
             WeightVersionPageNumber.Text = _weightVersionNumberPage > 0 ? $@"{ pageIndex} / {_weightVersionNumberPage}" : @"0 / 0";
-
         }
 
         private void BindingData(dynamic data)
@@ -206,10 +206,13 @@ namespace dental_sys
 
         private void ClassVersionGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            var waitForm = new WaitFormFunc();
+            waitForm.Show();
             if (ClassVersionGridView.CurrentRow?.DataBoundItem is ClassVersionModel currentClassVersion)
             {
                 LoadWeightVersionData(currentClassVersion.Id, _classVersionPageIndex, _classVersionPageSize);
             }
+            waitForm.Close();
         }
     }
 }

@@ -4,6 +4,7 @@ using dental_sys.service;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using dental_sys.view;
 
 namespace dental_sys
 {
@@ -46,16 +47,22 @@ namespace dental_sys
 
         private void ManageCustomerBtn_Click(object sender, EventArgs e)
         {
+            var waitForm = new WaitFormFunc();
+            waitForm.Show(this);
             var data = _customerService.GetAllCustomers(PagingConstant.PageIndex, PagingConstant.PageSize);
             Patient.Instance.Customers = data;
             Patient.Instance.LoadData(PagingConstant.PageIndex, PagingConstant.PageSize, pagingModel: data);
             ShowContainer("Management customer", Patient.Instance);
+            waitForm.Close();
         }
 
         private void ImportDataBtn_Click(object sender, EventArgs e)
         {
+            var waitForm = new WaitFormFunc();
+            waitForm.Show(this);
             Patient.Instance.Customers = Customers;
             ShowContainer("Import Data", new ImportData());
+            waitForm.Close();
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)
@@ -65,6 +72,9 @@ namespace dental_sys
 
         private void WeightBtn_Click(object sender, EventArgs e)
         {
+            var waitForm = new WaitFormFunc();
+            waitForm.Show(this);
+
             var classVersionData = _classVersionService.GetAllClassVersion(PagingConstant.PageIndex, PagingConstant.PageSize);
             var firstClass = classVersionData.Data.FirstOrDefault();
             PagingModel<WeightVersionModel> weightVersion = null;
@@ -78,6 +88,7 @@ namespace dental_sys
             Version.Instance.LoadClassVersionData(PagingConstant.PageIndex, PagingConstant.PageSize, pagingModel: classVersionData);
             Version.Instance.LoadWeightVersionData(firstClass?.Id, PagingConstant.PageIndex, PagingConstant.PageSize, pagingModel: weightVersion);
             ShowContainer("Management version", Version.Instance);
+            waitForm.Close();
         }
 
         private void LogoutButton_Click(object sender, EventArgs e)
