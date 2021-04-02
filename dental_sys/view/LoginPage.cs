@@ -3,12 +3,13 @@ using Firebase.Auth;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dental_sys.Constants;
+using dental_sys.model;
 
 namespace dental_sys
 {
     public partial class LoginPage : Form
     {
-        CustomerService customerService = new CustomerService();
         private static string apiKey = "AIzaSyBn9Lqgce4jOQS_84c5yEHlyHaCEi2n9Wc";
         private static string storageBucket = "solveequation-ecf24.appspot.com";
         private static string authDomain = "solveequation-ecf24.firebaseapp.com";
@@ -20,7 +21,7 @@ namespace dental_sys
         private static string pass = "admin@123";
         public LoginPage()
         {
-            customerService.GetUrl();
+            CommonService.SaveUrlApi();
             InitializeComponent();
         }
 
@@ -35,8 +36,8 @@ namespace dental_sys
         }
         private async void login()
         {
-            string email = guna2TextBox1.Text;
-            string pass = guna2TextBox2.Text;
+            var email = guna2TextBox1.Text;
+            var pass = guna2TextBox2.Text;
             //this.Visible = false;
             //Loading _load = new Loading();
             //_load.Show();
@@ -44,15 +45,25 @@ namespace dental_sys
             FirebaseAuthLink ab = null;
             try
             {
-                //ab = await auth.SignInWithEmailAndPasswordAsync(email, pass);
-                //string token = ab.FirebaseToken;
-                //var user = ab.User;
-
-                var user = 0;
+                ab = await auth.SignInWithEmailAndPasswordAsync(email, pass);
+                var user = ab.User;
+                //var user = 0;
                 if (user != null)
                 {
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                    var authService = new AuthenticationService();
+                    var userLogin = authService.GetToken(user.LocalId);
+                    if (userLogin != null)
+                    {
+                        UserLoginModel.AccessToken = userLogin.AccessToken;
+                        UserLoginModel.User = userLogin.User;
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show(@"Account Inactive");
+                    }
+                 
                 }
 
                 //Loading _load = new Loading();
@@ -60,7 +71,7 @@ namespace dental_sys
             }
             catch (Exception e)
             {
-                MessageBox.Show("Invalid Email or password!");
+                MessageBox.Show(@"Invalid Email or password!");
             }
         }
 

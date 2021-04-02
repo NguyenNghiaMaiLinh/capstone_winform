@@ -1,9 +1,9 @@
 ﻿using dental_sys.model;
 using dental_sys.service;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dental_sys.Constants;
 
 namespace dental_sys
 {
@@ -15,7 +15,7 @@ namespace dental_sys
         public Loading()
         {
             var customerRepository = new CustomerService();
-            Task.Run(() => Customers = customerRepository.GetAllCustomers(1, 20));
+            Task.Run(() => Customers = customerRepository.GetAllCustomers(PagingConstant.PageIndex, PagingConstant.PageSize));
             InitializeComponent();
         }
 

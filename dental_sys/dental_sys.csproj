@@ -271,6 +271,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\ApplicationConstant.cs" />
     <Compile Include="Constants\FileHeaderConstant.cs" />
     <Compile Include="Controls\PicturePanel.cs">
       <SubType>Component</SubType>
@@ -281,11 +282,14 @@
     <Compile Include="Item.Designer.cs">
       <DependentUpon>Item.cs</DependentUpon>
     </Compile>
+    <Compile Include="model\UserLogin.cs" />
     <Compile Include="model\Weight.cs" />
     <Compile Include="model\Customer.cs" />
     <Compile Include="model\FileModel.cs" />
     <Compile Include="model\PagingModel.cs" />
     <Compile Include="model\UrlModel.cs" />
+    <Compile Include="service\AuthenticationService.cs" />
+    <Compile Include="service\CommonService.cs" />
     <Compile Include="service\WeightService.cs" />
     <Compile Include="service\CustomerService.cs" />
     <Compile Include="view\Dashboard.cs">

@@ -1,11 +1,10 @@
-﻿using dental_sys.model;
+﻿using AutoMapper;
+using dental_sys.model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using AutoMapper;
 
 namespace dental_sys.service
 {
@@ -25,13 +24,14 @@ namespace dental_sys.service
         }
         public PagingModel<CustomerModel> GetAllCustomers(int pageIndex, int pageSize, string searchValue = null)
         {
-            string path = System.Environment.CurrentDirectory;
-            string url = File.ReadAllText($@"{path}\url");
-            pageIndex = pageIndex - 1;
+            var url = CommonService.GetUrlApi();
+            pageIndex -= 1;
             var result = new PagingModel<Customer>();
             var offset = pageIndex * pageSize;
             var client = new RestClient(url);
+           
             var request = new RestRequest($"users?name={searchValue}&offset={offset}&limit={pageSize}", Method.GET);
+            request.AddHeader("Authorization", UserLoginModel.AccessToken);
             var response = client.Get<ICollection<Customer>>(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
@@ -52,10 +52,10 @@ namespace dental_sys.service
         }
         public bool Update(string id, bool active)
         {
-            string path = System.Environment.CurrentDirectory;
-            string url = File.ReadAllText($@"{path}\url");
+            var url = CommonService.GetUrlApi();
             var client = new RestClient(url);
             var request = new RestRequest($"users/{id}", Method.PUT);
+            request.AddHeader("Authorization", UserLoginModel.AccessToken);
             var body = new JObject { { "is_active", active } };
             var json = JsonConvert.SerializeObject(body);
             request.AddJsonBody(json);
@@ -85,10 +85,10 @@ namespace dental_sys.service
         //}
         public Customer GetDetail(string id)
         {
-            string path = System.Environment.CurrentDirectory;
-            string url = File.ReadAllText($@"{path}\url");
+            var url = CommonService.GetUrlApi();
             var client = new RestClient(url);
             var request = new RestRequest($"users/{id}", Method.GET);
+            request.AddHeader("Authorization", UserLoginModel.AccessToken);
             Customer data = new Customer();
             var response = client.Execute<Customer>(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -99,18 +99,6 @@ namespace dental_sys.service
             return data;
 
         }
-        public void GetUrl()
-        {
-            var client = new RestClient("http://url-env.eba-rvk73mrv.ap-southeast-1.elasticbeanstalk.com");
-            var request = new RestRequest("api/url/1", Method.GET);
-            var response = client.Execute<UrlModel>(request);
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                var content = response.Content;
-                var url = JsonConvert.DeserializeObject<UrlModel>(content);
-                var path = System.Environment.CurrentDirectory;
-                File.WriteAllText($@"{path}\url", url.Url);
-            }
-        }
+
     }
 }
