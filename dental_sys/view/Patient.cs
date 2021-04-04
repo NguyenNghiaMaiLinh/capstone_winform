@@ -53,12 +53,6 @@ namespace dental_sys
             PageNumber.Text = _numberPage > 0 ? $@"{ pageIndex} / {_numberPage}" : @"0 / 0";
         }
 
-        private void Patient_Load(object sender, EventArgs e)
-        {
-            LoadData(PagingConstant.PageIndex, PagingConstant.PageSize, pagingModel: Customers);
-        }
-
-
         private void BindingData(ICollection<CustomerModel> data)
         {
             CustomerGridView.DataSource = null;

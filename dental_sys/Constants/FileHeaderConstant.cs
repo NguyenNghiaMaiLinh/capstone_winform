@@ -38,6 +38,15 @@
         public const string Version = "Version";
         public const string CreatedDate = "Created Date";
         public const string CommitHash = "Commit Hash";
+    }   
+    
+    public class NotificationHeaderConstant
+    {
+        public const string No = "No";
+        public const string Id = "Id";
+        public const string Message = "Message";
+        public const string CreatedDate = "Created Date";
+        public const string Read = "Read";
     }
 
 }

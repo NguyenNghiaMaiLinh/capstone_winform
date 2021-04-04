@@ -163,6 +163,16 @@ namespace dental_sys.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap read {
+            get {
+                object obj = ResourceManager.GetObject("read", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap send {
             get {
                 object obj = ResourceManager.GetObject("send", resourceCulture);
@@ -176,6 +186,16 @@ namespace dental_sys.Properties {
         internal static System.Drawing.Bitmap uncheck {
             get {
                 object obj = ResourceManager.GetObject("uncheck", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unread {
+            get {
+                object obj = ResourceManager.GetObject("unread", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

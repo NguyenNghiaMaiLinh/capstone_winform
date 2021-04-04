@@ -297,6 +297,7 @@
     <Compile Include="Item.Designer.cs">
       <DependentUpon>Item.cs</DependentUpon>
     </Compile>
+    <Compile Include="model\Notification.cs" />
     <Compile Include="model\ClassVersion.cs" />
     <Compile Include="model\UserLogin.cs" />
     <Compile Include="model\WeightVersion.cs" />
@@ -305,6 +306,7 @@
     <Compile Include="model\PagingModel.cs" />
     <Compile Include="model\UrlModel.cs" />
     <Compile Include="service\AuthenticationService.cs" />
+    <Compile Include="service\NotificationService.cs" />
     <Compile Include="service\CommonService.cs" />
     <Compile Include="service\ClassVersionService.cs" />
     <Compile Include="service\WeightService.cs" />
@@ -332,6 +334,12 @@
     </Compile>
     <Compile Include="view\ImportData.Designer.cs">
       <DependentUpon>ImportData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Notification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Notification.Designer.cs">
+      <DependentUpon>Notification.cs</DependentUpon>
     </Compile>
     <Compile Include="view\WaitForm.cs">
       <SubType>Form</SubType>
@@ -389,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\ImportData.resx">
       <DependentUpon>ImportData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Notification.resx">
+      <DependentUpon>Notification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\WaitForm.resx">
       <DependentUpon>WaitForm.cs</DependentUpon>
@@ -512,6 +523,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cicrle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\multiply.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

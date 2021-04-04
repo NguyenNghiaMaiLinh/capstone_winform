@@ -15,11 +15,13 @@ namespace dental_sys
         private readonly CustomerService _customerService;
         private readonly WeightService _weightService;
         private readonly ClassVersionService _classVersionService;
+        private readonly NotificationService _notificationService;
         public Principal()
         {
             _customerService = new CustomerService();
             _classVersionService = new ClassVersionService();
             _weightService = new WeightService();
+            _notificationService = new NotificationService();
             InitializeComponent();
         }
 
@@ -27,6 +29,8 @@ namespace dental_sys
         {
             guna2ShadowForm1.SetShadowForm(this);
             Patient.Instance.Customers = Customers;
+            Patient.Instance.LoadData(PagingConstant.PageIndex, PagingConstant.PageSize, pagingModel: Customers);
+            UpdatedUnreadNotification();
             ShowContainer("Management customer", Patient.Instance);
         }
 
@@ -49,9 +53,7 @@ namespace dental_sys
         {
             var waitForm = new WaitFormFunc();
             waitForm.Show(this);
-            var data = _customerService.GetAllCustomers(PagingConstant.PageIndex, PagingConstant.PageSize);
-            Patient.Instance.Customers = data;
-            Patient.Instance.LoadData(PagingConstant.PageIndex, PagingConstant.PageSize, pagingModel: data);
+            Patient.Instance.LoadData(PagingConstant.PageIndex, PagingConstant.PageSize);
             ShowContainer("Management customer", Patient.Instance);
             waitForm.Close();
         }
@@ -60,7 +62,6 @@ namespace dental_sys
         {
             var waitForm = new WaitFormFunc();
             waitForm.Show(this);
-            Patient.Instance.Customers = Customers;
             ShowContainer("Import Data", new ImportData());
             waitForm.Close();
         }
@@ -98,8 +99,16 @@ namespace dental_sys
 
         private void NotificationPicture_Click(object sender, EventArgs e)
         {
-            var profile = new Profile {};
-            profile.ShowDialog();
+            Notification.Instance.LoadNotification(PagingConstant.PageIndex, 10);
+            Notification.Instance.Principal = this;
+            Notification.Instance.ShowDialog();
+          
+        }
+
+        public void UpdatedUnreadNotification()
+        {
+            var notificationUnread = _notificationService.CountUnread();
+            NotificationNumber.Text = notificationUnread.ToString();
         }
     }
 }

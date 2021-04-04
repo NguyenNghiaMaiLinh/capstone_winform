@@ -245,7 +245,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Patient";
             this.Text = "Patient";
-            this.Load += new System.EventHandler(this.Patient_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomerGridView)).EndInit();
