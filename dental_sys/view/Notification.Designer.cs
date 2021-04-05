@@ -153,7 +153,7 @@ namespace dental_sys.view
             this.NotificationGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.NotificationGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.NotificationGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NotificationGridView_CellClick);
-            this.NotificationGridView.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.NotificationGridView_RowStateChanged);
+            this.NotificationGridView.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.NotificationGridView_RowLeave);
             // 
             // guna2ShadowForm1
             // 

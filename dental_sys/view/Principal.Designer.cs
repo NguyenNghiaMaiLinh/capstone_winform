@@ -194,6 +194,7 @@
             // 
             // NotificationPicture
             // 
+            this.NotificationPicture.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NotificationPicture.Image = ((System.Drawing.Image)(resources.GetObject("NotificationPicture.Image")));
             this.NotificationPicture.Location = new System.Drawing.Point(150, 16);
             this.NotificationPicture.Name = "NotificationPicture";

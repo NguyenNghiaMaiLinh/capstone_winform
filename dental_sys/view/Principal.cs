@@ -108,7 +108,16 @@ namespace dental_sys
         public void UpdatedUnreadNotification()
         {
             var notificationUnread = _notificationService.CountUnread();
-            NotificationNumber.Text = notificationUnread.ToString();
+            if (notificationUnread == 0)
+            {
+                NotificationNumber.Visible = false;
+            }
+            else
+            {
+                NotificationNumber.Visible = true;
+                NotificationNumber.Text = notificationUnread.ToString();
+            }
+           
         }
     }
 }

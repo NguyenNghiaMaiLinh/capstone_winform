@@ -108,7 +108,7 @@ namespace dental_sys.view
                     {
                         currentNumber.IsRead = _notificationService.UpdateReadNotification(currentNumber.Id);
                         Principal?.UpdatedUnreadNotification();
-                      
+
                     });
                     NotificationGridView.Refresh();
 
@@ -116,8 +116,7 @@ namespace dental_sys.view
             }
         }
 
-
-        private async void NotificationGridView_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        private async void NotificationGridView_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
             if (NotificationGridView.CurrentRow?.DataBoundItem is NotificationModel currentNumber)
             {

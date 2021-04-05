@@ -29,7 +29,8 @@ namespace dental_sys.service
             var result = new PagingModel<NotificationEntity>();
             var offset = pageIndex * pageSize;
             var client = new RestClient(url);
-            var request = new RestRequest($"notifications?offset={offset}&limit={pageSize}", Method.GET);
+            var currentUserId = UserLoginModel.User.Id;
+            var request = new RestRequest($"users/{currentUserId}/notifications?offset={offset}&limit={pageSize}", Method.GET);
             request.AddHeader("Authorization", UserLoginModel.AccessToken);
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Charset", "utf-8");
@@ -59,7 +60,8 @@ namespace dental_sys.service
 
             var url = CommonService.GetUrlApi();
             var client = new RestClient(url);
-            var request = new RestRequest($"notifications/count-unread", Method.GET);
+            var currentUserId = UserLoginModel.User.Id;
+            var request = new RestRequest($"users/{currentUserId}/notifications/count-unread", Method.GET);
             request.AddHeader("Authorization", UserLoginModel.AccessToken);
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Charset", "utf-8");
@@ -94,7 +96,8 @@ namespace dental_sys.service
         {
             var url = CommonService.GetUrlApi();
             var client = new RestClient(url);
-            var request = new RestRequest($"notifications/{id}", Method.PUT);
+            var currentUserId = UserLoginModel.User.Id;
+            var request = new RestRequest($"users/{currentUserId}/notifications/{id}", Method.PUT);
             request.AddHeader("Authorization", UserLoginModel.AccessToken);
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Charset", "utf-8");
