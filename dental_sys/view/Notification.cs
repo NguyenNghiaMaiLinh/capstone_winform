@@ -131,5 +131,18 @@ namespace dental_sys.view
                 }
             }
         }
+
+
+        private void UpdateButton_Click(object sender, EventArgs e)
+        {
+            var waitForm = new WaitFormFunc();
+            waitForm.Show(this);
+
+            _notificationService.DeleteAllRead();
+            Principal?.UpdatedUnreadNotification();
+            LoadNotification(_pageIndex,_pageSize);
+
+            waitForm.Close();
+        }
     }
 }

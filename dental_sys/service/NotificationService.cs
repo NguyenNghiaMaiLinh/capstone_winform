@@ -106,5 +106,18 @@ namespace dental_sys.service
             return response.StatusCode == System.Net.HttpStatusCode.NoContent;
         }
 
+        public bool DeleteAllRead()
+        {
+            var url = CommonService.GetUrlApi();
+            var client = new RestClient(url);
+            var currentUserId = UserLoginModel.User.Id;
+            var request = new RestRequest($"users/{currentUserId}/notifications/delete-all-read", Method.DELETE);
+            request.AddHeader("Authorization", UserLoginModel.AccessToken);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Charset", "utf-8");
+            request.AddHeader("Connection", "close");
+            var response = client.Execute(request);
+            return response.StatusCode == System.Net.HttpStatusCode.NoContent;
+        }
     }
 }

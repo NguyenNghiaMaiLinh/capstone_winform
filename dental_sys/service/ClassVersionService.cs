@@ -74,15 +74,35 @@ namespace dental_sys.service
             { Data = classModels?.ToList(), Total = result.Total };
         }
 
-        public bool Update(string id, bool active)
+        public bool Create(ClassVersionEntity classVersion)
         {
-            string path = System.Environment.CurrentDirectory;
-            string url = File.ReadAllText($@"{path}\url");
+            var url = CommonService.GetUrlApi();
             var client = new RestClient(url);
-            var request = new RestRequest($"users/{id}", Method.PUT);
-            var body = new JObject { { "is_active", active } };
-            var json = JsonConvert.SerializeObject(body);
+            var request = new RestRequest($"versions", Method.POST);
+            request.AddHeader("Authorization", UserLoginModel.AccessToken);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Charset", "utf-8");
+            request.AddHeader("Connection", "close");
+            var json = JsonConvert.SerializeObject(classVersion);
             request.AddJsonBody(json);
+            var response = client.Execute(request);
+            if (response.StatusCode == System.Net.HttpStatusCode.Created)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool Update(ClassVersionEntity classVersion)
+        {
+            var url = CommonService.GetUrlApi();
+            var client = new RestClient(url);
+            var request = new RestRequest($"versions/{classVersion.Id}", Method.PUT);
+            request.AddHeader("Authorization", UserLoginModel.AccessToken);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Charset", "utf-8");
+            request.AddHeader("Connection", "close");
+            var body = JObject.FromObject(classVersion);
+            request.AddJsonBody(body.ToString());
             var response = client.Execute(request);
             if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
             {
@@ -109,10 +129,13 @@ namespace dental_sys.service
         //}
         public Customer GetDetail(string id)
         {
-            string path = System.Environment.CurrentDirectory;
-            string url = File.ReadAllText($@"{path}\url");
+            var url = CommonService.GetUrlApi();
             var client = new RestClient(url);
             var request = new RestRequest($"users/{id}", Method.GET);
+            request.AddHeader("Authorization", UserLoginModel.AccessToken);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Charset", "utf-8");
+            request.AddHeader("Connection", "close");
             Customer data = new Customer();
             var response = client.Execute<Customer>(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -121,6 +144,27 @@ namespace dental_sys.service
                 data = JsonConvert.DeserializeObject<Customer>(resultContent);
             }
             return data;
+
+        }
+        public ClassVersionModel GetLastClassVersion()
+        {
+
+            var url = CommonService.GetUrlApi();
+            var client = new RestClient(url);
+            var request = new RestRequest($"versions/get-last-version", Method.GET);
+            ClassVersionModel result = null; request.AddHeader("Authorization", UserLoginModel.AccessToken);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Charset", "utf-8");
+            request.AddHeader("Connection", "close");
+            var response = client.Execute<Customer>(request);
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var resultContent = response.Content;
+                var data = JsonConvert.DeserializeObject<ClassVersionEntity>(resultContent);
+                result = _mapper.Map<ClassVersionModel>(data);
+            }
+
+            return result;
 
         }
     }

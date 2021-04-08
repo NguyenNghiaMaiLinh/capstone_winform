@@ -311,6 +311,12 @@
     <Compile Include="service\ClassVersionService.cs" />
     <Compile Include="service\WeightService.cs" />
     <Compile Include="service\CustomerService.cs" />
+    <Compile Include="view\ClassVersionDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\ClassVersionDetail.Designer.cs">
+      <DependentUpon>ClassVersionDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -340,6 +346,12 @@
     </Compile>
     <Compile Include="view\Notification.Designer.cs">
       <DependentUpon>Notification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\CreateClassVersion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\CreateClassVersion.Designer.cs">
+      <DependentUpon>CreateClassVersion.cs</DependentUpon>
     </Compile>
     <Compile Include="view\WaitForm.cs">
       <SubType>Form</SubType>
@@ -386,6 +398,9 @@
     <EmbeddedResource Include="Item.resx">
       <DependentUpon>Item.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\ClassVersionDetail.resx">
+      <DependentUpon>ClassVersionDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -400,6 +415,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\Notification.resx">
       <DependentUpon>Notification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\CreateClassVersion.resx">
+      <DependentUpon>CreateClassVersion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\WaitForm.resx">
       <DependentUpon>WaitForm.cs</DependentUpon>

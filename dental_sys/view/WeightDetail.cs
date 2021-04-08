@@ -12,6 +12,7 @@ namespace dental_sys.view
         private readonly WeightService _weightService;
         private Point _firstPoint;
         public WeightVersionModel WeightVersionModel { get; set; }
+        public ClassVersionModel ClassVersionModel { get; set; }
 
         public WeightDetail()
         {
@@ -22,9 +23,12 @@ namespace dental_sys.view
         private void Profile_Load(object sender, EventArgs e)
         {
             WeightVersionTxt.Text = WeightVersionModel?.Version;
-            IdText.Text = WeightVersionModel?.Id;
-            UrlText.Text = WeightVersionModel?.Url;
-            CreatedDateText.Text = WeightVersionModel?.CreatedDateText;
+            IdTextBox.Text = WeightVersionModel?.Id;
+            UrlTextBox.Text = WeightVersionModel?.Url;
+            CreatedDateTextBox.Text = WeightVersionModel?.CreatedDateText;
+            ClassVersionTextBox.Text = ClassVersionModel?.Version;
+            CommitHashTextBox.Text = ClassVersionModel?.CommitHash;
+            ClassCreatedDateTextBox.Text = ClassVersionModel?.CreatedDateText;
             StatusComboBox.SelectedIndex = StatusComboBox.FindStringExact(WeightVersionModel?.Status);
         }
 
@@ -58,11 +62,19 @@ namespace dental_sys.view
         private void guna2Button4_Click(object sender, EventArgs e)
         {
             var active = StatusComboBox.SelectedItem != null && StatusComboBox?.SelectedItem.ToString() == "Active";
-            var check = _weightService.Update(WeightVersionModel.Id, active);
+            var url = UrlTextBox.Text;
+            var entity = new WeightVersionEntity()
+            {
+                Id = WeightVersionModel.Id,
+                Url = url,
+                IsActive = active,
+                ClassVersionId = WeightVersionModel.ClassVersionId
+            };
+            var check = _weightService.Update(entity);
             if (check)
             {
                 MessageBox.Show(@"Update success!");
-                Patient.Instance.ReLoadData();
+                Version.Instance.ReLoadData();
                 this.Close();
             }
             else

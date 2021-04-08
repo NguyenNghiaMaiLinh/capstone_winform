@@ -1,12 +1,11 @@
-﻿using System;
+﻿using AutoMapper;
 using dental_sys.model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using AutoMapper;
 
 namespace dental_sys.service
 {
@@ -76,15 +75,18 @@ namespace dental_sys.service
             return new PagingModel<WeightVersionModel>
             { Data = weightModels?.ToList(), Total = result.Total };
         }
-        public bool Update(string id, bool active)
+
+        public bool Update(WeightVersionEntity entity)
         {
-            string path = System.Environment.CurrentDirectory;
-            string url = File.ReadAllText($@"{path}\url");
+            var url = CommonService.GetUrlApi();
             var client = new RestClient(url);
-            var request = new RestRequest($"users/{id}", Method.PUT);
-            var body = new JObject { { "is_active", active } };
-            var json = JsonConvert.SerializeObject(body);
-            request.AddJsonBody(json);
+            var request = new RestRequest($"versions/{entity.ClassVersionId}/weights/{entity.Id}", Method.PUT);
+            request.AddHeader("Authorization", UserLoginModel.AccessToken);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Charset", "utf-8");
+            request.AddHeader("Connection", "close");
+            var body = JObject.FromObject(entity);
+            request.AddJsonBody(body.ToString());
             var response = client.Execute(request);
             if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
             {
@@ -111,8 +113,7 @@ namespace dental_sys.service
         //}
         public Customer GetDetail(string id)
         {
-            string path = System.Environment.CurrentDirectory;
-            string url = File.ReadAllText($@"{path}\url");
+            var url = CommonService.GetUrlApi();
             var client = new RestClient(url);
             var request = new RestRequest($"users/{id}", Method.GET);
             Customer data = new Customer();

@@ -96,18 +96,17 @@ namespace dental_sys
 
                 ImportLabelFileData(ofg.FileNames.ToList());
 
-                if (_imageFiles.Count != 0)
-                {
-                    foreach (var imageFileModel in _imageFiles)
-                    {
-                        imageFileModel.IsLabel = _labelFiles.Any(w =>
-                            Path.GetFileNameWithoutExtension(w.Path) ==
-                            Path.GetFileNameWithoutExtension(imageFileModel.Path));
-                    }
 
-                    BindingData(_imageFiles);
-                    //ImportDataBtn.Text = $@"Data ({_imageFiles.Count})";
+                foreach (var imageFileModel in _imageFiles)
+                {
+                    imageFileModel.IsLabel = _labelFiles.Any(w =>
+                        Path.GetFileNameWithoutExtension(w.Path) ==
+                        Path.GetFileNameWithoutExtension(imageFileModel.Path));
                 }
+
+                BindingData(_imageFiles);
+                //ImportDataBtn.Text = $@"Data ({_imageFiles.Count})";
+
             }
         }
 
@@ -245,13 +244,9 @@ namespace dental_sys
 
             }
 
-            if (imageFiles != null)
-            {
-                _imageFiles.Clear();
-                _imageFiles.AddRange(imageFiles);
-                BindingData(_imageFiles);
-            }
-
+            _imageFiles.Clear();
+            _imageFiles.AddRange(imageFiles);
+            BindingData(_imageFiles);
         }
 
         private void NextBtn_Click(object sender, EventArgs e)
@@ -384,17 +379,15 @@ namespace dental_sys
 
                     ImportLabelFileData(files);
 
-                    if (_imageFiles.Count != 0)
+                    foreach (var imageFileModel in _imageFiles)
                     {
-                        foreach (var imageFileModel in _imageFiles)
-                        {
-                            imageFileModel.IsLabel = _labelFiles.Any(w =>
-                                Path.GetFileNameWithoutExtension(w.Path) ==
-                                Path.GetFileNameWithoutExtension(imageFileModel.Path));
-                        }
-
-                        BindingData(_imageFiles);
+                        imageFileModel.IsLabel = _labelFiles.Any(w =>
+                            Path.GetFileNameWithoutExtension(w.Path) ==
+                            Path.GetFileNameWithoutExtension(imageFileModel.Path));
                     }
+
+                    BindingData(_imageFiles);
+
                 }
             }
         }

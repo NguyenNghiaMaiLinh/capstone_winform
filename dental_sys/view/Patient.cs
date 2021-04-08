@@ -37,11 +37,7 @@ namespace dental_sys
         {
 
             pagingModel = pagingModel ?? _customerService.GetAllCustomers(pageIndex, pageSize, searchValue);
-
-            if (pagingModel.Data != null && pagingModel.Data.Count > 0)
-            {
-                BindingData(pagingModel.Data);
-            }
+            BindingData(pagingModel.Data);
             _total = pagingModel.Total;
             _numberPage = (int)Math.Ceiling(new decimal(_total / pageSize));
             var temp = _total % pageSize;

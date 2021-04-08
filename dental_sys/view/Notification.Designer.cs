@@ -30,31 +30,32 @@ namespace dental_sys.view
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Notification));
             this.CloseBtn = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.NotificationGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.NotificationNumberTable = new System.Windows.Forms.TableLayoutPanel();
+            this.NotificationText = new System.Windows.Forms.Label();
+            this.NotificationNumber = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.NextPageBtn = new System.Windows.Forms.PictureBox();
             this.NotificationPageNumber = new System.Windows.Forms.Label();
             this.PreviousPageBtn = new System.Windows.Forms.PictureBox();
-            this.NotificationNumberTable = new System.Windows.Forms.TableLayoutPanel();
-            this.NotificationText = new System.Windows.Forms.Label();
-            this.NotificationNumber = new System.Windows.Forms.Label();
+            this.UpdateButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NotificationGridView)).BeginInit();
+            this.NotificationNumberTable.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NextPageBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PreviousPageBtn)).BeginInit();
-            this.NotificationNumberTable.SuspendLayout();
             this.SuspendLayout();
             // 
             // CloseBtn
@@ -85,44 +86,44 @@ namespace dental_sys.view
             // NotificationGridView
             // 
             this.NotificationGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.NotificationGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            this.NotificationGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.NotificationGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.NotificationGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.NotificationGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NotificationGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.NotificationGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NotificationGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NotificationGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.NotificationGridView.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.NotificationGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.NotificationGridView.DefaultCellStyle = dataGridViewCellStyle11;
             this.NotificationGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.NotificationGridView.EnableHeadersVisualStyles = false;
             this.NotificationGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.NotificationGridView.Location = new System.Drawing.Point(0, 0);
             this.NotificationGridView.Name = "NotificationGridView";
             this.NotificationGridView.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NotificationGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NotificationGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.NotificationGridView.RowHeadersVisible = false;
             this.NotificationGridView.RowTemplate.DividerHeight = 5;
             this.NotificationGridView.RowTemplate.Height = 40;
@@ -166,78 +167,6 @@ namespace dental_sys.view
             this.guna2DragControl1.TransparentWhileDrag = true;
             this.guna2DragControl1.UseTransparentDrag = true;
             // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 1, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 531);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(439, 44);
-            this.tableLayoutPanel4.TabIndex = 99;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 3;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.Controls.Add(this.NextPageBtn, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.NotificationPageNumber, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.PreviousPageBtn, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(112, 3);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(213, 38);
-            this.tableLayoutPanel5.TabIndex = 0;
-            // 
-            // NextPageBtn
-            // 
-            this.NextPageBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.NextPageBtn.Dock = System.Windows.Forms.DockStyle.Left;
-            this.NextPageBtn.Image = ((System.Drawing.Image)(resources.GetObject("NextPageBtn.Image")));
-            this.NextPageBtn.Location = new System.Drawing.Point(162, 3);
-            this.NextPageBtn.Name = "NextPageBtn";
-            this.NextPageBtn.Padding = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.NextPageBtn.Size = new System.Drawing.Size(35, 32);
-            this.NextPageBtn.TabIndex = 11;
-            this.NextPageBtn.TabStop = false;
-            this.NextPageBtn.Click += new System.EventHandler(this.NextPageBtn_Click);
-            // 
-            // NotificationPageNumber
-            // 
-            this.NotificationPageNumber.AutoSize = true;
-            this.NotificationPageNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.NotificationPageNumber.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
-            this.NotificationPageNumber.Location = new System.Drawing.Point(56, 0);
-            this.NotificationPageNumber.Name = "NotificationPageNumber";
-            this.NotificationPageNumber.Size = new System.Drawing.Size(100, 38);
-            this.NotificationPageNumber.TabIndex = 10;
-            this.NotificationPageNumber.Text = "23/10";
-            this.NotificationPageNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PreviousPageBtn
-            // 
-            this.PreviousPageBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PreviousPageBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PreviousPageBtn.Image = ((System.Drawing.Image)(resources.GetObject("PreviousPageBtn.Image")));
-            this.PreviousPageBtn.Location = new System.Drawing.Point(16, 3);
-            this.PreviousPageBtn.Name = "PreviousPageBtn";
-            this.PreviousPageBtn.Padding = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.PreviousPageBtn.Size = new System.Drawing.Size(34, 32);
-            this.PreviousPageBtn.TabIndex = 7;
-            this.PreviousPageBtn.TabStop = false;
-            this.PreviousPageBtn.Click += new System.EventHandler(this.PreviousPageBtn_Click);
-            // 
             // NotificationNumberTable
             // 
             this.NotificationNumberTable.ColumnCount = 2;
@@ -278,30 +207,128 @@ namespace dental_sys.view
             this.NotificationNumber.Text = "76";
             this.NotificationNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 5;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.UpdateButton, 3, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 531);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(439, 44);
+            this.tableLayoutPanel4.TabIndex = 101;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 3;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.Controls.Add(this.NextPageBtn, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.NotificationPageNumber, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.PreviousPageBtn, 0, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(46, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(213, 38);
+            this.tableLayoutPanel5.TabIndex = 2;
+            // 
+            // NextPageBtn
+            // 
+            this.NextPageBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.NextPageBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.NextPageBtn.Image = ((System.Drawing.Image)(resources.GetObject("NextPageBtn.Image")));
+            this.NextPageBtn.Location = new System.Drawing.Point(162, 3);
+            this.NextPageBtn.Name = "NextPageBtn";
+            this.NextPageBtn.Padding = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.NextPageBtn.Size = new System.Drawing.Size(35, 32);
+            this.NextPageBtn.TabIndex = 11;
+            this.NextPageBtn.TabStop = false;
+            this.NextPageBtn.Click += new System.EventHandler(this.NextPageBtn_Click);
+            // 
+            // NotificationPageNumber
+            // 
+            this.NotificationPageNumber.AutoSize = true;
+            this.NotificationPageNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NotificationPageNumber.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
+            this.NotificationPageNumber.Location = new System.Drawing.Point(56, 0);
+            this.NotificationPageNumber.Name = "NotificationPageNumber";
+            this.NotificationPageNumber.Size = new System.Drawing.Size(100, 38);
+            this.NotificationPageNumber.TabIndex = 10;
+            this.NotificationPageNumber.Text = "23/10";
+            this.NotificationPageNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PreviousPageBtn
+            // 
+            this.PreviousPageBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PreviousPageBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PreviousPageBtn.Image = ((System.Drawing.Image)(resources.GetObject("PreviousPageBtn.Image")));
+            this.PreviousPageBtn.Location = new System.Drawing.Point(16, 3);
+            this.PreviousPageBtn.Name = "PreviousPageBtn";
+            this.PreviousPageBtn.Padding = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.PreviousPageBtn.Size = new System.Drawing.Size(34, 32);
+            this.PreviousPageBtn.TabIndex = 7;
+            this.PreviousPageBtn.TabStop = false;
+            this.PreviousPageBtn.Click += new System.EventHandler(this.PreviousPageBtn_Click);
+            // 
+            // UpdateButton
+            // 
+            this.UpdateButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.UpdateButton.BorderRadius = 5;
+            this.UpdateButton.BorderThickness = 1;
+            this.UpdateButton.CheckedState.Parent = this.UpdateButton;
+            this.UpdateButton.CustomImages.Parent = this.UpdateButton;
+            this.UpdateButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UpdateButton.FillColor = System.Drawing.Color.Transparent;
+            this.UpdateButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.UpdateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.UpdateButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.UpdateButton.HoverState.ForeColor = System.Drawing.Color.White;
+            this.UpdateButton.HoverState.Parent = this.UpdateButton;
+            this.UpdateButton.Location = new System.Drawing.Point(286, 3);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.ShadowDecoration.Parent = this.UpdateButton;
+            this.UpdateButton.Size = new System.Drawing.Size(103, 38);
+            this.UpdateButton.TabIndex = 3;
+            this.UpdateButton.Text = "Delete All Read";
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
+            // 
             // Notification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(439, 575);
-            this.Controls.Add(this.NotificationNumberTable);
             this.Controls.Add(this.tableLayoutPanel4);
+            this.Controls.Add(this.NotificationNumberTable);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.Controls.Add(this.CloseBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Notification";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Profile";
-            this.Deactivate += new System.EventHandler(this.Profile_Deactivate);
             this.guna2ShadowPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NotificationGridView)).EndInit();
+            this.NotificationNumberTable.ResumeLayout(false);
+            this.NotificationNumberTable.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NextPageBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PreviousPageBtn)).EndInit();
-            this.NotificationNumberTable.ResumeLayout(false);
-            this.NotificationNumberTable.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -312,13 +339,14 @@ namespace dental_sys.view
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2DataGridView NotificationGridView;
+        private System.Windows.Forms.TableLayoutPanel NotificationNumberTable;
+        private System.Windows.Forms.Label NotificationText;
+        private System.Windows.Forms.Label NotificationNumber;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.PictureBox NextPageBtn;
         private System.Windows.Forms.Label NotificationPageNumber;
         private System.Windows.Forms.PictureBox PreviousPageBtn;
-        private System.Windows.Forms.TableLayoutPanel NotificationNumberTable;
-        private System.Windows.Forms.Label NotificationText;
-        private System.Windows.Forms.Label NotificationNumber;
+        private Guna.UI2.WinForms.Guna2Button UpdateButton;
     }
 }

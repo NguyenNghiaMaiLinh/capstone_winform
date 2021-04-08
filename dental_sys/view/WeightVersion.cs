@@ -4,6 +4,7 @@ using dental_sys.service;
 using dental_sys.view;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace dental_sys
@@ -37,17 +38,17 @@ namespace dental_sys
 
         public void ReLoadData()
         {
-
+            LoadClassVersionData(_classVersionPageIndex, _classVersionPageSize);
+            var firstClassVersion = ClassVersions.Data?.FirstOrDefault();
+            LoadWeightVersionData(firstClassVersion?.Id, _weightVersionPageIndex, _weightVersionPageSize);
         }
 
         public void LoadClassVersionData(int pageIndex, int pageSize, string searchValue = null, PagingModel<ClassVersionModel> pagingModel = null)
         {
-            
+
             pagingModel = pagingModel ?? _classVersionService.GetAllClassVersion(pageIndex, pageSize, searchValue);
-            if (pagingModel.Data != null && pagingModel.Data.Count > 0)
-            {
-                BindingData(pagingModel.Data);
-            }
+            ClassVersions = pagingModel;
+            BindingData(pagingModel.Data);
             _classVersionTotal = pagingModel.Total;
             _classVersionNumberPage = (int)Math.Ceiling(new decimal(_classVersionNumberPage / pageSize));
             var temp = _classVersionTotal % pageSize;
@@ -64,10 +65,9 @@ namespace dental_sys
         {
             pagingModel = pagingModel ?? _weightService.GetAllWeightByClassId(classVersionId, pageIndex, pageSize, searchValue);
 
-            if (pagingModel.Data != null && pagingModel.Data.Count > 0)
-            {
-                BindingData(pagingModel.Data);
-            }
+            WeightVersions = pagingModel;
+            BindingData(pagingModel.Data);
+
             _weightVersionTotal = pagingModel.Total;
             _weightVersionNumberPage = (int)Math.Ceiling(new decimal(_weightVersionTotal / pageSize));
             var temp = _weightVersionTotal % pageSize;
@@ -145,7 +145,12 @@ namespace dental_sys
         {
             if (WeightGridView.CurrentRow?.DataBoundItem is WeightVersionModel currentWeight)
             {
-                var weightDetail = new WeightDetail() { WeightVersionModel = currentWeight };
+                var currentClassVersion = (ClassVersionModel)ClassVersionGridView.CurrentRow?.DataBoundItem;
+                var weightDetail = new WeightDetail()
+                {
+                    WeightVersionModel = currentWeight,
+                    ClassVersionModel = currentClassVersion
+                };
                 weightDetail.ShowDialog();
             }
         }
@@ -187,7 +192,8 @@ namespace dental_sys
 
         private void PreviousPageWeightVersionBtn_Click(object sender, EventArgs e)
         {
-            var searchValue = SearchWeightTextBox.Text; if (ClassVersionGridView.CurrentRow?.DataBoundItem is ClassVersionModel currentClassVersion)
+            var searchValue = SearchWeightTextBox.Text;
+            if (ClassVersionGridView.CurrentRow?.DataBoundItem is ClassVersionModel currentClassVersion)
             {
                 if (_weightVersionPageIndex > 1)
                 {
@@ -213,6 +219,49 @@ namespace dental_sys
                 LoadWeightVersionData(currentClassVersion.Id, _classVersionPageIndex, _classVersionPageSize);
             }
             waitForm.Close();
+        }
+
+        private void CreateClassBtn_Click(object sender, EventArgs e)
+        {
+            var createClassVersion = new CreateClassVersion();
+            createClassVersion.ShowDialog();
+        }
+
+        private void ClassVersionGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (ClassVersionGridView.CurrentRow?.DataBoundItem is ClassVersionModel currentClassVersion)
+            {
+                var classVersionDetail = new ClassVersionDetail() { ClassVersionModel = currentClassVersion };
+                classVersionDetail.ShowDialog();
+            }
+
+        }
+
+        private void NextClassPageBtn_Click(object sender, EventArgs e)
+        {
+            var searchValue = SearchWeightTextBox.Text;
+
+            if (_classVersionPageIndex < _classVersionNumberPage)
+            {
+                _classVersionPageIndex++;
+                LoadClassVersionData(_classVersionPageIndex, _classVersionPageSize, searchValue);
+                ClassVersionPageNumber.Text = $@"{ _classVersionPageIndex} / {_classVersionNumberPage}";
+            }
+
+
+        }
+
+        private void PreviousClassPageBtn_Click(object sender, EventArgs e)
+        {
+            var searchValue = SearchWeightTextBox.Text;
+
+            if (_classVersionPageIndex > 1)
+            {
+                _classVersionPageIndex--;
+                LoadClassVersionData(_classVersionPageIndex, _classVersionPageSize, searchValue);
+                ClassVersionPageNumber.Text = $@"{_classVersionPageIndex} / {_classVersionNumberPage}";
+            }
+
         }
     }
 }
