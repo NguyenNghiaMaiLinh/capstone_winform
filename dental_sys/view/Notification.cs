@@ -2,6 +2,7 @@
 using dental_sys.service;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dental_sys.Constants;
@@ -18,11 +19,13 @@ namespace dental_sys.view
         private int _pageSize = 10;
         private int _total;
         private int _numberPage = 0;
+        private readonly DataSetService _dataSetService;
         public static Notification Instance => _instance ?? (_instance = new Notification());
 
         private Notification()
         {
             _notificationService = new NotificationService();
+            _dataSetService = new DataSetService();
             InitializeComponent();
         }
 
@@ -140,9 +143,38 @@ namespace dental_sys.view
 
             _notificationService.DeleteAllRead();
             Principal?.UpdatedUnreadNotification();
-            LoadNotification(_pageIndex,_pageSize);
+            LoadNotification(_pageIndex, _pageSize);
 
             waitForm.Close();
+        }
+
+        private void DownloadWeightBtn_Click(object sender, EventArgs e)
+        {
+            if (NotificationGridView.CurrentRow?.DataBoundItem is NotificationModel currentNotification)
+            {
+                if (!string.IsNullOrEmpty(currentNotification.Url))
+                {
+                    using (var fbd = new FolderBrowserDialog())
+                    {
+                        DialogResult result = fbd.ShowDialog();
+
+                        if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                        {
+                            _dataSetService.DownloadWeight(currentNotification.Url, fbd.SelectedPath);
+
+                            MessageBox.Show($@"Weight save at: {fbd.SelectedPath}" , "Message");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(@"There is no weight to download.");
+                }
+            }
+            else
+            {
+                MessageBox.Show(@"Please select 1 row.");
+            }
         }
     }
 }

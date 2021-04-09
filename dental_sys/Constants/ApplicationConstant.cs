@@ -17,4 +17,12 @@ namespace dental_sys.Constants
         public const int PageIndex = 1;
         public const int PageSize = 20;
     }
+
+    public class ServerTrainConstant
+    {
+        public const string Username = "dev";
+        public const string HostName = "";
+        public const string TrainPath = "home/dev/darknet";
+        public const string PrivateKeyFilePath = "home/dev/darknet";
+    }
 }

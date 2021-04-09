@@ -29,7 +29,8 @@ namespace dental_sys.model
         public string Id { get; set; }
         [DisplayName(WeightVersionHeaderConstant.Version)]
         public string Version { get; set; }
-        [DisplayName(WeightVersionHeaderConstant.Url)]
+        [Browsable(false)]
+        //[DisplayName(WeightVersionHeaderConstant.Url)]
         public string Url { get; set; }
         [Browsable(false)]
         public DateTime? CreatedDate { get; set; }

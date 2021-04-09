@@ -111,19 +111,41 @@ namespace dental_sys.service
         //    return Update(data);
 
         //}
-        public Customer GetDetail(string id)
+        public bool Create(string classId, string path)
         {
             var url = CommonService.GetUrlApi();
             var client = new RestClient(url);
-            var request = new RestRequest($"users/{id}", Method.GET);
-            Customer data = new Customer();
+            var request = new RestRequest($"versions/{classId}/weights", Method.POST);
+            request.AddHeader("Authorization", UserLoginModel.AccessToken);
+            request.AddHeader("Content-Type", "multipart/form-data");
+            request.AddHeader("Charset", "utf-8");
+            request.AddHeader("Connection", "close");
+            request.AddFile("file", path);
+            var response = client.Execute<Customer>(request);
+
+            return response.StatusCode == System.Net.HttpStatusCode.Created;
+        }
+
+        public WeightVersionModel GetWeightVersion(string classId)
+        {
+
+            var url = CommonService.GetUrlApi();
+            var client = new RestClient(url);
+            var request = new RestRequest($"versions/{classId}/weights/weight-get-last-version", Method.GET);
+            WeightVersionModel result = null;
+            request.AddHeader("Authorization", UserLoginModel.AccessToken);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Charset", "utf-8");
+            request.AddHeader("Connection", "close");
             var response = client.Execute<Customer>(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                string resultContent = response.Content;
-                data = JsonConvert.DeserializeObject<Customer>(resultContent);
+                var resultContent = response.Content;
+                var data = JsonConvert.DeserializeObject<WeightVersionEntity>(resultContent);
+                result = _mapper.Map<WeightVersionModel>(data);
             }
-            return data;
+
+            return result;
 
         }
     }

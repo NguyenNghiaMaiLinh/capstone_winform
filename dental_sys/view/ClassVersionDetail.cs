@@ -1,9 +1,7 @@
-﻿using dental_sys.service;
+﻿using dental_sys.model;
+using dental_sys.service;
 using System;
-using System.Drawing;
-using System.Net;
 using System.Windows.Forms;
-using dental_sys.model;
 
 namespace dental_sys.view
 {

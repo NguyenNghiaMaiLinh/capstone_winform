@@ -17,7 +17,11 @@ namespace dental_sys.model
         [JsonProperty("is_read")]
         public bool? IsRead { get; set; }  
         [JsonProperty("user_id")]
-        public int? UserId { get; set; }
+        public int? UserId { get; set; }  
+        [JsonProperty("url")]
+        public string Url { get; set; }      
+        [JsonProperty("is_delete")]
+        public bool? IsDelete { get; set; }
     }
 
     public class NotificationModel
@@ -37,6 +41,10 @@ namespace dental_sys.model
         public bool IsRead { get; set; }
         [DisplayName(NotificationHeaderConstant.Read)]
         public Bitmap Read => IsRead ? new Bitmap(Properties.Resources.read, new Size(32, 32)) : new Bitmap(Properties.Resources.unread, new Size(32, 32));
+        [Browsable(false)]
+        public string Url { get; set; }
+        [Browsable(false)]
+        public bool? IsDelete { get; set; }
     }
 
     public class CountUnreadEntity

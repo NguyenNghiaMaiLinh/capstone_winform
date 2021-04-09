@@ -123,6 +123,9 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Renci.SshNet, Version=2020.0.1.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2020.0.1\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp, Version=106.11.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.106.11.7\lib\net452\RestSharp.dll</HintPath>
     </Reference>
@@ -309,6 +312,7 @@
     <Compile Include="service\NotificationService.cs" />
     <Compile Include="service\CommonService.cs" />
     <Compile Include="service\ClassVersionService.cs" />
+    <Compile Include="service\DataSetService.cs" />
     <Compile Include="service\WeightService.cs" />
     <Compile Include="service\CustomerService.cs" />
     <Compile Include="view\ClassVersionDetail.cs">
@@ -316,6 +320,12 @@
     </Compile>
     <Compile Include="view\ClassVersionDetail.Designer.cs">
       <DependentUpon>ClassVersionDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\CreateWeightVersion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\CreateWeightVersion.Designer.cs">
+      <DependentUpon>CreateWeightVersion.cs</DependentUpon>
     </Compile>
     <Compile Include="view\Dashboard.cs">
       <SubType>Form</SubType>
@@ -400,6 +410,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\ClassVersionDetail.resx">
       <DependentUpon>ClassVersionDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\CreateWeightVersion.resx">
+      <DependentUpon>CreateWeightVersion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>

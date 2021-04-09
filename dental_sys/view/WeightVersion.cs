@@ -107,12 +107,10 @@ namespace dental_sys
                 WeightGridView.Columns[WeightVersionHeaderConstant.Id].DisplayIndex = 1;
             if (WeightGridView?.Columns[WeightVersionHeaderConstant.Version] != null)
                 WeightGridView.Columns[WeightVersionHeaderConstant.Version].DisplayIndex = 2;
-            if (WeightGridView?.Columns[WeightVersionHeaderConstant.Url] != null)
-                WeightGridView.Columns[WeightVersionHeaderConstant.Url].DisplayIndex = 3;
             if (WeightGridView?.Columns[WeightVersionHeaderConstant.CreatedDate] != null)
-                WeightGridView.Columns[WeightVersionHeaderConstant.CreatedDate].DisplayIndex = 4;
+                WeightGridView.Columns[WeightVersionHeaderConstant.CreatedDate].DisplayIndex = 3;
             if (WeightGridView?.Columns[WeightVersionHeaderConstant.Status] != null)
-                WeightGridView.Columns[WeightVersionHeaderConstant.Status].DisplayIndex = 5;
+                WeightGridView.Columns[WeightVersionHeaderConstant.Status].DisplayIndex = 4;
 
         }
 
@@ -262,6 +260,19 @@ namespace dental_sys
                 ClassVersionPageNumber.Text = $@"{_classVersionPageIndex} / {_classVersionNumberPage}";
             }
 
+        }
+
+        private void CreateWeightBtn_Click(object sender, EventArgs e)
+        {
+            if (ClassVersionGridView.CurrentRow?.DataBoundItem is ClassVersionModel currentClassVersion)
+            {
+                var createWeightVersion = new CreateWeightVersion {  ClassVersionModel= currentClassVersion };
+                createWeightVersion.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(@"Please select class version");
+            }
         }
     }
 }

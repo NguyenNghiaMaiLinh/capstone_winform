@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using dental_sys.Constants;
+using dental_sys.service;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace dental_sys
@@ -17,8 +18,11 @@ namespace dental_sys
         private readonly List<ImageFileModel> _imageFiles;
         private readonly List<LabelFileModel> _labelFiles;
         private readonly Dictionary<string, string> _orderDictionary;
+        private readonly DataSetService _dataSetService;
+
         public ImportData()
         {
+            _dataSetService = new DataSetService();
             _orderDictionary = new Dictionary<string, string>()
             {
                 {FileHeaderConstant.No,Order.Asc },
@@ -432,6 +436,42 @@ namespace dental_sys
             PicturePanel.Drag = PicturePanel.CtrlKeyDown;
         }
 
+        private void ClearAllInValidFileBtn_Click(object sender, EventArgs e)
+        {
+            _imageFiles.RemoveAll(w => !w.IsLabel);
+            BindingData(_imageFiles);
+        }
+
+        private void SendBtn_Click(object sender, EventArgs e)
+        {
+            if (_dataSetService.IsTraining())
+            {
+                MessageBox.Show(@"Server is training!");
+            }
+            else
+            {
+                if (_imageFiles.Any(w => !w.IsLabel))
+                {
+                    MessageBox.Show(@"There is still an image without a label.");
+                }
+                else
+                {
+                    _dataSetService.TransferData(_imageFiles, _labelFiles);
+                }
+            }
+        }
+
+        private void TrainBtn_Click(object sender, EventArgs e)
+        {
+            if (_dataSetService.IsTraining())
+            {
+                MessageBox.Show(@"Server is training!");
+            }
+            else
+            {
+                _dataSetService.TrainData();
+            }
+        }
     }
 
 }
