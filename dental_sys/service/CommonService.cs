@@ -25,7 +25,7 @@ namespace dental_sys.service
         {
             var path = System.Environment.CurrentDirectory;
             var url = File.ReadAllText($@"{path}\url");
-            return "http://127.0.0.1:8080/api";
+            return "http://192.168.1.6:8080/api";
         }
     }
 }

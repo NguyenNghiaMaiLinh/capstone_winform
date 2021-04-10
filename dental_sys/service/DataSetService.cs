@@ -4,6 +4,7 @@ using Renci.SshNet;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Windows.Forms;
 
 namespace dental_sys.service
 {
@@ -16,14 +17,17 @@ namespace dental_sys.service
 
         public void TransferData(ICollection<ImageFileModel> data, ICollection<LabelFileModel> labelData)
         {
-            var pk = new PrivateKeyFile(@"C:\Users\DELL.ssh\id_rsa");
-            var folder = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            var pk = new PrivateKeyFile(ServerTrainConstant.PrivateKeyFilePath);
+            var folder = DateTime.Now.ToString(ApplicationConstant.DatetimeFormat);
             folder = folder.Replace("/", "").Replace(" ", "").Replace(":", "");
-            var dataDir = $@"{ServerTrainConstant.TrainPath}/{UserLoginModel.User.Id}";
+            var dataFolder = $"train/admin/{UserLoginModel.User.Id}/data/{folder}";
+            var labelFolder = $"train/admin/{UserLoginModel.User.Id}/label/{folder}";
+            var dataDir = $@"{ServerTrainConstant.DarknetPath}";
             using (var client = new SshClient(ServerTrainConstant.HostName, ServerTrainConstant.Username, pk))
             {
                 client.Connect();
-                var command = client.CreateCommand($@"cd {dataDir}  &&  mkdir -p {folder}");
+
+                var command = client.CreateCommand($@"cd {dataDir}  &&  mkdir -pm 0777 {dataFolder} &&  mkdir -pm 0777 {labelFolder}");
                 command.Execute();
                 var result = command.Result;
                 Console.WriteLine(result);
@@ -38,7 +42,7 @@ namespace dental_sys.service
                 {
                     using (var file = File.OpenRead(item.Path))
                     {
-                        client.Upload(file, $"{dataDir}/data");
+                        client.Upload(file, $"{dataDir}/{dataFolder}/{Path.GetFileName(item.Path)}");
                     }
                 }
 
@@ -46,7 +50,7 @@ namespace dental_sys.service
                 {
                     using (var file = File.OpenRead(item.Path))
                     {
-                        client.Upload(file, $"{dataDir}/fixed_label");
+                        client.Upload(file, $"{dataDir}/{labelFolder}/{Path.GetFileName(item.Path)}");
                     }
                 }
                 client.Disconnect();
@@ -57,15 +61,18 @@ namespace dental_sys.service
 
         public void TrainData()
         {
-            var pk = new PrivateKeyFile(@"C:\Users\DELL.ssh\id_rsa");
+            var pk = new PrivateKeyFile(ServerTrainConstant.PrivateKeyFilePath);
 
             var trainDir = $@"{ServerTrainConstant.TrainPath}";
             using (var client = new SshClient(ServerTrainConstant.HostName, ServerTrainConstant.Username, pk))
             {
                 client.Connect();
-                var createDataCommand = client.CreateCommand($@"cd {trainDir} && label.py");
+                var createDataCommand = client.CreateCommand($@"cd {trainDir} && mkdir -pm 0777 data && python3 label.py");
                 createDataCommand.Execute();
-                var command = client.CreateCommand($@"./darknet detector train yolo.data cfg/yolov4-custom.cfg backup/yolov4-custom_last.weights -dont_show -map -clear ");
+                var createDataTextCommand = client.CreateCommand($@"cd {trainDir} && python3 traindata.py ");
+                createDataTextCommand.Execute();
+                //var command = client.CreateCommand($@"./darknet detector train yolo.data yolo.cfg -dont_show &");
+                var command = client.CreateCommand($@"curl --location --request POST --header 'Authorization: {UserLoginModel.AccessToken}' --header 'Content-Type: application/json' --data-raw '{{""user"":30,""message"":""hello test"",""url"":""backup""}}' ""http://192.168.1.6:8080/api/users/30/notifications""");
                 command.Execute();
                 client.Disconnect();
             }
@@ -73,14 +80,15 @@ namespace dental_sys.service
 
         public void DownloadWeight(string url, string destinationFolder)
         {
-            var pk = new PrivateKeyFile(@"C:\Users\DELL.ssh\id_rsa");
-            var folder = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            var pk = new PrivateKeyFile(ServerTrainConstant.PrivateKeyFilePath);
+            var folder = DateTime.Now.ToString(ApplicationConstant.DatetimeFormat);
             var destination = new DirectoryInfo(destinationFolder);
+            var backupPath = $@"{ServerTrainConstant.BackupPath}";
             using (var client = new ScpClient(ServerTrainConstant.HostName, 22, ServerTrainConstant.Username, pk))
             {
                 client.Connect();
 
-                client.Download("file", destination);
+                client.Download(backupPath, destination);
 
                 client.Disconnect();
             }
