@@ -62,17 +62,20 @@ namespace dental_sys.service
         public void TrainData()
         {
             var pk = new PrivateKeyFile(ServerTrainConstant.PrivateKeyFilePath);
-
-            var trainDir = $@"{ServerTrainConstant.TrainPath}";
+            var url = CommonService.GetUrlApi();
+            var trainDir = ServerTrainConstant.TrainPath;
+            var darknetDir = ServerTrainConstant.DarknetPath;
             using (var client = new SshClient(ServerTrainConstant.HostName, ServerTrainConstant.Username, pk))
             {
                 client.Connect();
                 var createDataCommand = client.CreateCommand($@"cd {trainDir} && mkdir -pm 0777 data && python3 label.py");
                 createDataCommand.Execute();
-                var createDataTextCommand = client.CreateCommand($@"cd {trainDir} && python3 traindata.py ");
+                var createDataTextCommand = client.CreateCommand($@"cd {trainDir} && cd .. && python3 traindata.py && cd {darknetDir}");
                 createDataTextCommand.Execute();
-                //var command = client.CreateCommand($@"./darknet detector train yolo.data yolo.cfg -dont_show &");
-                var command = client.CreateCommand($@"curl --location --request POST --header 'Authorization: {UserLoginModel.AccessToken}' --header 'Content-Type: application/json' --data-raw '{{""user"":30,""message"":""hello test"",""url"":""backup""}}' ""http://192.168.1.6:8080/api/users/30/notifications""");
+                var guid = Guid.NewGuid().ToString("N");
+                //var command = client.CreateCommand($@"screen -dm bash -c 'cd /home/dev/darknet; ./darknet detector train yolo.data yolo.cfg -dont_show'; curl --location --request POST --header 'Authorization: {UserLoginModel.AccessToken}' --header 'Content-Type: application/json' --data-raw '{{""user"":{UserLoginModel.User.Id},""message"":""Train complete"",""url"":""backup""}}' ""{url}/users/30/notifications""");
+                //var command = client.CreateCommand($@"screen -dm bash -c 'cd /home/dev/darknet; ./darknet detector train yolo.data yolo.cfg -dont_show'; python3 sendnoti.py --id {UserLoginModel.User.Id} --authen {UserLoginModel.AccessToken} --url {url}");
+                var command = client.CreateCommand($@"screen -dm bash -c 'cd /home/dev/darknet; python sendnoti.py --id {UserLoginModel.User.Id} --authen {UserLoginModel.AccessToken} --url {url}");
                 command.Execute();
                 client.Disconnect();
             }

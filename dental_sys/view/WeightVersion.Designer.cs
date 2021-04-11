@@ -366,7 +366,7 @@
             this.CreateClassBtn.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
             this.CreateClassBtn.ForeColor = System.Drawing.Color.Black;
             this.CreateClassBtn.HoverState.Parent = this.CreateClassBtn;
-            this.CreateClassBtn.Image = global::dental_sys.Properties.Resources.send;
+            this.CreateClassBtn.Image = ((System.Drawing.Image)(resources.GetObject("CreateClassBtn.Image")));
             this.CreateClassBtn.Location = new System.Drawing.Point(252, 3);
             this.CreateClassBtn.Name = "CreateClassBtn";
             this.CreateClassBtn.ShadowDecoration.Parent = this.CreateClassBtn;
@@ -401,7 +401,7 @@
             this.CreateWeightBtn.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
             this.CreateWeightBtn.ForeColor = System.Drawing.Color.Black;
             this.CreateWeightBtn.HoverState.Parent = this.CreateWeightBtn;
-            this.CreateWeightBtn.Image = global::dental_sys.Properties.Resources.send;
+            this.CreateWeightBtn.Image = ((System.Drawing.Image)(resources.GetObject("CreateWeightBtn.Image")));
             this.CreateWeightBtn.Location = new System.Drawing.Point(340, 3);
             this.CreateWeightBtn.Name = "CreateWeightBtn";
             this.CreateWeightBtn.ShadowDecoration.Parent = this.CreateWeightBtn;

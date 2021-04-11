@@ -1,12 +1,9 @@
-﻿using dental_sys.service;
+﻿using dental_sys.model;
+using dental_sys.service;
+using dental_sys.view;
 using Firebase.Auth;
 using System;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using dental_sys.Constants;
-using dental_sys.model;
-using dental_sys.view;
-using Guna.UI.Animation.Material;
 
 namespace dental_sys
 {
@@ -58,14 +55,14 @@ namespace dental_sys
             var auth = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
             try
             {
-                //var ab = await auth.SignInWithEmailAndPasswordAsync(email, pass);
-                //var user = ab.User;
-                var user = 0;
+                var ab = await auth.SignInWithEmailAndPasswordAsync(email, pass);
+                var user = ab.User;
+                //var user = 0;
                 if (user != null)
                 {
                     var authService = new AuthenticationService();
                     //var userLogin = authService.GetToken(user.LocalId);
-                    var userLogin = authService.GetToken("YZN8KdHM70SrmgM7fbKZHHi3WzE2");
+                    var userLogin = authService.GetToken(user.LocalId);
                     if (userLogin != null)
                     {
                         if (string.IsNullOrEmpty(userLogin.ErrorMessage))
