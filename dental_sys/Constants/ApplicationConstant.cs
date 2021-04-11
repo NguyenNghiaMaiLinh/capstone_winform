@@ -25,7 +25,7 @@ namespace dental_sys.Constants
     public class ServerTrainConstant
     {
         public const string Username = "dev";
-        public const string HostName = "192.168.1.34";
+        public const string HostName = "192.168.0.4";
         public const string DarknetPath = "/home/dev/darknet";
         public const string BackupPath = "/home/dev/darknet/backup";
         public const string TrainPath = "/home/dev/darknet/train";

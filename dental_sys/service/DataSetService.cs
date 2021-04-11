@@ -68,14 +68,16 @@ namespace dental_sys.service
             using (var client = new SshClient(ServerTrainConstant.HostName, ServerTrainConstant.Username, pk))
             {
                 client.Connect();
+                var createIsTrainComannd = client.CreateCommand($@"cd {trainDir} && echo ""1"" > istrain.txt");
+                createIsTrainComannd.Execute();
                 var createDataCommand = client.CreateCommand($@"cd {trainDir} && mkdir -pm 0777 data && python3 label.py");
                 createDataCommand.Execute();
                 var createDataTextCommand = client.CreateCommand($@"cd {trainDir} && cd .. && python3 traindata.py && cd {darknetDir}");
                 createDataTextCommand.Execute();
-                var guid = Guid.NewGuid().ToString("N");
+                //var guid = Guid.NewGuid().ToString("screen -dm bash -c 'cd /home/dev/darknet; python3 sendnoti.py --id 35 --authen eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IlF3alZLbnF0WXhUMGhvQWJsVzVzOTVJWlJaQTMiLCJleHAiOjE2NDkyNDYxMzN9.9MpdU7fw2QUUQt1-1KtmKGugYPpNguY2vqkaGQMqBWc --url http://192.168.0.4:8080/api'");
                 //var command = client.CreateCommand($@"screen -dm bash -c 'cd /home/dev/darknet; ./darknet detector train yolo.data yolo.cfg -dont_show'; curl --location --request POST --header 'Authorization: {UserLoginModel.AccessToken}' --header 'Content-Type: application/json' --data-raw '{{""user"":{UserLoginModel.User.Id},""message"":""Train complete"",""url"":""backup""}}' ""{url}/users/30/notifications""");
-                //var command = client.CreateCommand($@"screen -dm bash -c 'cd /home/dev/darknet; ./darknet detector train yolo.data yolo.cfg -dont_show'; python3 sendnoti.py --id {UserLoginModel.User.Id} --authen {UserLoginModel.AccessToken} --url {url}");
-                var command = client.CreateCommand($@"screen -dm bash -c 'cd /home/dev/darknet; python sendnoti.py --id {UserLoginModel.User.Id} --authen {UserLoginModel.AccessToken} --url {url}");
+                var command = client.CreateCommand($@"screen -dm bash -c 'cd /home/dev/darknet; ./darknet detector train yolo.data yolo.cfg -dont_show; python3 sendnoti.py --id {UserLoginModel.User.Id} --authen {UserLoginModel.AccessToken} --url {url}; cd {trainDir}; rm -r istrain.txt '");
+                //var command = client.CreateCommand($@"screen -dm bash -c 'cd /home/dev/darknet; python sendnoti.py ""$--id {UserLoginModel.User.Id}"" --authen {UserLoginModel.AccessToken} --url {url}");
                 command.Execute();
                 client.Disconnect();
             }
@@ -84,9 +86,9 @@ namespace dental_sys.service
         public void DownloadWeight(string url, string destinationFolder)
         {
             var pk = new PrivateKeyFile(ServerTrainConstant.PrivateKeyFilePath);
-            var folder = DateTime.Now.ToString(ApplicationConstant.DatetimeFormat);
+            //var folder = DateTime.Now.ToString(ApplicationConstant.DatetimeFormat);
             var destination = new DirectoryInfo(destinationFolder);
-            var backupPath = $@"{ServerTrainConstant.BackupPath}";
+            var backupPath = ServerTrainConstant.BackupPath;
             using (var client = new ScpClient(ServerTrainConstant.HostName, 22, ServerTrainConstant.Username, pk))
             {
                 client.Connect();
@@ -105,7 +107,7 @@ namespace dental_sys.service
             using (var client = new SshClient(ServerTrainConstant.HostName, ServerTrainConstant.Username, pk))
             {
                 client.Connect();
-                var command = client.CreateCommand($@"cd {trainDir} && cat IsTrain");
+                var command = client.CreateCommand($@"cd {trainDir} && cat istrain.txt");
 
                 command.Execute();
                 result = command.Result;
@@ -113,7 +115,7 @@ namespace dental_sys.service
                 client.Disconnect();
             }
 
-            return result == "1";
+            return result.Contains("1");
         }
 
     }

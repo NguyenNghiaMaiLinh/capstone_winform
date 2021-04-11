@@ -40,7 +40,7 @@ namespace dental_sys.model
         [Browsable(false)]
         public bool IsRead { get; set; }
         [DisplayName(NotificationHeaderConstant.Read)]
-        public Bitmap Read => IsRead ? new Bitmap(Properties.Resources.read, new Size(32, 32)) : new Bitmap(Properties.Resources.unread, new Size(32, 32));
+        public Bitmap Read => IsRead ? new Bitmap(Properties.Resources.see, new Size(32, 32)) : new Bitmap(Properties.Resources.check, new Size(32, 32));
         [Browsable(false)]
         public string Url { get; set; }
         [Browsable(false)]
