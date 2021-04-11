@@ -8,6 +8,7 @@ using System.Linq;
 using System.Windows.Forms;
 using dental_sys.Constants;
 using dental_sys.service;
+using dental_sys.view;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace dental_sys
@@ -456,7 +457,10 @@ namespace dental_sys
                 }
                 else
                 {
+                    var waitForm = new WaitFormFunc();
+                    waitForm.Show(this);
                     _dataSetService.TransferData(_imageFiles, _labelFiles);
+                    waitForm.Close();
                 }
             }
         }
@@ -469,7 +473,10 @@ namespace dental_sys
             }
             else
             {
+                var waitForm = new WaitFormFunc();
+                waitForm.Show(this);
                 _dataSetService.TrainData();
+                waitForm.Close();
             }
         }
     }

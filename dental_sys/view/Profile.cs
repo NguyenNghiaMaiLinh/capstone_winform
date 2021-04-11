@@ -55,8 +55,11 @@ namespace dental_sys.view
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
+            var waitForm = new WaitFormFunc();
+            waitForm.Show(this);
             var active = StatusComboBox.SelectedItem != null && StatusComboBox?.SelectedItem.ToString() == "Active";
             var check = _customerService.Update(Customer.Id, active);
+            waitForm.Close();
             if (check)
             {
                 MessageBox.Show(@"Update success!");

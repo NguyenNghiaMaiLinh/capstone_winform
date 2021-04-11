@@ -34,21 +34,19 @@ namespace dental_sys.view
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.WeightVersionTxt = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.ClassCreatedDateTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.CommitHashTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.ClassVersionTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.CreatedDateTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.IdTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.StatusComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel27 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel42 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel21 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel29 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.IdTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.UrlTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.CreatedDateTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.ClassVersionTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.CommitHashTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.ClassCreatedDateTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ShadowPanel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
@@ -118,7 +116,6 @@ namespace dental_sys.view
             this.guna2Panel2.Controls.Add(this.CommitHashTextBox);
             this.guna2Panel2.Controls.Add(this.ClassVersionTextBox);
             this.guna2Panel2.Controls.Add(this.CreatedDateTextBox);
-            this.guna2Panel2.Controls.Add(this.UrlTextBox);
             this.guna2Panel2.Controls.Add(this.IdTextBox);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel3);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel2);
@@ -126,7 +123,6 @@ namespace dental_sys.view
             this.guna2Panel2.Controls.Add(this.StatusComboBox);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel27);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel42);
-            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel21);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel29);
             this.guna2Panel2.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Panel2.Location = new System.Drawing.Point(15, 64);
@@ -135,12 +131,128 @@ namespace dental_sys.view
             this.guna2Panel2.Size = new System.Drawing.Size(368, 349);
             this.guna2Panel2.TabIndex = 74;
             // 
+            // ClassCreatedDateTextBox
+            // 
+            this.ClassCreatedDateTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ClassCreatedDateTextBox.DefaultText = "";
+            this.ClassCreatedDateTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.ClassCreatedDateTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.ClassCreatedDateTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ClassCreatedDateTextBox.DisabledState.Parent = this.ClassCreatedDateTextBox;
+            this.ClassCreatedDateTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ClassCreatedDateTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ClassCreatedDateTextBox.FocusedState.Parent = this.ClassCreatedDateTextBox;
+            this.ClassCreatedDateTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClassCreatedDateTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ClassCreatedDateTextBox.HoverState.Parent = this.ClassCreatedDateTextBox;
+            this.ClassCreatedDateTextBox.Location = new System.Drawing.Point(149, 254);
+            this.ClassCreatedDateTextBox.Name = "ClassCreatedDateTextBox";
+            this.ClassCreatedDateTextBox.PasswordChar = '\0';
+            this.ClassCreatedDateTextBox.PlaceholderText = "";
+            this.ClassCreatedDateTextBox.SelectedText = "";
+            this.ClassCreatedDateTextBox.ShadowDecoration.Parent = this.ClassCreatedDateTextBox;
+            this.ClassCreatedDateTextBox.Size = new System.Drawing.Size(200, 36);
+            this.ClassCreatedDateTextBox.TabIndex = 125;
+            // 
+            // CommitHashTextBox
+            // 
+            this.CommitHashTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.CommitHashTextBox.DefaultText = "";
+            this.CommitHashTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.CommitHashTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.CommitHashTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.CommitHashTextBox.DisabledState.Parent = this.CommitHashTextBox;
+            this.CommitHashTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.CommitHashTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CommitHashTextBox.FocusedState.Parent = this.CommitHashTextBox;
+            this.CommitHashTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.CommitHashTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CommitHashTextBox.HoverState.Parent = this.CommitHashTextBox;
+            this.CommitHashTextBox.Location = new System.Drawing.Point(150, 196);
+            this.CommitHashTextBox.Name = "CommitHashTextBox";
+            this.CommitHashTextBox.PasswordChar = '\0';
+            this.CommitHashTextBox.PlaceholderText = "";
+            this.CommitHashTextBox.SelectedText = "";
+            this.CommitHashTextBox.ShadowDecoration.Parent = this.CommitHashTextBox;
+            this.CommitHashTextBox.Size = new System.Drawing.Size(200, 36);
+            this.CommitHashTextBox.TabIndex = 124;
+            // 
+            // ClassVersionTextBox
+            // 
+            this.ClassVersionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ClassVersionTextBox.DefaultText = "";
+            this.ClassVersionTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.ClassVersionTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.ClassVersionTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ClassVersionTextBox.DisabledState.Parent = this.ClassVersionTextBox;
+            this.ClassVersionTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ClassVersionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ClassVersionTextBox.FocusedState.Parent = this.ClassVersionTextBox;
+            this.ClassVersionTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ClassVersionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ClassVersionTextBox.HoverState.Parent = this.ClassVersionTextBox;
+            this.ClassVersionTextBox.Location = new System.Drawing.Point(149, 139);
+            this.ClassVersionTextBox.Name = "ClassVersionTextBox";
+            this.ClassVersionTextBox.PasswordChar = '\0';
+            this.ClassVersionTextBox.PlaceholderText = "";
+            this.ClassVersionTextBox.SelectedText = "";
+            this.ClassVersionTextBox.ShadowDecoration.Parent = this.ClassVersionTextBox;
+            this.ClassVersionTextBox.Size = new System.Drawing.Size(200, 36);
+            this.ClassVersionTextBox.TabIndex = 123;
+            // 
+            // CreatedDateTextBox
+            // 
+            this.CreatedDateTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.CreatedDateTextBox.DefaultText = "";
+            this.CreatedDateTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.CreatedDateTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.CreatedDateTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.CreatedDateTextBox.DisabledState.Parent = this.CreatedDateTextBox;
+            this.CreatedDateTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.CreatedDateTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CreatedDateTextBox.FocusedState.Parent = this.CreatedDateTextBox;
+            this.CreatedDateTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.CreatedDateTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.CreatedDateTextBox.HoverState.Parent = this.CreatedDateTextBox;
+            this.CreatedDateTextBox.Location = new System.Drawing.Point(149, 79);
+            this.CreatedDateTextBox.Name = "CreatedDateTextBox";
+            this.CreatedDateTextBox.PasswordChar = '\0';
+            this.CreatedDateTextBox.PlaceholderText = "";
+            this.CreatedDateTextBox.SelectedText = "";
+            this.CreatedDateTextBox.ShadowDecoration.Parent = this.CreatedDateTextBox;
+            this.CreatedDateTextBox.Size = new System.Drawing.Size(200, 36);
+            this.CreatedDateTextBox.TabIndex = 122;
+            // 
+            // IdTextBox
+            // 
+            this.IdTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.IdTextBox.DefaultText = "";
+            this.IdTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.IdTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.IdTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.IdTextBox.DisabledState.Parent = this.IdTextBox;
+            this.IdTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.IdTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.IdTextBox.FocusedState.Parent = this.IdTextBox;
+            this.IdTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.IdTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.IdTextBox.HoverState.Parent = this.IdTextBox;
+            this.IdTextBox.Location = new System.Drawing.Point(149, 25);
+            this.IdTextBox.Name = "IdTextBox";
+            this.IdTextBox.PasswordChar = '\0';
+            this.IdTextBox.PlaceholderText = "";
+            this.IdTextBox.ReadOnly = true;
+            this.IdTextBox.SelectedText = "";
+            this.IdTextBox.ShadowDecoration.Parent = this.IdTextBox;
+            this.IdTextBox.Size = new System.Drawing.Size(200, 36);
+            this.IdTextBox.TabIndex = 120;
+            // 
             // guna2HtmlLabel3
             // 
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(22, 254);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(21, 271);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(110, 19);
             this.guna2HtmlLabel3.TabIndex = 116;
@@ -151,7 +263,7 @@ namespace dental_sys.view
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(21, 196);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(21, 213);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(78, 19);
             this.guna2HtmlLabel2.TabIndex = 115;
@@ -162,7 +274,7 @@ namespace dental_sys.view
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(22, 159);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(23, 156);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(77, 19);
             this.guna2HtmlLabel1.TabIndex = 114;
@@ -200,7 +312,7 @@ namespace dental_sys.view
             this.guna2HtmlLabel27.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel27.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel27.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel27.Location = new System.Drawing.Point(22, 306);
+            this.guna2HtmlLabel27.Location = new System.Drawing.Point(23, 323);
             this.guna2HtmlLabel27.Name = "guna2HtmlLabel27";
             this.guna2HtmlLabel27.Size = new System.Drawing.Size(38, 19);
             this.guna2HtmlLabel27.TabIndex = 19;
@@ -211,29 +323,18 @@ namespace dental_sys.view
             this.guna2HtmlLabel42.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel42.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel42.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel42.Location = new System.Drawing.Point(22, 112);
+            this.guna2HtmlLabel42.Location = new System.Drawing.Point(21, 96);
             this.guna2HtmlLabel42.Name = "guna2HtmlLabel42";
             this.guna2HtmlLabel42.Size = new System.Drawing.Size(77, 19);
             this.guna2HtmlLabel42.TabIndex = 19;
             this.guna2HtmlLabel42.Text = "Created Date";
-            // 
-            // guna2HtmlLabel21
-            // 
-            this.guna2HtmlLabel21.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel21.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel21.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel21.Location = new System.Drawing.Point(22, 70);
-            this.guna2HtmlLabel21.Name = "guna2HtmlLabel21";
-            this.guna2HtmlLabel21.Size = new System.Drawing.Size(18, 19);
-            this.guna2HtmlLabel21.TabIndex = 19;
-            this.guna2HtmlLabel21.Text = "Url";
             // 
             // guna2HtmlLabel29
             // 
             this.guna2HtmlLabel29.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel29.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel29.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel29.Location = new System.Drawing.Point(22, 28);
+            this.guna2HtmlLabel29.Location = new System.Drawing.Point(23, 42);
             this.guna2HtmlLabel29.Name = "guna2HtmlLabel29";
             this.guna2HtmlLabel29.Size = new System.Drawing.Size(13, 19);
             this.guna2HtmlLabel29.TabIndex = 19;
@@ -249,149 +350,6 @@ namespace dental_sys.view
             this.label1.Size = new System.Drawing.Size(146, 34);
             this.label1.TabIndex = 90;
             this.label1.Text = "Weight Detail";
-            // 
-            // IdTextBox
-            // 
-            this.IdTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.IdTextBox.DefaultText = "";
-            this.IdTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.IdTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.IdTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.IdTextBox.DisabledState.Parent = this.IdTextBox;
-            this.IdTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.IdTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.IdTextBox.FocusedState.Parent = this.IdTextBox;
-            this.IdTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.IdTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.IdTextBox.HoverState.Parent = this.IdTextBox;
-            this.IdTextBox.Location = new System.Drawing.Point(149, 25);
-            this.IdTextBox.Name = "IdTextBox";
-            this.IdTextBox.PasswordChar = '\0';
-            this.IdTextBox.PlaceholderText = "";
-            this.IdTextBox.ReadOnly = true;
-            this.IdTextBox.SelectedText = "";
-            this.IdTextBox.ShadowDecoration.Parent = this.IdTextBox;
-            this.IdTextBox.Size = new System.Drawing.Size(200, 36);
-            this.IdTextBox.TabIndex = 120;
-            // 
-            // UrlTextBox
-            // 
-            this.UrlTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.UrlTextBox.DefaultText = "";
-            this.UrlTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.UrlTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.UrlTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.UrlTextBox.DisabledState.Parent = this.UrlTextBox;
-            this.UrlTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.UrlTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.UrlTextBox.FocusedState.Parent = this.UrlTextBox;
-            this.UrlTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.UrlTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.UrlTextBox.HoverState.Parent = this.UrlTextBox;
-            this.UrlTextBox.Location = new System.Drawing.Point(149, 70);
-            this.UrlTextBox.Name = "UrlTextBox";
-            this.UrlTextBox.PasswordChar = '\0';
-            this.UrlTextBox.PlaceholderText = "";
-            this.UrlTextBox.SelectedText = "";
-            this.UrlTextBox.ShadowDecoration.Parent = this.UrlTextBox;
-            this.UrlTextBox.Size = new System.Drawing.Size(200, 36);
-            this.UrlTextBox.TabIndex = 121;
-            // 
-            // CreatedDateTextBox
-            // 
-            this.CreatedDateTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.CreatedDateTextBox.DefaultText = "";
-            this.CreatedDateTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.CreatedDateTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.CreatedDateTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.CreatedDateTextBox.DisabledState.Parent = this.CreatedDateTextBox;
-            this.CreatedDateTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.CreatedDateTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CreatedDateTextBox.FocusedState.Parent = this.CreatedDateTextBox;
-            this.CreatedDateTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.CreatedDateTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CreatedDateTextBox.HoverState.Parent = this.CreatedDateTextBox;
-            this.CreatedDateTextBox.Location = new System.Drawing.Point(149, 112);
-            this.CreatedDateTextBox.Modified = true;
-            this.CreatedDateTextBox.Name = "CreatedDateTextBox";
-            this.CreatedDateTextBox.PasswordChar = '\0';
-            this.CreatedDateTextBox.PlaceholderText = "";
-            this.CreatedDateTextBox.SelectedText = "";
-            this.CreatedDateTextBox.ShadowDecoration.Parent = this.CreatedDateTextBox;
-            this.CreatedDateTextBox.Size = new System.Drawing.Size(200, 36);
-            this.CreatedDateTextBox.TabIndex = 122;
-            // 
-            // ClassVersionTextBox
-            // 
-            this.ClassVersionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.ClassVersionTextBox.DefaultText = "";
-            this.ClassVersionTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.ClassVersionTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.ClassVersionTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.ClassVersionTextBox.DisabledState.Parent = this.ClassVersionTextBox;
-            this.ClassVersionTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.ClassVersionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ClassVersionTextBox.FocusedState.Parent = this.ClassVersionTextBox;
-            this.ClassVersionTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ClassVersionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ClassVersionTextBox.HoverState.Parent = this.ClassVersionTextBox;
-            this.ClassVersionTextBox.Location = new System.Drawing.Point(149, 154);
-            this.ClassVersionTextBox.Modified = true;
-            this.ClassVersionTextBox.Name = "ClassVersionTextBox";
-            this.ClassVersionTextBox.PasswordChar = '\0';
-            this.ClassVersionTextBox.PlaceholderText = "";
-            this.ClassVersionTextBox.SelectedText = "";
-            this.ClassVersionTextBox.ShadowDecoration.Parent = this.ClassVersionTextBox;
-            this.ClassVersionTextBox.Size = new System.Drawing.Size(200, 36);
-            this.ClassVersionTextBox.TabIndex = 123;
-            // 
-            // CommitHashTextBox
-            // 
-            this.CommitHashTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.CommitHashTextBox.DefaultText = "";
-            this.CommitHashTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.CommitHashTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.CommitHashTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.CommitHashTextBox.DisabledState.Parent = this.CommitHashTextBox;
-            this.CommitHashTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.CommitHashTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CommitHashTextBox.FocusedState.Parent = this.CommitHashTextBox;
-            this.CommitHashTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.CommitHashTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.CommitHashTextBox.HoverState.Parent = this.CommitHashTextBox;
-            this.CommitHashTextBox.Location = new System.Drawing.Point(149, 196);
-            this.CommitHashTextBox.Modified = true;
-            this.CommitHashTextBox.Name = "CommitHashTextBox";
-            this.CommitHashTextBox.PasswordChar = '\0';
-            this.CommitHashTextBox.PlaceholderText = "";
-            this.CommitHashTextBox.SelectedText = "";
-            this.CommitHashTextBox.ShadowDecoration.Parent = this.CommitHashTextBox;
-            this.CommitHashTextBox.Size = new System.Drawing.Size(200, 36);
-            this.CommitHashTextBox.TabIndex = 124;
-            // 
-            // ClassCreatedDateTextBox
-            // 
-            this.ClassCreatedDateTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.ClassCreatedDateTextBox.DefaultText = "";
-            this.ClassCreatedDateTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.ClassCreatedDateTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.ClassCreatedDateTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.ClassCreatedDateTextBox.DisabledState.Parent = this.ClassCreatedDateTextBox;
-            this.ClassCreatedDateTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.ClassCreatedDateTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ClassCreatedDateTextBox.FocusedState.Parent = this.ClassCreatedDateTextBox;
-            this.ClassCreatedDateTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ClassCreatedDateTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ClassCreatedDateTextBox.HoverState.Parent = this.ClassCreatedDateTextBox;
-            this.ClassCreatedDateTextBox.Location = new System.Drawing.Point(149, 254);
-            this.ClassCreatedDateTextBox.Modified = true;
-            this.ClassCreatedDateTextBox.Name = "ClassCreatedDateTextBox";
-            this.ClassCreatedDateTextBox.PasswordChar = '\0';
-            this.ClassCreatedDateTextBox.PlaceholderText = "";
-            this.ClassCreatedDateTextBox.SelectedText = "";
-            this.ClassCreatedDateTextBox.ShadowDecoration.Parent = this.ClassCreatedDateTextBox;
-            this.ClassCreatedDateTextBox.Size = new System.Drawing.Size(200, 36);
-            this.ClassCreatedDateTextBox.TabIndex = 125;
             // 
             // WeightDetail
             // 
@@ -431,7 +389,6 @@ namespace dental_sys.view
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel27;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel42;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel21;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel29;
         private Guna.UI2.WinForms.Guna2ComboBox StatusComboBox;
         private System.Windows.Forms.Label WeightVersionTxt;
@@ -442,7 +399,6 @@ namespace dental_sys.view
         private Guna.UI2.WinForms.Guna2TextBox CommitHashTextBox;
         private Guna.UI2.WinForms.Guna2TextBox ClassVersionTextBox;
         private Guna.UI2.WinForms.Guna2TextBox CreatedDateTextBox;
-        private Guna.UI2.WinForms.Guna2TextBox UrlTextBox;
         private Guna.UI2.WinForms.Guna2TextBox IdTextBox;
     }
 }

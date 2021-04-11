@@ -118,5 +118,28 @@ namespace dental_sys.service
             return result.Contains("1");
         }
 
+        public void ApplyWeight(string weightPath)
+        {
+            var pk = new PrivateKeyFile(ServerDetectConstant.PrivateKeyFilePath);
+            var weightDir = ServerDetectConstant.WeightPath;
+            var apiDir = ServerDetectConstant.ApiPath;
+
+            using (var client = new SshClient(ServerTrainConstant.HostName, ServerTrainConstant.Username, pk))
+            {
+                client.Connect();
+                var stopServerCommand = client.CreateCommand($@"pkill python");
+                stopServerCommand.Execute();
+
+                var command = client.CreateCommand($@"cp {weightPath} {weightDir}/latest.weights");
+                command.Execute();
+
+                var restartCommand = client.CreateCommand($@"cd {apiDir} && GOOGLE_APPLICATION_CREDENTIALS=solveequation-firebase.json poetry run python manage.py runserver 0.0.0.0:8080");
+                restartCommand.Execute();
+
+                command.Execute();
+
+                client.Disconnect();
+            }
+        }
     }
 }

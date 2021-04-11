@@ -52,7 +52,10 @@ namespace dental_sys.view
 
         private void Create_Click(object sender, EventArgs e)
         {
+            var waitForm = new WaitFormFunc();
+            waitForm.Show(this);
             var check = _weightService.Create(ClassVersionModel.Id, _weightPath);
+            waitForm.Close();
             if (check)
             {
                 MessageBox.Show(@"Create success!");

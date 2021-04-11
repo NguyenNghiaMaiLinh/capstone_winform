@@ -10,12 +10,14 @@ namespace dental_sys.view
     {
         private bool _mouseIsDown = false;
         private readonly WeightService _weightService;
+        private readonly DataSetService _dataSetService;
         private Point _firstPoint;
         public WeightVersionModel WeightVersionModel { get; set; }
         public ClassVersionModel ClassVersionModel { get; set; }
 
         public WeightDetail()
         {
+            _dataSetService = new DataSetService();
             _weightService = new WeightService();
             InitializeComponent();
         }
@@ -24,7 +26,6 @@ namespace dental_sys.view
         {
             WeightVersionTxt.Text = WeightVersionModel?.Version;
             IdTextBox.Text = WeightVersionModel?.Id;
-            UrlTextBox.Text = WeightVersionModel?.Url;
             CreatedDateTextBox.Text = WeightVersionModel?.CreatedDateText;
             ClassVersionTextBox.Text = ClassVersionModel?.Version;
             CommitHashTextBox.Text = ClassVersionModel?.CommitHash;
@@ -62,15 +63,18 @@ namespace dental_sys.view
         private void guna2Button4_Click(object sender, EventArgs e)
         {
             var active = StatusComboBox.SelectedItem != null && StatusComboBox?.SelectedItem.ToString() == "Active";
-            var url = UrlTextBox.Text;
-            var entity = new WeightVersionEntity()
+            //var url = UrlTextBox.Text;
+            var entity = new WeightVersionEntity
             {
                 Id = WeightVersionModel.Id,
-                Url = url,
                 IsActive = active,
                 ClassVersionId = WeightVersionModel.ClassVersionId
             };
+            var waitForm = new WaitFormFunc();
+            waitForm.Show(this);
+            _dataSetService.ApplyWeight(WeightVersionModel.Url);
             var check = _weightService.Update(entity);
+            waitForm.Close();
             if (check)
             {
                 MessageBox.Show(@"Update success!");

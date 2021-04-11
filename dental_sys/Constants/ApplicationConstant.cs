@@ -31,4 +31,14 @@ namespace dental_sys.Constants
         public const string TrainPath = "/home/dev/darknet/train";
         public const string PrivateKeyFilePath = @"C:\Users\DELL\.ssh\id_rsa";
     }
+
+    public class ServerDetectConstant
+    {
+        public const string Username = "dev";
+        public const string HostName = "192.168.0.4";
+        public const string DarknetPath = "/home/dev/darknet";
+        public const string ApiPath = "/home/dev/darknet/api";
+        public const string WeightPath = "/home/dev/darknet/api/weights";
+        public const string PrivateKeyFilePath = @"C:\Users\DELL\.ssh\id_rsa";
+    }
 }

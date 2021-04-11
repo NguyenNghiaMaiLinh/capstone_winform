@@ -1,11 +1,10 @@
-﻿using dental_sys.model;
+﻿using dental_sys.Constants;
+using dental_sys.model;
 using dental_sys.service;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using dental_sys.Constants;
 
 namespace dental_sys.view
 {
@@ -160,9 +159,11 @@ namespace dental_sys.view
 
                         if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                         {
+                            var waitForm = new WaitFormFunc();
+                            waitForm.Show(this);
                             _dataSetService.DownloadWeight(currentNotification.Url, fbd.SelectedPath);
-
-                            MessageBox.Show($@"Weight save at: {fbd.SelectedPath}" , "Message");
+                            waitForm.Close();
+                            MessageBox.Show($@"Weight save at: {fbd.SelectedPath}", "Message");
                         }
                     }
                 }
