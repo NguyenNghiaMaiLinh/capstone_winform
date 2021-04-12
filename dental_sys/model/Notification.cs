@@ -15,13 +15,16 @@ namespace dental_sys.model
         [JsonProperty("created_date")]
         public DateTime? CreatedDate { get; set; }
         [JsonProperty("is_read")]
-        public bool? IsRead { get; set; }  
+        public bool? IsRead { get; set; }
         [JsonProperty("user_id")]
-        public int? UserId { get; set; }  
+        public int? UserId { get; set; }
         [JsonProperty("url")]
-        public string Url { get; set; }      
+        public string Url { get; set; }
         [JsonProperty("is_delete")]
         public bool? IsDelete { get; set; }
+        [JsonProperty("is_success")]
+        public bool? IsSuccess { get; set; }
+
     }
 
     public class NotificationModel
@@ -45,6 +48,9 @@ namespace dental_sys.model
         public string Url { get; set; }
         [Browsable(false)]
         public bool? IsDelete { get; set; }
+        [Browsable(false)]
+        public bool IsSuccess { get; set; }
+
     }
 
     public class CountUnreadEntity

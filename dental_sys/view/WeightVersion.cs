@@ -125,7 +125,9 @@ namespace dental_sys
             if (ClassVersionGridView?.Columns[ClassVersionHeaderConstant.CommitHash] != null)
                 ClassVersionGridView.Columns[ClassVersionHeaderConstant.CommitHash].DisplayIndex = 3;
             if (ClassVersionGridView?.Columns[ClassVersionHeaderConstant.CreatedDate] != null)
-                ClassVersionGridView.Columns[ClassVersionHeaderConstant.CreatedDate].DisplayIndex = 4;
+                ClassVersionGridView.Columns[ClassVersionHeaderConstant.CreatedDate].DisplayIndex = 4;  
+            if (ClassVersionGridView?.Columns[ClassVersionHeaderConstant.Description] != null)
+                ClassVersionGridView.Columns[ClassVersionHeaderConstant.Description].DisplayIndex = 5;
 
         }
         private void SearchTextBox_KeyDown(object sender, KeyEventArgs e)

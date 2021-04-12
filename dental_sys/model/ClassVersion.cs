@@ -15,6 +15,8 @@ namespace dental_sys.model
         public string CommitHash { get; set; }
         [JsonProperty("created_date")]
         public DateTime? CreatedDate { get; set; }
+        [JsonProperty("description")]
+        public string Description { get; set; }
     }
 
     public class ClassVersionModel
@@ -32,5 +34,7 @@ namespace dental_sys.model
 
         [DisplayName(ClassVersionHeaderConstant.CreatedDate)]
         public string CreatedDateText => CreatedDate?.ToString("dd/MM/yyyy HH:mm:ss");
+        [DisplayName(ClassVersionHeaderConstant.Description)]
+        public string Description { get; set; }
     }
 }

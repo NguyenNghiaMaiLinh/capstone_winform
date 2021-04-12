@@ -30,10 +30,10 @@ namespace dental_sys.view
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Notification));
             this.CloseBtn = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
@@ -44,12 +44,12 @@ namespace dental_sys.view
             this.NotificationText = new System.Windows.Forms.Label();
             this.NotificationNumber = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.DownloadWeightBtn = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.NextPageBtn = new System.Windows.Forms.PictureBox();
             this.NotificationPageNumber = new System.Windows.Forms.Label();
             this.PreviousPageBtn = new System.Windows.Forms.PictureBox();
             this.UpdateButton = new Guna.UI2.WinForms.Guna2Button();
-            this.DownloadWeightBtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NotificationGridView)).BeginInit();
             this.NotificationNumberTable.SuspendLayout();
@@ -87,44 +87,45 @@ namespace dental_sys.view
             // NotificationGridView
             // 
             this.NotificationGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.NotificationGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.NotificationGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.NotificationGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.NotificationGridView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.NotificationGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NotificationGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.NotificationGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NotificationGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NotificationGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.NotificationGridView.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.NotificationGridView.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.NotificationGridView.DefaultCellStyle = dataGridViewCellStyle7;
             this.NotificationGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.NotificationGridView.EnableHeadersVisualStyles = false;
             this.NotificationGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.NotificationGridView.Location = new System.Drawing.Point(0, 0);
+            this.NotificationGridView.MultiSelect = false;
             this.NotificationGridView.Name = "NotificationGridView";
             this.NotificationGridView.ReadOnly = true;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.NotificationGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.NotificationGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.NotificationGridView.RowHeadersVisible = false;
             this.NotificationGridView.RowTemplate.DividerHeight = 5;
             this.NotificationGridView.RowTemplate.Height = 40;
@@ -229,6 +230,29 @@ namespace dental_sys.view
             this.tableLayoutPanel4.Size = new System.Drawing.Size(439, 44);
             this.tableLayoutPanel4.TabIndex = 101;
             // 
+            // DownloadWeightBtn
+            // 
+            this.DownloadWeightBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.DownloadWeightBtn.BorderRadius = 5;
+            this.DownloadWeightBtn.BorderThickness = 1;
+            this.DownloadWeightBtn.CheckedState.Parent = this.DownloadWeightBtn;
+            this.DownloadWeightBtn.CustomImages.Parent = this.DownloadWeightBtn;
+            this.DownloadWeightBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DownloadWeightBtn.Enabled = false;
+            this.DownloadWeightBtn.FillColor = System.Drawing.Color.Transparent;
+            this.DownloadWeightBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.DownloadWeightBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.DownloadWeightBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.DownloadWeightBtn.HoverState.ForeColor = System.Drawing.Color.White;
+            this.DownloadWeightBtn.HoverState.Parent = this.DownloadWeightBtn;
+            this.DownloadWeightBtn.Location = new System.Drawing.Point(330, 3);
+            this.DownloadWeightBtn.Name = "DownloadWeightBtn";
+            this.DownloadWeightBtn.ShadowDecoration.Parent = this.DownloadWeightBtn;
+            this.DownloadWeightBtn.Size = new System.Drawing.Size(86, 38);
+            this.DownloadWeightBtn.TabIndex = 4;
+            this.DownloadWeightBtn.Text = "Download Weight";
+            this.DownloadWeightBtn.Click += new System.EventHandler(this.DownloadWeightBtn_Click);
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 3;
@@ -309,28 +333,6 @@ namespace dental_sys.view
             this.UpdateButton.TabIndex = 3;
             this.UpdateButton.Text = "Delete All Read";
             this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
-            // 
-            // DownloadWeightBtn
-            // 
-            this.DownloadWeightBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.DownloadWeightBtn.BorderRadius = 5;
-            this.DownloadWeightBtn.BorderThickness = 1;
-            this.DownloadWeightBtn.CheckedState.Parent = this.DownloadWeightBtn;
-            this.DownloadWeightBtn.CustomImages.Parent = this.DownloadWeightBtn;
-            this.DownloadWeightBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DownloadWeightBtn.FillColor = System.Drawing.Color.Transparent;
-            this.DownloadWeightBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.DownloadWeightBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.DownloadWeightBtn.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.DownloadWeightBtn.HoverState.ForeColor = System.Drawing.Color.White;
-            this.DownloadWeightBtn.HoverState.Parent = this.DownloadWeightBtn;
-            this.DownloadWeightBtn.Location = new System.Drawing.Point(330, 3);
-            this.DownloadWeightBtn.Name = "DownloadWeightBtn";
-            this.DownloadWeightBtn.ShadowDecoration.Parent = this.DownloadWeightBtn;
-            this.DownloadWeightBtn.Size = new System.Drawing.Size(86, 38);
-            this.DownloadWeightBtn.TabIndex = 4;
-            this.DownloadWeightBtn.Text = "Download Weight";
-            this.DownloadWeightBtn.Click += new System.EventHandler(this.DownloadWeightBtn_Click);
             // 
             // Notification
             // 

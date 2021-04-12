@@ -23,6 +23,7 @@ namespace dental_sys.view
             VersionTextBox.Text = ClassVersionModel.Version;
             IdTextBox.Text = ClassVersionModel.Id;
             CommitHashTextBox.Text = ClassVersionModel.CommitHash;
+            DescriptionRichTextBox.Text = ClassVersionModel.Description;
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)
@@ -49,7 +50,8 @@ namespace dental_sys.view
             var classVersion = new ClassVersionEntity()
             {
                 CommitHash = commitHash,
-                Id = IdTextBox.Text
+                Id = IdTextBox.Text,
+                Description = DescriptionRichTextBox.Text
             };
             var check = _classVersionService.Update(classVersion);
             if (check)

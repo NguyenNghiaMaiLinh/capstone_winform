@@ -113,8 +113,17 @@ namespace dental_sys.view
 
                     });
                     NotificationGridView.Refresh();
-
                 }
+
+                if (currentNumber.IsSuccess)
+                {
+                    DownloadWeightBtn.Enabled = true;
+                }
+                else
+                {
+                    DownloadWeightBtn.Enabled = false;
+                }
+
             }
         }
 
