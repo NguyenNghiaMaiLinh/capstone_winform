@@ -75,35 +75,43 @@ namespace dental_sys.service
             }
             return result?.Total ?? 0;
         }
-        public bool Update(string id, bool active)
+        private bool Update(NotificationEntity entity)
         {
-            string path = System.Environment.CurrentDirectory;
-            string url = File.ReadAllText($@"{path}\url");
-            var client = new RestClient(url);
-            var request = new RestRequest($"users/{id}", Method.PUT);
-            var body = new JObject { { "is_active", active } };
-            var json = JsonConvert.SerializeObject(body);
-            request.AddJsonBody(json);
-            var response = client.Execute(request);
-            if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
+            if (entity != null)
             {
-                return true;
+                var url = CommonService.GetUrlApi();
+                var client = new RestClient(url);
+                var currentUserId = UserLoginModel.User.Id;
+                var request = new RestRequest($"users/{currentUserId}/notifications/{entity.Id}", Method.PUT);
+                request.AddHeader("Authorization", UserLoginModel.AccessToken);
+                request.AddHeader("Content-Type", "application/json");
+                request.AddHeader("Charset", "utf-8");
+                request.AddHeader("Connection", "close");
+                var json = JsonConvert.SerializeObject(entity);
+                request.AddJsonBody(json);
+                var response = client.Execute(request);
+                return response.StatusCode == System.Net.HttpStatusCode.NoContent;
             }
             return false;
         }
 
-        public bool UpdateReadNotification(string id)
+        public bool UpdateReadNotification(int? id)
         {
-            var url = CommonService.GetUrlApi();
-            var client = new RestClient(url);
-            var currentUserId = UserLoginModel.User.Id;
-            var request = new RestRequest($"users/{currentUserId}/notifications/{id}", Method.PUT);
-            request.AddHeader("Authorization", UserLoginModel.AccessToken);
-            request.AddHeader("Content-Type", "application/json");
-            request.AddHeader("Charset", "utf-8");
-            request.AddHeader("Connection", "close");
-            var response = client.Execute(request);
-            return response.StatusCode == System.Net.HttpStatusCode.NoContent;
+            var noti = new NotificationEntity()
+            {
+                IsRead = true,
+                Id = id
+            };
+            return Update(noti);
+        }
+        public bool UpdateDownloadedNotification(int? id)
+        {
+            var noti = new NotificationEntity()
+            {
+                IsSuccess = false,
+                Id = id
+            };
+            return Update(noti);
         }
 
         public bool DeleteAllRead()

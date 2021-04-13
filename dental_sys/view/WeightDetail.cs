@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using dental_sys.model;
+using System.Threading;
 
 namespace dental_sys.view
 {
@@ -73,9 +74,22 @@ namespace dental_sys.view
             var waitForm = new WaitFormFunc();
             waitForm.Show(this);
             _dataSetService.ApplyWeight(WeightVersionModel.Url);
-            var check = _weightService.Update(entity);
+            var updateStatus = false;
+            var count = 0;
+            while (count < 10)
+            {
+
+                if (_weightService.GetWeightVersion(ClassVersionModel.Id) != null)
+                {
+                    updateStatus = _weightService.Update(entity);
+                    break;
+                }
+                Thread.Sleep(500);
+                count++;
+            }
+
             waitForm.Close();
-            if (check)
+            if (updateStatus)
             {
                 MessageBox.Show(@"Update success!");
                 Version.Instance.ReLoadData();
@@ -103,6 +117,19 @@ namespace dental_sys.view
         {
             this.BringToFront();
             this.Activate();
+        }
+
+        private void StatusComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var active = StatusComboBox.SelectedItem != null && StatusComboBox?.SelectedItem.ToString() == "Active";
+            if (!WeightVersionModel.IsActive && active)
+            {
+                UpdateButton.Enabled = true;
+            }
+            else
+            {
+                UpdateButton.Enabled = false;
+            }
         }
     }
 }

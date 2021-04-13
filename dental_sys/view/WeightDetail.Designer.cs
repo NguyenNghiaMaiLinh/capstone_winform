@@ -58,16 +58,18 @@ namespace dental_sys.view
             this.UpdateButton.BorderThickness = 1;
             this.UpdateButton.CheckedState.Parent = this.UpdateButton;
             this.UpdateButton.CustomImages.Parent = this.UpdateButton;
+            this.UpdateButton.Enabled = false;
             this.UpdateButton.FillColor = System.Drawing.Color.Transparent;
             this.UpdateButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.UpdateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.UpdateButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.UpdateButton.HoverState.ForeColor = System.Drawing.Color.White;
             this.UpdateButton.HoverState.Parent = this.UpdateButton;
-            this.UpdateButton.Location = new System.Drawing.Point(338, 518);
+            this.UpdateButton.Location = new System.Drawing.Point(451, 638);
+            this.UpdateButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.ShadowDecoration.Parent = this.UpdateButton;
-            this.UpdateButton.Size = new System.Drawing.Size(84, 30);
+            this.UpdateButton.Size = new System.Drawing.Size(112, 37);
             this.UpdateButton.TabIndex = 2;
             this.UpdateButton.Text = "Update";
             this.UpdateButton.Click += new System.EventHandler(this.guna2Button4_Click);
@@ -78,10 +80,11 @@ namespace dental_sys.view
             this.CloseBtn.FillColor = System.Drawing.Color.Transparent;
             this.CloseBtn.HoverState.Parent = this.CloseBtn;
             this.CloseBtn.IconColor = System.Drawing.Color.Gray;
-            this.CloseBtn.Location = new System.Drawing.Point(403, 0);
+            this.CloseBtn.Location = new System.Drawing.Point(537, 0);
+            this.CloseBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
-            this.CloseBtn.Size = new System.Drawing.Size(37, 41);
+            this.CloseBtn.Size = new System.Drawing.Size(49, 50);
             this.CloseBtn.TabIndex = 14;
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
@@ -92,20 +95,22 @@ namespace dental_sys.view
             this.guna2ShadowPanel1.Controls.Add(this.guna2Panel2);
             this.guna2ShadowPanel1.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2ShadowPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2ShadowPanel1.Location = new System.Drawing.Point(16, 58);
+            this.guna2ShadowPanel1.Location = new System.Drawing.Point(21, 71);
+            this.guna2ShadowPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel1.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.Dropped;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(406, 454);
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(541, 559);
             this.guna2ShadowPanel1.TabIndex = 98;
             // 
             // WeightVersionTxt
             // 
             this.WeightVersionTxt.AutoSize = true;
             this.WeightVersionTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightVersionTxt.Location = new System.Drawing.Point(13, 20);
+            this.WeightVersionTxt.Location = new System.Drawing.Point(17, 25);
+            this.WeightVersionTxt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.WeightVersionTxt.Name = "WeightVersionTxt";
-            this.WeightVersionTxt.Size = new System.Drawing.Size(102, 29);
+            this.WeightVersionTxt.Size = new System.Drawing.Size(125, 36);
             this.WeightVersionTxt.TabIndex = 77;
             this.WeightVersionTxt.Text = "Version";
             // 
@@ -125,10 +130,11 @@ namespace dental_sys.view
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel42);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel29);
             this.guna2Panel2.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.guna2Panel2.Location = new System.Drawing.Point(15, 64);
+            this.guna2Panel2.Location = new System.Drawing.Point(20, 79);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
-            this.guna2Panel2.Size = new System.Drawing.Size(368, 349);
+            this.guna2Panel2.Size = new System.Drawing.Size(491, 430);
             this.guna2Panel2.TabIndex = 74;
             // 
             // ClassCreatedDateTextBox
@@ -145,13 +151,15 @@ namespace dental_sys.view
             this.ClassCreatedDateTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ClassCreatedDateTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ClassCreatedDateTextBox.HoverState.Parent = this.ClassCreatedDateTextBox;
-            this.ClassCreatedDateTextBox.Location = new System.Drawing.Point(149, 254);
+            this.ClassCreatedDateTextBox.Location = new System.Drawing.Point(199, 313);
+            this.ClassCreatedDateTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ClassCreatedDateTextBox.Name = "ClassCreatedDateTextBox";
             this.ClassCreatedDateTextBox.PasswordChar = '\0';
             this.ClassCreatedDateTextBox.PlaceholderText = "";
+            this.ClassCreatedDateTextBox.ReadOnly = true;
             this.ClassCreatedDateTextBox.SelectedText = "";
             this.ClassCreatedDateTextBox.ShadowDecoration.Parent = this.ClassCreatedDateTextBox;
-            this.ClassCreatedDateTextBox.Size = new System.Drawing.Size(200, 36);
+            this.ClassCreatedDateTextBox.Size = new System.Drawing.Size(267, 44);
             this.ClassCreatedDateTextBox.TabIndex = 125;
             // 
             // CommitHashTextBox
@@ -168,13 +176,15 @@ namespace dental_sys.view
             this.CommitHashTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.CommitHashTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.CommitHashTextBox.HoverState.Parent = this.CommitHashTextBox;
-            this.CommitHashTextBox.Location = new System.Drawing.Point(150, 196);
+            this.CommitHashTextBox.Location = new System.Drawing.Point(200, 241);
+            this.CommitHashTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CommitHashTextBox.Name = "CommitHashTextBox";
             this.CommitHashTextBox.PasswordChar = '\0';
             this.CommitHashTextBox.PlaceholderText = "";
+            this.CommitHashTextBox.ReadOnly = true;
             this.CommitHashTextBox.SelectedText = "";
             this.CommitHashTextBox.ShadowDecoration.Parent = this.CommitHashTextBox;
-            this.CommitHashTextBox.Size = new System.Drawing.Size(200, 36);
+            this.CommitHashTextBox.Size = new System.Drawing.Size(267, 44);
             this.CommitHashTextBox.TabIndex = 124;
             // 
             // ClassVersionTextBox
@@ -191,13 +201,15 @@ namespace dental_sys.view
             this.ClassVersionTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ClassVersionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ClassVersionTextBox.HoverState.Parent = this.ClassVersionTextBox;
-            this.ClassVersionTextBox.Location = new System.Drawing.Point(149, 139);
+            this.ClassVersionTextBox.Location = new System.Drawing.Point(199, 171);
+            this.ClassVersionTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ClassVersionTextBox.Name = "ClassVersionTextBox";
             this.ClassVersionTextBox.PasswordChar = '\0';
             this.ClassVersionTextBox.PlaceholderText = "";
+            this.ClassVersionTextBox.ReadOnly = true;
             this.ClassVersionTextBox.SelectedText = "";
             this.ClassVersionTextBox.ShadowDecoration.Parent = this.ClassVersionTextBox;
-            this.ClassVersionTextBox.Size = new System.Drawing.Size(200, 36);
+            this.ClassVersionTextBox.Size = new System.Drawing.Size(267, 44);
             this.ClassVersionTextBox.TabIndex = 123;
             // 
             // CreatedDateTextBox
@@ -214,13 +226,15 @@ namespace dental_sys.view
             this.CreatedDateTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.CreatedDateTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.CreatedDateTextBox.HoverState.Parent = this.CreatedDateTextBox;
-            this.CreatedDateTextBox.Location = new System.Drawing.Point(149, 79);
+            this.CreatedDateTextBox.Location = new System.Drawing.Point(199, 97);
+            this.CreatedDateTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CreatedDateTextBox.Name = "CreatedDateTextBox";
             this.CreatedDateTextBox.PasswordChar = '\0';
             this.CreatedDateTextBox.PlaceholderText = "";
+            this.CreatedDateTextBox.ReadOnly = true;
             this.CreatedDateTextBox.SelectedText = "";
             this.CreatedDateTextBox.ShadowDecoration.Parent = this.CreatedDateTextBox;
-            this.CreatedDateTextBox.Size = new System.Drawing.Size(200, 36);
+            this.CreatedDateTextBox.Size = new System.Drawing.Size(267, 44);
             this.CreatedDateTextBox.TabIndex = 122;
             // 
             // IdTextBox
@@ -237,14 +251,15 @@ namespace dental_sys.view
             this.IdTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.IdTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.IdTextBox.HoverState.Parent = this.IdTextBox;
-            this.IdTextBox.Location = new System.Drawing.Point(149, 25);
+            this.IdTextBox.Location = new System.Drawing.Point(199, 31);
+            this.IdTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.IdTextBox.Name = "IdTextBox";
             this.IdTextBox.PasswordChar = '\0';
             this.IdTextBox.PlaceholderText = "";
             this.IdTextBox.ReadOnly = true;
             this.IdTextBox.SelectedText = "";
             this.IdTextBox.ShadowDecoration.Parent = this.IdTextBox;
-            this.IdTextBox.Size = new System.Drawing.Size(200, 36);
+            this.IdTextBox.Size = new System.Drawing.Size(267, 44);
             this.IdTextBox.TabIndex = 120;
             // 
             // guna2HtmlLabel3
@@ -252,9 +267,10 @@ namespace dental_sys.view
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(21, 271);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(28, 324);
+            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(110, 19);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(132, 23);
             this.guna2HtmlLabel3.TabIndex = 116;
             this.guna2HtmlLabel3.Text = "Class Created Date";
             // 
@@ -263,9 +279,10 @@ namespace dental_sys.view
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(21, 213);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(28, 252);
+            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(78, 19);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(96, 23);
             this.guna2HtmlLabel2.TabIndex = 115;
             this.guna2HtmlLabel2.Text = "Commit Hash ";
             // 
@@ -274,9 +291,10 @@ namespace dental_sys.view
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(23, 156);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(31, 182);
+            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(77, 19);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(93, 23);
             this.guna2HtmlLabel1.TabIndex = 114;
             this.guna2HtmlLabel1.Text = "Class Version";
             // 
@@ -299,22 +317,25 @@ namespace dental_sys.view
             "Active",
             "Inactive"});
             this.StatusComboBox.ItemsAppearance.Parent = this.StatusComboBox;
-            this.StatusComboBox.Location = new System.Drawing.Point(150, 306);
+            this.StatusComboBox.Location = new System.Drawing.Point(200, 377);
+            this.StatusComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.StatusComboBox.Name = "StatusComboBox";
             this.StatusComboBox.ShadowDecoration.Parent = this.StatusComboBox;
-            this.StatusComboBox.Size = new System.Drawing.Size(116, 36);
+            this.StatusComboBox.Size = new System.Drawing.Size(153, 36);
             this.StatusComboBox.StartIndex = 0;
             this.StatusComboBox.TabIndex = 113;
             this.StatusComboBox.TextOffset = new System.Drawing.Point(2, 0);
+            this.StatusComboBox.SelectedIndexChanged += new System.EventHandler(this.StatusComboBox_SelectedIndexChanged);
             // 
             // guna2HtmlLabel27
             // 
             this.guna2HtmlLabel27.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel27.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel27.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel27.Location = new System.Drawing.Point(23, 323);
+            this.guna2HtmlLabel27.Location = new System.Drawing.Point(31, 377);
+            this.guna2HtmlLabel27.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2HtmlLabel27.Name = "guna2HtmlLabel27";
-            this.guna2HtmlLabel27.Size = new System.Drawing.Size(38, 19);
+            this.guna2HtmlLabel27.Size = new System.Drawing.Size(47, 23);
             this.guna2HtmlLabel27.TabIndex = 19;
             this.guna2HtmlLabel27.Text = "Status";
             // 
@@ -323,9 +344,10 @@ namespace dental_sys.view
             this.guna2HtmlLabel42.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel42.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel42.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel42.Location = new System.Drawing.Point(21, 96);
+            this.guna2HtmlLabel42.Location = new System.Drawing.Point(28, 109);
+            this.guna2HtmlLabel42.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2HtmlLabel42.Name = "guna2HtmlLabel42";
-            this.guna2HtmlLabel42.Size = new System.Drawing.Size(77, 19);
+            this.guna2HtmlLabel42.Size = new System.Drawing.Size(92, 23);
             this.guna2HtmlLabel42.TabIndex = 19;
             this.guna2HtmlLabel42.Text = "Created Date";
             // 
@@ -334,9 +356,10 @@ namespace dental_sys.view
             this.guna2HtmlLabel29.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel29.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2HtmlLabel29.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel29.Location = new System.Drawing.Point(23, 42);
+            this.guna2HtmlLabel29.Location = new System.Drawing.Point(31, 43);
+            this.guna2HtmlLabel29.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2HtmlLabel29.Name = "guna2HtmlLabel29";
-            this.guna2HtmlLabel29.Size = new System.Drawing.Size(13, 19);
+            this.guna2HtmlLabel29.Size = new System.Drawing.Size(16, 23);
             this.guna2HtmlLabel29.TabIndex = 19;
             this.guna2HtmlLabel29.Text = "Id";
             // 
@@ -345,23 +368,25 @@ namespace dental_sys.view
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(138, 21);
+            this.label1.Location = new System.Drawing.Point(184, 26);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 34);
+            this.label1.Size = new System.Drawing.Size(185, 39);
             this.label1.TabIndex = 90;
             this.label1.Text = "Weight Detail";
             // 
             // WeightDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(439, 563);
+            this.ClientSize = new System.Drawing.Size(585, 693);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.UpdateButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "WeightDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Profile";

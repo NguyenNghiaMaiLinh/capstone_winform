@@ -3,6 +3,7 @@ using dental_sys.model;
 using dental_sys.service;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -11,6 +12,8 @@ namespace dental_sys.view
     public partial class Notification : Form
     {
         private readonly NotificationService _notificationService;
+        private readonly WeightService _weightService;
+        private readonly ClassVersionService _classVersionService;
         public Principal Principal { get; set; }
         public PagingModel<NotificationModel> Notifications { get; set; }
         private static Notification _instance;
@@ -24,6 +27,8 @@ namespace dental_sys.view
         private Notification()
         {
             _notificationService = new NotificationService();
+            _weightService = new WeightService();
+            _classVersionService = new ClassVersionService();
             _dataSetService = new DataSetService();
             InitializeComponent();
         }
@@ -168,11 +173,36 @@ namespace dental_sys.view
 
                         if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                         {
-                            var waitForm = new WaitFormFunc();
-                            waitForm.Show(this);
-                            _dataSetService.DownloadWeight(currentNotification.Url, fbd.SelectedPath);
-                            waitForm.Close();
-                            MessageBox.Show($@"Weight save at: {fbd.SelectedPath}", "Message");
+
+                            if (currentNotification.IsSuccess)
+                            {
+                                var waitForm = new WaitFormFunc();
+                                waitForm.Show(this);
+                                _dataSetService.DownloadWeight(currentNotification.Url, fbd.SelectedPath);
+                                Task.Run(() => _notificationService.UpdateDownloadedNotification(currentNotification.Id));
+                                currentNotification.IsSuccess = false;
+
+                                var weightPath = Path.Combine(fbd.SelectedPath, Path.GetFileName(currentNotification.Url));
+                                var lastClass = _classVersionService.GetLastClassVersion();
+                                var check = _weightService.Create(lastClass.Id, weightPath);
+                                waitForm.Close();
+                                if (check)
+                                {
+                                    MessageBox.Show($@"Weight save at: {fbd.SelectedPath}\n", "Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+                                    MessageBox.Show($@"Create new weights version successfully", "Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+                                    DownloadWeightBtn.Enabled = false;
+                                }
+                                else
+                                {
+                                    MessageBox.Show($@"Weight save at: {fbd.SelectedPath}\n Create new weight version successfully", "Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+                                    MessageBox.Show($@"Fail to create new weights version", "Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                                }
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Training failed and doesn't have weight to download");
+                            }
                         }
                     }
                 }

@@ -9,6 +9,7 @@ namespace dental_sys.Constants
     public class ApplicationConstant
     {
         public const string DatetimeFormat = "dd/MM/yyyy HH:mm:ss";
+        public const string PrivateKeyFilePath = @"C:\Users\Adminstrator\.ssh\id_rsa";
     }
     public class Order
     {
@@ -29,7 +30,7 @@ namespace dental_sys.Constants
         public const string DarknetPath = "/home/dev/darknet";
         public const string BackupPath = "/home/dev/darknet/backup";
         public const string TrainPath = "/home/dev/darknet/train";
-        public const string PrivateKeyFilePath = @"C:\Users\DELL\.ssh\id_rsa";
+        
     }
 
     public class ServerDetectConstant
@@ -37,8 +38,7 @@ namespace dental_sys.Constants
         public const string Username = "dev";
         public const string HostName = "192.168.0.4";
         public const string DarknetPath = "/home/dev/darknet";
-        public const string ApiPath = "/home/dev/darknet/api";
-        public const string WeightPath = "/home/dev/darknet/api/weights";
-        public const string PrivateKeyFilePath = @"C:\Users\DELL\.ssh\id_rsa";
+        public const string ApiPath = "/home/dev/detectserver/darknet/api";
+        public const string WeightPath = "/home/dev/detectserver/darknet/api/weights";
     }
 }

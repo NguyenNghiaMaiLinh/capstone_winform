@@ -32,7 +32,7 @@ namespace dental_sys.model
         [DisplayName(NotificationHeaderConstant.No)]
         public string No { get; set; }
         [Browsable(false)]
-        public string Id { get; set; }
+        public int? Id { get; set; }
         [DisplayName(NotificationHeaderConstant.Message)]
         public string Message { get; set; }
         [Browsable(false)]
