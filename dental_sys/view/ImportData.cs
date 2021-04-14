@@ -447,7 +447,7 @@ namespace dental_sys
         {
             if (_dataSetService.IsTraining())
             {
-                MessageBox.Show(@"Server is training!");
+                MessageBox.Show(@"Server is training! Please try later.");
             }
             else
             {
@@ -461,6 +461,8 @@ namespace dental_sys
                     waitForm.Show(this);
                     _dataSetService.TransferData(_imageFiles, _labelFiles);
                     waitForm.Close();
+                    MessageBox.Show(@"Data has been sent successfully.", "Message",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
@@ -469,7 +471,7 @@ namespace dental_sys
         {
             if (_dataSetService.IsTraining())
             {
-                MessageBox.Show(@"Server is training!");
+                MessageBox.Show(@"Server is training! Please try later");
             }
             else
             {
@@ -477,6 +479,8 @@ namespace dental_sys
                 waitForm.Show(this);
                 _dataSetService.TrainData();
                 waitForm.Close();
+                MessageBox.Show(@"The system is processing. Please wait for the notification.", "Message",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
