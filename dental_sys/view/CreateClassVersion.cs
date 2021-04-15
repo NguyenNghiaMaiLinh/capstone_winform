@@ -50,23 +50,33 @@ namespace dental_sys.view
             var version = VersionTextBox.Text;
             var commitHash = CommitHashTextBox.Text;
             var createdDate = DateTime.Now;
-            var classVersion = new ClassVersionEntity()
+
+            if (string.IsNullOrEmpty(commitHash))
             {
-                Version = version,
-                CommitHash = commitHash,
-                CreatedDate = createdDate
-            };
-            var check = _classVersionService.Create(classVersion);
-            if (check)
-            {
-                MessageBox.Show(@"Create success!");
-                Version.Instance.ReLoadData();
-                Close();
+                MessageBox.Show(@"Please enter value to create.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
             else
             {
-                MessageBox.Show(@"Create failed!");
+                var classVersion = new ClassVersionEntity()
+                {
+                    Version = version,
+                    CommitHash = commitHash,
+                    CreatedDate = createdDate
+                };
+                var check = _classVersionService.Create(classVersion);
+                if (check)
+                {
+                    MessageBox.Show(@"Create success!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Version.Instance.ReLoadData();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show(@"Create failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+
         }
     }
 }

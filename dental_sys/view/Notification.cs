@@ -72,6 +72,7 @@ namespace dental_sys.view
             NotificationGridView.DataSource = data;
             SetOrderColumn();
             NotificationGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
         }
         private void SetOrderColumn()
         {
@@ -214,6 +215,18 @@ namespace dental_sys.view
             else
             {
                 MessageBox.Show(@"Please select 1 row.");
+            }
+        }
+
+        private void NotificationGridView_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
+        {
+            if (e.Column.HeaderText == WeightVersionHeaderConstant.No)
+            {
+                e.Column.DefaultCellStyle = new DataGridViewCellStyle()
+                {
+                    Alignment = DataGridViewContentAlignment.MiddleCenter
+                };
+
             }
         }
     }

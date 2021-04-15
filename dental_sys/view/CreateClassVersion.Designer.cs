@@ -44,6 +44,8 @@ namespace dental_sys.view
             this.label1 = new System.Windows.Forms.Label();
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.guna2ShadowPanel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -62,7 +64,7 @@ namespace dental_sys.view
             this.Create.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.Create.HoverState.ForeColor = System.Drawing.Color.White;
             this.Create.HoverState.Parent = this.Create;
-            this.Create.Location = new System.Drawing.Point(338, 305);
+            this.Create.Location = new System.Drawing.Point(338, 471);
             this.Create.Name = "Create";
             this.Create.ShadowDecoration.Parent = this.Create;
             this.Create.Size = new System.Drawing.Size(84, 30);
@@ -76,7 +78,7 @@ namespace dental_sys.view
             this.CloseBtn.FillColor = System.Drawing.Color.Transparent;
             this.CloseBtn.HoverState.Parent = this.CloseBtn;
             this.CloseBtn.IconColor = System.Drawing.Color.Gray;
-            this.CloseBtn.Location = new System.Drawing.Point(406, 0);
+            this.CloseBtn.Location = new System.Drawing.Point(418, 0);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
             this.CloseBtn.Size = new System.Drawing.Size(37, 41);
@@ -92,7 +94,7 @@ namespace dental_sys.view
             this.guna2ShadowPanel1.Location = new System.Drawing.Point(16, 58);
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(406, 228);
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(406, 407);
             this.guna2ShadowPanel1.TabIndex = 98;
             // 
             // guna2Panel2
@@ -103,7 +105,7 @@ namespace dental_sys.view
             this.guna2Panel2.Location = new System.Drawing.Point(19, 32);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
-            this.guna2Panel2.Size = new System.Drawing.Size(363, 171);
+            this.guna2Panel2.Size = new System.Drawing.Size(363, 341);
             this.guna2Panel2.TabIndex = 74;
             // 
             // tableLayoutPanel1
@@ -111,25 +113,28 @@ namespace dental_sys.view
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.CreatedDateTextBox, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.CommitHashTextBox, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.VersionTextBox, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.richTextBox1, 1, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(363, 171);
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(363, 341);
             this.tableLayoutPanel1.TabIndex = 81;
             // 
             // CreatedDateTextBox
             // 
+            this.CreatedDateTextBox.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.CreatedDateTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.CreatedDateTextBox.DefaultText = "";
             this.CreatedDateTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -143,14 +148,15 @@ namespace dental_sys.view
             this.CreatedDateTextBox.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.CreatedDateTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.CreatedDateTextBox.HoverState.Parent = this.CreatedDateTextBox;
-            this.CreatedDateTextBox.Location = new System.Drawing.Point(111, 117);
+            this.CreatedDateTextBox.Location = new System.Drawing.Point(112, 72);
+            this.CreatedDateTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CreatedDateTextBox.Name = "CreatedDateTextBox";
             this.CreatedDateTextBox.PasswordChar = '\0';
             this.CreatedDateTextBox.PlaceholderText = "Created Date";
             this.CreatedDateTextBox.ReadOnly = true;
             this.CreatedDateTextBox.SelectedText = "";
             this.CreatedDateTextBox.ShadowDecoration.Parent = this.CreatedDateTextBox;
-            this.CreatedDateTextBox.Size = new System.Drawing.Size(249, 51);
+            this.CreatedDateTextBox.Size = new System.Drawing.Size(247, 26);
             this.CreatedDateTextBox.TabIndex = 119;
             // 
             // CommitHashTextBox
@@ -168,13 +174,14 @@ namespace dental_sys.view
             this.CommitHashTextBox.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.CommitHashTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.CommitHashTextBox.HoverState.Parent = this.CommitHashTextBox;
-            this.CommitHashTextBox.Location = new System.Drawing.Point(111, 60);
+            this.CommitHashTextBox.Location = new System.Drawing.Point(112, 38);
+            this.CommitHashTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CommitHashTextBox.Name = "CommitHashTextBox";
             this.CommitHashTextBox.PasswordChar = '\0';
             this.CommitHashTextBox.PlaceholderText = "Commit Hash";
             this.CommitHashTextBox.SelectedText = "";
             this.CommitHashTextBox.ShadowDecoration.Parent = this.CommitHashTextBox;
-            this.CommitHashTextBox.Size = new System.Drawing.Size(249, 51);
+            this.CommitHashTextBox.Size = new System.Drawing.Size(247, 26);
             this.CommitHashTextBox.TabIndex = 118;
             // 
             // label4
@@ -183,9 +190,9 @@ namespace dental_sys.view
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(3, 114);
+            this.label4.Location = new System.Drawing.Point(3, 68);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 57);
+            this.label4.Size = new System.Drawing.Size(102, 34);
             this.label4.TabIndex = 116;
             this.label4.Text = "Created Date";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -196,9 +203,9 @@ namespace dental_sys.view
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(3, 57);
+            this.label3.Location = new System.Drawing.Point(3, 34);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 57);
+            this.label3.Size = new System.Drawing.Size(102, 34);
             this.label3.TabIndex = 115;
             this.label3.Text = "Commit Hash";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -211,7 +218,7 @@ namespace dental_sys.view
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 57);
+            this.label2.Size = new System.Drawing.Size(102, 34);
             this.label2.TabIndex = 114;
             this.label2.Text = "Version";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -231,14 +238,15 @@ namespace dental_sys.view
             this.VersionTextBox.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.VersionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.VersionTextBox.HoverState.Parent = this.VersionTextBox;
-            this.VersionTextBox.Location = new System.Drawing.Point(111, 3);
+            this.VersionTextBox.Location = new System.Drawing.Point(112, 4);
+            this.VersionTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.VersionTextBox.Name = "VersionTextBox";
             this.VersionTextBox.PasswordChar = '\0';
             this.VersionTextBox.PlaceholderText = "Version";
             this.VersionTextBox.ReadOnly = true;
             this.VersionTextBox.SelectedText = "";
             this.VersionTextBox.ShadowDecoration.Parent = this.VersionTextBox;
-            this.VersionTextBox.Size = new System.Drawing.Size(249, 51);
+            this.VersionTextBox.Size = new System.Drawing.Size(247, 26);
             this.VersionTextBox.TabIndex = 117;
             // 
             // label1
@@ -263,12 +271,37 @@ namespace dental_sys.view
             this.guna2DragControl1.TransparentWhileDrag = true;
             this.guna2DragControl1.UseTransparentDrag = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F);
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(3, 102);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(102, 239);
+            this.label5.TabIndex = 120;
+            this.label5.Text = "Description";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.richTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.richTextBox1.Location = new System.Drawing.Point(111, 105);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(249, 233);
+            this.richTextBox1.TabIndex = 121;
+            this.richTextBox1.Text = "";
+            // 
             // CreateClassVersion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(442, 356);
+            this.ClientSize = new System.Drawing.Size(454, 558);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.Controls.Add(this.CloseBtn);
@@ -305,5 +338,7 @@ namespace dental_sys.view
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox VersionTextBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

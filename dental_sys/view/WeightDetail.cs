@@ -25,7 +25,7 @@ namespace dental_sys.view
 
         private void Profile_Load(object sender, EventArgs e)
         {
-            WeightVersionTxt.Text = WeightVersionModel?.Version;
+            WeightVerionLabel.Text = WeightVersionModel?.Version;
             IdTextBox.Text = WeightVersionModel?.Id;
             CreatedDateTextBox.Text = WeightVersionModel?.CreatedDateText;
             ClassVersionTextBox.Text = ClassVersionModel?.Version;

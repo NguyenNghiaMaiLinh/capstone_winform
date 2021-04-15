@@ -105,7 +105,7 @@ namespace dental_sys
         private void CustomerGridView_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
         {
 
-            if (e.Column.HeaderText == CustomerHeaderConstant.No)
+            if (e.Column.HeaderText == CustomerHeaderConstant.No || e.Column.HeaderText == CustomerHeaderConstant.Status)
             {
                 e.Column.DefaultCellStyle = new DataGridViewCellStyle()
                 {

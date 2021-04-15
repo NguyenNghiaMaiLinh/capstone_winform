@@ -44,69 +44,78 @@ namespace dental_sys
         {
             var email = EmailTextBox.Text;
             var pass = PasswordTextBox.Text;
-
-
-            //this.Visible = false;
-            //Loading _load = new Loading();
-            //_load.Show();
-            var waitForm = new WaitFormFunc();
-            waitForm.Show(this);
             string mess = null;
-            var auth = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
-            try
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(pass))
             {
-                var ab = await auth.SignInWithEmailAndPasswordAsync(email, pass);
-                var user = ab.User;
-                //var user = 0;
-                if (user != null)
+                mess = @"Please enter your email and password";
+            }
+            else
+            {
+                //this.Visible = false;
+                //Loading _load = new Loading();
+                //_load.Show();
+                var waitForm = new WaitFormFunc();
+                waitForm.Show(this);
+              
+                var auth = new FirebaseAuthProvider(new FirebaseConfig(apiKey));
+                try
                 {
-                    var authService = new AuthenticationService();
-                    //var userLogin = authService.GetToken(user.LocalId);
-                    var userLogin = authService.GetToken(user.LocalId);
-                    if (userLogin != null)
+                    var ab = await auth.SignInWithEmailAndPasswordAsync(email, pass);
+                    var user = ab.User;
+                    //var user = 0;
+                    if (user != null)
                     {
-                        if (string.IsNullOrEmpty(userLogin.ErrorMessage))
+                        var authService = new AuthenticationService();
+                        //var userLogin = authService.GetToken(user.LocalId);
+                        var userLogin = authService.GetToken(user.LocalId);
+                        if (userLogin != null)
                         {
-                            UserLoginModel.AccessToken = userLogin.AccessToken;
-                            UserLoginModel.User = userLogin.User;
-                            if (RememberCheckbox.Checked)
+                            if (string.IsNullOrEmpty(userLogin.ErrorMessage))
                             {
-                                Properties.Settings.Default.Username = email;
-                                Properties.Settings.Default.Password = pass;
-                                Properties.Settings.Default.Save();
+                                UserLoginModel.AccessToken = userLogin.AccessToken;
+                                UserLoginModel.User = userLogin.User;
+                                if (RememberCheckbox.Checked)
+                                {
+                                    Properties.Settings.Default.Username = email;
+                                    Properties.Settings.Default.Password = pass;
+                                    Properties.Settings.Default.Save();
+                                }
+                                else
+                                {
+                                    Properties.Settings.Default.Username = null;
+                                    Properties.Settings.Default.Password = null;
+                                    Properties.Settings.Default.Save();
+                                }
                             }
                             else
                             {
-                                Properties.Settings.Default.Username = null;
-                                Properties.Settings.Default.Password = null;
-                                Properties.Settings.Default.Save();
+                                var isAdmin = userLogin.User.Role == 2;
+                                mess = !isAdmin ? @"You don't have permission." : userLogin.ErrorMessage;
                             }
+
                         }
                         else
                         {
-                            var isAdmin = userLogin.User.Role == 2;
-                            mess = !isAdmin ? @"You don't have permission." : userLogin.ErrorMessage;
+                            mess = @"Can't login. Try again later.";
                         }
 
                     }
-                    else
-                    {
-                        mess = @"Can't login. Try again later.";
-                    }
 
                 }
-
+                catch (Exception e)
+                {
+                    mess = @"Invalid Email or password";
+                }
+                waitForm.Close();
             }
-            catch (Exception e)
-            {
-                mess = @"Invalid Email or password!";
-            }
 
-            waitForm.Close();
+       
+
+          
 
             if (!string.IsNullOrEmpty(mess))
             {
-                MessageBox.Show(mess);
+                MessageBox.Show(mess,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             else
             {

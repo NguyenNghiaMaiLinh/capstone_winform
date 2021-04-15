@@ -101,7 +101,7 @@
             this.WeightBtn.ShadowDecoration.Parent = this.WeightBtn;
             this.WeightBtn.Size = new System.Drawing.Size(205, 40);
             this.WeightBtn.TabIndex = 10;
-            this.WeightBtn.Text = "Weight Version";
+            this.WeightBtn.Text = "Manage Model";
             this.WeightBtn.TextOffset = new System.Drawing.Point(8, 0);
             this.WeightBtn.Click += new System.EventHandler(this.WeightBtn_Click);
             // 
@@ -226,7 +226,7 @@
             this.ImportDataBtn.ShadowDecoration.Parent = this.ImportDataBtn;
             this.ImportDataBtn.Size = new System.Drawing.Size(205, 40);
             this.ImportDataBtn.TabIndex = 4;
-            this.ImportDataBtn.Text = "Import Data";
+            this.ImportDataBtn.Text = "Import Data && Train";
             this.ImportDataBtn.TextOffset = new System.Drawing.Point(8, 0);
             this.ImportDataBtn.Click += new System.EventHandler(this.ImportDataBtn_Click);
             // 
@@ -251,7 +251,7 @@
             this.ManageCustomerBtn.ShadowDecoration.Parent = this.ManageCustomerBtn;
             this.ManageCustomerBtn.Size = new System.Drawing.Size(205, 40);
             this.ManageCustomerBtn.TabIndex = 3;
-            this.ManageCustomerBtn.Text = "Manage Customer";
+            this.ManageCustomerBtn.Text = "Manage User";
             this.ManageCustomerBtn.TextOffset = new System.Drawing.Point(8, 0);
             this.ManageCustomerBtn.Click += new System.EventHandler(this.ManageCustomerBtn_Click);
             // 

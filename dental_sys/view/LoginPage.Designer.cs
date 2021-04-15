@@ -85,9 +85,9 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(32, 83);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(204, 55);
+            this.label3.Size = new System.Drawing.Size(132, 55);
             this.label3.TabIndex = 16;
-            this.label3.Text = "Equation";
+            this.label3.Text = "Solve";
             // 
             // guna2ControlBox1
             // 
@@ -153,9 +153,9 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(32, 138);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 55);
+            this.label4.Size = new System.Drawing.Size(204, 55);
             this.label4.TabIndex = 12;
-            this.label4.Text = "Solve";
+            this.label4.Text = "Equation";
             // 
             // guna2PictureBox3
             // 

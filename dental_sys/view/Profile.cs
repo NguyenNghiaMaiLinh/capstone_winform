@@ -47,7 +47,7 @@ namespace dental_sys.view
 
 
             CustomerNameTxt.Text = Customer?.Name;
-            UidLabel.Text = Customer?.UId;
+            //UidLabel.Text = Customer?.UId;
             EmailLabel.Text = Customer?.Email;
             PhoneLabel.Text = Customer?.Phone;
             StatusComboBox.SelectedIndex = StatusComboBox.FindStringExact(Customer?.Status);

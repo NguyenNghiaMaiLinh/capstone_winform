@@ -37,7 +37,7 @@ namespace dental_sys.model
     {
         [DisplayName(CustomerHeaderConstant.No)]
         public string No { get; set; }
-        [DisplayName(CustomerHeaderConstant.UId)]
+        [Browsable(false)]
         public string UId { get; set; }
         [DisplayName(CustomerHeaderConstant.Name)]
         public string Name { get; set; }
