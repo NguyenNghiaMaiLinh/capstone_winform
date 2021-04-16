@@ -97,15 +97,14 @@ namespace dental_sys.service
             request.AddHeader("Charset", "utf-8");
             request.AddHeader("Connection", "close");
             request.AddHeader("Authorization", UserLoginModel.AccessToken);
-            Customer data = new Customer();
+            var data = new Customer();
             var response = client.Get(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                string resultContent = response.Content;
+                var resultContent = response.Content;
                 data = JsonConvert.DeserializeObject<Customer>(resultContent);
             }
             return data;
-
         }
 
     }

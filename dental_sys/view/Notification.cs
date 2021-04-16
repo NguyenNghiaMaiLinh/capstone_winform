@@ -189,27 +189,27 @@ namespace dental_sys.view
                                 waitForm.Close();
                                 if (check)
                                 {
-                                    MessageBox.Show($@"Weight save at: {fbd.SelectedPath}\n", "Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
-                                    MessageBox.Show($@"Create new weights version successfully", "Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+                                    MessageBox.Show($@"Model save at: {fbd.SelectedPath}\n", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+                                    MessageBox.Show(@"Create new model version successfully", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
                                     DownloadWeightBtn.Enabled = false;
                                 }
                                 else
                                 {
-                                    MessageBox.Show($@"Weight save at: {fbd.SelectedPath}\n Create new weight version successfully", "Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
-                                    MessageBox.Show($@"Fail to create new weights version", "Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                                    MessageBox.Show($@"Model save at: {fbd.SelectedPath}\n Create new weight version successfully", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+                                    MessageBox.Show(@"Fail to create new model version", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
                                 }
 
                             }
                             else
                             {
-                                MessageBox.Show("Training failed and doesn't have weight to download");
+                                MessageBox.Show(@"Training failed and doesn't have model to download");
                             }
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show(@"There is no weight to download.");
+                    MessageBox.Show(@"There is no model to download.");
                 }
             }
             else

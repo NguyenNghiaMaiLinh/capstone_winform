@@ -251,7 +251,7 @@ namespace dental_sys.view
             this.DownloadWeightBtn.ShadowDecoration.Parent = this.DownloadWeightBtn;
             this.DownloadWeightBtn.Size = new System.Drawing.Size(86, 38);
             this.DownloadWeightBtn.TabIndex = 4;
-            this.DownloadWeightBtn.Text = "Download Weight";
+            this.DownloadWeightBtn.Text = "Download Model";
             this.DownloadWeightBtn.Click += new System.EventHandler(this.DownloadWeightBtn_Click);
             // 
             // tableLayoutPanel5

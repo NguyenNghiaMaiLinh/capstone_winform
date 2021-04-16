@@ -49,9 +49,10 @@ namespace dental_sys.view
         {
             var version = VersionTextBox.Text;
             var commitHash = CommitHashTextBox.Text;
+            var description = DescriptionRichBox.Text;
             var createdDate = DateTime.Now;
 
-            if (string.IsNullOrEmpty(commitHash))
+            if (string.IsNullOrEmpty(commitHash) || string.IsNullOrEmpty(description))
             {
                 MessageBox.Show(@"Please enter value to create.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 

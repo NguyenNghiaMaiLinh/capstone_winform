@@ -35,17 +35,17 @@ namespace dental_sys.view
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
             this.CreatedDateTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.CommitHashTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.VersionTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.DescriptionRichBox = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.label5 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.guna2ShadowPanel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -120,7 +120,7 @@ namespace dental_sys.view
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.VersionTextBox, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.richTextBox1, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.DescriptionRichBox, 1, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -131,6 +131,19 @@ namespace dental_sys.view
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(363, 341);
             this.tableLayoutPanel1.TabIndex = 81;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F);
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(3, 102);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(102, 239);
+            this.label5.TabIndex = 120;
+            this.label5.Text = "Description";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CreatedDateTextBox
             // 
@@ -249,6 +262,18 @@ namespace dental_sys.view
             this.VersionTextBox.Size = new System.Drawing.Size(247, 26);
             this.VersionTextBox.TabIndex = 117;
             // 
+            // DescriptionRichBox
+            // 
+            this.DescriptionRichBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DescriptionRichBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DescriptionRichBox.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.DescriptionRichBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.DescriptionRichBox.Location = new System.Drawing.Point(111, 105);
+            this.DescriptionRichBox.Name = "DescriptionRichBox";
+            this.DescriptionRichBox.Size = new System.Drawing.Size(249, 233);
+            this.DescriptionRichBox.TabIndex = 121;
+            this.DescriptionRichBox.Text = "";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -270,31 +295,6 @@ namespace dental_sys.view
             this.guna2DragControl1.TargetControl = this;
             this.guna2DragControl1.TransparentWhileDrag = true;
             this.guna2DragControl1.UseTransparentDrag = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Franklin Gothic Medium", 9.75F);
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(3, 102);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 239);
-            this.label5.TabIndex = 120;
-            this.label5.Text = "Description";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.richTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.richTextBox1.Location = new System.Drawing.Point(111, 105);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(249, 233);
-            this.richTextBox1.TabIndex = 121;
-            this.richTextBox1.Text = "";
             // 
             // CreateClassVersion
             // 
@@ -339,6 +339,6 @@ namespace dental_sys.view
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox VersionTextBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox DescriptionRichBox;
     }
 }

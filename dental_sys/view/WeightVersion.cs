@@ -125,7 +125,7 @@ namespace dental_sys
             if (ClassVersionGridView?.Columns[ClassVersionHeaderConstant.CommitHash] != null)
                 ClassVersionGridView.Columns[ClassVersionHeaderConstant.CommitHash].DisplayIndex = 3;
             if (ClassVersionGridView?.Columns[ClassVersionHeaderConstant.CreatedDate] != null)
-                ClassVersionGridView.Columns[ClassVersionHeaderConstant.CreatedDate].DisplayIndex = 4;  
+                ClassVersionGridView.Columns[ClassVersionHeaderConstant.CreatedDate].DisplayIndex = 4;
             if (ClassVersionGridView?.Columns[ClassVersionHeaderConstant.Description] != null)
                 ClassVersionGridView.Columns[ClassVersionHeaderConstant.Description].DisplayIndex = 5;
 
@@ -157,7 +157,7 @@ namespace dental_sys
 
         private void WeightGridView_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
         {
-            if (e.Column.HeaderText == WeightVersionHeaderConstant.No)
+            if (e.Column.HeaderText == WeightVersionHeaderConstant.No || e.Column.HeaderText == WeightVersionHeaderConstant.Id || e.Column.HeaderText == WeightVersionHeaderConstant.Status || e.Column.HeaderText == WeightVersionHeaderConstant.Version)
             {
                 e.Column.DefaultCellStyle = new DataGridViewCellStyle()
                 {
@@ -268,12 +268,24 @@ namespace dental_sys
         {
             if (ClassVersionGridView.CurrentRow?.DataBoundItem is ClassVersionModel currentClassVersion)
             {
-                var createWeightVersion = new CreateWeightVersion {  ClassVersionModel= currentClassVersion };
+                var createWeightVersion = new CreateWeightVersion { ClassVersionModel = currentClassVersion };
                 createWeightVersion.ShowDialog();
             }
             else
             {
                 MessageBox.Show(@"Please select class version");
+            }
+        }
+
+        private void ClassVersionGridView_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
+        {
+            if (e.Column.HeaderText == WeightVersionHeaderConstant.No || e.Column.HeaderText == WeightVersionHeaderConstant.Id || e.Column.HeaderText == WeightVersionHeaderConstant.Version)
+            {
+                e.Column.DefaultCellStyle = new DataGridViewCellStyle()
+                {
+                    Alignment = DataGridViewContentAlignment.MiddleCenter
+                };
+
             }
         }
     }
