@@ -111,7 +111,7 @@ namespace dental_sys.service
         //    return Update(data);
 
         //}
-        public bool Create(string classId, string path)
+        public bool Create(string classId, string weightPath,string lossPath,string logPath)
         {
             var url = CommonService.GetUrlApi();
             var client = new RestClient(url);
@@ -120,7 +120,9 @@ namespace dental_sys.service
             request.AddHeader("Content-Type", "multipart/form-data");
             request.AddHeader("Charset", "utf-8");
             request.AddHeader("Connection", "close");
-            request.AddFile("file", path);
+            request.AddFile("weight", weightPath);
+            request.AddFile("log", logPath);
+            request.AddFile("loss", lossPath);
             var response = client.Execute<Customer>(request);
 
             return response.StatusCode == System.Net.HttpStatusCode.Created;

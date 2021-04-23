@@ -29,9 +29,13 @@ namespace dental_sys.service
                 var dataFolder = $"train/admin/{UserLoginModel.User.Id}/data/{folder}";
                 var labelFolder = $"train/admin/{UserLoginModel.User.Id}/label/{folder}";
                 var dataDir = $@"{ServerTrainConstant.DarknetPath}";
+                var trainDir = ServerTrainConstant.TrainPath;
                 using (var client = new SshClient(ServerTrainConstant.HostName, ServerTrainConstant.Username, pk))
                 {
                     client.Connect();
+
+                    var deleteDataCommand = client.CreateCommand($@"cd {trainDir}; rm -r admin ");
+                    deleteDataCommand.Execute();
 
                     var command = client.CreateCommand($@"cd {dataDir}  &&  mkdir -pm 0777 {dataFolder} &&  mkdir -pm 0777 {labelFolder}");
                     command.Execute();
@@ -83,6 +87,8 @@ namespace dental_sys.service
                 var darknetDir = ServerTrainConstant.DarknetPath;
                 var datetime = DateTime.Now.ToString(ApplicationConstant.DatetimeFormat).Replace("/", "").Replace(" ", "").Replace(":", "");
                 var weightPath = $@"backup/{UserLoginModel.User.Id}/{datetime}";
+                var logPath = $@"backup/{UserLoginModel.User.Id}/{datetime}/train.log";
+                var lossPath = $@"backup/{UserLoginModel.User.Id}/{datetime}/chart.png";
                 using (var client = new SshClient(ServerTrainConstant.HostName, ServerTrainConstant.Username, pk))
                 {
                     client.Connect();
@@ -100,7 +106,11 @@ namespace dental_sys.service
                     createCfgFile.Execute();
                     //var guid = Guid.NewGuid().ToString("screen -dm bash -c 'cd /home/dev/darknet; python3 sendnoti.py --id 35 --authen eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IlF3alZLbnF0WXhUMGhvQWJsVzVzOTVJWlJaQTMiLCJleHAiOjE2NDkyNDYxMzN9.9MpdU7fw2QUUQt1-1KtmKGugYPpNguY2vqkaGQMqBWc --url http://192.168.0.4:8080/api'");
                     //var command = client.CreateCommand($@"screen -dm bash -c 'cd /home/dev/darknet; ./darknet detector train yolo.data yolo.cfg -dont_show'; curl --location --request POST --header 'Authorization: {UserLoginModel.AccessToken}' --header 'Content-Type: application/json' --data-raw '{{""user"":{UserLoginModel.User.Id},""message"":""Train complete"",""url"":""backup""}}' ""{url}/users/30/notifications""");
-                    var command = client.CreateCommand($@"screen -dm bash -c 'cd /home/dev/darknet; ./darknet detector train yolo.data yolo.cfg -dont_show; python3 sendnoti.py --id {UserLoginModel.User.Id} --authen {UserLoginModel.AccessToken} --url {url} --backup {weightPath}/yolo_final.weights; cd {trainDir}; rm -r istrain.txt '");
+                    var command = client.CreateCommand($@"screen -dm bash -c 'cd {darknetDir};"
+                                                       + $"./darknet detector train yolo.data yolo.cfg -dont_show > {logPath};"
+                                                       + $"cp chart.png {lossPath};"
+                                                       + $"python3 sendnoti.py --id {UserLoginModel.User.Id} --authen {UserLoginModel.AccessToken} --url {url} --backup {weightPath}/yolo_final.weights --log_path {logPath} --loss_function_path {lossPath};"
+                                                       + $"cd {trainDir}; rm -r istrain.txt; rm -r admin '");
                     //var command = client.CreateCommand($@"screen -dm bash -c 'cd /home/dev/darknet; python sendnoti.py ""$--id {UserLoginModel.User.Id}"" --authen {UserLoginModel.AccessToken} --url {url}");
                     command.Execute();
                     client.Disconnect();
@@ -116,25 +126,30 @@ namespace dental_sys.service
             return true;
         }
 
-        public bool DownloadWeight(string url, string destinationFolder)
+        public bool DownloadWeight(NotificationModel notification, string destinationFolder)
         {
             try
             {
                 var pk = new PrivateKeyFile(ApplicationConstant.PrivateKeyFilePath);
                 //var folder = DateTime.Now.ToString(ApplicationConstant.DatetimeFormat);
                 var destination = new DirectoryInfo(destinationFolder);
-                var backupPath = $"{ServerTrainConstant.DarknetPath}/{url}";
+                var weightPath = $"{ServerTrainConstant.DarknetPath}/{notification.Url}";
+                var logPath = $"{ServerTrainConstant.DarknetPath}/{notification.LogPath}";
+                var lossPath = $"{ServerTrainConstant.DarknetPath}/{notification.LossFunctionPath}";
                 using (var client = new ScpClient(ServerTrainConstant.HostName, 22, ServerTrainConstant.Username, pk))
                 {
                     client.Connect();
 
-                    client.Download(backupPath, destination);
+                    client.Download(weightPath, destination);
+                    client.Download(logPath, destination);
+                    client.Download(lossPath, destination);
 
                     client.Disconnect();
                 }
             }
-            catch
+            catch (Exception e)
             {
+                ExceptionLogging.SendErrorToText(e, nameof(this.DownloadWeight), nameof(DataSetService));
                 return false;
             }
             return true;
@@ -190,6 +205,35 @@ namespace dental_sys.service
                 restartCommand.Execute();
                 client.Disconnect();
             }
+        }
+        public bool DownloadLogAndLoss(WeightVersionModel weight, string destinationFolder)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(weight.LogPath) || string.IsNullOrEmpty(weight.LossFunctionPath))
+                {
+                    return false;
+                }
+                var pk = new PrivateKeyFile(ApplicationConstant.PrivateKeyFilePath);
+                //var folder = DateTime.Now.ToString(ApplicationConstant.DatetimeFormat);
+                var destination = new DirectoryInfo(destinationFolder);
+                var logPath = $"{ServerDetectConstant.ApiPath}/{weight.LogPath}";
+                var lossPath = $"{ServerDetectConstant.ApiPath}/{weight.LossFunctionPath}";
+                using (var client = new ScpClient(ServerTrainConstant.HostName, 22, ServerTrainConstant.Username, pk))
+                {
+                    client.Connect();
+
+                    client.Download(logPath, destination);
+                    client.Download(lossPath, destination);
+
+                    client.Disconnect();
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

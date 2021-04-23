@@ -179,25 +179,36 @@ namespace dental_sys.view
                             {
                                 var waitForm = new WaitFormFunc();
                                 waitForm.Show(this);
-                                _dataSetService.DownloadWeight(currentNotification.Url, fbd.SelectedPath);
-                                Task.Run(() => _notificationService.UpdateDownloadedNotification(currentNotification.Id));
-                                currentNotification.IsSuccess = false;
-
-                                var weightPath = Path.Combine(fbd.SelectedPath, Path.GetFileName(currentNotification.Url));
-                                var lastClass = _classVersionService.GetLastClassVersion();
-                                var check = _weightService.Create(lastClass.Id, weightPath);
-                                waitForm.Close();
-                                if (check)
+                                var downloadSuccess = _dataSetService.DownloadWeight(currentNotification, fbd.SelectedPath);
+                                if (downloadSuccess)
                                 {
-                                    MessageBox.Show($@"Model save at: {fbd.SelectedPath}\n", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
-                                    MessageBox.Show(@"Create new model version successfully", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
-                                    DownloadWeightBtn.Enabled = false;
+                                    Task.Run(() => _notificationService.UpdateDownloadedNotification(currentNotification.Id));
+                                    currentNotification.IsSuccess = false;
+
+                                    var weightPath = Path.Combine(fbd.SelectedPath, Path.GetFileName(currentNotification.Url));
+                                    var logPath = Path.Combine(fbd.SelectedPath, Path.GetFileName(currentNotification.LogPath));
+                                    var lossPath = Path.Combine(fbd.SelectedPath, Path.GetFileName(currentNotification.LossFunctionPath));
+                                    var lastClass = _classVersionService.GetLastClassVersion();
+                                    var check = _weightService.Create(lastClass.Id, weightPath, lossPath, logPath);
+                                    waitForm.Close();
+                                    if (check)
+                                    {
+                                        MessageBox.Show($@"Model save at: {fbd.SelectedPath}", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+                                        MessageBox.Show(@"Create new model version successfully", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+                                        DownloadWeightBtn.Enabled = false;
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show($@"Model save at: {fbd.SelectedPath}\n Create new weight version successfully", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+                                        MessageBox.Show(@"Fail to create new model version", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                                    }
                                 }
                                 else
                                 {
-                                    MessageBox.Show($@"Model save at: {fbd.SelectedPath}\n Create new weight version successfully", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
-                                    MessageBox.Show(@"Fail to create new model version", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                                    waitForm.Close();
+                                    MessageBox.Show(@"The model could not be downloaded. Please try again later.", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
                                 }
+                               
 
                             }
                             else

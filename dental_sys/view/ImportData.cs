@@ -20,8 +20,9 @@ namespace dental_sys
         private readonly List<LabelFileModel> _labelFiles;
         private readonly Dictionary<string, string> _orderDictionary;
         private readonly DataSetService _dataSetService;
-
-        public ImportData()
+        private static ImportData _instance;
+        public static ImportData Instance => _instance ?? (_instance = new ImportData());
+        private ImportData()
         {
             _dataSetService = new DataSetService();
             _orderDictionary = new Dictionary<string, string>()
@@ -69,6 +70,27 @@ namespace dental_sys
             SetOrderColumn();
             FileDataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             FileDataGridView_CellClick(this, null);
+            if (_imageFiles.Count > 0)
+            {
+                if (_imageFiles.Any(_ => !_.IsLabel))
+                {
+                    ClearAllInValidFileBtn.Enabled = true;
+                    SendBtn.Enabled = false;
+                }
+                else
+                {
+                    ClearAllInValidFileBtn.Enabled = false;
+                    SendBtn.Enabled = true;
+                }
+
+            }
+            else
+            {
+                ClearAllInValidFileBtn.Enabled = false;
+                SendBtn.Enabled = false;
+            }
+
+
         }
 
         private void ImportData_Load(object sender, EventArgs e)
@@ -363,6 +385,8 @@ namespace dental_sys
                 _labelFiles.Add(fileModel);
             });
             LabelNumber.Text = _labelFiles.Count.ToString();
+
+
             //ImportLabelBtn.Text = $@"Import Label ({_labelFiles.Count})";
         }
 
@@ -395,7 +419,7 @@ namespace dental_sys
                     {
                         BindingData(_imageFiles);
                     }
-                  
+
 
                 }
             }
@@ -436,16 +460,21 @@ namespace dental_sys
                     else
                     {
                         var waitForm = new WaitFormFunc();
-                        waitForm.Show(this);
+                        waitForm.Show();
                         var isSuccess = _dataSetService.TransferData(_imageFiles, _labelFiles);
                         waitForm.Close();
                         if (isSuccess)
                         {
                             MessageBox.Show(@"Data has been sent successfully.", "Message",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            _imageFiles.Clear();
+                            _labelFiles.Clear();
+                            BindingData(null);
+                            TrainBtn.Enabled = true;
                         }
                         else
                         {
+                            TrainBtn.Enabled = false;
                             MessageBox.Show(@"Failed to sent data. Please try again later", "Message",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
@@ -455,11 +484,12 @@ namespace dental_sys
             }
             catch (Exception exception)
             {
+                TrainBtn.Enabled = false;
                 ExceptionLogging.SendErrorToText(exception, nameof(this.SendBtn_Click), nameof(ImportData));
                 MessageBox.Show(@"Failed to sent data. Please try again later", "Message",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+     
         }
 
         private void TrainBtn_Click(object sender, EventArgs e)
@@ -471,7 +501,7 @@ namespace dental_sys
             else
             {
                 var waitForm = new WaitFormFunc();
-                waitForm.Show(this);
+                waitForm.Show();
                 var isSuccess = _dataSetService.TrainData();
                 waitForm.Close();
                 if (isSuccess)

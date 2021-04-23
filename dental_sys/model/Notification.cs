@@ -24,6 +24,10 @@ namespace dental_sys.model
         public bool? IsDelete { get; set; }
         [JsonProperty("is_success")]
         public bool? IsSuccess { get; set; }
+        [JsonProperty("log_path")]
+        public string LogPath { get; set; }
+        [JsonProperty("loss_function_path")]
+        public string LossFunctionPath { get; set; }
 
     }
 
@@ -50,7 +54,10 @@ namespace dental_sys.model
         public bool? IsDelete { get; set; }
         [Browsable(false)]
         public bool IsSuccess { get; set; }
-
+        [Browsable(false)]
+        public string LossFunctionPath { get; set; }
+        [Browsable(false)]
+        public string LogPath { get; set; }
     }
 
     public class CountUnreadEntity

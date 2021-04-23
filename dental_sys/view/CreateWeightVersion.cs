@@ -54,7 +54,7 @@ namespace dental_sys.view
         {
             var waitForm = new WaitFormFunc();
             waitForm.Show(this);
-            var check = _weightService.Create(ClassVersionModel.Id, _weightPath);
+            var check = _weightService.Create(ClassVersionModel.Id, _weightPath,"","");
             waitForm.Close();
             if (check)
             {

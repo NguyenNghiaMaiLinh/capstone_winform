@@ -59,7 +59,7 @@ namespace dental_sys.service
 
                 }
 
-                MessageBox.Show(filepath);
+                //MessageBox.Show(filepath);
 
             }
             catch (Exception e)

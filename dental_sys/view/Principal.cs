@@ -62,7 +62,7 @@ namespace dental_sys
         {
             var waitForm = new WaitFormFunc();
             waitForm.Show(this);
-            ShowContainer("Import Data && Train", new ImportData());
+            ShowContainer("Import Data && Train", ImportData.Instance);
             waitForm.Close();
         }
 
@@ -102,7 +102,7 @@ namespace dental_sys
             Notification.Instance.LoadNotification(PagingConstant.PageIndex, 10);
             Notification.Instance.Principal = this;
             Notification.Instance.ShowDialog();
-          
+
         }
 
         public void UpdatedUnreadNotification()
@@ -117,7 +117,7 @@ namespace dental_sys
                 NotificationNumber.Visible = true;
                 NotificationNumber.Text = notificationUnread.ToString();
             }
-           
+
         }
     }
 }

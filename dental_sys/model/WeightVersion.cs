@@ -19,6 +19,10 @@ namespace dental_sys.model
         public string ClassVersionId { get; set; }
         [JsonProperty("is_active")]
         public bool IsActive { get; set; }
+        [JsonProperty("log_path")]
+        public string LogPath { get; set; }
+        [JsonProperty("loss_function_path")]
+        public string LossFunctionPath { get; set; }
     }
 
     public class WeightVersionModel
@@ -41,6 +45,10 @@ namespace dental_sys.model
         public string ClassVersionId { get; set; }
         [Browsable(false)]
         public bool IsActive { get; set; }
+        [Browsable(false)]
+        public string LogPath { get; set; }
+        [Browsable(false)]
+        public string LossFunctionPath { get; set; }
         [DisplayName(WeightVersionHeaderConstant.Status)]
         public string Status { get; set; }
     }

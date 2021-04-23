@@ -13,6 +13,7 @@ namespace dental_sys
     {
         private readonly WeightService _weightService;
         private readonly ClassVersionService _classVersionService;
+        private readonly DataSetService _dataSetService;
         public PagingModel<WeightVersionModel> WeightVersions { get; set; }
         public PagingModel<ClassVersionModel> ClassVersions { get; set; }
 
@@ -33,6 +34,7 @@ namespace dental_sys
         {
             _weightService = new WeightService();
             _classVersionService = new ClassVersionService();
+            _dataSetService = new DataSetService();
             InitializeComponent();
         }
 
@@ -266,10 +268,29 @@ namespace dental_sys
 
         private void CreateWeightBtn_Click(object sender, EventArgs e)
         {
-            if (ClassVersionGridView.CurrentRow?.DataBoundItem is ClassVersionModel currentClassVersion)
+            if (WeightGridView.CurrentRow?.DataBoundItem is WeightVersionModel currentWeightVersion)
             {
-                var createWeightVersion = new CreateWeightVersion { ClassVersionModel = currentClassVersion };
-                createWeightVersion.ShowDialog();
+                using (var fbd = new FolderBrowserDialog())
+                {
+                    DialogResult result = fbd.ShowDialog();
+
+                    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                    {
+                        var waitForm = new WaitFormFunc();
+                        waitForm.Show();
+                        var isSuccess = _dataSetService.DownloadLogAndLoss(currentWeightVersion, fbd.SelectedPath);
+                        waitForm.Close();
+                        if (isSuccess)
+                        {
+                            MessageBox.Show($@"Log save at: {fbd.SelectedPath}", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show(@"The log could not be downloaded. Please try again later.", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                        }
+                    }
+                }
+
             }
             else
             {
