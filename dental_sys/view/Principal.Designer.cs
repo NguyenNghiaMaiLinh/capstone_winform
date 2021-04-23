@@ -251,7 +251,7 @@
             this.ManageCustomerBtn.ShadowDecoration.Parent = this.ManageCustomerBtn;
             this.ManageCustomerBtn.Size = new System.Drawing.Size(205, 40);
             this.ManageCustomerBtn.TabIndex = 3;
-            this.ManageCustomerBtn.Text = "Manage User";
+            this.ManageCustomerBtn.Text = "Manage Customer";
             this.ManageCustomerBtn.TextOffset = new System.Drawing.Point(8, 0);
             this.ManageCustomerBtn.Click += new System.EventHandler(this.ManageCustomerBtn_Click);
             // 

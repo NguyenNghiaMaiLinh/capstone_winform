@@ -52,6 +52,10 @@
             this.PreviousClassPageBtn = new System.Windows.Forms.PictureBox();
             this.CreateClassBtn = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.NextPageWeightVersionBtn = new System.Windows.Forms.PictureBox();
+            this.WeightVersionPageNumber = new System.Windows.Forms.Label();
+            this.PreviousPageWeightVersionBtn = new System.Windows.Forms.PictureBox();
             this.CreateWeightBtn = new Guna.UI2.WinForms.Guna2Button();
             this.WeightGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -60,10 +64,6 @@
             this.WeightVersionNumberTable = new System.Windows.Forms.TableLayoutPanel();
             this.WeightText = new System.Windows.Forms.Label();
             this.WeightNumber = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.NextPageWeightVersionBtn = new System.Windows.Forms.PictureBox();
-            this.WeightVersionPageNumber = new System.Windows.Forms.Label();
-            this.PreviousPageWeightVersionBtn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -77,13 +77,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.NextClassPageBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PreviousClassPageBtn)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NextPageWeightVersionBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PreviousPageWeightVersionBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WeightGridView)).BeginInit();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.WeightVersionNumberTable.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NextPageWeightVersionBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PreviousPageWeightVersionBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -395,6 +395,60 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(433, 44);
             this.tableLayoutPanel4.TabIndex = 14;
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 3;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.Controls.Add(this.NextPageWeightVersionBtn, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.WeightVersionPageNumber, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.PreviousPageWeightVersionBtn, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(24, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(167, 38);
+            this.tableLayoutPanel5.TabIndex = 4;
+            // 
+            // NextPageWeightVersionBtn
+            // 
+            this.NextPageWeightVersionBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.NextPageWeightVersionBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.NextPageWeightVersionBtn.Image = ((System.Drawing.Image)(resources.GetObject("NextPageWeightVersionBtn.Image")));
+            this.NextPageWeightVersionBtn.Location = new System.Drawing.Point(127, 3);
+            this.NextPageWeightVersionBtn.Name = "NextPageWeightVersionBtn";
+            this.NextPageWeightVersionBtn.Padding = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.NextPageWeightVersionBtn.Size = new System.Drawing.Size(35, 32);
+            this.NextPageWeightVersionBtn.TabIndex = 11;
+            this.NextPageWeightVersionBtn.TabStop = false;
+            // 
+            // WeightVersionPageNumber
+            // 
+            this.WeightVersionPageNumber.AutoSize = true;
+            this.WeightVersionPageNumber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.WeightVersionPageNumber.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
+            this.WeightVersionPageNumber.Location = new System.Drawing.Point(44, 0);
+            this.WeightVersionPageNumber.Name = "WeightVersionPageNumber";
+            this.WeightVersionPageNumber.Size = new System.Drawing.Size(77, 38);
+            this.WeightVersionPageNumber.TabIndex = 10;
+            this.WeightVersionPageNumber.Text = "23/10";
+            this.WeightVersionPageNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PreviousPageWeightVersionBtn
+            // 
+            this.PreviousPageWeightVersionBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PreviousPageWeightVersionBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PreviousPageWeightVersionBtn.Image = ((System.Drawing.Image)(resources.GetObject("PreviousPageWeightVersionBtn.Image")));
+            this.PreviousPageWeightVersionBtn.Location = new System.Drawing.Point(4, 3);
+            this.PreviousPageWeightVersionBtn.Name = "PreviousPageWeightVersionBtn";
+            this.PreviousPageWeightVersionBtn.Padding = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.PreviousPageWeightVersionBtn.Size = new System.Drawing.Size(34, 32);
+            this.PreviousPageWeightVersionBtn.TabIndex = 7;
+            this.PreviousPageWeightVersionBtn.TabStop = false;
+            // 
             // CreateWeightBtn
             // 
             this.CreateWeightBtn.CheckedState.Parent = this.CreateWeightBtn;
@@ -403,13 +457,13 @@
             this.CreateWeightBtn.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
             this.CreateWeightBtn.ForeColor = System.Drawing.Color.Black;
             this.CreateWeightBtn.HoverState.Parent = this.CreateWeightBtn;
-            this.CreateWeightBtn.Image = ((System.Drawing.Image)(resources.GetObject("CreateWeightBtn.Image")));
+            this.CreateWeightBtn.Image = global::dental_sys.Properties.Resources.import;
             this.CreateWeightBtn.Location = new System.Drawing.Point(218, 3);
             this.CreateWeightBtn.Name = "CreateWeightBtn";
             this.CreateWeightBtn.ShadowDecoration.Parent = this.CreateWeightBtn;
             this.CreateWeightBtn.Size = new System.Drawing.Size(161, 37);
             this.CreateWeightBtn.TabIndex = 3;
-            this.CreateWeightBtn.Text = "View Training Log";
+            this.CreateWeightBtn.Text = "Download Train Log";
             this.CreateWeightBtn.Click += new System.EventHandler(this.CreateWeightBtn_Click);
             // 
             // WeightGridView
@@ -590,60 +644,6 @@
             this.WeightNumber.Text = "76";
             this.WeightNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 3;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.Controls.Add(this.NextPageWeightVersionBtn, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.WeightVersionPageNumber, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.PreviousPageWeightVersionBtn, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(24, 3);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(167, 38);
-            this.tableLayoutPanel5.TabIndex = 4;
-            // 
-            // NextPageWeightVersionBtn
-            // 
-            this.NextPageWeightVersionBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.NextPageWeightVersionBtn.Dock = System.Windows.Forms.DockStyle.Left;
-            this.NextPageWeightVersionBtn.Image = ((System.Drawing.Image)(resources.GetObject("NextPageWeightVersionBtn.Image")));
-            this.NextPageWeightVersionBtn.Location = new System.Drawing.Point(127, 3);
-            this.NextPageWeightVersionBtn.Name = "NextPageWeightVersionBtn";
-            this.NextPageWeightVersionBtn.Padding = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.NextPageWeightVersionBtn.Size = new System.Drawing.Size(35, 32);
-            this.NextPageWeightVersionBtn.TabIndex = 11;
-            this.NextPageWeightVersionBtn.TabStop = false;
-            // 
-            // WeightVersionPageNumber
-            // 
-            this.WeightVersionPageNumber.AutoSize = true;
-            this.WeightVersionPageNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.WeightVersionPageNumber.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
-            this.WeightVersionPageNumber.Location = new System.Drawing.Point(44, 0);
-            this.WeightVersionPageNumber.Name = "WeightVersionPageNumber";
-            this.WeightVersionPageNumber.Size = new System.Drawing.Size(77, 38);
-            this.WeightVersionPageNumber.TabIndex = 10;
-            this.WeightVersionPageNumber.Text = "23/10";
-            this.WeightVersionPageNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PreviousPageWeightVersionBtn
-            // 
-            this.PreviousPageWeightVersionBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PreviousPageWeightVersionBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PreviousPageWeightVersionBtn.Image = ((System.Drawing.Image)(resources.GetObject("PreviousPageWeightVersionBtn.Image")));
-            this.PreviousPageWeightVersionBtn.Location = new System.Drawing.Point(4, 3);
-            this.PreviousPageWeightVersionBtn.Name = "PreviousPageWeightVersionBtn";
-            this.PreviousPageWeightVersionBtn.Padding = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.PreviousPageWeightVersionBtn.Size = new System.Drawing.Size(34, 32);
-            this.PreviousPageWeightVersionBtn.TabIndex = 7;
-            this.PreviousPageWeightVersionBtn.TabStop = false;
-            // 
             // Version
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -670,15 +670,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.NextClassPageBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PreviousClassPageBtn)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NextPageWeightVersionBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PreviousPageWeightVersionBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WeightGridView)).EndInit();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.WeightVersionNumberTable.ResumeLayout(false);
             this.WeightVersionNumberTable.PerformLayout();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NextPageWeightVersionBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PreviousPageWeightVersionBtn)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -391,39 +391,15 @@ namespace dental_sys
                             Path.GetFileNameWithoutExtension(imageFileModel.Path));
                     }
 
-                    BindingData(_imageFiles);
+                    if (_imageFiles.Count > 0)
+                    {
+                        BindingData(_imageFiles);
+                    }
+                  
 
                 }
             }
         }
-
-        private void ZoomInBtn_Click(object sender, EventArgs e)
-        {
-            //PicturePanel.Dock = DockStyle.None;
-
-
-            int hStep = (int)(this.PicturePanel.Image.Width * 0.02);
-
-            int vStep = (int)(this.PicturePanel.Image.Height * 0.02);
-
-            PicturePanel.Width += hStep;
-
-            PicturePanel.Height += vStep;
-        }
-
-        private void ZoomOutBtn_Click(object sender, EventArgs e)
-        {
-            //PicturePanel.Dock = DockStyle.None;
-
-            int hStep = (int)(this.PicturePanel.Image.Width * 0.02);
-
-            int vStep = (int)(this.PicturePanel.Image.Height * 0.02);
-
-            PicturePanel.Width -= hStep;
-
-            PicturePanel.Height -= vStep;
-        }
-
 
         private void ImportData_KeyDown(object sender, KeyEventArgs e)
         {
@@ -445,26 +421,45 @@ namespace dental_sys
 
         private void SendBtn_Click(object sender, EventArgs e)
         {
-            if (_dataSetService.IsTraining())
+            try
             {
-                MessageBox.Show(@"Server is training! Please try later.");
-            }
-            else
-            {
-                if (_imageFiles.Any(w => !w.IsLabel))
+                if (_dataSetService.IsTraining())
                 {
-                    MessageBox.Show(@"There is still an image without a label.");
+                    MessageBox.Show(@"Server is training! Please try later.");
                 }
                 else
                 {
-                    var waitForm = new WaitFormFunc();
-                    waitForm.Show(this);
-                    _dataSetService.TransferData(_imageFiles, _labelFiles);
-                    waitForm.Close();
-                    MessageBox.Show(@"Data has been sent successfully.", "Message",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (_imageFiles.Any(w => !w.IsLabel))
+                    {
+                        MessageBox.Show(@"There is still an image without a label.");
+                    }
+                    else
+                    {
+                        var waitForm = new WaitFormFunc();
+                        waitForm.Show(this);
+                        var isSuccess = _dataSetService.TransferData(_imageFiles, _labelFiles);
+                        waitForm.Close();
+                        if (isSuccess)
+                        {
+                            MessageBox.Show(@"Data has been sent successfully.", "Message",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show(@"Failed to sent data. Please try again later", "Message",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                    }
                 }
             }
+            catch (Exception exception)
+            {
+                ExceptionLogging.SendErrorToText(exception, nameof(this.SendBtn_Click), nameof(ImportData));
+                MessageBox.Show(@"Failed to sent data. Please try again later", "Message",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void TrainBtn_Click(object sender, EventArgs e)
@@ -477,10 +472,19 @@ namespace dental_sys
             {
                 var waitForm = new WaitFormFunc();
                 waitForm.Show(this);
-                _dataSetService.TrainData();
+                var isSuccess = _dataSetService.TrainData();
                 waitForm.Close();
-                MessageBox.Show(@"The system is processing. Please wait for the notification.", "Message",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (isSuccess)
+                {
+                    MessageBox.Show(@"The system is processing. Please wait for the notification.", "Message",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(@"An error occurred while training. Please try again later", "Message",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
     }

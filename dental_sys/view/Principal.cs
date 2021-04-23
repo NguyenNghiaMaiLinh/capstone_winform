@@ -31,7 +31,7 @@ namespace dental_sys
             Patient.Instance.Customers = Customers;
             Patient.Instance.LoadData(PagingConstant.PageIndex, PagingConstant.PageSize, pagingModel: Customers);
             UpdatedUnreadNotification();
-            ShowContainer("User Management", Patient.Instance);
+            ShowContainer("Customer Management", Patient.Instance);
         }
 
         private void ShowContainer(string containerName, Form form)
@@ -54,7 +54,7 @@ namespace dental_sys
             var waitForm = new WaitFormFunc();
             waitForm.Show(this);
             Patient.Instance.LoadData(PagingConstant.PageIndex, PagingConstant.PageSize);
-            ShowContainer("User Management", Patient.Instance);
+            ShowContainer("Customer Management", Patient.Instance);
             waitForm.Close();
         }
 
@@ -62,7 +62,7 @@ namespace dental_sys
         {
             var waitForm = new WaitFormFunc();
             waitForm.Show(this);
-            ShowContainer("Import Data & Train", new ImportData());
+            ShowContainer("Import Data && Train", new ImportData());
             waitForm.Close();
         }
 
