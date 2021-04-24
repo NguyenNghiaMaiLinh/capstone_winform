@@ -51,7 +51,7 @@ namespace dental_sys.service
             var result = new PagingModel<WeightVersionEntity>();
             var offset = pageIndex * pageSize;
             var client = new RestClient(url);
-            var request = new RestRequest($"versions/{classId}/weights?version={searchValue}&offset={offset}&limit={pageSize}", Method.GET);
+            var request = new RestRequest($"versions/{classId}/weights?version_name={searchValue}&offset={offset}&limit={pageSize}", Method.GET);
             request.AddHeader("Authorization", UserLoginModel.AccessToken);
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Charset", "utf-8");

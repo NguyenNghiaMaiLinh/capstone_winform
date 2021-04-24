@@ -246,6 +246,8 @@
             this.SearchClassTextBox.Size = new System.Drawing.Size(273, 27);
             this.SearchClassTextBox.TabIndex = 15;
             this.SearchClassTextBox.TextOffset = new System.Drawing.Point(5, 0);
+            this.SearchClassTextBox.Enter += new System.EventHandler(this.SearchClassTextBox_Enter);
+            this.SearchClassTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SearchClassTextBox_KeyUp);
             // 
             // tableLayoutPanel9
             // 
@@ -424,6 +426,7 @@
             this.NextPageWeightVersionBtn.Size = new System.Drawing.Size(35, 32);
             this.NextPageWeightVersionBtn.TabIndex = 11;
             this.NextPageWeightVersionBtn.TabStop = false;
+            this.NextPageWeightVersionBtn.Click += new System.EventHandler(this.NextWeightVersionBtn_Click);
             // 
             // WeightVersionPageNumber
             // 
@@ -448,6 +451,7 @@
             this.PreviousPageWeightVersionBtn.Size = new System.Drawing.Size(34, 32);
             this.PreviousPageWeightVersionBtn.TabIndex = 7;
             this.PreviousPageWeightVersionBtn.TabStop = false;
+            this.PreviousPageWeightVersionBtn.Click += new System.EventHandler(this.PreviousPageWeightVersionBtn_Click);
             // 
             // CreateWeightBtn
             // 
@@ -603,6 +607,8 @@
             this.SearchWeightTextBox.Size = new System.Drawing.Size(204, 27);
             this.SearchWeightTextBox.TabIndex = 15;
             this.SearchWeightTextBox.TextOffset = new System.Drawing.Point(5, 0);
+            this.SearchWeightTextBox.Enter += new System.EventHandler(this.SearchWeightTextBox_Enter);
+            this.SearchWeightTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.SearchWeightTextBox_KeyUp);
             // 
             // WeightVersionNumberTable
             // 

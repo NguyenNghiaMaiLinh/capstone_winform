@@ -309,6 +309,37 @@ namespace dental_sys
 
             }
         }
+
+        private void SearchClassTextBox_Enter(object sender, EventArgs e)
+        {
+            LoadClassVersionData(_classVersionPageIndex, _classVersionPageSize, SearchClassTextBox.Text);
+        }
+
+        private void SearchWeightTextBox_Enter(object sender, EventArgs e)
+        {
+            var searchValue = SearchWeightTextBox.Text;
+            if (ClassVersionGridView.CurrentRow?.DataBoundItem is ClassVersionModel currentClassVersion)
+            {
+                LoadWeightVersionData(currentClassVersion.Id, _weightVersionPageIndex, _weightVersionPageSize, searchValue);
+            }
+
+        }
+
+        private void SearchWeightTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchWeightTextBox_Enter(this, null);
+            }
+        }
+
+        private void SearchClassTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchClassTextBox_Enter(this, null);
+            }
+        }
     }
 }
 
