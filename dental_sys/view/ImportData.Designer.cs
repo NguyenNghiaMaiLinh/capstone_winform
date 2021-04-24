@@ -36,6 +36,7 @@ namespace dental_sys
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.PicturePanel = new dental_sys.Controls.PicturePanel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.LabelText = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@ namespace dental_sys
             this.PreviousBtn = new Guna.UI2.WinForms.Guna2Button();
             this.TrainBtn = new Guna.UI2.WinForms.Guna2Button();
             this.FileDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.PicturePanel = new dental_sys.Controls.PicturePanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
@@ -72,7 +72,6 @@ namespace dental_sys
             // 
             this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer.Name = "splitContainer";
             // 
             // splitContainer.Panel1
@@ -84,10 +83,22 @@ namespace dental_sys
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.FileDataGridView);
-            this.splitContainer.Size = new System.Drawing.Size(1942, 1102);
-            this.splitContainer.SplitterDistance = 1351;
-            this.splitContainer.SplitterWidth = 5;
+            this.splitContainer.Size = new System.Drawing.Size(1455, 894);
+            this.splitContainer.SplitterDistance = 1012;
             this.splitContainer.TabIndex = 1;
+            // 
+            // PicturePanel
+            // 
+            this.PicturePanel.AutoScroll = true;
+            this.PicturePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PicturePanel.CtrlKeyDown = true;
+            this.PicturePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PicturePanel.Drag = false;
+            this.PicturePanel.Image = null;
+            this.PicturePanel.Location = new System.Drawing.Point(0, 104);
+            this.PicturePanel.Name = "PicturePanel";
+            this.PicturePanel.Size = new System.Drawing.Size(1012, 717);
+            this.PicturePanel.TabIndex = 83;
             // 
             // guna2Panel1
             // 
@@ -99,10 +110,9 @@ namespace dental_sys
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(1351, 128);
+            this.guna2Panel1.Size = new System.Drawing.Size(1012, 104);
             this.guna2Panel1.TabIndex = 81;
             // 
             // tableLayoutPanel2
@@ -112,13 +122,12 @@ namespace dental_sys
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.LabelText, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.LabelNumber, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(365, 15);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(274, 12);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(248, 47);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(186, 38);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // LabelText
@@ -126,10 +135,9 @@ namespace dental_sys
             this.LabelText.AutoSize = true;
             this.LabelText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LabelText.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
-            this.LabelText.Location = new System.Drawing.Point(128, 0);
-            this.LabelText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelText.Location = new System.Drawing.Point(96, 0);
             this.LabelText.Name = "LabelText";
-            this.LabelText.Size = new System.Drawing.Size(116, 47);
+            this.LabelText.Size = new System.Drawing.Size(87, 38);
             this.LabelText.TabIndex = 4;
             this.LabelText.Text = "Label files";
             this.LabelText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -140,10 +148,9 @@ namespace dental_sys
             this.LabelNumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LabelNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
             this.LabelNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.LabelNumber.Location = new System.Drawing.Point(4, 0);
-            this.LabelNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelNumber.Location = new System.Drawing.Point(3, 0);
             this.LabelNumber.Name = "LabelNumber";
-            this.LabelNumber.Size = new System.Drawing.Size(116, 47);
+            this.LabelNumber.Size = new System.Drawing.Size(87, 38);
             this.LabelNumber.TabIndex = 3;
             this.LabelNumber.Text = "76";
             this.LabelNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -155,13 +162,12 @@ namespace dental_sys
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.ImageText, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.ImageNumber, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 15);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(269, 47);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(202, 38);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // ImageText
@@ -169,10 +175,9 @@ namespace dental_sys
             this.ImageText.AutoSize = true;
             this.ImageText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ImageText.Font = new System.Drawing.Font("Franklin Gothic Medium", 10F);
-            this.ImageText.Location = new System.Drawing.Point(138, 0);
-            this.ImageText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ImageText.Location = new System.Drawing.Point(104, 0);
             this.ImageText.Name = "ImageText";
-            this.ImageText.Size = new System.Drawing.Size(127, 47);
+            this.ImageText.Size = new System.Drawing.Size(95, 38);
             this.ImageText.TabIndex = 2;
             this.ImageText.Text = "Images";
             this.ImageText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -183,10 +188,9 @@ namespace dental_sys
             this.ImageNumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ImageNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold);
             this.ImageNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.ImageNumber.Location = new System.Drawing.Point(4, 0);
-            this.ImageNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ImageNumber.Location = new System.Drawing.Point(3, 0);
             this.ImageNumber.Name = "ImageNumber";
-            this.ImageNumber.Size = new System.Drawing.Size(126, 47);
+            this.ImageNumber.Size = new System.Drawing.Size(95, 38);
             this.ImageNumber.TabIndex = 1;
             this.ImageNumber.Text = "76";
             this.ImageNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -205,13 +209,12 @@ namespace dental_sys
             this.TopTableLayoutPanel.Controls.Add(this.ImportDataBtn, 1, 0);
             this.TopTableLayoutPanel.Controls.Add(this.SendBtn, 4, 0);
             this.TopTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.TopTableLayoutPanel.Location = new System.Drawing.Point(0, 71);
-            this.TopTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TopTableLayoutPanel.Location = new System.Drawing.Point(0, 58);
             this.TopTableLayoutPanel.Name = "TopTableLayoutPanel";
             this.TopTableLayoutPanel.RowCount = 1;
             this.TopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
-            this.TopTableLayoutPanel.Size = new System.Drawing.Size(1351, 57);
+            this.TopTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.TopTableLayoutPanel.Size = new System.Drawing.Size(1012, 46);
             this.TopTableLayoutPanel.TabIndex = 1;
             // 
             // ImportLabelDirBtn
@@ -230,11 +233,10 @@ namespace dental_sys
             this.ImportLabelDirBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.ImportLabelDirBtn.ImageOffset = new System.Drawing.Point(3, 0);
             this.ImportLabelDirBtn.ImageSize = new System.Drawing.Size(12, 12);
-            this.ImportLabelDirBtn.Location = new System.Drawing.Point(544, 4);
-            this.ImportLabelDirBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ImportLabelDirBtn.Location = new System.Drawing.Point(407, 3);
             this.ImportLabelDirBtn.Name = "ImportLabelDirBtn";
             this.ImportLabelDirBtn.ShadowDecoration.Parent = this.ImportLabelDirBtn;
-            this.ImportLabelDirBtn.Size = new System.Drawing.Size(262, 49);
+            this.ImportLabelDirBtn.Size = new System.Drawing.Size(196, 40);
             this.ImportLabelDirBtn.TabIndex = 85;
             this.ImportLabelDirBtn.Text = "Label Dir";
             this.ImportLabelDirBtn.TextOffset = new System.Drawing.Point(1, 2);
@@ -257,11 +259,10 @@ namespace dental_sys
             this.ImportDirBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.ImportDirBtn.ImageOffset = new System.Drawing.Point(3, 0);
             this.ImportDirBtn.ImageSize = new System.Drawing.Size(12, 12);
-            this.ImportDirBtn.Location = new System.Drawing.Point(814, 4);
-            this.ImportDirBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ImportDirBtn.Location = new System.Drawing.Point(609, 3);
             this.ImportDirBtn.Name = "ImportDirBtn";
             this.ImportDirBtn.ShadowDecoration.Parent = this.ImportDirBtn;
-            this.ImportDirBtn.Size = new System.Drawing.Size(262, 49);
+            this.ImportDirBtn.Size = new System.Drawing.Size(196, 40);
             this.ImportDirBtn.TabIndex = 84;
             this.ImportDirBtn.Text = "Image Dir";
             this.ImportDirBtn.TextOffset = new System.Drawing.Point(1, 2);
@@ -284,11 +285,10 @@ namespace dental_sys
             this.ImportLabelBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.ImportLabelBtn.ImageOffset = new System.Drawing.Point(3, 0);
             this.ImportLabelBtn.ImageSize = new System.Drawing.Size(12, 12);
-            this.ImportLabelBtn.Location = new System.Drawing.Point(4, 4);
-            this.ImportLabelBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ImportLabelBtn.Location = new System.Drawing.Point(3, 3);
             this.ImportLabelBtn.Name = "ImportLabelBtn";
             this.ImportLabelBtn.ShadowDecoration.Parent = this.ImportLabelBtn;
-            this.ImportLabelBtn.Size = new System.Drawing.Size(262, 49);
+            this.ImportLabelBtn.Size = new System.Drawing.Size(196, 40);
             this.ImportLabelBtn.TabIndex = 80;
             this.ImportLabelBtn.Text = "Label";
             this.ImportLabelBtn.TextOffset = new System.Drawing.Point(1, 2);
@@ -311,11 +311,10 @@ namespace dental_sys
             this.ImportDataBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.ImportDataBtn.ImageOffset = new System.Drawing.Point(3, 0);
             this.ImportDataBtn.ImageSize = new System.Drawing.Size(12, 12);
-            this.ImportDataBtn.Location = new System.Drawing.Point(274, 4);
-            this.ImportDataBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ImportDataBtn.Location = new System.Drawing.Point(205, 3);
             this.ImportDataBtn.Name = "ImportDataBtn";
             this.ImportDataBtn.ShadowDecoration.Parent = this.ImportDataBtn;
-            this.ImportDataBtn.Size = new System.Drawing.Size(262, 49);
+            this.ImportDataBtn.Size = new System.Drawing.Size(196, 40);
             this.ImportDataBtn.TabIndex = 82;
             this.ImportDataBtn.Text = "Image";
             this.ImportDataBtn.TextOffset = new System.Drawing.Point(1, 2);
@@ -339,11 +338,10 @@ namespace dental_sys
             this.SendBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.SendBtn.ImageOffset = new System.Drawing.Point(3, 0);
             this.SendBtn.ImageSize = new System.Drawing.Size(12, 12);
-            this.SendBtn.Location = new System.Drawing.Point(1084, 4);
-            this.SendBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SendBtn.Location = new System.Drawing.Point(811, 3);
             this.SendBtn.Name = "SendBtn";
             this.SendBtn.ShadowDecoration.Parent = this.SendBtn;
-            this.SendBtn.Size = new System.Drawing.Size(263, 49);
+            this.SendBtn.Size = new System.Drawing.Size(198, 40);
             this.SendBtn.TabIndex = 83;
             this.SendBtn.Text = "Send";
             this.SendBtn.TextOffset = new System.Drawing.Point(1, 2);
@@ -362,13 +360,12 @@ namespace dental_sys
             this.BottomTableLayoutPanel.Controls.Add(this.PreviousBtn, 0, 0);
             this.BottomTableLayoutPanel.Controls.Add(this.TrainBtn, 3, 0);
             this.BottomTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BottomTableLayoutPanel.Location = new System.Drawing.Point(0, 1012);
-            this.BottomTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BottomTableLayoutPanel.Location = new System.Drawing.Point(0, 821);
             this.BottomTableLayoutPanel.Name = "BottomTableLayoutPanel";
             this.BottomTableLayoutPanel.RowCount = 1;
             this.BottomTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.BottomTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.BottomTableLayoutPanel.Size = new System.Drawing.Size(1351, 90);
+            this.BottomTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 73F));
+            this.BottomTableLayoutPanel.Size = new System.Drawing.Size(1012, 73);
             this.BottomTableLayoutPanel.TabIndex = 79;
             // 
             // ClearAllInValidFileBtn
@@ -388,11 +385,10 @@ namespace dental_sys
             this.ClearAllInValidFileBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.ClearAllInValidFileBtn.ImageOffset = new System.Drawing.Point(3, 0);
             this.ClearAllInValidFileBtn.ImageSize = new System.Drawing.Size(12, 12);
-            this.ClearAllInValidFileBtn.Location = new System.Drawing.Point(678, 4);
-            this.ClearAllInValidFileBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ClearAllInValidFileBtn.Location = new System.Drawing.Point(509, 3);
             this.ClearAllInValidFileBtn.Name = "ClearAllInValidFileBtn";
             this.ClearAllInValidFileBtn.ShadowDecoration.Parent = this.ClearAllInValidFileBtn;
-            this.ClearAllInValidFileBtn.Size = new System.Drawing.Size(329, 64);
+            this.ClearAllInValidFileBtn.Size = new System.Drawing.Size(247, 52);
             this.ClearAllInValidFileBtn.TabIndex = 89;
             this.ClearAllInValidFileBtn.Text = "Clear all invalid file";
             this.ClearAllInValidFileBtn.TextOffset = new System.Drawing.Point(1, 2);
@@ -415,11 +411,10 @@ namespace dental_sys
             this.NextBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.NextBtn.ImageOffset = new System.Drawing.Point(3, 0);
             this.NextBtn.ImageSize = new System.Drawing.Size(12, 12);
-            this.NextBtn.Location = new System.Drawing.Point(341, 4);
-            this.NextBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.NextBtn.Location = new System.Drawing.Point(256, 3);
             this.NextBtn.Name = "NextBtn";
             this.NextBtn.ShadowDecoration.Parent = this.NextBtn;
-            this.NextBtn.Size = new System.Drawing.Size(329, 64);
+            this.NextBtn.Size = new System.Drawing.Size(247, 52);
             this.NextBtn.TabIndex = 88;
             this.NextBtn.Text = "Next";
             this.NextBtn.TextOffset = new System.Drawing.Point(1, 2);
@@ -442,11 +437,10 @@ namespace dental_sys
             this.PreviousBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.PreviousBtn.ImageOffset = new System.Drawing.Point(3, 0);
             this.PreviousBtn.ImageSize = new System.Drawing.Size(12, 12);
-            this.PreviousBtn.Location = new System.Drawing.Point(4, 4);
-            this.PreviousBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PreviousBtn.Location = new System.Drawing.Point(3, 3);
             this.PreviousBtn.Name = "PreviousBtn";
             this.PreviousBtn.ShadowDecoration.Parent = this.PreviousBtn;
-            this.PreviousBtn.Size = new System.Drawing.Size(329, 64);
+            this.PreviousBtn.Size = new System.Drawing.Size(247, 52);
             this.PreviousBtn.TabIndex = 87;
             this.PreviousBtn.Text = "Previous";
             this.PreviousBtn.TextOffset = new System.Drawing.Point(1, 2);
@@ -461,7 +455,6 @@ namespace dental_sys
             this.TrainBtn.CheckedState.Parent = this.TrainBtn;
             this.TrainBtn.CustomImages.Parent = this.TrainBtn;
             this.TrainBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TrainBtn.Enabled = false;
             this.TrainBtn.FillColor = System.Drawing.Color.Transparent;
             this.TrainBtn.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TrainBtn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -470,11 +463,10 @@ namespace dental_sys
             this.TrainBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.TrainBtn.ImageOffset = new System.Drawing.Point(3, 0);
             this.TrainBtn.ImageSize = new System.Drawing.Size(12, 12);
-            this.TrainBtn.Location = new System.Drawing.Point(1015, 4);
-            this.TrainBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TrainBtn.Location = new System.Drawing.Point(762, 3);
             this.TrainBtn.Name = "TrainBtn";
             this.TrainBtn.ShadowDecoration.Parent = this.TrainBtn;
-            this.TrainBtn.Size = new System.Drawing.Size(332, 64);
+            this.TrainBtn.Size = new System.Drawing.Size(247, 52);
             this.TrainBtn.TabIndex = 86;
             this.TrainBtn.Text = "Train";
             this.TrainBtn.TextOffset = new System.Drawing.Point(1, 2);
@@ -512,7 +504,6 @@ namespace dental_sys
             this.FileDataGridView.EnableHeadersVisualStyles = false;
             this.FileDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.FileDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.FileDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FileDataGridView.MultiSelect = false;
             this.FileDataGridView.Name = "FileDataGridView";
             this.FileDataGridView.ReadOnly = true;
@@ -529,7 +520,7 @@ namespace dental_sys
             this.FileDataGridView.RowTemplate.DividerHeight = 5;
             this.FileDataGridView.RowTemplate.Height = 40;
             this.FileDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.FileDataGridView.Size = new System.Drawing.Size(586, 1102);
+            this.FileDataGridView.Size = new System.Drawing.Size(439, 894);
             this.FileDataGridView.StandardTab = true;
             this.FileDataGridView.TabIndex = 5;
             this.FileDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
@@ -558,30 +549,15 @@ namespace dental_sys
             this.FileDataGridView.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.FileDataGridView_ColumnAdded);
             this.FileDataGridView.ColumnHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.FileDataGridView_ColumnHeaderMouseDoubleClick);
             // 
-            // PicturePanel
-            // 
-            this.PicturePanel.AutoScroll = true;
-            this.PicturePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.PicturePanel.CtrlKeyDown = true;
-            this.PicturePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PicturePanel.Drag = false;
-            this.PicturePanel.Image = null;
-            this.PicturePanel.Location = new System.Drawing.Point(0, 128);
-            this.PicturePanel.Margin = new System.Windows.Forms.Padding(4);
-            this.PicturePanel.Name = "PicturePanel";
-            this.PicturePanel.Size = new System.Drawing.Size(1351, 884);
-            this.PicturePanel.TabIndex = 83;
-            // 
             // ImportData
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(1942, 1102);
+            this.ClientSize = new System.Drawing.Size(1455, 894);
             this.Controls.Add(this.splitContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ImportData";
             this.Text = "Messages";
             this.Load += new System.EventHandler(this.ImportData_Load);

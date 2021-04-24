@@ -76,7 +76,7 @@ namespace dental_sys.service
         }
 
 
-        public bool TrainData()
+        public bool TrainData(string cfgPath)
         {
             try
             {
@@ -89,11 +89,28 @@ namespace dental_sys.service
                 var weightPath = $@"backup/{UserLoginModel.User.Id}/{datetime}";
                 var logPath = $@"backup/{UserLoginModel.User.Id}/{datetime}/train.log";
                 var lossPath = $@"backup/{UserLoginModel.User.Id}/{datetime}/chart.png";
+                var cfgFileName = Path.GetFileName(cfgPath);
+                using (var client = new ScpClient(ServerTrainConstant.HostName, 22, ServerTrainConstant.Username, pk))
+                {
+                    client.Connect();
+
+                    using (var file = File.OpenRead(cfgPath))
+                    {
+                        client.Upload(file, darknetDir);
+                    }
+
+                    client.Disconnect();
+                }
+
+
                 using (var client = new SshClient(ServerTrainConstant.HostName, ServerTrainConstant.Username, pk))
                 {
                     client.Connect();
-                    var createIsTrainComannd = client.CreateCommand($@"cd {trainDir} && echo ""1"" > istrain.txt");
-                    createIsTrainComannd.Execute();
+                    var renameConfigureFileCommand =
+                        client.CreateCommand($"cd {darknetDir} && mv {cfgFileName} yolo.cfg");
+                    renameConfigureFileCommand.Execute();
+                    var createIsTrainCommand = client.CreateCommand($@"cd {trainDir} && echo ""1"" > istrain.txt");
+                    createIsTrainCommand.Execute();
                     var createDataCommand = client.CreateCommand($@"cd {trainDir} && mkdir -pm 0777 data && python3 label.py");
                     createDataCommand.Execute();
                     var createDataTextCommand = client.CreateCommand($@"cd {trainDir} && cd .. && python3 traindata.py");

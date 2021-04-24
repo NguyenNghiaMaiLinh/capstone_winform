@@ -489,33 +489,51 @@ namespace dental_sys
                 MessageBox.Show(@"Failed to sent data. Please try again later", "Message",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-     
+
         }
 
         private void TrainBtn_Click(object sender, EventArgs e)
         {
-            if (_dataSetService.IsTraining())
+            var ofg = new OpenFileDialog
             {
-                MessageBox.Show(@"Server is training! Please try later");
-            }
-            else
+                Filter = @"Configure Files (*.cfg)|*.cfg",
+                Multiselect = false,
+                //InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                Title = @"My Configure Browser",
+                RestoreDirectory = true,
+            };
+
+            //  Allow the user to select multiple images.
+            var dr = ofg.ShowDialog();
+            if (dr == DialogResult.OK)
             {
-                var waitForm = new WaitFormFunc();
-                waitForm.Show();
-                var isSuccess = _dataSetService.TrainData();
-                waitForm.Close();
-                if (isSuccess)
+
+                if (_dataSetService.IsTraining())
                 {
-                    MessageBox.Show(@"The system is processing. Please wait for the notification.", "Message",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(@"Server is training! Please try later");
                 }
                 else
                 {
-                    MessageBox.Show(@"An error occurred while training. Please try again later", "Message",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                    var waitForm = new WaitFormFunc();
+                    waitForm.Show();
+                    var isSuccess = _dataSetService.TrainData(ofg.FileName);
+                    waitForm.Close();
+                    if (isSuccess)
+                    {
+                        MessageBox.Show(@"The system is processing. Please wait for the notification.", "Message",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(@"An error occurred while training. Please try again later", "Message",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
+                }
             }
+
+
+
         }
     }
 
