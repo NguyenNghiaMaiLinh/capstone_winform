@@ -96,7 +96,7 @@ namespace dental_sys.service
 
                     using (var file = File.OpenRead(cfgPath))
                     {
-                        client.Upload(file, darknetDir);
+                        client.Upload(file, $"{darknetDir}/yolo.cfg");
                     }
 
                     client.Disconnect();
@@ -106,9 +106,6 @@ namespace dental_sys.service
                 using (var client = new SshClient(ServerTrainConstant.HostName, ServerTrainConstant.Username, pk))
                 {
                     client.Connect();
-                    var renameConfigureFileCommand =
-                        client.CreateCommand($"cd {darknetDir} && mv {cfgFileName} yolo.cfg");
-                    renameConfigureFileCommand.Execute();
                     var createIsTrainCommand = client.CreateCommand($@"cd {trainDir} && echo ""1"" > istrain.txt");
                     createIsTrainCommand.Execute();
                     var createDataCommand = client.CreateCommand($@"cd {trainDir} && mkdir -pm 0777 data && python3 label.py");
