@@ -18,6 +18,10 @@ namespace dental_sys.service
                 var url = JsonConvert.DeserializeObject<UrlModel>(content);
                 var path = System.Environment.CurrentDirectory;
                 File.WriteAllText($@"{path}\url", url.Url);
+                url.Url = url.Url.Replace("http://", "");
+                var end = url.Url.LastIndexOf(":");
+                File.WriteAllText($@"{path}\train-url", url.Url.Substring(0, end));
+                File.WriteAllText($@"{path}\detect-url", url.Url.Substring(0, end));
             }
         }
 
@@ -25,7 +29,19 @@ namespace dental_sys.service
         {
             var path = System.Environment.CurrentDirectory;
             var url = File.ReadAllText($@"{path}\url");
-            return "http://192.168.0.4:8080/api";
+            return url;
+        }
+        public static string GetUrlDetectServer()
+        {
+            var path = System.Environment.CurrentDirectory;
+            var url = File.ReadAllText($@"{path}\detect-url");
+            return url;
+        }
+        public static string GetUrlApiTrainServer()
+        {
+            var path = System.Environment.CurrentDirectory;
+            var url = File.ReadAllText($@"{path}\train-url");
+            return url;
         }
     }
 }

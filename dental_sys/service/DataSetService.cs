@@ -30,7 +30,8 @@ namespace dental_sys.service
                 var labelFolder = $"train/admin/{UserLoginModel.User.Id}/label/{folder}";
                 var dataDir = $@"{ServerTrainConstant.DarknetPath}";
                 var trainDir = ServerTrainConstant.TrainPath;
-                using (var client = new SshClient(ServerTrainConstant.HostName, ServerTrainConstant.Username, pk))
+                var trainServer = CommonService.GetUrlApiTrainServer();
+                using (var client = new SshClient(trainServer, ServerTrainConstant.Username, pk))
                 {
                     client.Connect();
 
@@ -45,7 +46,7 @@ namespace dental_sys.service
                     client.Disconnect();
                 }
 
-                using (var client = new ScpClient(ServerTrainConstant.HostName, 22, ServerTrainConstant.Username, pk))
+                using (var client = new ScpClient(trainServer, 22, ServerTrainConstant.Username, pk))
                 {
                     client.Connect();
                     foreach (var item in data)
@@ -90,7 +91,8 @@ namespace dental_sys.service
                 var logPath = $@"backup/{UserLoginModel.User.Id}/{datetime}/train.log";
                 var lossPath = $@"backup/{UserLoginModel.User.Id}/{datetime}/chart.png";
                 var cfgFileName = Path.GetFileName(cfgPath);
-                using (var client = new ScpClient(ServerTrainConstant.HostName, 22, ServerTrainConstant.Username, pk))
+                var trainServer = CommonService.GetUrlApiTrainServer();
+                using (var client = new ScpClient(trainServer, 22, ServerTrainConstant.Username, pk))
                 {
                     client.Connect();
 
@@ -103,7 +105,7 @@ namespace dental_sys.service
                 }
 
 
-                using (var client = new SshClient(ServerTrainConstant.HostName, ServerTrainConstant.Username, pk))
+                using (var client = new SshClient(trainServer, ServerTrainConstant.Username, pk))
                 {
                     client.Connect();
                     var createIsTrainCommand = client.CreateCommand($@"cd {trainDir} && echo ""1"" > istrain.txt");
@@ -150,7 +152,8 @@ namespace dental_sys.service
                 var weightPath = $"{ServerTrainConstant.DarknetPath}/{notification.Url}";
                 var logPath = $"{ServerTrainConstant.DarknetPath}/{notification.LogPath}";
                 var lossPath = $"{ServerTrainConstant.DarknetPath}/{notification.LossFunctionPath}";
-                using (var client = new ScpClient(ServerTrainConstant.HostName, 22, ServerTrainConstant.Username, pk))
+                var trainServer = CommonService.GetUrlApiTrainServer();
+                using (var client = new ScpClient(trainServer, 22, ServerTrainConstant.Username, pk))
                 {
                     client.Connect();
 
@@ -175,8 +178,9 @@ namespace dental_sys.service
             {
                 var pk = new PrivateKeyFile(ApplicationConstant.PrivateKeyFilePath);
                 var result = "";
-                var trainDir = $@"{ServerTrainConstant.TrainPath}";
-                using (var client = new SshClient(ServerTrainConstant.HostName, ServerTrainConstant.Username, pk))
+                var trainDir = $@"{ServerTrainConstant.TrainPath}"; 
+                var trainServer = CommonService.GetUrlApiTrainServer();
+                using (var client = new SshClient(trainServer, ServerTrainConstant.Username, pk))
                 {
                     client.Connect();
                     var command = client.CreateCommand($@"cd {trainDir} && cat istrain.txt");
@@ -202,7 +206,8 @@ namespace dental_sys.service
             var weightDir = ServerDetectConstant.WeightPath;
             var apiDir = ServerDetectConstant.ApiPath;
             var filename = Path.GetFileName(weightPath);
-            using (var client = new SshClient(ServerTrainConstant.HostName, ServerTrainConstant.Username, pk))
+            var detectSertver = CommonService.GetUrlDetectServer();
+            using (var client = new SshClient(detectSertver, ServerTrainConstant.Username, pk))
             {
                 client.Connect();
 
@@ -233,7 +238,8 @@ namespace dental_sys.service
                 var destination = new DirectoryInfo(destinationFolder);
                 var logPath = $"{ServerDetectConstant.ApiPath}/{weight.LogPath}";
                 var lossPath = $"{ServerDetectConstant.ApiPath}/{weight.LossFunctionPath}";
-                using (var client = new ScpClient(ServerTrainConstant.HostName, 22, ServerTrainConstant.Username, pk))
+                var detectSertver = CommonService.GetUrlDetectServer();
+                using (var client = new ScpClient(detectSertver, 22, ServerTrainConstant.Username, pk))
                 {
                     client.Connect();
 
