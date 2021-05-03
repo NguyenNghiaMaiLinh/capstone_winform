@@ -75,9 +75,10 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(205, 754);
+            this.guna2Panel1.Size = new System.Drawing.Size(273, 928);
             this.guna2Panel1.TabIndex = 0;
             // 
             // WeightBtn
@@ -96,10 +97,11 @@
             this.WeightBtn.Image = ((System.Drawing.Image)(resources.GetObject("WeightBtn.Image")));
             this.WeightBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.WeightBtn.ImageOffset = new System.Drawing.Point(8, 0);
-            this.WeightBtn.Location = new System.Drawing.Point(3, 177);
+            this.WeightBtn.Location = new System.Drawing.Point(4, 218);
+            this.WeightBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.WeightBtn.Name = "WeightBtn";
             this.WeightBtn.ShadowDecoration.Parent = this.WeightBtn;
-            this.WeightBtn.Size = new System.Drawing.Size(205, 40);
+            this.WeightBtn.Size = new System.Drawing.Size(273, 49);
             this.WeightBtn.TabIndex = 10;
             this.WeightBtn.Text = "Manage Model";
             this.WeightBtn.TextOffset = new System.Drawing.Point(8, 0);
@@ -109,9 +111,10 @@
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 710);
+            this.panel1.Location = new System.Drawing.Point(0, 874);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(205, 44);
+            this.panel1.Size = new System.Drawing.Size(273, 54);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -123,23 +126,25 @@
             this.tableLayoutPanel1.Controls.Add(this.LogoutPanel, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(205, 44);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(273, 54);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // LogoutPanel
             // 
             this.LogoutPanel.AutoRoundedCorners = true;
-            this.LogoutPanel.BorderRadius = 18;
+            this.LogoutPanel.BorderRadius = 22;
             this.LogoutPanel.Controls.Add(this.tableLayoutPanel2);
             this.LogoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LogoutPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(241)))), ((int)(((byte)(246)))));
-            this.LogoutPanel.Location = new System.Drawing.Point(54, 3);
+            this.LogoutPanel.Location = new System.Drawing.Point(72, 4);
+            this.LogoutPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LogoutPanel.Name = "LogoutPanel";
             this.LogoutPanel.ShadowDecoration.Parent = this.LogoutPanel;
-            this.LogoutPanel.Size = new System.Drawing.Size(96, 38);
+            this.LogoutPanel.Size = new System.Drawing.Size(128, 46);
             this.LogoutPanel.TabIndex = 68;
             // 
             // tableLayoutPanel2
@@ -149,12 +154,13 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Controls.Add(this.LogoutButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.LogoutLabel, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(-3, 1);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(-4, 1);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(102, 36);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(136, 44);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // LogoutButton
@@ -169,11 +175,12 @@
             this.LogoutButton.HoverState.Parent = this.LogoutButton;
             this.LogoutButton.Image = ((System.Drawing.Image)(resources.GetObject("LogoutButton.Image")));
             this.LogoutButton.ImageOffset = new System.Drawing.Point(1, 0);
-            this.LogoutButton.Location = new System.Drawing.Point(79, 3);
+            this.LogoutButton.Location = new System.Drawing.Point(106, 4);
+            this.LogoutButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LogoutButton.Name = "LogoutButton";
             this.LogoutButton.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.LogoutButton.ShadowDecoration.Parent = this.LogoutButton;
-            this.LogoutButton.Size = new System.Drawing.Size(20, 30);
+            this.LogoutButton.Size = new System.Drawing.Size(26, 36);
             this.LogoutButton.TabIndex = 15;
             this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
             // 
@@ -185,9 +192,10 @@
             this.LogoutLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LogoutLabel.Font = new System.Drawing.Font("Franklin Gothic Medium", 11F);
             this.LogoutLabel.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.LogoutLabel.Location = new System.Drawing.Point(3, 3);
+            this.LogoutLabel.Location = new System.Drawing.Point(4, 4);
+            this.LogoutLabel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LogoutLabel.Name = "LogoutLabel";
-            this.LogoutLabel.Size = new System.Drawing.Size(70, 30);
+            this.LogoutLabel.Size = new System.Drawing.Size(94, 36);
             this.LogoutLabel.TabIndex = 14;
             this.LogoutLabel.Text = "Logout";
             this.LogoutLabel.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -196,10 +204,11 @@
             // 
             this.NotificationPicture.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NotificationPicture.Image = ((System.Drawing.Image)(resources.GetObject("NotificationPicture.Image")));
-            this.NotificationPicture.Location = new System.Drawing.Point(150, 16);
+            this.NotificationPicture.Location = new System.Drawing.Point(200, 20);
+            this.NotificationPicture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.NotificationPicture.Name = "NotificationPicture";
             this.NotificationPicture.ShadowDecoration.Parent = this.NotificationPicture;
-            this.NotificationPicture.Size = new System.Drawing.Size(29, 37);
+            this.NotificationPicture.Size = new System.Drawing.Size(39, 46);
             this.NotificationPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.NotificationPicture.TabIndex = 8;
             this.NotificationPicture.TabStop = false;
@@ -221,10 +230,11 @@
             this.ImportDataBtn.Image = global::dental_sys.Properties.Resources.outline_upgrade_black_36dp;
             this.ImportDataBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.ImportDataBtn.ImageOffset = new System.Drawing.Point(8, 0);
-            this.ImportDataBtn.Location = new System.Drawing.Point(0, 131);
+            this.ImportDataBtn.Location = new System.Drawing.Point(0, 161);
+            this.ImportDataBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ImportDataBtn.Name = "ImportDataBtn";
             this.ImportDataBtn.ShadowDecoration.Parent = this.ImportDataBtn;
-            this.ImportDataBtn.Size = new System.Drawing.Size(205, 40);
+            this.ImportDataBtn.Size = new System.Drawing.Size(273, 49);
             this.ImportDataBtn.TabIndex = 4;
             this.ImportDataBtn.Text = "Import Data && Train";
             this.ImportDataBtn.TextOffset = new System.Drawing.Point(8, 0);
@@ -246,10 +256,11 @@
             this.ManageCustomerBtn.Image = ((System.Drawing.Image)(resources.GetObject("ManageCustomerBtn.Image")));
             this.ManageCustomerBtn.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.ManageCustomerBtn.ImageOffset = new System.Drawing.Point(8, 0);
-            this.ManageCustomerBtn.Location = new System.Drawing.Point(0, 85);
+            this.ManageCustomerBtn.Location = new System.Drawing.Point(0, 105);
+            this.ManageCustomerBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ManageCustomerBtn.Name = "ManageCustomerBtn";
             this.ManageCustomerBtn.ShadowDecoration.Parent = this.ManageCustomerBtn;
-            this.ManageCustomerBtn.Size = new System.Drawing.Size(205, 40);
+            this.ManageCustomerBtn.Size = new System.Drawing.Size(273, 49);
             this.ManageCustomerBtn.TabIndex = 3;
             this.ManageCustomerBtn.Text = "Manage Customer";
             this.ManageCustomerBtn.TextOffset = new System.Drawing.Point(8, 0);
@@ -259,13 +270,15 @@
             // 
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.Location = new System.Drawing.Point(19, 18);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(25, 22);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(89, 35);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(119, 43);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // guna2Panel_top
             // 
@@ -277,27 +290,30 @@
             this.guna2Panel_top.CustomBorderColor = System.Drawing.Color.Silver;
             this.guna2Panel_top.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.guna2Panel_top.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel_top.Location = new System.Drawing.Point(205, 0);
+            this.guna2Panel_top.Location = new System.Drawing.Point(273, 0);
+            this.guna2Panel_top.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel_top.Name = "guna2Panel_top";
             this.guna2Panel_top.ShadowDecoration.Parent = this.guna2Panel_top;
-            this.guna2Panel_top.Size = new System.Drawing.Size(1003, 53);
+            this.guna2Panel_top.Size = new System.Drawing.Size(1338, 65);
             this.guna2Panel_top.TabIndex = 1;
             // 
             // label_val
             // 
             this.label_val.AutoSize = true;
             this.label_val.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F);
-            this.label_val.Location = new System.Drawing.Point(71, 14);
+            this.label_val.Location = new System.Drawing.Point(95, 17);
+            this.label_val.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_val.Name = "label_val";
-            this.label_val.Size = new System.Drawing.Size(0, 21);
+            this.label_val.Size = new System.Drawing.Size(0, 25);
             this.label_val.TabIndex = 5;
             // 
             // guna2PictureBox_val
             // 
-            this.guna2PictureBox_val.Location = new System.Drawing.Point(24, 9);
+            this.guna2PictureBox_val.Location = new System.Drawing.Point(32, 11);
+            this.guna2PictureBox_val.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2PictureBox_val.Name = "guna2PictureBox_val";
             this.guna2PictureBox_val.ShadowDecoration.Parent = this.guna2PictureBox_val;
-            this.guna2PictureBox_val.Size = new System.Drawing.Size(44, 30);
+            this.guna2PictureBox_val.Size = new System.Drawing.Size(59, 37);
             this.guna2PictureBox_val.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox_val.TabIndex = 4;
             this.guna2PictureBox_val.TabStop = false;
@@ -309,10 +325,11 @@
             this.guna2ControlBox3.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox3.HoverState.Parent = this.guna2ControlBox3;
             this.guna2ControlBox3.IconColor = System.Drawing.Color.Gray;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(856, 0);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(1142, 0);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.ShadowDecoration.Parent = this.guna2ControlBox3;
-            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox3.Size = new System.Drawing.Size(60, 36);
             this.guna2ControlBox3.TabIndex = 2;
             // 
             // guna2ControlBox2
@@ -322,10 +339,11 @@
             this.guna2ControlBox2.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox2.HoverState.Parent = this.guna2ControlBox2;
             this.guna2ControlBox2.IconColor = System.Drawing.Color.Gray;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(907, 0);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(1210, 0);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.ShadowDecoration.Parent = this.guna2ControlBox2;
-            this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox2.Size = new System.Drawing.Size(60, 36);
             this.guna2ControlBox2.TabIndex = 1;
             // 
             // CloseBtn
@@ -334,20 +352,22 @@
             this.CloseBtn.FillColor = System.Drawing.Color.Transparent;
             this.CloseBtn.HoverState.Parent = this.CloseBtn;
             this.CloseBtn.IconColor = System.Drawing.Color.Gray;
-            this.CloseBtn.Location = new System.Drawing.Point(958, 0);
+            this.CloseBtn.Location = new System.Drawing.Point(1278, 0);
+            this.CloseBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.ShadowDecoration.Parent = this.CloseBtn;
-            this.CloseBtn.Size = new System.Drawing.Size(45, 29);
+            this.CloseBtn.Size = new System.Drawing.Size(60, 36);
             this.CloseBtn.TabIndex = 0;
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // guna2Panel_container
             // 
             this.guna2Panel_container.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel_container.Location = new System.Drawing.Point(205, 53);
+            this.guna2Panel_container.Location = new System.Drawing.Point(273, 65);
+            this.guna2Panel_container.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel_container.Name = "guna2Panel_container";
             this.guna2Panel_container.ShadowDecoration.Parent = this.guna2Panel_container;
-            this.guna2Panel_container.Size = new System.Drawing.Size(1003, 701);
+            this.guna2Panel_container.Size = new System.Drawing.Size(1338, 863);
             this.guna2Panel_container.TabIndex = 2;
             // 
             // guna2DragControl1
@@ -364,14 +384,15 @@
             // 
             // Principal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(1208, 754);
+            this.ClientSize = new System.Drawing.Size(1611, 928);
             this.Controls.Add(this.guna2Panel_container);
             this.Controls.Add(this.guna2Panel_top);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";

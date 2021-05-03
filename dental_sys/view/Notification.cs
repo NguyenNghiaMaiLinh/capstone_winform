@@ -121,9 +121,17 @@ namespace dental_sys.view
                     NotificationGridView.Refresh();
                 }
 
-                if (currentNumber.IsSuccess)
+                if (currentNumber.IsSuccess || (currentNumber.Message?.ToLower().Contains(ApplicationConstant.NotificationError) ?? false))
                 {
                     DownloadWeightBtn.Enabled = true;
+                    if (currentNumber.Message?.ToLower().Contains(ApplicationConstant.NotificationError) ?? false)
+                    {
+                        DownloadWeightBtn.Text = "Download Log";
+                    }
+                    else
+                    {
+                        DownloadWeightBtn.Text = "Download Model";
+                    }
                 }
                 else
                 {
@@ -174,8 +182,13 @@ namespace dental_sys.view
 
                         if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                         {
+                            if (Directory.GetFiles(fbd.SelectedPath).Length != 0)
+                            {
+                                MessageBox.Show(@"Folder is not empty. Please choose another folder.", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Warning);
+                                return;
+                            }
 
-                            if (currentNotification.IsSuccess)
+                            if (currentNotification.IsSuccess && (currentNotification.Message?.ToLower().Contains(ApplicationConstant.NotificationSuccess) ?? false))
                             {
                                 var waitForm = new WaitFormFunc();
                                 waitForm.Show(this);
@@ -208,12 +221,30 @@ namespace dental_sys.view
                                     waitForm.Close();
                                     MessageBox.Show(@"The model could not be downloaded. Please try again later.", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
                                 }
-                               
+
 
                             }
                             else
                             {
-                                MessageBox.Show(@"Training failed and doesn't have model to download");
+                                if (currentNotification.Message?.ToLower().Contains(ApplicationConstant.NotificationError) ?? false)
+                                {
+                                    var waitForm = new WaitFormFunc();
+                                    waitForm.Show(this);
+                                    var downloadSuccess = _dataSetService.DownloadLog(currentNotification, fbd.SelectedPath);
+                                    if (downloadSuccess)
+                                    {
+                                        waitForm.Close();
+                                        MessageBox.Show($@"Log save at: {fbd.SelectedPath}", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Information);
+                                    }
+                                    else
+                                    {
+                                        waitForm.Close();
+                                        MessageBox.Show(@"Training log could not be downloaded. Please try again later.", @"Message", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Error);
+                                    }
+                                }
+
+
+                                //MessageBox.Show(@"Training failed and doesn't have model to download");
                             }
                         }
                     }

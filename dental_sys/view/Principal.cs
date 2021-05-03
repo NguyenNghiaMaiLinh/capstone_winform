@@ -77,7 +77,7 @@ namespace dental_sys
             waitForm.Show(this);
 
             var classVersionData = _classVersionService.GetAllClassVersion(PagingConstant.PageIndex, PagingConstant.PageSize);
-            var firstClass = classVersionData.Data.FirstOrDefault();
+            var firstClass = classVersionData?.Data?.FirstOrDefault();
             PagingModel<WeightVersionModel> weightVersion = null;
             if (firstClass != null)
             {
@@ -118,6 +118,11 @@ namespace dental_sys
                 NotificationNumber.Text = notificationUnread.ToString();
             }
 
+        }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+            UpdatedUnreadNotification();
         }
     }
 }

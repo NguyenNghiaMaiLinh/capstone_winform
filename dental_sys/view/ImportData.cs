@@ -21,6 +21,7 @@ namespace dental_sys
         private readonly Dictionary<string, string> _orderDictionary;
         private readonly DataSetService _dataSetService;
         private static ImportData _instance;
+        private bool _isClearData = true;
         public static ImportData Instance => _instance ?? (_instance = new ImportData());
         private ImportData()
         {
@@ -38,6 +39,9 @@ namespace dental_sys
             SetBorderAndGridlineStyles();
             ImageNumber.Text = "0";
             LabelNumber.Text = "0";
+            TrainBtn.Enabled = false;
+            //PreviousBtn.Enabled = false;
+            //NextBtn.Enabled = false;
         }
 
         private void ImportDataBtn_Click(object sender, EventArgs e)
@@ -62,7 +66,7 @@ namespace dental_sys
 
         }
 
-        private void BindingData(List<ImageFileModel> imageFile)
+        private void BindingData(List<ImageFileModel> imageFile, List<LabelFileModel> labelFile)
         {
             PicturePanel.Image = null;
             FileDataGridView.DataSource = null;
@@ -70,9 +74,9 @@ namespace dental_sys
             SetOrderColumn();
             FileDataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             FileDataGridView_CellClick(this, null);
-            if (_imageFiles.Count > 0)
+            if (imageFile?.Count > 0)
             {
-                if (_imageFiles.Any(_ => !_.IsLabel))
+                if (imageFile.Any(_ => !_.IsLabel))
                 {
                     ClearAllInValidFileBtn.Enabled = true;
                     SendBtn.Enabled = false;
@@ -90,7 +94,8 @@ namespace dental_sys
                 SendBtn.Enabled = false;
             }
 
-
+            ImageNumber.Text = imageFile?.Count.ToString() ?? "0";
+            LabelNumber.Text = labelFile?.Count.ToString() ?? "0";
         }
 
         private void ImportData_Load(object sender, EventArgs e)
@@ -131,7 +136,7 @@ namespace dental_sys
                         Path.GetFileNameWithoutExtension(imageFileModel.Path));
                 }
 
-                BindingData(_imageFiles);
+                BindingData(_imageFiles, _labelFiles);
                 //ImportDataBtn.Text = $@"Data ({_imageFiles.Count})";
 
             }
@@ -273,7 +278,7 @@ namespace dental_sys
 
             _imageFiles.Clear();
             _imageFiles.AddRange(imageFiles);
-            BindingData(_imageFiles);
+            BindingData(_imageFiles, _labelFiles);
         }
 
         private void NextBtn_Click(object sender, EventArgs e)
@@ -281,11 +286,15 @@ namespace dental_sys
             var currentRow = FileDataGridView.CurrentCell.RowIndex;
             if (currentRow >= 0)
             {
-                FileDataGridView.CurrentCell = FileDataGridView.Rows[currentRow + 1].Cells[0];
+                if(currentRow + 1 < _imageFiles.Count)
+                {
+                    FileDataGridView.CurrentCell = FileDataGridView.Rows[currentRow + 1].Cells[0];
 
-                var currentFile = _imageFiles[currentRow + 1];
+                    var currentFile = _imageFiles[currentRow + 1];
 
-                ShowImage(currentFile);
+                    ShowImage(currentFile);
+                }
+                
             }
         }
 
@@ -367,7 +376,7 @@ namespace dental_sys
             ImageNumber.Text = _imageFiles.Count.ToString();
             //ImportDataBtn.Text = $@"Import Data ({_imageFiles.Count})";
 
-            BindingData(_imageFiles);
+            BindingData(_imageFiles, _labelFiles);
         }
 
         private void ImportLabelFileData(List<string> files)
@@ -417,7 +426,7 @@ namespace dental_sys
 
                     if (_imageFiles.Count > 0)
                     {
-                        BindingData(_imageFiles);
+                        BindingData(_imageFiles, _labelFiles);
                     }
 
 
@@ -440,7 +449,7 @@ namespace dental_sys
         private void ClearAllInValidFileBtn_Click(object sender, EventArgs e)
         {
             _imageFiles.RemoveAll(w => !w.IsLabel);
-            BindingData(_imageFiles);
+            BindingData(_imageFiles, _labelFiles);
         }
 
         private void SendBtn_Click(object sender, EventArgs e)
@@ -461,7 +470,8 @@ namespace dental_sys
                     {
                         var waitForm = new WaitFormFunc();
                         waitForm.Show();
-                        var isSuccess = _dataSetService.TransferData(_imageFiles, _labelFiles);
+                        var isSuccess = _dataSetService.TransferData(_imageFiles, _labelFiles, _isClearData);
+                        _isClearData = false;
                         waitForm.Close();
                         if (isSuccess)
                         {
@@ -469,7 +479,7 @@ namespace dental_sys
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                             _imageFiles.Clear();
                             _labelFiles.Clear();
-                            BindingData(null);
+                            BindingData(null, null);
                             TrainBtn.Enabled = true;
                         }
                         else
@@ -531,9 +541,6 @@ namespace dental_sys
 
                 }
             }
-
-
-
         }
     }
 

@@ -19,7 +19,7 @@ namespace dental_sys.service
         {
         }
 
-        public bool TransferData(ICollection<ImageFileModel> data, ICollection<LabelFileModel> labelData)
+        public bool TransferData(ICollection<ImageFileModel> data, ICollection<LabelFileModel> labelData, bool isClearData = false)
         {
             try
             {
@@ -31,12 +31,17 @@ namespace dental_sys.service
                 var dataDir = $@"{ServerTrainConstant.DarknetPath}";
                 var trainDir = ServerTrainConstant.TrainPath;
                 var trainServer = CommonService.GetUrlApiTrainServer();
+
+
                 using (var client = new SshClient(trainServer, ServerTrainConstant.Username, pk))
                 {
                     client.Connect();
 
-                    var deleteDataCommand = client.CreateCommand($@"cd {trainDir}; rm -r admin ");
-                    deleteDataCommand.Execute();
+                    if (isClearData)
+                    {
+                        var deleteDataCommand = client.CreateCommand($@"cd {trainDir}; rm -r admin ");
+                        deleteDataCommand.Execute();
+                    }
 
                     var command = client.CreateCommand($@"cd {dataDir}  &&  mkdir -pm 0777 {dataFolder} &&  mkdir -pm 0777 {labelFolder}");
                     command.Execute();
@@ -45,6 +50,8 @@ namespace dental_sys.service
 
                     client.Disconnect();
                 }
+
+
 
                 using (var client = new ScpClient(trainServer, 22, ServerTrainConstant.Username, pk))
                 {
@@ -163,6 +170,45 @@ namespace dental_sys.service
 
                     client.Disconnect();
                 }
+
+                using (var client = new SshClient(trainServer, ServerTrainConstant.Username, pk))
+                {
+                    client.Connect();
+
+
+                    var deleteDataCommand = client.CreateCommand($@"rm -r {weightPath}; rm -r {logPath};rm -r {lossPath}");
+                    deleteDataCommand.Execute();
+
+                    client.Disconnect();
+                }
+            }
+            catch (Exception e)
+            {
+                ExceptionLogging.SendErrorToText(e, nameof(this.DownloadWeight), nameof(DataSetService));
+                return false;
+            }
+            return true;
+        }
+
+        public bool DownloadLog(NotificationModel notification, string destinationFolder)
+        {
+            try
+            {
+                var pk = new PrivateKeyFile(ApplicationConstant.PrivateKeyFilePath);
+                //var folder = DateTime.Now.ToString(ApplicationConstant.DatetimeFormat);
+                var destination = new DirectoryInfo(destinationFolder);
+                var logPath = $"{ServerTrainConstant.DarknetPath}/{notification.LogPath}";
+                var lossPath = $"{ServerTrainConstant.DarknetPath}/{notification.LossFunctionPath}";
+                var trainServer = CommonService.GetUrlApiTrainServer();
+                using (var client = new ScpClient(trainServer, 22, ServerTrainConstant.Username, pk))
+                {
+                    client.Connect();
+
+                    client.Download(logPath, destination);
+                    client.Download(lossPath, destination);
+
+                    client.Disconnect();
+                }
             }
             catch (Exception e)
             {
@@ -178,7 +224,7 @@ namespace dental_sys.service
             {
                 var pk = new PrivateKeyFile(ApplicationConstant.PrivateKeyFilePath);
                 var result = "";
-                var trainDir = $@"{ServerTrainConstant.TrainPath}"; 
+                var trainDir = $@"{ServerTrainConstant.TrainPath}";
                 var trainServer = CommonService.GetUrlApiTrainServer();
                 using (var client = new SshClient(trainServer, ServerTrainConstant.Username, pk))
                 {
@@ -248,6 +294,7 @@ namespace dental_sys.service
 
                     client.Disconnect();
                 }
+
             }
             catch
             {

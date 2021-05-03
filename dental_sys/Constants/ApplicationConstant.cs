@@ -10,6 +10,8 @@ namespace dental_sys.Constants
     {
         public const string DatetimeFormat = "dd/MM/yyyy HH:mm:ss";
         public const string PrivateKeyFilePath = @"C:\Users\Adminstrator\.ssh\id_rsa";
+        public const string NotificationSuccess = @"success";
+        public const string NotificationError = @"error";
     }
     public class Order
     {

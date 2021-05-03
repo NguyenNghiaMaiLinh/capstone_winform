@@ -32,7 +32,7 @@ namespace dental_sys.view
 
         private void LoadingProcess()
         {
-            _wait = new WaitForm();
+            _wait = new WaitForm() { TopMost = true };
             _wait.ShowDialog();
         }
 
