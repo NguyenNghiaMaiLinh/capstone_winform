@@ -283,10 +283,10 @@ namespace dental_sys
 
         private void NextBtn_Click(object sender, EventArgs e)
         {
-            var currentRow = FileDataGridView.CurrentCell.RowIndex;
+            var currentRow = FileDataGridView.CurrentCell?.RowIndex ?? 0;
             if (currentRow >= 0)
             {
-                if(currentRow + 1 < _imageFiles.Count)
+                if (currentRow + 1 < _imageFiles.Count)
                 {
                     FileDataGridView.CurrentCell = FileDataGridView.Rows[currentRow + 1].Cells[0];
 
@@ -294,13 +294,13 @@ namespace dental_sys
 
                     ShowImage(currentFile);
                 }
-                
+
             }
         }
 
         private void PreviousBtn_Click(object sender, EventArgs e)
         {
-            var currentRow = FileDataGridView.CurrentCell.RowIndex;
+            var currentRow = FileDataGridView.CurrentCell?.RowIndex ?? 0;
             if (currentRow >= 1)
             {
                 FileDataGridView.CurrentCell = FileDataGridView.Rows[currentRow - 1].Cells[0];
@@ -357,7 +357,7 @@ namespace dental_sys
 
         private void ImportImageFileData(List<string> files)
         {
-            var no = 0;
+            var no = 1;
             files.ForEach(file =>
             {
                 var fileModel = new ImageFileModel()

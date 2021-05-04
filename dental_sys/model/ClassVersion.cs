@@ -33,7 +33,7 @@ namespace dental_sys.model
         public DateTime? CreatedDate { get; set; }
 
         [DisplayName(ClassVersionHeaderConstant.CreatedDate)]
-        public string CreatedDateText => CreatedDate?.ToString("dd/MM/yyyy HH:mm:ss");
+        public string CreatedDateText => CreatedDate?.AddHours(7).ToString("dd/MM/yyyy HH:mm:ss");
         [DisplayName(ClassVersionHeaderConstant.Description)]
         public string Description { get; set; }
     }
